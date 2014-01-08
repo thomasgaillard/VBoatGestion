@@ -4,3 +4,4 @@ Log-Book
 ## Week 1
 * 06/01/14 - Lundi : Visite des lieux, présentation employés, début d'étude des besoins et reflexion sur la technologie à utiliser
 * 07/01/14 - Mardi : Etude des besoins appronfodie, rdv téléphonique avec commerciaux pour recherche de solution
+* 08/01/14 - Mercredi : Montée en compétences sur Objective C - suivi de cours et de tutos
