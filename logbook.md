@@ -7,3 +7,6 @@ Log-Book
 * 08/01/14 - Mercredi : Montée en compétences sur Objective C - suivi de cours et de tutos
 * 09/01/14 - Jeudi : Tests de la technologie iBeacons, recherche de fournisseurs, choix et mise en place de l'environnement logiciel de travail
 * 10/01/14 - Vendredi : Poursuite des tests sur iBeacons
+
+## Week 2
+* 13/01/14 - Lundi : Rdv chez Orange, contact des différents fournisseurs, découpage en lots
