@@ -10,3 +10,4 @@ Log-Book
 
 ## Week 2
 * 13/01/14 - Lundi : Rdv chez Orange, contact des différents fournisseurs, découpage en lots
+* 14/01/14 - Mardi : Commande de boitiers, démarrage du projet
