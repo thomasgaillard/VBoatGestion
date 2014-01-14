@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3A6455821885891F009A1D76"
                BuildableName = "VBoat Gestion.app"
-               BlueprintName = "VBoat Gestion"
-               ReferencedContainer = "container:VBoat Gestion.xcodeproj">
+               BlueprintName = "VBoatGestion"
+               ReferencedContainer = "container:VBoatGestion.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3A6455A31885891F009A1D76"
                BuildableName = "VBoat GestionTests.xctest"
-               BlueprintName = "VBoat GestionTests"
-               ReferencedContainer = "container:VBoat Gestion.xcodeproj">
+               BlueprintName = "VBoatGestionTests"
+               ReferencedContainer = "container:VBoatGestion.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A6455821885891F009A1D76"
             BuildableName = "VBoat Gestion.app"
-            BlueprintName = "VBoat Gestion"
-            ReferencedContainer = "container:VBoat Gestion.xcodeproj">
+            BlueprintName = "VBoatGestion"
+            ReferencedContainer = "container:VBoatGestion.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A6455821885891F009A1D76"
             BuildableName = "VBoat Gestion.app"
-            BlueprintName = "VBoat Gestion"
-            ReferencedContainer = "container:VBoat Gestion.xcodeproj">
+            BlueprintName = "VBoatGestion"
+            ReferencedContainer = "container:VBoatGestion.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3A6455821885891F009A1D76"
             BuildableName = "VBoat Gestion.app"
-            BlueprintName = "VBoat Gestion"
-            ReferencedContainer = "container:VBoat Gestion.xcodeproj">
+            BlueprintName = "VBoatGestion"
+            ReferencedContainer = "container:VBoatGestion.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
