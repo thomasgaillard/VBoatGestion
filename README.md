@@ -1,4 +1,4 @@
-vboat-app
+VBoatGestion
 =========
 
 Back-end iPad application for VBoat
