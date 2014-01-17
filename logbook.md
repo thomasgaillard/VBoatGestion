@@ -11,3 +11,6 @@ Log-Book
 ## Week 2
 * 13/01/14 - Lundi : Rdv chez Orange, contact des différents fournisseurs, découpage en lots
 * 14/01/14 - Mardi : Commande de boitiers, démarrage du projet
+* 15/01/14 - Mercredi : Questions de conceptions, rdv tuteurs pour validation choix
+* 16/01/14 - Jeudi : Diagramme de classes
+* 17/01/14 - Vendredi : Configuration iPad, finalisation du diagramme de classes
