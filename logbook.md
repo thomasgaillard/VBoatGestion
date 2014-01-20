@@ -14,3 +14,6 @@ Log-Book
 * 15/01/14 - Mercredi : Questions de conceptions, rdv tuteurs pour validation choix
 * 16/01/14 - Jeudi : Diagramme de classes
 * 17/01/14 - Vendredi : Configuration iPad, finalisation du diagramme de classes
+
+## Week 3
+* 20/01/14 - Lundi : Réflexion sur le diagramme de classes, début d'implémentation en Obj-C, Réception beacons
