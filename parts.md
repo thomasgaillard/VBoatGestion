@@ -2,19 +2,21 @@ Application Parts
 =========
 
 ## Activité - écran principal
-* Ligne chaque embarcations avec compteurs
-* Ligne embarcations disponibles
+* Chaque embarcation avec système de couleurs (vert = à quai, rouge = en navigation, gris = fin de journée), heure de départ et titre
+* Possibilité de cliquer sur une embarcation pour avoir accès aux remarques et nombre de personnes
+
+## Facturation
 * Moyen de paiement
 * Facturation
-* Export sur serveur pour consultation sur site mobile avec logins/mdp
+* Export CA journalier sur serveur pour consultation sur site mobile avec logins/mdp
 
 ## Gestion de la flotte
 * Ajout
-* Modifications
-* suppressions
+* Modification
+* suppression
 
 ## Prix
-* Grille des prix
+* Grilles des prix
 
 ## Réservation
 * Calendriers
@@ -26,5 +28,5 @@ Application Parts
 * Chiffres globale, par bateaux, par pédalos
 * Export tableau Excel
 
-## Reglage
+## Reglages
 * Export de bdd
