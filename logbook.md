@@ -17,3 +17,7 @@ Log-Book
 
 ## Week 3
 * 20/01/14 - Lundi : Réflexion sur le diagramme de classes, début d'implémentation en Obj-C, Réception beacons
+* 21/01/14 - Mardi : Test beacons en conditions réelles, montée en compétence en Obj-C
+* 22/01/14 - Mercredi : Calibrage et tests des beacons
+* 23/01/14 - Jeudi : Test beacons en conditions réelles, montée en compétence en Obj-C
+* 24/01/14 - Vendredi : Préparation de la soutenance
