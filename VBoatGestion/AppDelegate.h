@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Embarcation.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
