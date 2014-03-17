@@ -12,6 +12,7 @@
 @implementation Embarcation
 
 -(void)depart{
+    NSLog(@"Bateau 1 saluuuuuuut");
     self.etat=@"enlocation";
     [self.location lancerLocation];
 }
@@ -27,7 +28,9 @@
 }
 
 -(void)rendreDisponible{
+    NSLog(@"Bateau 1 dispo");
     self.etat=@"disponible";
+    [self affecterLocation:[Location new]];
 }
 
 -(void)affecterLocation:(Location*)loc{

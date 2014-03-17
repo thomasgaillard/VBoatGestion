@@ -12,7 +12,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    NSLog(@"coucou");
     Embarcation *test = [Embarcation new];
+    [test rendreDisponible];
     [test depart];
     return YES;
 }
