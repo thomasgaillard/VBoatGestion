@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Location.h"
+@class Location;
 
 @interface Embarcation : NSObject
 
@@ -20,6 +20,6 @@
 -(void)retour;
 -(void)rendreIndisponible;
 -(void)rendreDisponible;
--(void)affecterLocation:(Location*)loc;
+-(void)affecterLocation:(Location*) loc;
 
 @end

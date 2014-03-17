@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Embarcation.h"
+@class Embarcation;
 
 @interface Location : NSObject
 

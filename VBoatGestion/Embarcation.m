@@ -7,6 +7,7 @@
 //
 
 #import "Embarcation.h"
+#import "Location.h"
 
 @implementation Embarcation
 
