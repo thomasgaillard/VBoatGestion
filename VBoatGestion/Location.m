@@ -13,11 +13,12 @@
 
 -(void)lancerLocation{
     self.heureDebut=[NSDate date];
-    NSLog(@"evasucemoi bordel");
+    NSLog(@"Start location, heure: %@",self.heureDebut);
 }
 
 -(void)cloturerLocation{
     self.heureFin=[NSDate date];
+    NSLog(@"End location, heure: %@",self.heureFin);
 }
 
 -(void)affecterEmbarcation:(Embarcation*)emb{
