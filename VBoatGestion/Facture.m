@@ -12,6 +12,7 @@
 @implementation Facture
 
 -(id)init{
+    NSLog(@"Facture new");
     self = [super init];
     
     self.listeLocations=[self.listeLocations init];
@@ -21,11 +22,11 @@
 -(void)grouperFactures:(Facture*) fac{
 }
 
--(void)ajouterPaiement:(NSString*) moyenPaiement :(NSNumber*) somme{
+-(void)ajouterPaiement:(NSString*) moyenPaiement :(NSDecimalNumber*) somme{
     
 }
 -(void)ajouterLocation:(Location *)loc{
-    self.prixTotal = [self.prixTotal initWithFloat:([self.prixTotal floatValue] + [[loc calculerPrix] floatValue])];
+    NSDecimalNumber *prixTotal = [prixTotal decimalNumberByAdding:[loc calculerPrix]];
     NSLog(@"Prix Total : %@",self.prixTotal);
     [self.listeLocations addObject:loc];
    

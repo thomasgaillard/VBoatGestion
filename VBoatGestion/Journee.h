@@ -11,10 +11,10 @@
 @interface Journee : NSObject
 
 @property NSDate *date;
-@property NSNumber *totalCb;
-@property NSNumber *totalEspeces;
-@property NSNumber *nbLocBateaux;
-@property NSNumber *nbLocPedalos;
+@property NSDecimalNumber *totalCb;
+@property NSDecimalNumber *totalEspeces;
+@property NSDecimalNumber *nbLocBateaux;
+@property NSDecimalNumber *nbLocPedalos;
 @property NSString *etat;
 @property NSMutableArray *listeFactures;
 

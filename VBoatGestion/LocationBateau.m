@@ -10,8 +10,8 @@
 
 @implementation LocationBateau
 
--(NSNumber*)calculerPrix{
-    return [NSNumber numberWithInt:10000];
+-(NSDecimalNumber*)calculerPrix{
+    return [NSDecimalNumber decimalNumberWithString:@"10000"];
 }
 
 @end

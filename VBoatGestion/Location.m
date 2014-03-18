@@ -28,8 +28,8 @@
     self.embarcation = emb;
 }
 
--(NSNumber*)calculerPrix{
-    NSNumber *prix = [NSNumber numberWithInt:10000];
+-(NSDecimalNumber*)calculerPrix{
+    NSDecimalNumber *prix = [NSDecimalNumber decimalNumberWithString:@"10000"];
     NSLog(@"Loc calcul prix, prix : %@", prix);
     return prix;
 }

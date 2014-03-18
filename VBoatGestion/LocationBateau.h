@@ -12,6 +12,6 @@
 
 @property NSString *type;
 
--(NSNumber*)calculerPrix;
+-(NSDecimalNumber*)calculerPrix;
 
 @end

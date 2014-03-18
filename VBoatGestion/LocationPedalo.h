@@ -10,8 +10,8 @@
 
 @interface LocationPedalo : Location
 
-@property NSNumber *nbPersonnes;
+@property NSDecimalNumber *nbPersonnes;
 
--(NSNumber*)calculerPrix;
+-(NSDecimalNumber*)calculerPrix;
 
 @end

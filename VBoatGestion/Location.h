@@ -20,7 +20,7 @@
 -(void)lancerLocation;
 -(void)cloturerLocation;
 -(void)affecterEmbarcation:(Embarcation*)emb;
--(NSNumber*)calculerPrix;
+-(NSDecimalNumber*)calculerPrix;
 -(void)creerFacture;
 
 @end

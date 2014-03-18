@@ -12,10 +12,10 @@
 
 -(void)initierJournee{
     self.date = [NSDate date];
-    self.totalCb = [NSNumber numberWithInt:0];
-    self.totalEspeces = [NSNumber numberWithInt:0];
-    self.nbLocBateaux = [NSNumber numberWithInt:0];
-    self.nbLocPedalos = [NSNumber numberWithInt:0];
+    self.totalCb = [NSDecimalNumber numberWithInt:0];
+    self.totalEspeces = [NSDecimalNumber numberWithInt:0];
+    self.nbLocBateaux = [NSDecimalNumber numberWithInt:0];
+    self.nbLocPedalos = [NSDecimalNumber numberWithInt:0];
     self.etat = @"encours";
 }
 

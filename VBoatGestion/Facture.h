@@ -14,14 +14,14 @@
 @property NSNumber *id;
 @property NSString *etat;
 @property NSMutableArray *listeLocations;
-@property NSNumber *prixTotal;
-@property NSNumber *remise;
+@property NSDecimalNumber *prixTotal;
+@property NSDecimalNumber *remise;
 @property NSMutableArray *listePaiements;
 @property NSString *remarque;
 
 -(id)init;
 -(void)grouperFactures:(Facture*) fac;
--(void)ajouterPaiement:(NSString*) moyenPaiement :(NSNumber*) somme;
+-(void)ajouterPaiement:(NSString*) moyenPaiement :(NSDecimalNumber*) somme;
 -(void)ajouterLocation:(Location*) loc;
 -(void)calculerResteAPayer;
 -(void)recommencerPaiement;
