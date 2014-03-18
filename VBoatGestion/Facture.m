@@ -12,9 +12,10 @@
 @implementation Facture
 
 -(id)init{
-    NSLog(@"Facture new");
     self = [super init];
-    
+    self.prixTotal = [NSDecimalNumber decimalNumberWithString:@"0"];
+    self.etat = @"encours";
+    NSLog(@"Facture new, etat : %@",self.etat);
     self.listeLocations=[self.listeLocations init];
     self.listePaiements=[self.listePaiements init];
     return self;
@@ -26,7 +27,7 @@
     
 }
 -(void)ajouterLocation:(Location *)loc{
-    NSDecimalNumber *prixTotal = [prixTotal decimalNumberByAdding:[loc calculerPrix]];
+    self.prixTotal = [self.prixTotal decimalNumberByAdding:[loc calculerPrix]];
     NSLog(@"Prix Total : %@",self.prixTotal);
     [self.listeLocations addObject:loc];
    
