@@ -26,6 +26,7 @@
 		3A53038318D859D900D36D3E /* Bateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53038218D859D900D36D3E /* Bateau.m */; };
 		3A53038618D85A2100D36D3E /* Pedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53038518D85A2100D36D3E /* Pedalo.m */; };
 		87C0374518D853E700E75AD9 /* Facture.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C0374418D853E600E75AD9 /* Facture.m */; };
+		87C0374818D860AF00E75AD9 /* Paiement.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C0374718D860AF00E75AD9 /* Paiement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		3A53038518D85A2100D36D3E /* Pedalo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pedalo.m; sourceTree = "<group>"; };
 		87C0374318D853E600E75AD9 /* Facture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facture.h; sourceTree = "<group>"; };
 		87C0374418D853E600E75AD9 /* Facture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facture.m; sourceTree = "<group>"; };
+		87C0374618D860AF00E75AD9 /* Paiement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paiement.h; sourceTree = "<group>"; };
+		87C0374718D860AF00E75AD9 /* Paiement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paiement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 				87C0374418D853E600E75AD9 /* Facture.m */,
 				3A3559161885AC6700C573CE /* Images.xcassets */,
 				3A3559051885AC6700C573CE /* Supporting Files */,
+				87C0374618D860AF00E75AD9 /* Paiement.h */,
+				87C0374718D860AF00E75AD9 /* Paiement.m */,
 			);
 			path = VBoatGestion;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A53038618D85A2100D36D3E /* Pedalo.m in Sources */,
+				87C0374818D860AF00E75AD9 /* Paiement.m in Sources */,
 				3A3FD26918D7492E00A50021 /* Embarcation.m in Sources */,
 				3A3559151885AC6700C573CE /* ViewController.m in Sources */,
 				3A35590F1885AC6700C573CE /* AppDelegate.m in Sources */,
