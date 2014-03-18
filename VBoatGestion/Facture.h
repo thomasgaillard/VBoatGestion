@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Location;
 
 @interface Facture : NSObject
 
@@ -16,14 +17,17 @@
 @property NSNumber *prixTotal;
 @property NSNumber *remise;
 @property NSMutableArray *listePaiements;
-@property NSString *remarqie;
+@property NSString *remarque;
 
+-(id)init;
 -(void)grouperFactures:(Facture*) fac;
 -(void)ajouterPaiement:(NSString*) moyenPaiement :(NSNumber*) somme;
+-(void)ajouterLocation:(Location*) loc;
 -(void)calculerResteAPayer;
 -(void)recommencerPaiement;
 -(void)cloturerFacture;
 -(void)annulerFacture;
 -(void)ajouterPaiementAuTotalJournee;
+
 
 @end

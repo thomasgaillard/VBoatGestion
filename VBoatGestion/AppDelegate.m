@@ -16,6 +16,7 @@
     Embarcation *test = [Embarcation new];
     [test rendreDisponible];
     [test depart];
+    [test retour];
     return YES;
 }
 

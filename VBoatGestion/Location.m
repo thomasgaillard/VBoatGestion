@@ -8,16 +8,19 @@
 
 #import "Location.h"
 #import "Embarcation.h"
+#import "Facture.h"
 
 @implementation Location
 
 -(void)lancerLocation{
     self.heureDebut=[NSDate date];
     NSLog(@"evasucemoi bordel");
+    [self creerFacture];
 }
 
 -(void)cloturerLocation{
     self.heureFin=[NSDate date];
+    [self creerFacture];
 }
 
 -(void)affecterEmbarcation:(Embarcation*)emb{
@@ -29,7 +32,8 @@
 }
 
 -(void)creerFacture{
-    
+    Facture *f=[Facture new];
+    [f ajouterLocation:self];
 }
 
 @end
