@@ -26,7 +26,7 @@
 }
 -(void)ajouterLocation:(Location *)loc{
     self.prixTotal = [self.prixTotal initWithFloat:([self.prixTotal floatValue] + [[loc calculerPrix] floatValue])];
-    NSLog(@"%@",self.prixTotal);
+    NSLog(@"Prix Total : %@",self.prixTotal);
     [self.listeLocations addObject:loc];
    
     

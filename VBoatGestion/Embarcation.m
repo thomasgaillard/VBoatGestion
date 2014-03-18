@@ -12,24 +12,26 @@
 @implementation Embarcation
 
 -(void)depart{
-    NSLog(@"Bateau 1 saluuuuuuut");
     self.etat=@"enlocation";
+    NSLog(@"Fonction depart, etat : %@",self.etat);
     [self.location lancerLocation];
 }
 
 -(void)retour{
     self.etat=@"disponible";
+    NSLog(@"Fonction retour, etat : %@",self.etat);
     [self.location cloturerLocation];
     [self affecterLocation:[Location new]];
 }
 
 -(void)rendreIndisponible{
     self.etat=@"indisponible";
+    NSLog(@"Fonction indisponible, etat : %@",self.etat);
 }
 
 -(void)rendreDisponible{
-    NSLog(@"Bateau 1 dispo");
     self.etat=@"disponible";
+    NSLog(@"Fonction disponible, etat : %@",self.etat);
     [self affecterLocation:[Location new]];
 }
 

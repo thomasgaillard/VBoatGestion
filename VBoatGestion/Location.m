@@ -14,24 +14,28 @@
 
 -(void)lancerLocation{
     self.heureDebut=[NSDate date];
-    NSLog(@"evasucemoi bordel");
-    [self creerFacture];
+    NSLog(@"Loc début, heure : %@",self.heureDebut);
 }
 
 -(void)cloturerLocation{
     self.heureFin=[NSDate date];
+    NSLog(@"Loc fin, heure : %@",self.heureFin);
     [self creerFacture];
 }
 
 -(void)affecterEmbarcation:(Embarcation*)emb{
+    NSLog(@"Loc affecter embarcation");
     self.embarcation = emb;
 }
 
 -(NSNumber*)calculerPrix{
-    return [NSNumber numberWithInt:10000];
+    NSNumber *prix = [NSNumber numberWithInt:10000];
+    NSLog(@"Loc calcul prix, prix : %@", prix);
+    return prix;
 }
 
 -(void)creerFacture{
+    NSLog(@"Loc creer facture");
     Facture *f=[Facture new];
     [f ajouterLocation:self];
 }
