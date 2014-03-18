@@ -30,6 +30,7 @@
 		3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */; };
 		3A53039218D86A0100D36D3E /* GrilleTarifaireBateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */; };
 		87C0374518D853E700E75AD9 /* Facture.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C0374418D853E600E75AD9 /* Facture.m */; };
+		87C0374818D860AF00E75AD9 /* Paiement.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C0374718D860AF00E75AD9 /* Paiement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,8 @@
 		3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrilleTarifaireBateau.m; sourceTree = "<group>"; };
 		87C0374318D853E600E75AD9 /* Facture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facture.h; sourceTree = "<group>"; };
 		87C0374418D853E600E75AD9 /* Facture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facture.m; sourceTree = "<group>"; };
+		87C0374618D860AF00E75AD9 /* Paiement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paiement.h; sourceTree = "<group>"; };
+		87C0374718D860AF00E75AD9 /* Paiement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paiement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 				87C0374418D853E600E75AD9 /* Facture.m */,
 				3A3559161885AC6700C573CE /* Images.xcassets */,
 				3A3559051885AC6700C573CE /* Supporting Files */,
+				87C0374618D860AF00E75AD9 /* Paiement.h */,
+				87C0374718D860AF00E75AD9 /* Paiement.m */,
 			);
 			path = VBoatGestion;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A53038618D85A2100D36D3E /* Pedalo.m in Sources */,
+				87C0374818D860AF00E75AD9 /* Paiement.m in Sources */,
 				3A3FD26918D7492E00A50021 /* Embarcation.m in Sources */,
 				3A53038C18D85C6800D36D3E /* LocationBateau.m in Sources */,
 				3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */,
