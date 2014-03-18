@@ -10,4 +10,20 @@
 
 @interface Facture : NSObject
 
+@property NSNumber *id;
+@property NSString *etat;
+@property NSMutableArray *listeLocations;
+@property NSNumber *prixTotal;
+@property NSNumber *remise;
+@property NSMutableArray *listePaiements;
+@property NSString *remarqie;
+
+-(void)grouperFactures:(Facture*) fac;
+-(void)ajouterPaiement:(NSString*) moyenPaiement :(NSNumber*) somme;
+-(void)calculerResteAPayer;
+-(void)recommencerPaiement;
+-(void)cloturerFacture;
+-(void)annulerFacture;
+-(void)ajouterPaiementAuTotalJournee;
+
 @end

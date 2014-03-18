@@ -10,4 +10,32 @@
 
 @implementation Facture
 
+-(void)grouperFactures:(Facture*) fac{
+    
+}
+
+-(void)ajouterPaiement:(NSString*) moyenPaiement :(NSNumber*) somme{
+    
+}
+
+-(void)calculerResteAPayer{
+    
+}
+
+-(void)recommencerPaiement{
+    
+}
+
+-(void)cloturerFacture{
+    
+}
+
+-(void)annulerFacture{
+    
+}
+
+-(void)ajouterPaiementAuTotalJournee{
+    
+}
+
 @end
