@@ -23,6 +23,7 @@
 		3A35592A1885AC6700C573CE /* VBoatGestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3559291885AC6700C573CE /* VBoatGestionTests.m */; };
 		3A3FD26818D7492E00A50021 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FD26518D7492E00A50021 /* Location.m */; };
 		3A3FD26918D7492E00A50021 /* Embarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3FD26618D7492E00A50021 /* Embarcation.m */; };
+		87C0374518D853E700E75AD9 /* Facture.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C0374418D853E600E75AD9 /* Facture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		3A3FD26518D7492E00A50021 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		3A3FD26618D7492E00A50021 /* Embarcation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Embarcation.m; sourceTree = "<group>"; };
 		3A3FD26718D7492E00A50021 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		87C0374318D853E600E75AD9 /* Facture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facture.h; sourceTree = "<group>"; };
+		87C0374418D853E600E75AD9 /* Facture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facture.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				3A3559141885AC6700C573CE /* ViewController.m */,
 				3A3559161885AC6700C573CE /* Images.xcassets */,
 				3A3559051885AC6700C573CE /* Supporting Files */,
+				87C0374318D853E600E75AD9 /* Facture.h */,
+				87C0374418D853E600E75AD9 /* Facture.m */,
 			);
 			path = VBoatGestion;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				3A3559151885AC6700C573CE /* ViewController.m in Sources */,
 				3A35590F1885AC6700C573CE /* AppDelegate.m in Sources */,
 				3A3FD26818D7492E00A50021 /* Location.m in Sources */,
+				87C0374518D853E700E75AD9 /* Facture.m in Sources */,
 				3A35590B1885AC6700C573CE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
