@@ -11,6 +11,6 @@
 @interface Paiement : NSObject
 
 @property NSString *moyenPaiement;
-@property NSNumber *montant;
+@property NSDecimalNumber *montant;
 
 @end

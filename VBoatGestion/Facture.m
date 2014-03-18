@@ -7,17 +7,32 @@
 //
 
 #import "Facture.h"
+#import "Location.h"
 
 @implementation Facture
 
+-(id)init{
+    self = [super init];
+    self.prixTotal = [NSDecimalNumber decimalNumberWithString:@"0"];
+    self.etat = @"encours";
+    NSLog(@"Facture new, etat : %@",self.etat);
+    self.listeLocations=[self.listeLocations init];
+    self.listePaiements=[self.listePaiements init];
+    return self;
+}
 -(void)grouperFactures:(Facture*) fac{
-    
 }
 
--(void)ajouterPaiement:(NSString*) moyenPaiement :(NSNumber*) somme{
+-(void)ajouterPaiement:(NSString*) moyenPaiement :(NSDecimalNumber*) somme{
     
 }
-
+-(void)ajouterLocation:(Location *)loc{
+    self.prixTotal = [self.prixTotal decimalNumberByAdding:[loc calculerPrix]];
+    NSLog(@"Prix Total : %@",self.prixTotal);
+    [self.listeLocations addObject:loc];
+   
+    
+}
 -(void)calculerResteAPayer{
     
 }
