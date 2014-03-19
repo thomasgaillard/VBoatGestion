@@ -8,6 +8,7 @@
 
 #import "Facture.h"
 #import "Location.h"
+#import "Paiement.h"
 
 @implementation Facture
 
@@ -24,17 +25,29 @@
 }
 
 -(void)ajouterPaiement:(NSString*) moyenPaiement :(NSDecimalNumber*) somme{
-    
+    Paiement *paiement=[[Paiement alloc]initPaiement:moyenPaiement :somme];
+    NSLog(@"Nouveau paiement: moyen %@, somme %@",paiement.moyenPaiement ,paiement.montant);
+    [self.listePaiements addObject:paiement];
 }
 -(void)ajouterLocation:(Location *)loc{
     self.prixTotal = [self.prixTotal decimalNumberByAdding:[loc calculerPrix]];
     NSLog(@"Prix Total : %@",self.prixTotal);
     [self.listeLocations addObject:loc];
-   
+    [self ajouterPaiement:@"especes" :[NSDecimalNumber decimalNumberWithString:@"5000"]];
+    [self calculerResteAPayer];
     
 }
 -(void)calculerResteAPayer{
-    
+    NSDecimalNumber *reste = self.prixTotal;
+    NSLog(@"Fonction reste à payer %@, %lu", reste, (unsigned long)self.listePaiements.count);
+    for(Paiement *pay in self.listePaiements){
+        reste = [reste decimalNumberBySubtracting:pay.montant];
+        NSLog(@"Calcul reste à payer : %@",pay.montant);
+    }
+    if(reste == 0)
+    {
+        [self cloturerFacture];
+    }
 }
 
 -(void)recommencerPaiement{
@@ -42,7 +55,7 @@
 }
 
 -(void)cloturerFacture{
-    
+    NSLog(@"Cloturer Facture");
 }
 
 -(void)annulerFacture{

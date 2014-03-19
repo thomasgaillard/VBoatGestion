@@ -13,4 +13,6 @@
 @property NSString *moyenPaiement;
 @property NSDecimalNumber *montant;
 
+-(id)initPaiement:(NSString*) moyenP :(NSDecimalNumber*)somme;
+
 @end
