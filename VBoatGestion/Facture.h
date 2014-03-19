@@ -8,11 +8,13 @@
 
 #import <Foundation/Foundation.h>
 @class Location;
+@class Journee;
 
 @interface Facture : NSObject
 
 @property NSNumber *id;
 @property NSString *etat;
+@property Journee *journee;
 @property NSMutableArray *listeLocations;
 @property NSDecimalNumber *prixTotal;
 @property NSDecimalNumber *remise;

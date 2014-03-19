@@ -17,10 +17,10 @@
     NSLog(@"Loc début, heure : %@",self.heureDebut);
 }
 
--(void)cloturerLocation{
+-(Facture*)cloturerLocation{
     self.heureFin=[NSDate date];
     NSLog(@"Loc fin, heure : %@",self.heureFin);
-    [self creerFacture];
+    return [self creerFacture];
 }
 
 -(void)affecterEmbarcation:(Embarcation*)emb{
@@ -34,10 +34,11 @@
     return prix;
 }
 
--(void)creerFacture{
+-(Facture*)creerFacture{
     NSLog(@"Loc creer facture");
     Facture *f=[Facture new];
     [f ajouterLocation:self];
+    return f;
 }
 
 @end

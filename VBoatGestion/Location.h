@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class Embarcation;
+@class Facture;
 
 @interface Location : NSObject
 
@@ -18,9 +19,9 @@
 @property NSString *remarque;
 
 -(void)lancerLocation;
--(void)cloturerLocation;
+-(Facture*)cloturerLocation;
 -(void)affecterEmbarcation:(Embarcation*)emb;
 -(NSDecimalNumber*)calculerPrix;
--(void)creerFacture;
+-(Facture*)creerFacture;
 
 @end

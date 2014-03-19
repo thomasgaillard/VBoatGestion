@@ -7,17 +7,28 @@
 //
 
 #import "AppDelegate.h"
+#import "Journee.h"
+#import "Facture.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    Journee *jour1 = [Journee new];
+    [jour1 initierJournee];
     NSLog(@"coucou");
     Embarcation *test = [Embarcation new];
     [test rendreDisponible];
     [test depart];
     sleep(3);
-    [test retour];
+    Facture *fact=[test retour];
+    [jour1 ajouterFacture: fact];
+    
+    //paiements
+    [fact ajouterPaiement:@"especes" :[NSDecimalNumber decimalNumberWithString:@"5000"]];
+    [fact ajouterPaiement:@"especes" :[NSDecimalNumber decimalNumberWithString:@"5000"]];
+    
+    
     return YES;
 }
 

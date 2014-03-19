@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Facture;
 
 @interface Journee : NSObject
 
@@ -16,9 +17,12 @@
 @property NSDecimalNumber *nbLocBateaux;
 @property NSDecimalNumber *nbLocPedalos;
 @property NSString *etat;
-@property NSMutableArray *listeFactures;
+@property NSMutableArray *listeFacturesEnCours;
+@property NSMutableArray *listeFacturesCloturees;
 
 -(void)initierJournee;
 -(void)cloturerJournee;
+-(void)tests;
+-(void)ajouterFacture:(Facture*) fact;
 
 @end
