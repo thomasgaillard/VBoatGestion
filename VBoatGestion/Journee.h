@@ -22,7 +22,6 @@
 
 -(void)initierJournee;
 -(void)cloturerJournee;
--(void)tests;
 -(void)ajouterFacture:(Facture*) fact;
 
 @end

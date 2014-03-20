@@ -20,7 +20,7 @@
     Embarcation *test = [Embarcation new];
     [test rendreDisponible];
     [test depart];
-    sleep(3);
+    //sleep(3);
     Facture *fact=[test retour];
     [jour1 ajouterFacture: fact];
     

@@ -7,17 +7,24 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Journee.h"
+#import "Embarcation.h"
 
 @interface VBoatGestionTests : XCTestCase
 
 @end
 
-@implementation VBoatGestionTests
+@implementation VBoatGestionTests {
+    Journee* _journee;
+    Embarcation* _embarcation;
+}
 
 - (void)setUp
 {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    _journee = [Journee new];
+    [_journee initierJournee];
+    _embarcation = [Embarcation new];
 }
 
 - (void)tearDown
@@ -26,9 +33,34 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testDispo
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    [_embarcation rendreDisponible];
+    XCTAssertTrue([_embarcation.etat isEqual:@"disponible"]);
+}
+
+- (void)testDepart
+{
+    [_embarcation rendreDisponible];
+    [_embarcation depart];
+    XCTAssertTrue([_embarcation.etat isEqual:@"enlocation"]);
+}
+
+- (void)testRetour
+{
+    [_embarcation rendreDisponible];
+    [_embarcation depart];
+    [_embarcation retour];
+    XCTAssertTrue([_embarcation.etat isEqual:@"disponible"]);
+}
+
+- (void)testNombreFactures
+{
+    [_embarcation rendreDisponible];
+    [_embarcation depart];
+    
+    [_journee ajouterFacture:[_embarcation retour]];
+    XCTAssertTrue([_journee.listeFacturesEnCours count] == 1 );
 }
 
 @end

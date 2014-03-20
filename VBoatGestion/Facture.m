@@ -22,6 +22,10 @@
     return self;
 }
 -(void)grouperFactures:(Facture*) fac{
+    NSLog(@"Grouper factures");
+    for(Location *loc in fac.listeLocations){
+        [self ajouterLocation:loc];
+    }
 }
 
 -(void)ajouterPaiement:(NSString*) moyenPaiement :(NSDecimalNumber*) somme{
@@ -48,21 +52,31 @@
 }
 
 -(void)recommencerPaiement{
-    
+    [self.listePaiements removeAllObjects];
 }
 
 -(void)cloturerFacture{
     NSLog(@"Cloturer Facture");
-    self.etat=@"cloturee";
+    self.etat=@"payee";
     [self.journee ajouterFacture:self];
+    [self ajouterPaiementAuTotalJournee];
 }
 
 -(void)annulerFacture{
-    
+    NSLog(@"Annuler Facture");
+    self.etat=@"annulee";
+    [self.journee ajouterFacture:self];
 }
 
 -(void)ajouterPaiementAuTotalJournee{
-    
+    NSLog(@"Ajouter paiements au total");
+    for(Paiement *pay in self.listePaiements){
+        if([pay.moyenPaiement  isEqual: @"especes"]){
+            [self.journee.totalEspeces decimalNumberByAdding:pay.montant];
+        }else if([pay.moyenPaiement  isEqual: @"cb"]){
+            [self.journee.totalCb decimalNumberByAdding:pay.montant];
+        }
+    }
 }
 
 @end

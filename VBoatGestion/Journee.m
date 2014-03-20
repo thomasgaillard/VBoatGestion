@@ -23,10 +23,6 @@
     self.etat = @"encours";
 }
 
--(void)tests{
-    
-}
-
 -(void)cloturerJournee{
     self.etat = @"terminee";
 }
@@ -37,7 +33,7 @@
     [self.listeFacturesCloturees removeObject:fact];
     if([fact.etat  isEqual: @"encours"]){
         [self.listeFacturesEnCours addObject:fact];
-    }else if ([fact.etat  isEqual: @"cloturee"]){
+    }else if ([fact.etat  isEqual: @"payee"]||[fact.etat  isEqual: @"annulee"]){
         [self.listeFacturesCloturees addObject:fact];
     }
     NSLog(@"Facture ajoutée en cours %lu",(unsigned long)self.listeFacturesEnCours.count);
