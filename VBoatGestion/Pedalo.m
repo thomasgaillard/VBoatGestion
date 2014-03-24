@@ -7,7 +7,19 @@
 //
 
 #import "Pedalo.h"
+#import "LocationPedalo.h"
 
 @implementation Pedalo
+
+-(void)rendreDisponible{
+    self.etat=@"disponible";
+    NSLog(@"Fonction disponible, etat : %@",self.etat);
+    [self affecterLocation:[LocationPedalo new]];
+}
+
+-(void)affecterLocation:(LocationPedalo*)loc{
+    [super affecterLocation:loc];
+    loc.nbPersonnes = self.nbPlaces;
+}
 
 @end
