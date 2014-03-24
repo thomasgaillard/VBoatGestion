@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Custom Tab Bar View Controller-->
         <scene sceneID="Xm8-gY-mpL">
             <objects>
-                <viewController id="2cw-cB-Lm6" sceneMemberID="viewController">
+                <viewController id="2cw-cB-Lm6" customClass="CustomTabBarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Jwn-um-GSr"/>
                         <viewControllerLayoutGuide type="bottom" id="Wxs-Rw-rQV"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eSx-7O-Ei4">
-                                <rect key="frame" x="225" y="54" width="325" height="325"/>
+                                <rect key="frame" x="135" y="80" width="325" height="325"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -29,25 +29,24 @@
                                 <rect key="frame" x="0.0" y="20" width="88" height="748"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOf-Ro-06n">
-                                        <rect key="frame" x="9" y="132" width="101" height="56"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixn-db-6aG">
+                                        <rect key="frame" x="20" y="267" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                        <state key="normal" title="Activité" image="cogs"/>
-                                        <state key="highlighted" image="cogs_highlighted"/>
-                                        <connections>
-                                            <segue destination="2H2-kg-tIG" kind="custom" identifier="sgActivite" customClass="CustomTabBarSegue" id="azg-7o-pJi"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmM-g5-tYk">
-                                        <rect key="frame" x="9" y="251" width="101" height="56"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Factures" image="heart">
+                                        <state key="normal" title="Activité">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <state key="highlighted" image="heart_highlighted"/>
                                         <connections>
-                                            <segue destination="oVe-kI-XXT" kind="custom" identifier="sgFactures" customClass="CustomTabBarSegue" id="WR0-6E-4eW"/>
+                                            <segue destination="2H2-kg-tIG" kind="custom" identifier="sgActivite" customClass="CustomTabBarSegue" id="Q5R-bm-P39"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lta-hy-X31">
+                                        <rect key="frame" x="21" y="359" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Factures">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="oVe-kI-XXT" kind="custom" identifier="sgFactures" customClass="CustomTabBarSegue" id="5IR-tm-NHs"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -58,8 +57,8 @@
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="btnActivite" destination="mOf-Ro-06n" id="VWj-ja-QJ1"/>
-                        <outlet property="btnFactures" destination="bmM-g5-tYk" id="JMS-7L-Bcn"/>
+                        <outlet property="buttons" destination="LIw-p5-L29" id="wzR-1l-pQO"/>
+                        <outlet property="placeholderView" destination="eSx-7O-Ei4" id="uXO-uO-Jqf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfK-Gn-nRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,7 +83,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MWD-s9-Ngj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3368" y="-2866"/>
+            <point key="canvasLocation" x="-3300" y="-2946"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Wti-Oh-6LD">
@@ -295,10 +294,6 @@
     </scenes>
     <resources>
         <image name="background" width="88" height="748"/>
-        <image name="cogs" width="46" height="56"/>
-        <image name="cogs_highlighted" width="46" height="56"/>
-        <image name="heart" width="46" height="56"/>
-        <image name="heart_highlighted" width="46" height="56"/>
         <image name="logo" width="110" height="110"/>
     </resources>
     <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
