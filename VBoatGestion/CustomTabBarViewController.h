@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface CustomTabBarViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *btnActivite;
+@property (weak, nonatomic) IBOutlet UIButton *btnFactures;
 
 @end

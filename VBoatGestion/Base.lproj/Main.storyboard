@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2cw-cB-Lm6">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -16,6 +16,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eSx-7O-Ei4">
+                                <rect key="frame" x="225" y="54" width="325" height="325"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="RsL-QF-1AL">
                                 <rect key="frame" x="0.0" y="20" width="88" height="748"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -28,24 +33,58 @@
                                         <rect key="frame" x="9" y="132" width="101" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
-                                        <state key="normal" title="Button" image="cogs"/>
+                                        <state key="normal" title="Activité" image="cogs"/>
                                         <state key="highlighted" image="cogs_highlighted"/>
+                                        <connections>
+                                            <segue destination="2H2-kg-tIG" kind="custom" identifier="sgActivite" customClass="CustomTabBarSegue" id="azg-7o-pJi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmM-g5-tYk">
+                                        <rect key="frame" x="9" y="251" width="101" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Factures" image="heart">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted" image="heart_highlighted"/>
+                                        <connections>
+                                            <segue destination="oVe-kI-XXT" kind="custom" identifier="sgFactures" customClass="CustomTabBarSegue" id="WR0-6E-4eW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E4T-Da-szy">
-                                <rect key="frame" x="270" y="215" width="419" height="361"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="btnActivite" destination="mOf-Ro-06n" id="VWj-ja-QJ1"/>
+                        <outlet property="btnFactures" destination="bmM-g5-tYk" id="JMS-7L-Bcn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfK-Gn-nRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5097" y="-2361"/>
+            <point key="canvasLocation" x="-5027" y="-2823"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jB7-A9-XsL">
+            <objects>
+                <viewController autoresizesArchivedViewToFullSize="NO" id="2H2-kg-tIG" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jJh-wI-0mO"/>
+                        <viewControllerLayoutGuide type="bottom" id="AHA-cR-956"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="waJ-z9-eId">
+                        <rect key="frame" x="0.0" y="0.0" width="325" height="325"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MWD-s9-Ngj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3368" y="-2866"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="Wti-Oh-6LD">
@@ -55,7 +94,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.18823529411764706" green="0.49411764705882355" blue="0.61568627450980395" alpha="1" colorSpace="calibratedRGB"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <sections>
                             <tableViewSection id="mtG-c2-2Gu">
                                 <cells>
@@ -234,11 +272,33 @@
             </objects>
             <point key="canvasLocation" x="-4524" y="-1480"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Uut-op-3Ai">
+            <objects>
+                <viewController autoresizesArchivedViewToFullSize="NO" id="oVe-kI-XXT" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TmM-ox-aJf"/>
+                        <viewControllerLayoutGuide type="bottom" id="m7D-vX-stk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7N4-ol-Z3e">
+                        <rect key="frame" x="0.0" y="0.0" width="325" height="325"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.31367578610000002" green="1" blue="0.17469680369999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ajU-JX-Iim" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3282" y="-2215"/>
+        </scene>
     </scenes>
     <resources>
         <image name="background" width="88" height="748"/>
         <image name="cogs" width="46" height="56"/>
         <image name="cogs_highlighted" width="46" height="56"/>
+        <image name="heart" width="46" height="56"/>
+        <image name="heart_highlighted" width="46" height="56"/>
         <image name="logo" width="110" height="110"/>
     </resources>
     <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
