@@ -18,10 +18,8 @@
 }
 
 -(Facture*)retour{
-    self.etat=@"disponible";
-    NSLog(@"Fonction retour, etat : %@",self.etat);
     Facture *f=[self.location cloturerLocation];
-    [self affecterLocation:[Location new]];
+    [self rendreDisponible];
     return f;
 }
 
