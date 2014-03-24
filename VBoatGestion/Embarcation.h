@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class Location;
+@class Facture;
 
 @interface Embarcation : NSObject
 
@@ -17,7 +18,7 @@
 @property Location *location;
 
 -(void)depart;
--(void)retour;
+-(Facture*)retour;
 -(void)rendreIndisponible;
 -(void)rendreDisponible;
 -(void)affecterLocation:(Location*) loc;

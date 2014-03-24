@@ -9,6 +9,7 @@
 #import "Facture.h"
 #import "Location.h"
 #import "Paiement.h"
+#import "Journee.h"
 
 @implementation Facture
 
@@ -16,54 +17,66 @@
     self = [super init];
     self.prixTotal = [NSDecimalNumber decimalNumberWithString:@"0"];
     self.etat = @"encours";
-    NSLog(@"Facture new, etat : %@",self.etat);
-    self.listeLocations=[self.listeLocations init];
-    self.listePaiements=[self.listePaiements init];
+    self.listeLocations=[[NSMutableArray alloc] init];
+    self.listePaiements=[[NSMutableArray alloc] init];
     return self;
 }
 -(void)grouperFactures:(Facture*) fac{
+    NSLog(@"Grouper factures");
+    for(Location *loc in fac.listeLocations){
+        [self ajouterLocation:loc];
+    }
 }
 
 -(void)ajouterPaiement:(NSString*) moyenPaiement :(NSDecimalNumber*) somme{
     Paiement *paiement=[[Paiement alloc]initPaiement:moyenPaiement :somme];
     NSLog(@"Nouveau paiement: moyen %@, somme %@",paiement.moyenPaiement ,paiement.montant);
     [self.listePaiements addObject:paiement];
+    [self calculerResteAPayer];
 }
 -(void)ajouterLocation:(Location *)loc{
     self.prixTotal = [self.prixTotal decimalNumberByAdding:[loc calculerPrix]];
-    NSLog(@"Prix Total : %@",self.prixTotal);
     [self.listeLocations addObject:loc];
-    [self ajouterPaiement:@"especes" :[NSDecimalNumber decimalNumberWithString:@"5000"]];
-    [self calculerResteAPayer];
-    
 }
 -(void)calculerResteAPayer{
     NSDecimalNumber *reste = self.prixTotal;
     NSLog(@"Fonction reste à payer %@, %lu", reste, (unsigned long)self.listePaiements.count);
     for(Paiement *pay in self.listePaiements){
         reste = [reste decimalNumberBySubtracting:pay.montant];
-        NSLog(@"Calcul reste à payer : %@",pay.montant);
+        NSLog(@"Calcul reste à payer : %@",reste);
     }
-    if(reste == 0)
+    if([reste doubleValue] == 0.0)
     {
         [self cloturerFacture];
     }
 }
 
 -(void)recommencerPaiement{
-    
+    [self.listePaiements removeAllObjects];
 }
 
 -(void)cloturerFacture{
     NSLog(@"Cloturer Facture");
+    self.etat=@"payee";
+    [self.journee ajouterFacture:self];
+    [self ajouterPaiementAuTotalJournee];
 }
 
 -(void)annulerFacture{
-    
+    NSLog(@"Annuler Facture");
+    self.etat=@"annulee";
+    [self.journee ajouterFacture:self];
 }
 
 -(void)ajouterPaiementAuTotalJournee{
-    
+    NSLog(@"Ajouter paiements au total");
+    for(Paiement *pay in self.listePaiements){
+        if([pay.moyenPaiement  isEqual: @"especes"]){
+            [self.journee.totalEspeces decimalNumberByAdding:pay.montant];
+        }else if([pay.moyenPaiement  isEqual: @"cb"]){
+            [self.journee.totalCb decimalNumberByAdding:pay.montant];
+        }
+    }
 }
 
 @end
