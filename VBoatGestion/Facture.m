@@ -23,7 +23,11 @@
 }
 -(void)grouperFactures:(Facture*) fac{
     NSLog(@"Grouper factures");
+    Location *l = [self.listeLocations firstObject];
     for(Location *loc in fac.listeLocations){
+        if (loc.embarcation == l.embarcation) {
+            l.heureFin=loc.heureFin;
+        }else
         [self ajouterLocation:loc];
     }
 }

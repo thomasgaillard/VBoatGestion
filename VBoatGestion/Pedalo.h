@@ -10,6 +10,6 @@
 
 @interface Pedalo : Embarcation
 
-@property NSNumber *nbPlaces;
+@property NSDecimalNumber *nbPlaces;
 
 @end

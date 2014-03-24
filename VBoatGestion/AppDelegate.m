@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import "Journee.h"
+#import "Pedalo.h"
 #import "Facture.h"
+#import "Location.h"
 
 @implementation AppDelegate
 
@@ -17,16 +19,56 @@
     Journee *jour1 = [Journee new];
     [jour1 initierJournee];
     NSLog(@"coucou");
-    Embarcation *test = [Embarcation new];
+    /*Embarcation *test = [Embarcation new];
+    Embarcation *test2 = [Embarcation new];
     [test rendreDisponible];
+    [test2 rendreDisponible];
     [test depart];
     //sleep(3);
     Facture *fact=[test retour];
+    [test2 depart];
+    sleep(3);
+    Facture *fac2=[test2 retour];
+    
+    Location *l1=[fact.listeLocations firstObject];
+    NSLog(@"Heure de fin L1 : %@",l1.heureFin);
+    Location *l2=[fac2.listeLocations firstObject];
+    NSLog(@"Heure de fin L2 : %@",l2.heureFin);
+    
+    [fact grouperFactures:fac2];
+    NSLog(@"Heure de fin L1 : %@",l1.heureFin);
+    
+    NSLog(@"Nb locations facture 1 : %lu",(unsigned long)[fact.listeLocations count]);
+    NSLog(@"Prix total facture 1 : %@",fact.prixTotal);
     [jour1 ajouterFacture: fact];
     
     //paiements
-    [fact ajouterPaiement:@"especes" :[NSDecimalNumber decimalNumberWithString:@"5000"]];
-    [fact ajouterPaiement:@"especes" :[NSDecimalNumber decimalNumberWithString:@"5000"]];
+    //[fact ajouterPaiement:@"especes" :[NSDecimalNumber decimalNumberWithString:@"5000"]];
+    //[fact ajouterPaiement:@"especes" :[NSDecimalNumber decimalNumberWithString:@"5000"]];*/
+    
+    Pedalo *pedalo = [Pedalo new];
+    Pedalo *pedalo2 = [Pedalo new];
+    [pedalo rendreDisponible];
+    [pedalo2 rendreDisponible];
+    [pedalo depart];
+    //sleep(3);
+    Facture *fact=[pedalo retour];
+    [pedalo2 depart];
+    sleep(3);
+    Facture *fac2=[pedalo2 retour];
+    
+    Location *l1=[fact.listeLocations firstObject];
+    NSLog(@"Heure de fin L1 : %@",l1.heureFin);
+    Location *l2=[fac2.listeLocations firstObject];
+    NSLog(@"Heure de fin L2 : %@",l2.heureFin);
+    
+    [fact grouperFactures:fac2];
+    NSLog(@"Heure de fin L1 : %@",l1.heureFin);
+    
+    NSLog(@"Nb locations facture 1 : %lu",(unsigned long)[fact.listeLocations count]);
+    NSLog(@"Prix total facture 1 : %@",fact.prixTotal);
+    [jour1 ajouterFacture: fact];
+    
     
     
     return YES;
