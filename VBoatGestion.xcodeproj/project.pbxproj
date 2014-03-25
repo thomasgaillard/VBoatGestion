@@ -14,7 +14,6 @@
 		3A35590B1885AC6700C573CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A35590A1885AC6700C573CE /* main.m */; };
 		3A35590F1885AC6700C573CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A35590E1885AC6700C573CE /* AppDelegate.m */; };
 		3A3559121885AC6700C573CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3559101885AC6700C573CE /* Main.storyboard */; };
-		3A3559171885AC6700C573CE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A3559161885AC6700C573CE /* Images.xcassets */; };
 		3A35591E1885AC6700C573CE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A35591D1885AC6700C573CE /* XCTest.framework */; };
 		3A35591F1885AC6700C573CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3558FE1885AC6700C573CE /* Foundation.framework */; };
 		3A3559201885AC6700C573CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3559021885AC6700C573CE /* UIKit.framework */; };
@@ -31,6 +30,7 @@
 		3A53039518D8838D00D36D3E /* Flotte.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53039418D8838D00D36D3E /* Flotte.m */; };
 		3A53039818D8843000D36D3E /* Journee.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53039718D8843000D36D3E /* Journee.m */; };
 		3A53039B18D8864600D36D3E /* Saison.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53039A18D8864600D36D3E /* Saison.m */; };
+		3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF254F418E1B5E5004FB853 /* Images.xcassets */; };
 		8729530718E097D700CD9809 /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8729530618E097D700CD9809 /* CustomTabBarViewController.m */; };
 		879A48EC18E0942800E8EB8D /* CustomTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A48EB18E0942800E8EB8D /* CustomTabBarSegue.m */; };
 		87C0374518D853E700E75AD9 /* Facture.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C0374418D853E600E75AD9 /* Facture.m */; };
@@ -59,7 +59,6 @@
 		3A35590D1885AC6700C573CE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A35590E1885AC6700C573CE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3A3559111885AC6700C573CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3A3559161885AC6700C573CE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3A35591C1885AC6700C573CE /* VBoatGestionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VBoatGestionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A35591D1885AC6700C573CE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3A3559251885AC6700C573CE /* VBoatGestionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VBoatGestionTests-Info.plist"; sourceTree = "<group>"; };
@@ -87,6 +86,7 @@
 		3A53039718D8843000D36D3E /* Journee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journee.m; sourceTree = "<group>"; };
 		3A53039918D8864600D36D3E /* Saison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Saison.h; sourceTree = "<group>"; };
 		3A53039A18D8864600D36D3E /* Saison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Saison.m; sourceTree = "<group>"; };
+		3AF254F418E1B5E5004FB853 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8729530518E097D700CD9809 /* CustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTabBarViewController.h; path = ../CustomTabBarViewController.h; sourceTree = "<group>"; };
 		8729530618E097D700CD9809 /* CustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTabBarViewController.m; path = ../CustomTabBarViewController.m; sourceTree = "<group>"; };
 		879A48EA18E0942800E8EB8D /* CustomTabBarSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarSegue.h; sourceTree = "<group>"; };
@@ -185,10 +185,10 @@
 				3A53039718D8843000D36D3E /* Journee.m */,
 				3A53039918D8864600D36D3E /* Saison.h */,
 				3A53039A18D8864600D36D3E /* Saison.m */,
-				3A3559161885AC6700C573CE /* Images.xcassets */,
 				3A3559051885AC6700C573CE /* Supporting Files */,
 				879A48EA18E0942800E8EB8D /* CustomTabBarSegue.h */,
 				879A48EB18E0942800E8EB8D /* CustomTabBarSegue.m */,
+				3AF254F418E1B5E5004FB853 /* Images.xcassets */,
 			);
 			path = VBoatGestion;
 			sourceTree = "<group>";
@@ -298,7 +298,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A3559171885AC6700C573CE /* Images.xcassets in Resources */,
+				3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */,
 				3A3559091885AC6700C573CE /* InfoPlist.strings in Resources */,
 				3A3559121885AC6700C573CE /* Main.storyboard in Resources */,
 			);

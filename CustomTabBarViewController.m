@@ -30,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self performSegueWithIdentifier:@"sgActivite" sender:[self.buttons.subviews objectAtIndex:0]];
+    [self performSegueWithIdentifier:@"segActivite" sender:[self.buttons.subviews objectAtIndex:0]];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -47,8 +47,13 @@
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.identifier isEqualToString:@"sgActivite"]
-       || [segue.identifier isEqualToString:@"sgFactures"]){
+    if([segue.identifier isEqualToString:@"segActivite"]
+       || [segue.identifier isEqualToString:@"segFacturation"]
+       || [segue.identifier isEqualToString:@"segReservations"]
+       || [segue.identifier isEqualToString:@"segFlotte"]
+       || [segue.identifier isEqualToString:@"segPrix"]
+       || [segue.identifier isEqualToString:@"segAdministration"]
+       || [segue.identifier isEqualToString:@"segReglages"]){
         
         for (int i=0; i<[self.buttons.subviews count];i++) {
             UIButton *button = (UIButton *)[self.buttons.subviews objectAtIndex:i];

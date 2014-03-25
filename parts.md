@@ -5,7 +5,7 @@ Application Parts
 * Chaque embarcation avec système de couleurs (vert = à quai, rouge = en navigation, gris = fin de journée), heure de départ et titre
 * Possibilité de cliquer sur une embarcation pour avoir accès aux remarques et nombre de personnes
 
-## Facturation
+## Facturations
 * Moyen de paiement
 * Facturation
 * Export CA journalier sur serveur pour consultation sur site mobile avec logins/mdp
@@ -18,7 +18,7 @@ Application Parts
 ## Prix
 * Grilles des prix
 
-## Réservation
+## Réservations
 * Calendriers
 * 3 onglets : pédalos, bateaux sans permis, bateaux avec permis
 * Vue globale par jour
@@ -28,5 +28,5 @@ Application Parts
 * Chiffres globale, par bateaux, par pédalos
 * Export tableau Excel
 
-## Reglages
+## Réglages
 * Export de bdd
