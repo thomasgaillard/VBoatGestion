@@ -35,8 +35,23 @@
         caseDuree=8;
     } else if (duree <=172){
         caseDuree=9;
-    } else if (duree <=180){
+    } else if (duree <=187){
         caseDuree=10;
+    } else if (duree <=202){
+        caseDuree=11;
+    } else if (duree <=217){
+        caseDuree=12;
+    } else if (duree <=232){
+        caseDuree=13;
+    } else if (duree <=247){
+        caseDuree=14;
+    }else{
+        caseDuree=15;
+        NSInteger *quartsH = (duree+7)/15;
+        NSLog(@"Nb quarts d'heures: %i",quartsH);
+        
+       // NSDecimalNumber *prix = quartsH*[[[GrilleTarifairePedalo prix]objectAtIndex:[self.nbPersonnes doubleValue]-2] objectAtIndex:caseDuree];
+       // NSLog(@"Prix : %@", prix);
     }
     return [[[GrilleTarifairePedalo prix]objectAtIndex:[self.nbPersonnes doubleValue]-2] objectAtIndex:caseDuree];
 }

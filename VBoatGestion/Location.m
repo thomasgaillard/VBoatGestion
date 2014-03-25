@@ -14,7 +14,7 @@
 
 -(void)lancerLocation{
     //self.heureDebut=[NSDate date];
-    self.heureDebut=[NSDate dateWithTimeIntervalSinceNow:-112*60];
+    self.heureDebut=[NSDate dateWithTimeIntervalSinceNow:-248*60];
     NSLog(@"Loc début, heure : %@",self.heureDebut);
 }
 
