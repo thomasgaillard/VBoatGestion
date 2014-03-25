@@ -13,5 +13,6 @@
 @property NSDecimalNumber *nbPersonnes;
 
 -(NSDecimalNumber*)calculerPrix;
+-(void)modifierNbPersonnes:(NSDecimalNumber*)nbPersonnes;
 
 @end

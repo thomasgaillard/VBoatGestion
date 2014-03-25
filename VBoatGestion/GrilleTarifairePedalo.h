@@ -12,5 +12,7 @@
 
 + (NSMutableArray*)prix;
 + (void)prix:(NSMutableArray*)nouveauPrix;
++ (void)tableauPrices;
+
 
 @end

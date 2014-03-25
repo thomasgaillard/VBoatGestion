@@ -11,6 +11,7 @@
 #import "Pedalo.h"
 #import "Facture.h"
 #import "Location.h"
+#import "GrilleTarifairePedalo.h"
 
 @implementation AppDelegate
 
@@ -48,24 +49,19 @@
     //[fact ajouterPaiement:@"especes" :[NSDecimalNumber decimalNumberWithString:@"5000"]];
     //[fact ajouterPaiement:@"especes" :[NSDecimalNumber decimalNumberWithString:@"5000"]];*/
     
+    [GrilleTarifairePedalo tableauPrices];
     Pedalo *pedalo = [Pedalo new];
+    pedalo.nbPlaces=[NSDecimalNumber decimalNumberWithString:@"2"];
     Pedalo *pedalo2 = [Pedalo new];
     [pedalo rendreDisponible];
     [pedalo2 rendreDisponible];
     [pedalo depart];
-    //sleep(3);
-    Facture *fact=[pedalo retour];
-    [pedalo2 depart];
     sleep(3);
-    Facture *fac2=[pedalo2 retour];
+    Facture *fact=[pedalo retour];
     
     Location *l1=[fact.listeLocations firstObject];
     NSLog(@"Heure de fin L1 : %@",l1.heureFin);
-    Location *l2=[fac2.listeLocations firstObject];
-    NSLog(@"Heure de fin L2 : %@",l2.heureFin);
-    
-    [fact grouperFactures:fac2];
-    NSLog(@"Heure de fin L1 : %@",l1.heureFin);
+
     
     NSLog(@"Nb locations facture 1 : %lu",(unsigned long)[fact.listeLocations count]);
     NSLog(@"Prix total facture 1 : %@",fact.prixTotal);

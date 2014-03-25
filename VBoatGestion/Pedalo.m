@@ -12,8 +12,7 @@
 @implementation Pedalo
 
 -(void)rendreDisponible{
-    self.etat=@"disponible";
-    NSLog(@"Fonction disponible, etat : %@",self.etat);
+    [super rendreDisponible];
     [self affecterLocation:[LocationPedalo new]];
 }
 

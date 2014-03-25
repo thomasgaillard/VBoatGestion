@@ -13,7 +13,8 @@
 @implementation Location
 
 -(void)lancerLocation{
-    self.heureDebut=[NSDate date];
+    //self.heureDebut=[NSDate date];
+    self.heureDebut=[NSDate dateWithTimeIntervalSinceNow:-112*60];
     NSLog(@"Loc début, heure : %@",self.heureDebut);
 }
 
@@ -29,9 +30,8 @@
 }
 
 -(NSDecimalNumber*)calculerPrix{
-    NSDecimalNumber *prix = [NSDecimalNumber decimalNumberWithString:@"10000"];
-    NSLog(@"Loc calcul prix, prix : %@", prix);
-    return prix;
+    NSLog(@"Loc calcul prix dans classe mère location = PAS BIEN");
+    return [NSDecimalNumber decimalNumberWithString:@"-1"];
 }
 
 -(Facture*)creerFacture{

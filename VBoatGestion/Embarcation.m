@@ -26,12 +26,12 @@
 -(void)rendreIndisponible{
     self.etat=@"indisponible";
     NSLog(@"Fonction indisponible, etat : %@",self.etat);
+    self.location = Nil;
 }
 
 -(void)rendreDisponible{
     self.etat=@"disponible";
     NSLog(@"Fonction disponible, etat : %@",self.etat);
-    [self affecterLocation:[Location new]];
 }
 
 -(void)affecterLocation:(Location*)loc{
