@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2cw-cB-Lm6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="2cw-cB-Lm6">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Custom Tab Bar View Controller-->
@@ -141,7 +141,6 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="618"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MWD-s9-Ngj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,7 +161,6 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="618"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rkZ-rD-bg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,7 +181,6 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="618"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="45v-ek-nzi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -204,7 +201,6 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="618"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Y3-u5-gXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -225,7 +221,6 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="618"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lga-MQ-iQ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -246,7 +241,6 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="618"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yn9-H4-YI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -267,7 +261,6 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="1024" height="618"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BMH-kt-Qw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
