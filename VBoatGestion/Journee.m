@@ -2,15 +2,22 @@
 //  Journee.m
 //  VBoatGestion
 //
-//  Created by Thomas Gaillard on 18/03/2014.
+//  Created by Maxence Mermoz on 31/03/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
 #import "Journee.h"
-#import "Embarcation.h"
 #import "Facture.h"
 
 @implementation Journee
+
+@dynamic date;
+@dynamic etat;
+@dynamic nbLocBateaux;
+@dynamic nbLocPedalos;
+@dynamic totalCb;
+@dynamic totalEspeces;
+@dynamic factures;
 
 -(void)initierJournee{
     self.date = [NSDate date];
@@ -18,8 +25,7 @@
     self.totalEspeces = [NSDecimalNumber decimalNumberWithString:@"0"];
     self.nbLocBateaux = [NSDecimalNumber decimalNumberWithString:@"0"];
     self.nbLocPedalos = [NSDecimalNumber decimalNumberWithString:@"0"];
-    self.listeFacturesEnCours=[[NSMutableArray alloc] init];
-    self.listeFacturesCloturees=[[NSMutableArray alloc] init];
+    self.factures=[[NSMutableSet alloc] init];
     self.etat = @"encours";
 }
 
@@ -28,16 +34,14 @@
 }
 
 -(void)ajouterFacture:(Facture*) fact {
-    fact.journee = self;
-    [self.listeFacturesEnCours removeObject:fact];
-    [self.listeFacturesCloturees removeObject:fact];
+    //TODO fact.journee = self;
+    [self removeFacturesObject:fact];
     if([fact.etat  isEqual: @"encours"]){
-        [self.listeFacturesEnCours addObject:fact];
-    }else if ([fact.etat  isEqual: @"payee"]||[fact.etat  isEqual: @"annulee"]){
-        [self.listeFacturesCloturees addObject:fact];
-    }
-    NSLog(@"Facture ajoutée en cours %lu",(unsigned long)self.listeFacturesEnCours.count);
-    NSLog(@"Facture ajoutée cloturee %lu",(unsigned long)self.listeFacturesCloturees.count);
+        [self addFacturesObject:fact];
+    }//else if ([fact.etat  isEqual: @"payee"]||[fact.etat  isEqual: @"annulee"]){
+       // [self.listeFacturesCloturees addObject:fact];
+    NSLog(@"Facture ajoutée en cours %lu",(unsigned long)self.factures.count);
 }
+
 
 @end

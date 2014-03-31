@@ -2,18 +2,40 @@
 //  LocationPedalo.m
 //  VBoatGestion
 //
-//  Created by Thomas Gaillard on 18/03/2014.
+//  Created by Maxence Mermoz on 31/03/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
 #import "LocationPedalo.h"
 #import "GrilleTarifairePedalo.h"
 
+
 @implementation LocationPedalo
 
+@dynamic nbPersonnes;
+
 -(NSDecimalNumber*)calculerPrix{
-    NSInteger duree = [self.heureFin timeIntervalSinceDate:self.heureDebut]/60;
+    
+    NSDecimalNumber *dureeDecimal = [[NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInt:[self.heureFin timeIntervalSinceDate:self.heureDebut]] decimalValue]] decimalNumberByDividingBy: [NSDecimalNumber decimalNumberWithString:@"60"]];
+    
+    //test >4h
+    //NSDecimalNumber *dureeDecimal = [[NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInt:14850] decimalValue]] decimalNumberByDividingBy: [NSDecimalNumber decimalNumberWithString:@"60"]];
+    
+    //arrondi temps
+    NSDecimalNumberHandler *handlerMid = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundPlain
+                                                                                                scale:0
+                                                                                     raiseOnExactness:NO
+                                                                                      raiseOnOverflow:NO
+                                                                                     raiseOnUnderflow:NO
+                                                                                  raiseOnDivideByZero:NO];
+    dureeDecimal = [dureeDecimal decimalNumberByRoundingAccordingToBehavior:handlerMid];
+    
+    NSInteger duree = [dureeDecimal integerValue];
+    
     NSLog(@"Intervalle : %ld", (long)duree);
+    NSLog(@"Intervalle : %@", dureeDecimal);
+    
+    //selection duree
     NSInteger caseDuree=0;
     if(duree <= 37){
         caseDuree=0;
@@ -47,18 +69,31 @@
         caseDuree=14;
     }else{
         caseDuree=15;
-        NSInteger *quartsH = (duree+7)/15;
-        NSLog(@"Nb quarts d'heures: %i",quartsH);
         
-       // NSDecimalNumber *prix = quartsH*[[[GrilleTarifairePedalo prix]objectAtIndex:[self.nbPersonnes doubleValue]-2] objectAtIndex:caseDuree];
-       // NSLog(@"Prix : %@", prix);
+        NSDecimalNumber *nbQuartH = [NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInt:(duree+7)/15] decimalValue]];
+        NSLog(@"Nb quarts d'heures: %@",nbQuartH);
+        
+        NSDecimalNumber *prixQuartH = [NSDecimalNumber decimalNumberWithDecimal:[[[[GrilleTarifairePedalo prix]objectAtIndex:[self.nbPersonnes doubleValue]-2] objectAtIndex:caseDuree] decimalValue]];
+        NSLog(@"Prix quart d'heure: %@",prixQuartH);
+        
+        //arrondi supérieur
+        NSDecimalNumberHandler *handlerUp = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundUp
+                                                                                                   scale:0
+                                                                                        raiseOnExactness:NO
+                                                                                         raiseOnOverflow:NO
+                                                                                        raiseOnUnderflow:NO
+                                                                                     raiseOnDivideByZero:NO];
+        NSDecimalNumber *total = [nbQuartH decimalNumberByMultiplyingBy:prixQuartH];
+        
+        //retour prix >4h
+        return [total decimalNumberByRoundingAccordingToBehavior:handlerUp];
     }
+    //retour prix <4h
     return [[[GrilleTarifairePedalo prix]objectAtIndex:[self.nbPersonnes doubleValue]-2] objectAtIndex:caseDuree];
 }
 
 -(void)modifierNbPersonnes:(NSDecimalNumber*)nbPersonnes{
     self.nbPersonnes = nbPersonnes;
 }
-
 
 @end

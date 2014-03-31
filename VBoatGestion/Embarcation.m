@@ -2,14 +2,20 @@
 //  Embarcation.m
 //  VBoatGestion
 //
-//  Created by Thomas Gaillard on 17/03/2014.
+//  Created by Maxence Mermoz on 31/03/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
 #import "Embarcation.h"
+#import "Facture.h"
 #import "Location.h"
 
+
 @implementation Embarcation
+
+@dynamic etat;
+@dynamic nom;
+@dynamic location;
 
 -(void)depart{
     self.etat=@"enlocation";
@@ -38,5 +44,6 @@
     self.location = loc;
     [self.location affecterEmbarcation: self];
 }
+
 
 @end

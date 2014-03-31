@@ -2,20 +2,20 @@
 //  Embarcation.h
 //  VBoatGestion
 //
-//  Created by Thomas Gaillard on 17/03/2014.
+//  Created by Maxence Mermoz on 31/03/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-@class Location;
+#import <CoreData/CoreData.h>
+
 @class Facture;
+@class Location;
+@interface Embarcation : NSManagedObject
 
-@interface Embarcation : NSObject
-
-@property NSNumber *id;
-@property NSString *nom;
-@property NSString *etat;
-@property Location *location;
+@property (nonatomic, retain) NSString * etat;
+@property (nonatomic, retain) NSString * nom;
+@property (nonatomic, retain) Location *location;
 
 -(void)depart;
 -(Facture*)retour;

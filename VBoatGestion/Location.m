@@ -2,7 +2,7 @@
 //  Location.m
 //  VBoatGestion
 //
-//  Created by Thomas Gaillard on 17/03/2014.
+//  Created by Maxence Mermoz on 31/03/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
@@ -10,11 +10,17 @@
 #import "Embarcation.h"
 #import "Facture.h"
 
+
 @implementation Location
+
+@dynamic heureDebut;
+@dynamic heureFin;
+@dynamic remarque;
+@dynamic embarcation;
 
 -(void)lancerLocation{
     //self.heureDebut=[NSDate date];
-    self.heureDebut=[NSDate dateWithTimeIntervalSinceNow:-248*60];
+    self.heureDebut=[NSDate dateWithTimeIntervalSinceNow:-62*60];
     NSLog(@"Loc début, heure : %@",self.heureDebut);
 }
 

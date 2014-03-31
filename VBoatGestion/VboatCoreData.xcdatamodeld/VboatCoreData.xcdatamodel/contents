@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Bateau" representedClassName="Bateau" parentEntity="Embarcation" syncable="YES">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Embarcation" representedClassName="Embarcation" isAbstract="YES" syncable="YES">
+        <attribute name="etat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="embarcation" inverseEntity="Location" syncable="YES"/>
+    </entity>
+    <entity name="Facture" representedClassName="Facture" syncable="YES">
+        <attribute name="etat" optional="YES" attributeType="String" defaultValueString="enCours" syncable="YES"/>
+        <attribute name="prixTotal" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="remarque" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="remise" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="journee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Journee" inverseName="factures" inverseEntity="Journee" syncable="YES"/>
+        <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" syncable="YES"/>
+        <relationship name="paiements" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Paiement" syncable="YES"/>
+    </entity>
+    <entity name="Flotte" representedClassName="Flotte" syncable="YES">
+        <relationship name="embarcations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Embarcation" syncable="YES"/>
+    </entity>
+    <entity name="Journee" representedClassName="Journee" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="etat" optional="YES" attributeType="String" defaultValueString="enCours" syncable="YES"/>
+        <attribute name="nbLocBateaux" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="nbLocPedalos" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="totalCb" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="totalEspeces" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="factures" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Facture" inverseName="journee" inverseEntity="Facture" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" isAbstract="YES" syncable="YES">
+        <attribute name="heureDebut" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="heureFin" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="remarque" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="embarcation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Embarcation" inverseName="location" inverseEntity="Embarcation" syncable="YES"/>
+    </entity>
+    <entity name="LocationBateau" representedClassName="LocationBateau" parentEntity="Location" syncable="YES">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LocationPedalo" representedClassName="LocationPedalo" parentEntity="Location" syncable="YES">
+        <attribute name="nbPersonnes" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Paiement" representedClassName="Paiement" syncable="YES">
+        <attribute name="montant" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="moyenPaiement" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Pedalo" representedClassName="Pedalo" parentEntity="Embarcation" syncable="YES">
+        <attribute name="nbPlaces" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="Saison" representedClassName="Saison" syncable="YES">
+        <attribute name="annee" attributeType="Decimal" minValueString="2014" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="journees" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Journee" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Bateau" positionX="259" positionY="557" width="128" height="58"/>
+        <element name="Embarcation" positionX="169" positionY="387" width="128" height="88"/>
+        <element name="Facture" positionX="18" positionY="207" width="128" height="148"/>
+        <element name="Flotte" positionX="340" positionY="396" width="128" height="58"/>
+        <element name="Journee" positionX="225" positionY="68" width="128" height="148"/>
+        <element name="Location" positionX="-155" positionY="344" width="128" height="103"/>
+        <element name="LocationBateau" positionX="-200" positionY="567" width="128" height="58"/>
+        <element name="LocationPedalo" positionX="-56" positionY="512" width="128" height="58"/>
+        <element name="Paiement" positionX="304" positionY="269" width="128" height="73"/>
+        <element name="Pedalo" positionX="115" positionY="521" width="128" height="58"/>
+        <element name="Saison" positionX="27" positionY="27" width="128" height="73"/>
+    </elements>
+</model>

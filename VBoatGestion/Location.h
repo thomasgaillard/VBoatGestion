@@ -2,21 +2,22 @@
 //  Location.h
 //  VBoatGestion
 //
-//  Created by Thomas Gaillard on 17/03/2014.
+//  Created by Maxence Mermoz on 31/03/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+
 @class Embarcation;
 @class Facture;
 
-@interface Location : NSObject
+@interface Location : NSManagedObject
 
-@property NSNumber *id;
-@property Embarcation *embarcation;
-@property NSDate *heureDebut;
-@property NSDate *heureFin;
-@property NSString *remarque;
+@property (nonatomic, retain) NSDate * heureDebut;
+@property (nonatomic, retain) NSDate * heureFin;
+@property (nonatomic, retain) NSString * remarque;
+@property (nonatomic, retain) Embarcation *embarcation;
 
 -(void)lancerLocation;
 -(Facture*)cloturerLocation;
