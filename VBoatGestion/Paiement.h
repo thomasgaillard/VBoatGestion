@@ -2,17 +2,17 @@
 //  Paiement.h
 //  VBoatGestion
 //
-//  Created by Maxence Mermoz on 18/03/2014.
+//  Created by Maxence Mermoz on 31/03/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Paiement : NSObject
 
-@property NSString *moyenPaiement;
-@property NSDecimalNumber *montant;
+@interface Paiement : NSManagedObject
 
--(id)initPaiement:(NSString*) moyenP :(NSDecimalNumber*)somme;
+@property (nonatomic, retain) NSDecimalNumber * montant;
+@property (nonatomic, retain) NSString * moyenPaiement;
 
 @end

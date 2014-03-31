@@ -2,41 +2,17 @@
 //  Embarcation.m
 //  VBoatGestion
 //
-//  Created by Thomas Gaillard on 17/03/2014.
+//  Created by Maxence Mermoz on 31/03/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
 #import "Embarcation.h"
-#import "Location.h"
+
 
 @implementation Embarcation
 
--(void)depart{
-    self.etat=@"enlocation";
-    NSLog(@"Fonction depart, etat : %@",self.etat);
-    [self.location lancerLocation];
-}
-
--(Facture*)retour{
-    Facture *f=[self.location cloturerLocation];
-    [self rendreDisponible];
-    return f;
-}
-
--(void)rendreIndisponible{
-    self.etat=@"indisponible";
-    NSLog(@"Fonction indisponible, etat : %@",self.etat);
-    self.location = Nil;
-}
-
--(void)rendreDisponible{
-    self.etat=@"disponible";
-    NSLog(@"Fonction disponible, etat : %@",self.etat);
-}
-
--(void)affecterLocation:(Location*)loc{
-    self.location = loc;
-    [self.location affecterEmbarcation: self];
-}
+@dynamic etat;
+@dynamic nom;
+@dynamic location;
 
 @end

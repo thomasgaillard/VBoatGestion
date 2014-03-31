@@ -8,7 +8,11 @@
 
 #import <XCTest/XCTest.h>
 #import "Journee.h"
+#import "Pedalo.h"
+#import "Location.h"
 #import "Embarcation.h"
+#import "Facture.h"
+#import "GrilleTarifairePedalo.h"
 
 @interface VBoatGestionTests : XCTestCase
 
@@ -16,15 +20,13 @@
 
 @implementation VBoatGestionTests {
     Journee* _journee;
-    Embarcation* _embarcation;
+    Pedalo* _embarcation;
 }
 
 - (void)setUp
 {
     [super setUp];
-    _journee = [Journee new];
-    [_journee initierJournee];
-    _embarcation = [Embarcation new];
+
 }
 
 - (void)tearDown
@@ -33,34 +35,9 @@
     [super tearDown];
 }
 
-- (void)testDispo
-{
-    [_embarcation rendreDisponible];
-    XCTAssertTrue([_embarcation.etat isEqual:@"disponible"]);
-}
 
-- (void)testDepart
-{
-    [_embarcation rendreDisponible];
-    [_embarcation depart];
-    XCTAssertTrue([_embarcation.etat isEqual:@"enlocation"]);
-}
 
-- (void)testRetour
-{
-    [_embarcation rendreDisponible];
-    [_embarcation depart];
-    [_embarcation retour];
-    XCTAssertTrue([_embarcation.etat isEqual:@"disponible"]);
-}
 
-- (void)testNombreFactures
-{
-    [_embarcation rendreDisponible];
-    [_embarcation depart];
-    
-    [_journee ajouterFacture:[_embarcation retour]];
-    XCTAssertTrue([_journee.listeFacturesEnCours count] == 1 );
-}
+
 
 @end
