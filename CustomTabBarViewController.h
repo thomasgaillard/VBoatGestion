@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
 @property (weak, nonatomic) IBOutlet UIView *buttons;
 
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
 @end

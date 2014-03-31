@@ -12,6 +12,7 @@
 #import "Facture.h"
 #import "Location.h"
 #import "GrilleTarifairePedalo.h"
+#import "Paiement.h"
 
 @implementation AppDelegate
 
@@ -30,7 +31,7 @@
     Journee *jour1 = [Journee new];
     [jour1 initierJournee];
     NSLog(@"coucou");
-    /*Embarcation *test = [Embarcation new];
+    Embarcation *test = [Embarcation new];
     Embarcation *test2 = [Embarcation new];
     [test rendreDisponible];
     [test2 rendreDisponible];
@@ -76,7 +77,26 @@
     [jour1 ajouterFacture: fact];*/
     
     
+    //TEST CORE DATA
     
+    NSLog(@"Début");
+    Paiement * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Paiement"
+                                                      inManagedObjectContext:self.managedObjectContext];
+    //  2
+    newEntry.montant = [NSDecimalNumber decimalNumberWithString:@"105"];
+    newEntry.moyenPaiement = @"cb";
+    //  3
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    NSLog(@"Fin");
+    
+    self.arrayPaiements = [self getAllPayments];
+    
+    Paiement *p1=[self.arrayPaiements firstObject];
+    NSDecimalNumber *dn = p1.montant;
+    NSLog(@"Mon paiement %lu", (unsigned long)self.arrayPaiements.count);
     return YES;
 }
 
@@ -155,6 +175,24 @@
 
 - (NSString *)applicationDocumentsDirectory {
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+
+-(NSArray*)getAllPayments
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Paiement"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
 }
 
 

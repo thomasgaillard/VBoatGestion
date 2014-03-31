@@ -24,6 +24,7 @@
 		3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF254F418E1B5E5004FB853 /* Images.xcassets */; };
 		8729530718E097D700CD9809 /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8729530618E097D700CD9809 /* CustomTabBarViewController.m */; };
 		873EADB718E96FB10053FB9D /* Facture.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADB618E96FB10053FB9D /* Facture.m */; };
+		873EADC018E9AF750053FB9D /* ActiviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADBF18E9AF750053FB9D /* ActiviteViewController.m */; };
 		879A48EC18E0942800E8EB8D /* CustomTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A48EB18E0942800E8EB8D /* CustomTabBarSegue.m */; };
 		87AD69DA18E9674900C9165D /* Paiement.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69D918E9674900C9165D /* Paiement.m */; };
 		87AD69DD18E9674A00C9165D /* Bateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69DC18E9674A00C9165D /* Bateau.m */; };
@@ -75,6 +76,8 @@
 		8729530618E097D700CD9809 /* CustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTabBarViewController.m; path = ../CustomTabBarViewController.m; sourceTree = "<group>"; };
 		873EADB518E96FB10053FB9D /* Facture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facture.h; sourceTree = SOURCE_ROOT; };
 		873EADB618E96FB10053FB9D /* Facture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facture.m; sourceTree = SOURCE_ROOT; };
+		873EADBE18E9AF750053FB9D /* ActiviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiviteViewController.h; sourceTree = "<group>"; };
+		873EADBF18E9AF750053FB9D /* ActiviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiviteViewController.m; sourceTree = "<group>"; };
 		879A48EA18E0942800E8EB8D /* CustomTabBarSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarSegue.h; sourceTree = "<group>"; };
 		879A48EB18E0942800E8EB8D /* CustomTabBarSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarSegue.m; sourceTree = "<group>"; };
 		87AD69D818E9674900C9165D /* Paiement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paiement.h; sourceTree = "<group>"; };
@@ -165,6 +168,8 @@
 				8729530518E097D700CD9809 /* CustomTabBarViewController.h */,
 				8729530618E097D700CD9809 /* CustomTabBarViewController.m */,
 				3A3559101885AC6700C573CE /* Main.storyboard */,
+				873EADBE18E9AF750053FB9D /* ActiviteViewController.h */,
+				873EADBF18E9AF750053FB9D /* ActiviteViewController.m */,
 				3A53038D18D8691000D36D3E /* GrilleTarifairePedalo.h */,
 				3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */,
 				3A53039018D86A0100D36D3E /* GrilleTarifaireBateau.h */,
@@ -335,6 +340,7 @@
 				3A35590F1885AC6700C573CE /* AppDelegate.m in Sources */,
 				87AD69EC18E9674A00C9165D /* LocationBateau.m in Sources */,
 				87AD69DA18E9674900C9165D /* Paiement.m in Sources */,
+				873EADC018E9AF750053FB9D /* ActiviteViewController.m in Sources */,
 				3A35590B1885AC6700C573CE /* main.m in Sources */,
 				879A48EC18E0942800E8EB8D /* CustomTabBarSegue.m in Sources */,
 				87AD69DD18E9674A00C9165D /* Bateau.m in Sources */,
