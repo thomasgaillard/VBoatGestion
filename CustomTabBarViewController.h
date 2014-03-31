@@ -13,6 +13,7 @@
 @property (weak, nonatomic) UIViewController *currentViewController;
 @property (weak, nonatomic) IBOutlet UIView *placeholderView;
 @property (weak, nonatomic) IBOutlet UIView *buttons;
+@property (weak, nonatomic) IBOutlet UILabel *lblDate;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender;
 
