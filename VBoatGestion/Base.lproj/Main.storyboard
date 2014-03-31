@@ -28,8 +28,45 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="XX6-Vm-8ZJ">
-                                <rect key="frame" x="20" y="21" width="90" height="90"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lbldate" translatesAutoresizingMaskIntoConstraints="NO" id="1b9-2m-Esa">
+                                <rect key="frame" x="443" y="130" width="18" height="18"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gr-dh-qy8">
+                                <rect key="frame" x="469" y="130" width="86" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" red="0.18431372940540314" green="0.60392159223556519" blue="0.83529418706893921" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="lblmoney" translatesAutoresizingMaskIntoConstraints="NO" id="Z9U-o3-boI">
+                                <rect key="frame" x="864" y="130" width="18" height="18"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3298" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8h-kp-VwV">
+                                <rect key="frame" x="888" y="130" width="40" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" red="0.18431372940540314" green="0.60392159223556519" blue="0.83529418706893921" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3298" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c04-nM-4VS">
+                                <rect key="frame" x="964" y="130" width="40" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" red="0.18431372940540314" green="0.60392159223556519" blue="0.83529418706893921" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="llblcard" translatesAutoresizingMaskIntoConstraints="NO" id="mYk-Ku-JHQ">
+                                <rect key="frame" x="937" y="130" width="18" height="18"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="log" translatesAutoresizingMaskIntoConstraints="NO" id="YS7-yz-U01">
+                                <rect key="frame" x="20" y="43" width="62" height="62"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="boat" translatesAutoresizingMaskIntoConstraints="NO" id="RmA-5b-v7w">
+                                <rect key="frame" x="20" y="130" width="18" height="18"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LIw-p5-L29">
@@ -42,7 +79,9 @@
                                         <state key="normal" image="activite">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="disabled" image="activite"/>
                                         <state key="selected" image="activiteselect"/>
+                                        <state key="highlighted" image="activite"/>
                                         <connections>
                                             <segue destination="2H2-kg-tIG" kind="custom" identifier="segActivite" customClass="CustomTabBarSegue" id="m73-Di-PBu"/>
                                         </connections>
@@ -53,7 +92,9 @@
                                         <state key="normal" image="facturation">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="disabled" image="facturation"/>
                                         <state key="selected" image="facturationselect"/>
+                                        <state key="highlighted" image="facturation"/>
                                         <connections>
                                             <segue destination="dEL-A5-0fu" kind="custom" identifier="segFacturation" customClass="CustomTabBarSegue" id="iio-pb-Ha2"/>
                                         </connections>
@@ -64,7 +105,9 @@
                                         <state key="normal" image="reservations">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="disabled" image="reservations"/>
                                         <state key="selected" image="reservationssel"/>
+                                        <state key="highlighted" image="reservations"/>
                                         <connections>
                                             <segue destination="F0R-Rx-cfx" kind="custom" identifier="segReservations" customClass="CustomTabBarSegue" id="5Yp-0R-8vf"/>
                                         </connections>
@@ -75,7 +118,9 @@
                                         <state key="normal" image="flotte">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="disabled" image="flotte"/>
                                         <state key="selected" image="flotteselect"/>
+                                        <state key="highlighted" image="flotte"/>
                                         <connections>
                                             <segue destination="8zu-02-tU2" kind="custom" identifier="segFlotte" customClass="CustomTabBarSegue" id="Ad1-6j-mNQ"/>
                                         </connections>
@@ -86,7 +131,9 @@
                                         <state key="normal" image="prix">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="disabled" image="prix"/>
                                         <state key="selected" image="prixselect"/>
+                                        <state key="highlighted" image="prix"/>
                                         <connections>
                                             <segue destination="LJ1-Sd-6MI" kind="custom" identifier="segPrix" customClass="CustomTabBarSegue" id="Gc4-j4-7c5"/>
                                         </connections>
@@ -95,9 +142,11 @@
                                         <rect key="frame" x="788" y="0.0" width="114" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="admin">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <state key="disabled" image="admin"/>
                                         <state key="selected" image="adminselect"/>
+                                        <state key="highlighted" image="admin"/>
                                         <connections>
                                             <segue destination="CDA-dp-aT3" kind="custom" identifier="segAdministration" customClass="CustomTabBarSegue" id="AjC-rR-x3W"/>
                                         </connections>
@@ -108,13 +157,29 @@
                                         <state key="normal" image="reglages">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <state key="disabled" image="reglages"/>
                                         <state key="selected" image="reglagesselect"/>
+                                        <state key="highlighted" image="reglages"/>
                                         <connections>
                                             <segue destination="rrL-2g-Gtk" kind="custom" identifier="segReglages" customClass="CustomTabBarSegue" id="eIU-Cc-pfJ"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </view>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="53" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8pF-GL-rLf">
+                                <rect key="frame" x="44" y="130" width="19" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" red="0.18431372939999999" green="0.60392159219999997" blue="0.83529418710000003" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="62" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uua-8Z-6i7">
+                                <rect key="frame" x="129" y="130" width="19" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" red="0.18431372939999999" green="0.60392159219999997" blue="0.83529418710000003" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -122,6 +187,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="buttons" destination="LIw-p5-L29" id="wzR-1l-pQO"/>
+                        <outlet property="lblDate" destination="8gr-dh-qy8" id="RjP-7f-DWj"/>
                         <outlet property="placeholderView" destination="eSx-7O-Ei4" id="uXO-uO-Jqf"/>
                     </connections>
                 </viewController>
@@ -561,11 +627,15 @@
         <image name="admin" width="114" height="110"/>
         <image name="adminselect" width="114" height="110"/>
         <image name="blurredbg" width="1024" height="618"/>
+        <image name="boat" width="18" height="18"/>
         <image name="facturation" width="114" height="110"/>
         <image name="facturationselect" width="114" height="110"/>
         <image name="flotte" width="114" height="110"/>
         <image name="flotteselect" width="114" height="110"/>
-        <image name="logo" width="90" height="90"/>
+        <image name="lbldate" width="18" height="18"/>
+        <image name="lblmoney" width="18" height="18"/>
+        <image name="llblcard" width="18" height="18"/>
+        <image name="log" width="62" height="62"/>
         <image name="menu" width="1024" height="150"/>
         <image name="prix" width="114" height="110"/>
         <image name="prixselect" width="114" height="110"/>

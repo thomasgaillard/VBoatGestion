@@ -17,6 +17,7 @@
 @synthesize currentViewController;
 @synthesize placeholderView;
 @synthesize buttons;
+@synthesize lblDate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +32,14 @@
 {
     [super viewDidLoad];
     [self performSegueWithIdentifier:@"segActivite" sender:[self.buttons.subviews objectAtIndex:0]];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    NSDate* date = [NSDate date];
+    NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
+    NSTimeZone *destinationTimeZone = [NSTimeZone systemTimeZone];
+    formatter.timeZone = destinationTimeZone;
+    [formatter setDateStyle:NSDateFormatterLongStyle];
+    [formatter setDateFormat:@"dd/MM/yyyy"];
+    [lblDate setText:[formatter stringFromDate:date]];
 }
 
 - (void)viewDidUnload
