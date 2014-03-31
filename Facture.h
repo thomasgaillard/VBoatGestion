@@ -1,5 +1,5 @@
 //
-//  VBoatGestion.h
+//  Facture.h
 //  VBoatGestion
 //
 //  Created by Maxence Mermoz on 31/03/2014.
@@ -20,6 +20,17 @@
 @property (nonatomic, retain) Journee *journee;
 @property (nonatomic, retain) NSSet *locations;
 @property (nonatomic, retain) NSSet *paiements;
+
+-(id)init;
+-(void)grouperFactures:(Facture*) fac;
+-(void)ajouterPaiement:(NSString*) moyenPaiement :(NSDecimalNumber*) somme;
+-(void)ajouterLocation:(Location*) loc;
+-(void)calculerResteAPayer;
+-(void)recommencerPaiement;
+-(void)cloturerFacture;
+-(void)annulerFacture;
+-(void)ajouterPaiementAuTotalJournee;
+
 @end
 
 @interface Facture (CoreDataGeneratedAccessors)

@@ -13,4 +13,8 @@
 
 @dynamic type;
 
+-(NSDecimalNumber*)calculerPrix{
+    return [NSDecimalNumber decimalNumberWithString:@"10000"];
+}
+
 @end

@@ -8,7 +8,7 @@
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="embarcation" inverseEntity="Location" syncable="YES"/>
     </entity>
-    <entity name="Facture" representedClassName="" syncable="YES">
+    <entity name="Facture" representedClassName="Facture" syncable="YES">
         <attribute name="etat" optional="YES" attributeType="String" defaultValueString="enCours" syncable="YES"/>
         <attribute name="prixTotal" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="remarque" optional="YES" attributeType="String" syncable="YES"/>
@@ -48,7 +48,7 @@
     <entity name="Pedalo" representedClassName="Pedalo" parentEntity="Embarcation" syncable="YES">
         <attribute name="nbPlaces" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="Saison" representedClassName="" syncable="YES">
+    <entity name="Saison" representedClassName="Saison" syncable="YES">
         <attribute name="annee" attributeType="Decimal" minValueString="2014" defaultValueString="0.0" syncable="YES"/>
         <relationship name="journees" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Journee" syncable="YES"/>
     </entity>

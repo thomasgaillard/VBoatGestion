@@ -7,10 +7,20 @@
 //
 
 #import "Pedalo.h"
-
+#import "LocationPedalo.h"
 
 @implementation Pedalo
 
 @dynamic nbPlaces;
+
+-(void)rendreDisponible{
+    [super rendreDisponible];
+    [self affecterLocation:[LocationPedalo new]];
+}
+
+-(void)affecterLocation:(LocationPedalo*)loc{
+    [super affecterLocation:loc];
+    loc.nbPersonnes = self.nbPlaces;
+}
 
 @end

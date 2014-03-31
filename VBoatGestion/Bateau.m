@@ -7,10 +7,20 @@
 //
 
 #import "Bateau.h"
-
+#import "LocationBateau.h"
 
 @implementation Bateau
 
 @dynamic type;
+
+-(void)rendreDisponible{
+    [super rendreDisponible];
+    [self affecterLocation:[LocationBateau new]];
+}
+
+-(void)affecterLocation:(LocationBateau*)loc{
+    [super affecterLocation:loc];
+    loc.type = self.type;
+}
 
 @end

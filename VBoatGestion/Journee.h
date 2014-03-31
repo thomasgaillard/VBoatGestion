@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class Facture;
 @interface Journee : NSManagedObject
 
 @property (nonatomic, retain) NSDate * date;
@@ -17,6 +18,11 @@
 @property (nonatomic, retain) NSDecimalNumber * totalCb;
 @property (nonatomic, retain) NSDecimalNumber * totalEspeces;
 @property (nonatomic, retain) NSSet *factures;
+
+-(void)initierJournee;
+-(void)cloturerJournee;
+-(void)ajouterFacture:(Facture*) fact;
+
 @end
 
 @interface Journee (CoreDataGeneratedAccessors)

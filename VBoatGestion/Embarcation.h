@@ -9,11 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-
+@class Facture;
+@class Location;
 @interface Embarcation : NSManagedObject
 
 @property (nonatomic, retain) NSString * etat;
 @property (nonatomic, retain) NSString * nom;
-@property (nonatomic, retain) NSManagedObject *location;
+@property (nonatomic, retain) Location *location;
+
+-(void)depart;
+-(Facture*)retour;
+-(void)rendreIndisponible;
+-(void)rendreDisponible;
+-(void)affecterLocation:(Location*) loc;
 
 @end

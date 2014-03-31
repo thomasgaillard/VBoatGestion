@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 
 @class Embarcation;
+@class Facture;
 
 @interface Location : NSManagedObject
 
@@ -17,5 +18,11 @@
 @property (nonatomic, retain) NSDate * heureFin;
 @property (nonatomic, retain) NSString * remarque;
 @property (nonatomic, retain) Embarcation *embarcation;
+
+-(void)lancerLocation;
+-(Facture*)cloturerLocation;
+-(void)affecterEmbarcation:(Embarcation*)emb;
+-(NSDecimalNumber*)calculerPrix;
+-(Facture*)creerFacture;
 
 @end

@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Location.h"
 
-
-@interface LocationBateau : NSManagedObject
+@interface LocationBateau : Location
 
 @property (nonatomic, retain) NSString * type;
+
+-(NSDecimalNumber*)calculerPrix;
 
 @end

@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Embarcation.h"
 
 
-@interface Bateau : NSManagedObject
+@interface Bateau : Embarcation
 
 @property (nonatomic, retain) NSString * type;
 
