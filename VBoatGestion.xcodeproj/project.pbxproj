@@ -13,7 +13,6 @@
 		3A3559091885AC6700C573CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A3559071885AC6700C573CE /* InfoPlist.strings */; };
 		3A35590B1885AC6700C573CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A35590A1885AC6700C573CE /* main.m */; };
 		3A35590F1885AC6700C573CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A35590E1885AC6700C573CE /* AppDelegate.m */; };
-		3A3559121885AC6700C573CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3559101885AC6700C573CE /* Main.storyboard */; };
 		3A35591E1885AC6700C573CE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A35591D1885AC6700C573CE /* XCTest.framework */; };
 		3A35591F1885AC6700C573CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3558FE1885AC6700C573CE /* Foundation.framework */; };
 		3A3559201885AC6700C573CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3559021885AC6700C573CE /* UIKit.framework */; };
@@ -24,8 +23,10 @@
 		3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF254F418E1B5E5004FB853 /* Images.xcassets */; };
 		8729530718E097D700CD9809 /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8729530618E097D700CD9809 /* CustomTabBarViewController.m */; };
 		873EADB718E96FB10053FB9D /* Facture.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADB618E96FB10053FB9D /* Facture.m */; };
-		873EADC018E9AF750053FB9D /* ActiviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADBF18E9AF750053FB9D /* ActiviteViewController.m */; };
-		879A48EC18E0942800E8EB8D /* CustomTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 879A48EB18E0942800E8EB8D /* CustomTabBarSegue.m */; };
+		873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADC218E9BA790053FB9D /* ActiviteViewController.m */; };
+		873EADC618EAC1610053FB9D /* CollectionActiviteCellController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADC518EAC1610053FB9D /* CollectionActiviteCellController.m */; };
+		873EADC918EACD650053FB9D /* CustomTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADC818EACD650053FB9D /* CustomTabBarSegue.m */; };
+		873EADCB18EAE54E0053FB9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873EADCA18EAE54E0053FB9D /* Main.storyboard */; };
 		87AD69DA18E9674900C9165D /* Paiement.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69D918E9674900C9165D /* Paiement.m */; };
 		87AD69DD18E9674A00C9165D /* Bateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69DC18E9674A00C9165D /* Bateau.m */; };
 		87AD69E018E9674A00C9165D /* LocationPedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69DF18E9674A00C9165D /* LocationPedalo.m */; };
@@ -61,7 +62,6 @@
 		3A35590C1885AC6700C573CE /* VBoatGestion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VBoatGestion-Prefix.pch"; sourceTree = "<group>"; };
 		3A35590D1885AC6700C573CE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3A35590E1885AC6700C573CE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3A3559111885AC6700C573CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A35591C1885AC6700C573CE /* VBoatGestionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VBoatGestionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A35591D1885AC6700C573CE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3A3559251885AC6700C573CE /* VBoatGestionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VBoatGestionTests-Info.plist"; sourceTree = "<group>"; };
@@ -76,10 +76,13 @@
 		8729530618E097D700CD9809 /* CustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTabBarViewController.m; path = ../CustomTabBarViewController.m; sourceTree = "<group>"; };
 		873EADB518E96FB10053FB9D /* Facture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facture.h; sourceTree = SOURCE_ROOT; };
 		873EADB618E96FB10053FB9D /* Facture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facture.m; sourceTree = SOURCE_ROOT; };
-		873EADBE18E9AF750053FB9D /* ActiviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiviteViewController.h; sourceTree = "<group>"; };
-		873EADBF18E9AF750053FB9D /* ActiviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiviteViewController.m; sourceTree = "<group>"; };
-		879A48EA18E0942800E8EB8D /* CustomTabBarSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarSegue.h; sourceTree = "<group>"; };
-		879A48EB18E0942800E8EB8D /* CustomTabBarSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarSegue.m; sourceTree = "<group>"; };
+		873EADC118E9BA790053FB9D /* ActiviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiviteViewController.h; path = ../ActiviteViewController.h; sourceTree = "<group>"; };
+		873EADC218E9BA790053FB9D /* ActiviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiviteViewController.m; path = ../ActiviteViewController.m; sourceTree = "<group>"; };
+		873EADC418EAC1610053FB9D /* CollectionActiviteCellController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionActiviteCellController.h; sourceTree = "<group>"; };
+		873EADC518EAC1610053FB9D /* CollectionActiviteCellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionActiviteCellController.m; sourceTree = "<group>"; };
+		873EADC718EACD650053FB9D /* CustomTabBarSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarSegue.h; sourceTree = "<group>"; };
+		873EADC818EACD650053FB9D /* CustomTabBarSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarSegue.m; sourceTree = "<group>"; };
+		873EADCA18EAE54E0053FB9D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		87AD69D818E9674900C9165D /* Paiement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paiement.h; sourceTree = "<group>"; };
 		87AD69D918E9674900C9165D /* Paiement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paiement.m; sourceTree = "<group>"; };
 		87AD69DB18E9674A00C9165D /* Bateau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bateau.h; sourceTree = "<group>"; };
@@ -163,16 +166,18 @@
 		3A3559041885AC6700C573CE /* VBoatGestion */ = {
 			isa = PBXGroup;
 			children = (
+				873EADCA18EAE54E0053FB9D /* Main.storyboard */,
 				87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */,
-				3A3559101885AC6700C573CE /* Main.storyboard */,
 				3A35590D1885AC6700C573CE /* AppDelegate.h */,
 				3A35590E1885AC6700C573CE /* AppDelegate.m */,
 				8729530518E097D700CD9809 /* CustomTabBarViewController.h */,
 				8729530618E097D700CD9809 /* CustomTabBarViewController.m */,
-				873EADBE18E9AF750053FB9D /* ActiviteViewController.h */,
-				873EADBF18E9AF750053FB9D /* ActiviteViewController.m */,
-				879A48EA18E0942800E8EB8D /* CustomTabBarSegue.h */,
-				879A48EB18E0942800E8EB8D /* CustomTabBarSegue.m */,
+				873EADC418EAC1610053FB9D /* CollectionActiviteCellController.h */,
+				873EADC518EAC1610053FB9D /* CollectionActiviteCellController.m */,
+				873EADC118E9BA790053FB9D /* ActiviteViewController.h */,
+				873EADC218E9BA790053FB9D /* ActiviteViewController.m */,
+				873EADC718EACD650053FB9D /* CustomTabBarSegue.h */,
+				873EADC818EACD650053FB9D /* CustomTabBarSegue.m */,
 				3A53038D18D8691000D36D3E /* GrilleTarifairePedalo.h */,
 				3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */,
 				3A53039018D86A0100D36D3E /* GrilleTarifaireBateau.h */,
@@ -310,9 +315,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				873EADCB18EAE54E0053FB9D /* Main.storyboard in Resources */,
 				3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */,
 				3A3559091885AC6700C573CE /* InfoPlist.strings in Resources */,
-				3A3559121885AC6700C573CE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,17 +342,18 @@
 				8729530718E097D700CD9809 /* CustomTabBarViewController.m in Sources */,
 				3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */,
 				87F3EBE818E4688600FF09C2 /* VboatCoreData.xcdatamodeld in Sources */,
+				873EADC618EAC1610053FB9D /* CollectionActiviteCellController.m in Sources */,
 				3A35590F1885AC6700C573CE /* AppDelegate.m in Sources */,
 				87AD69EC18E9674A00C9165D /* LocationBateau.m in Sources */,
 				87AD69DA18E9674900C9165D /* Paiement.m in Sources */,
-				873EADC018E9AF750053FB9D /* ActiviteViewController.m in Sources */,
+				873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */,
 				3A35590B1885AC6700C573CE /* main.m in Sources */,
-				879A48EC18E0942800E8EB8D /* CustomTabBarSegue.m in Sources */,
 				87AD69DD18E9674A00C9165D /* Bateau.m in Sources */,
 				3A53039218D86A0100D36D3E /* GrilleTarifaireBateau.m in Sources */,
 				87AD69F518E9674A00C9165D /* Pedalo.m in Sources */,
 				87AD69F818E9674A00C9165D /* Location.m in Sources */,
 				87AD69E018E9674A00C9165D /* LocationPedalo.m in Sources */,
+				873EADC918EACD650053FB9D /* CustomTabBarSegue.m in Sources */,
 				87AD69E918E9674A00C9165D /* Journee.m in Sources */,
 				87AD69EF18E9674A00C9165D /* Saison.m in Sources */,
 			);
@@ -378,14 +384,6 @@
 				3A3559081885AC6700C573CE /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		3A3559101885AC6700C573CE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3A3559111885AC6700C573CE /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		3A3559261885AC6700C573CE /* InfoPlist.strings */ = {

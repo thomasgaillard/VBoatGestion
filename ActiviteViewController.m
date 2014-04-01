@@ -7,6 +7,9 @@
 //
 
 #import "ActiviteViewController.h"
+#import "AppDelegate.h"
+#import "Embarcation.h"
+#import "CollectionActiviteCellController.h"
 
 @interface ActiviteViewController ()
 
@@ -30,13 +33,37 @@
     
     // Fetching Records and saving it in "fetchedRecordsArray" object
     self.embarcationsArray = [appDelegate getAllPayments];
-    [self.view. reloadData];
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [self.embarcationsArray count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+     CollectionActiviteCellController *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
+    
+    Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
+    myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat];
+    
+    NSLog([NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat]);
+    
+    return myCell;
 }
 
 /*

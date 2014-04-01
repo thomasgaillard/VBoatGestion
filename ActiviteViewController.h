@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
-#import "Embarcation.h"
 
-@interface ActiviteViewController : UIViewController
+@interface ActiviteViewController : UICollectionViewController
 
 @property (nonatomic,strong)NSArray* embarcationsArray;
 
