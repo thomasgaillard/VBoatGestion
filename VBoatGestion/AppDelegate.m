@@ -79,23 +79,24 @@
     
     //TEST CORE DATA
     
-    NSLog(@"Début");
-    Paiement * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Paiement"
+    /*NSLog(@"Début");
+    Pedalo * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
-    newEntry.montant = [NSDecimalNumber decimalNumberWithString:@"105"];
-    newEntry.moyenPaiement = @"cb";
+    newEntry.nom = @"Pedalo 2";
+    newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"3"];
+    newEntry.etat = @"indisponible";
     //  3
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
     NSLog(@"Fin");
-    
+    */
     self.arrayPaiements = [self getAllPayments];
     
-    Paiement *p1=[self.arrayPaiements firstObject];
-    NSDecimalNumber *dn = p1.montant;
+    //Paiement *p1=[self.arrayPaiements firstObject];
+    //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mon paiement %lu", (unsigned long)self.arrayPaiements.count);
     return YES;
 }
@@ -183,7 +184,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     //Setting Entity to be Queried
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Paiement"
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Embarcation"
                                               inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError* error;
