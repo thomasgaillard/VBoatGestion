@@ -59,9 +59,9 @@
      CollectionActiviteCellController *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
     
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
-    myCell.labelEmbarcation.text = [NSString stringWithFormat:@"Bateau : %@ %@, %@ ",embarcation,embarcation.nom,embarcation.etat];
+    myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat];
     
-    NSLog(@"Je suis censé mettre en page %@", embarcation.nom);
+    NSLog([NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat]);
     
     return myCell;
 }
