@@ -163,22 +163,20 @@
 		3A3559041885AC6700C573CE /* VBoatGestion */ = {
 			isa = PBXGroup;
 			children = (
+				87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */,
+				3A3559101885AC6700C573CE /* Main.storyboard */,
 				3A35590D1885AC6700C573CE /* AppDelegate.h */,
 				3A35590E1885AC6700C573CE /* AppDelegate.m */,
 				8729530518E097D700CD9809 /* CustomTabBarViewController.h */,
 				8729530618E097D700CD9809 /* CustomTabBarViewController.m */,
-				3A3559101885AC6700C573CE /* Main.storyboard */,
 				873EADBE18E9AF750053FB9D /* ActiviteViewController.h */,
 				873EADBF18E9AF750053FB9D /* ActiviteViewController.m */,
+				879A48EA18E0942800E8EB8D /* CustomTabBarSegue.h */,
+				879A48EB18E0942800E8EB8D /* CustomTabBarSegue.m */,
 				3A53038D18D8691000D36D3E /* GrilleTarifairePedalo.h */,
 				3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */,
 				3A53039018D86A0100D36D3E /* GrilleTarifaireBateau.h */,
 				3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */,
-				3A3559051885AC6700C573CE /* Supporting Files */,
-				879A48EA18E0942800E8EB8D /* CustomTabBarSegue.h */,
-				879A48EB18E0942800E8EB8D /* CustomTabBarSegue.m */,
-				3AF254F418E1B5E5004FB853 /* Images.xcassets */,
-				87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */,
 				873EADB518E96FB10053FB9D /* Facture.h */,
 				873EADB618E96FB10053FB9D /* Facture.m */,
 				87AD69D818E9674900C9165D /* Paiement.h */,
@@ -201,6 +199,8 @@
 				87AD69F418E9674A00C9165D /* Pedalo.m */,
 				87AD69F618E9674A00C9165D /* Location.h */,
 				87AD69F718E9674A00C9165D /* Location.m */,
+				3AF254F418E1B5E5004FB853 /* Images.xcassets */,
+				3A3559051885AC6700C573CE /* Supporting Files */,
 			);
 			path = VBoatGestion;
 			sourceTree = "<group>";
