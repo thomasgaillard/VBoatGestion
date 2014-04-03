@@ -79,15 +79,15 @@
     
     //TEST CORE DATA
     
-    /*NSLog(@"Début");
+   /* NSLog(@"Début");
     Pedalo * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
     newEntry.nom = @"Pedalo 3";
     newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"3"];
-    newEntry.etat = @"indisponible";
+    newEntry.etat = @"enlocation";
     //  3
-    [newEntry rendreDisponible];
+    //[newEntry rendreDisponible];
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);

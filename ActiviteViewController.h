@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PSTCollectionViewController.h"
 
 @interface ActiviteViewController : UICollectionViewController
 
