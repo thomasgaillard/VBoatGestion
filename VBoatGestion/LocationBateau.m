@@ -17,4 +17,9 @@
     return [NSDecimalNumber decimalNumberWithString:@"10000"];
 }
 
+-(NSString*)getNbPlacesOuType{
+    return self.type;
+}
+
+
 @end

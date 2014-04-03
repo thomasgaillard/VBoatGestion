@@ -23,4 +23,8 @@
     loc.type = self.type;
 }
 
+-(NSString*)getNbPlacesOuType{
+    return self.type;
+}
+
 @end

@@ -26,4 +26,11 @@
     loc.nbPersonnes = self.nbPlaces;
 }
 
+-(NSString*)getNbPlacesOuType{
+    return [NSString stringWithFormat:@"%@",self.nbPlaces];
+}
+
+
+
+
 @end

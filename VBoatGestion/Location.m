@@ -48,4 +48,13 @@
     return f;
 }
 
+-(void)setNbPlaces:(NSString*) nb{
+}
+-(NSString*)getNbPlacesOuType{
+    return @"Problème de type : classe Location instanciée";
+}
+
+
+
+
 @end

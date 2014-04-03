@@ -56,5 +56,12 @@
     //[self.location affecterEmbarcation: self];
 }
 
+-(NSString*)getNbPlacesOuType{
+    return @"Erreur de type : classe Embarcation instanciée";
+}
+
+
+
+
 
 @end
