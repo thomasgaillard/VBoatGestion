@@ -15,7 +15,10 @@
 
 -(void)rendreDisponible{
     [super rendreDisponible];
-    [self affecterLocation:[LocationPedalo new]];
+    LocationPedalo *lp=[NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
+                                                     inManagedObjectContext:self.managedObjectContext];
+    [self affecterLocation:lp];
+    
 }
 
 -(void)affecterLocation:(LocationPedalo*)loc{

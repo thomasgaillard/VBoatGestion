@@ -7,15 +7,25 @@
 //
 
 #import "ActiviteViewController.h"
-#import "AppDelegate.h"
 #import "Embarcation.h"
-#import "CollectionActiviteCellController.h"
+#import "AppDelegate.h"
+#import "ActiviteCollectionViewCell.h"
+#import "ActiviteModalEmbarcation.h"
+#import "Location.h"
 
-@interface ActiviteViewController ()
 
+//NSString *kCellID = @"MonEmbarcation";                          // UICollectionViewCell storyboard id
+
+@interface ActiviteViewController (){
+
+NSMutableArray *_sections;
+    
+}
 @end
 
 @implementation ActiviteViewController
+
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,25 +66,43 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-     CollectionActiviteCellController *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
+    ActiviteCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
     
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat];
     
     NSLog([NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat]);
     
+    
+    AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
     return myCell;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"modalInfosEmbarcation"]) {
+        NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
+        ActiviteModalEmbarcation *destViewController = segue.destinationViewController;
+        NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
+        
+        Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
+        //myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat];
+        NSLog(@"%@",embarcation.nom);
+        destViewController.embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
+        [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+    }
 }
-*/
+
 
 @end

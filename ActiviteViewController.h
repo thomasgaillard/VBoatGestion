@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PSTCollectionViewController.h"
 
 @interface ActiviteViewController : UICollectionViewController
 
 @property (nonatomic,strong)NSArray* embarcationsArray;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 
 @end

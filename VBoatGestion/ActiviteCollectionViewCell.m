@@ -1,14 +1,14 @@
 //
-//  CollectionActiviteCellController.m
+//  ActiviteCollectionViewCell.m
 //  VBoatGestion
 //
-//  Created by Maxence Mermoz on 01/04/2014.
+//  Created by Maxence Mermoz on 02/04/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
-#import "CollectionActiviteCellController.h"
+#import "ActiviteCollectionViewCell.h"
 
-@implementation CollectionActiviteCellController
+@implementation ActiviteCollectionViewCell
 
 - (id)initWithFrame:(CGRect)frame
 {

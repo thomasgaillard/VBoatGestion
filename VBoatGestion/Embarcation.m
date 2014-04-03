@@ -9,6 +9,7 @@
 #import "Embarcation.h"
 #import "Facture.h"
 #import "Location.h"
+#import "AppDelegate.h"
 
 
 @implementation Embarcation
@@ -36,13 +37,23 @@
 }
 
 -(void)rendreDisponible{
+    
+    //AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
+    //self.managedObjectContext = appDelegate.managedObjectContext;
+
+    //self.location = appDelegate.returnInstantiateLoc;
+    self.location.remarque=@"C222 :)";
     self.etat=@"disponible";
+    
+    
+    
+    
     NSLog(@"Fonction disponible, etat : %@",self.etat);
 }
 
 -(void)affecterLocation:(Location*)loc{
-    self.location = loc;
-    [self.location affecterEmbarcation: self];
+    //self.location = loc;
+    //[self.location affecterEmbarcation: self];
 }
 
 

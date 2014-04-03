@@ -9,6 +9,7 @@
 #import "Location.h"
 #import "Embarcation.h"
 #import "Facture.h"
+#import "AppDelegate.h"
 
 
 @implementation Location
@@ -32,7 +33,7 @@
 
 -(void)affecterEmbarcation:(Embarcation*)emb{
     NSLog(@"Loc affecter embarcation");
-    self.embarcation = emb;
+    //self.embarcation = emb;
 }
 
 -(NSDecimalNumber*)calculerPrix{

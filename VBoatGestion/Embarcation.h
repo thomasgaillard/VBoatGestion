@@ -17,6 +17,8 @@
 @property (nonatomic, retain) NSString * nom;
 @property (nonatomic, retain) Location *location;
 
+
+
 -(void)depart;
 -(Facture*)retour;
 -(void)rendreIndisponible;

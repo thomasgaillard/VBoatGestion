@@ -83,21 +83,28 @@
     Pedalo * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
-    newEntry.nom = @"Pedalo 2";
+    newEntry.nom = @"Pedalo 3";
     newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"3"];
     newEntry.etat = @"indisponible";
     //  3
+    [newEntry rendreDisponible];
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-    NSLog(@"Fin");
-    */
+    NSLog(@"Fin");*/
+    
     self.arrayPaiements = [self getAllPayments];
     
     //Paiement *p1=[self.arrayPaiements firstObject];
     //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mon paiement %lu", (unsigned long)self.arrayPaiements.count);
+    
+    self.arrayLocs = [self getAllLocs];
+    
+    //Paiement *p1=[self.arrayPaiements firstObject];
+    //NSDecimalNumber *dn = p1.montant;
+    NSLog(@"Mes locs %lu", (unsigned long)self.arrayLocs.count);
     return YES;
 }
 
@@ -194,6 +201,31 @@
     
     // Returning Fetched Records
     return fetchedRecords;
+}
+
+-(NSArray*)getAllLocs
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Location"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+
+-(Location*)returnInstantiateLoc
+{
+    Location *loc = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
+                                                inManagedObjectContext:self.managedObjectContext];
+    return loc;
 }
 
 
