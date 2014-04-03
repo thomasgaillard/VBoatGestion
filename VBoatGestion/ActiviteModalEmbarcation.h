@@ -17,9 +17,8 @@
 
 @property (nonatomic, strong)Embarcation *embarcation ;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 
-@property (weak, nonatomic) IBOutlet UILabel *nomEmbarcation;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 @property (weak, nonatomic) IBOutlet UILabel *etatEmbarcation;
 @property (weak, nonatomic) IBOutlet UITextField *remarquesLoc;
 @property (weak, nonatomic) IBOutlet UITextField *hDebutLoc;
@@ -33,5 +32,11 @@
 
 - (IBAction)closeModalButton:(id)sender;
 - (IBAction)saveModalInfos:(id)sender;
+- (IBAction)startLoc:(id)sender;
+- (IBAction)stopLoc:(id)sender;
+- (IBAction)indispoEmb:(id)sender;
+- (IBAction)dispoEmb:(id)sender;
+
+-(void)saveContext;
 
 @end

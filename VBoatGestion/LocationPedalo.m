@@ -96,8 +96,8 @@
     self.nbPersonnes = nbPersonnes;
 }
 
--(void)setNbPlaces:(NSString*) nb{
-    NSDecimalNumber *places = [NSDecimalNumber decimalNumberWithString:nb];
+-(void)setNbPlacesOuType:(NSString*) nbOuType{
+    NSDecimalNumber *places = [NSDecimalNumber decimalNumberWithString:nbOuType];
     self.nbPersonnes = places;
 }
 

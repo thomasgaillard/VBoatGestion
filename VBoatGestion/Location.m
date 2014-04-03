@@ -33,7 +33,7 @@
 
 -(void)affecterEmbarcation:(Embarcation*)emb{
     NSLog(@"Loc affecter embarcation");
-    //self.embarcation = emb;
+    self.embarcation = emb;
 }
 
 -(NSDecimalNumber*)calculerPrix{
@@ -48,7 +48,7 @@
     return f;
 }
 
--(void)setNbPlaces:(NSString*) nb{
+-(void)setNbPlacesOuType:(NSString*) nbOuType{
 }
 -(NSString*)getNbPlacesOuType{
     return @"Problème de type : classe Location instanciée";

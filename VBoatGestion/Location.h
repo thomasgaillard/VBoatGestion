@@ -24,7 +24,7 @@
 -(void)affecterEmbarcation:(Embarcation*)emb;
 -(NSDecimalNumber*)calculerPrix;
 -(Facture*)creerFacture;
--(void)setNbPlaces:(NSString*) nb;
+-(void)setNbPlacesOuType:(NSString*) nbOuType;
 -(NSString*)getNbPlacesOuType;
 
 

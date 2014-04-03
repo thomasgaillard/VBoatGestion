@@ -14,11 +14,7 @@
 @dynamic nbPlaces;
 
 -(void)rendreDisponible{
-    [super rendreDisponible];
-    LocationPedalo *lp=[NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
-                                                     inManagedObjectContext:self.managedObjectContext];
-    [self affecterLocation:lp];
-    
+    [super rendreDisponible];    
 }
 
 -(void)affecterLocation:(LocationPedalo*)loc{

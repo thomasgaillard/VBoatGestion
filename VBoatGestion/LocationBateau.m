@@ -21,5 +21,8 @@
     return self.type;
 }
 
+-(void)setNbPlacesOuType:(NSString*) nbOuType{
+    self.type = nbOuType;
+}
 
 @end

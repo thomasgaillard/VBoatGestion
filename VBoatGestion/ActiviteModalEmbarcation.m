@@ -92,14 +92,42 @@
 
 - (IBAction)saveModalInfos:(id)sender {
     
-    [self.embarcation.location setNbPlaces:self.nbPersonnesLoc.text];
+    [self.embarcation.location setNbPlacesOuType:self.nbPersonnesLoc.text];
     self.embarcation.location.remarque = self.remarquesLoc.text;
     
+    [self saveContext];
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)startLoc:(id)sender {
+    [self.embarcation depart];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)stopLoc:(id)sender {
+    [self.embarcation retour];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)indispoEmb:(id)sender {
+    [self.embarcation rendreIndisponible];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)dispoEmb:(id)sender {
+    Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
+                                                inManagedObjectContext:self.managedObjectContext];
+    self.embarcation.location = l;
+    [self.embarcation rendreDisponible];
+    [self saveContext];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)saveContext{
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-    
-    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 @end
