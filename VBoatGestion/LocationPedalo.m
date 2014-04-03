@@ -96,4 +96,14 @@
     self.nbPersonnes = nbPersonnes;
 }
 
+-(void)setNbPlacesOuType:(NSString*) nbOuType{
+    NSDecimalNumber *places = [NSDecimalNumber decimalNumberWithString:nbOuType];
+    self.nbPersonnes = places;
+}
+
+-(NSString*)getNbPlacesOuType{
+    return [NSString stringWithFormat:@"%@",self.nbPersonnes];;
+}
+
+
 @end

@@ -37,16 +37,11 @@
 }
 
 -(void)rendreDisponible{
-    
-    //AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
-    //self.managedObjectContext = appDelegate.managedObjectContext;
-
-    //self.location = appDelegate.returnInstantiateLoc;
-    self.location.remarque=@"C222 :)";
+    self.location.remarque=@"Nouvelle location";
     self.etat=@"disponible";
     
-    
-    
+    [self.location setNbPlacesOuType:[self getNbPlacesOuType]];
+    [self.location affecterEmbarcation:self];
     
     NSLog(@"Fonction disponible, etat : %@",self.etat);
 }
@@ -55,6 +50,13 @@
     //self.location = loc;
     //[self.location affecterEmbarcation: self];
 }
+
+-(NSString*)getNbPlacesOuType{
+    return @"Erreur de type : classe Embarcation instanciée";
+}
+
+
+
 
 
 @end

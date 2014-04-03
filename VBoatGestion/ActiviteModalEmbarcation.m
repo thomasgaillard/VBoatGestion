@@ -30,16 +30,39 @@
     //Remplissage Label
     //self.labelModal.text=[NSString stringWithFormat:@"Nom: %@, Etat: %@, Remarques loc: %@",self.embarcation.nom, self.embarcation.etat, self.embarcation.location.remarque];
     
-    self.nomEmbarcation.text = self.embarcation.nom;
+    /*[self.embarcation depart];
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }*/
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    [formatter setDateFormat:@"HH:mm"];
+    
+    self.navBar.title = self.embarcation.nom;
     self.etatEmbarcation.text = self.embarcation.etat;
-    //NB PLACES
-    //TYPE
+    self.typeOuNb.text = [self.embarcation getNbPlacesOuType];
     
     self.remarquesLoc.text = self.embarcation.location.remarque;
     //PBS DATES
-    self.hDebutLoc.text = self.embarcation.location.heureDebut;
-    self.hFinLoc.text = self.embarcation.location.heureFin;
-    //NB PERSONNES
+    NSLog(@"%@",self.embarcation.location.heureDebut);
+    self.hDebutLoc.text = [formatter stringFromDate:self.embarcation.location.heureDebut];
+    self.hFinLoc.text = [formatter stringFromDate:self.embarcation.location.heureFin];
+    
+    self.nbPersonnesLoc.text = [self.embarcation.location getNbPlacesOuType];
+    
+    if ([self.embarcation isKindOfClass:[Pedalo class]])
+    {
+        self.typeLabel.hidden = YES;
+        self.titreLabel.text = @"Location de Pédalo";
+    }
+    else if ([self.embarcation isKindOfClass:[Bateau class]]){
+        self.nbPlacesLabel.hidden = YES;
+        self.nbPersonnesLoc.hidden = YES;
+        self.nbPersonnesLocLabel.hidden = YES;
+        self.titreLabel.text = @"Location de Bateau";
+    }
 
     
     AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
@@ -69,13 +92,42 @@
 
 - (IBAction)saveModalInfos:(id)sender {
     
+    [self.embarcation.location setNbPlacesOuType:self.nbPersonnesLoc.text];
     self.embarcation.location.remarque = self.remarquesLoc.text;
-        
+    
+    [self saveContext];
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)startLoc:(id)sender {
+    [self.embarcation depart];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)stopLoc:(id)sender {
+    [self.embarcation retour];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)indispoEmb:(id)sender {
+    [self.embarcation rendreIndisponible];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)dispoEmb:(id)sender {
+    Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
+                                                inManagedObjectContext:self.managedObjectContext];
+    self.embarcation.location = l;
+    [self.embarcation rendreDisponible];
+    [self saveContext];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)saveContext{
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-    
-    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 @end

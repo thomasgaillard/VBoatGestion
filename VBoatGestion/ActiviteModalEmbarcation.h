@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Embarcation.h"
+#import "Pedalo.h"
+#import "Bateau.h"
 #import "Location.h"
 #import "AppDelegate.h"
 
@@ -16,16 +18,25 @@
 @property (nonatomic, strong)Embarcation *embarcation ;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
-@property (weak, nonatomic) IBOutlet UILabel *nomEmbarcation;
+@property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 @property (weak, nonatomic) IBOutlet UILabel *etatEmbarcation;
-@property (weak, nonatomic) IBOutlet UILabel *nbPlacesPedalo;
 @property (weak, nonatomic) IBOutlet UITextField *remarquesLoc;
 @property (weak, nonatomic) IBOutlet UITextField *hDebutLoc;
 @property (weak, nonatomic) IBOutlet UITextField *hFinLoc;
 @property (weak, nonatomic) IBOutlet UITextField *nbPersonnesLoc;
-@property (weak, nonatomic) IBOutlet UILabel *typeBateau;
+@property (weak, nonatomic) IBOutlet UILabel *typeOuNb;
+@property (weak, nonatomic) IBOutlet UILabel *nbPlacesLabel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *nbPersonnesLocLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titreLabel;
 
 - (IBAction)closeModalButton:(id)sender;
 - (IBAction)saveModalInfos:(id)sender;
+- (IBAction)startLoc:(id)sender;
+- (IBAction)stopLoc:(id)sender;
+- (IBAction)indispoEmb:(id)sender;
+- (IBAction)dispoEmb:(id)sender;
+
+-(void)saveContext;
 
 @end

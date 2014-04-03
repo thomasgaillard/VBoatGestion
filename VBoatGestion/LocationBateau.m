@@ -17,4 +17,12 @@
     return [NSDecimalNumber decimalNumberWithString:@"10000"];
 }
 
+-(NSString*)getNbPlacesOuType{
+    return self.type;
+}
+
+-(void)setNbPlacesOuType:(NSString*) nbOuType{
+    self.type = nbOuType;
+}
+
 @end

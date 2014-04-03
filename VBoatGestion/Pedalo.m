@@ -14,16 +14,19 @@
 @dynamic nbPlaces;
 
 -(void)rendreDisponible{
-    [super rendreDisponible];
-    LocationPedalo *lp=[NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
-                                                     inManagedObjectContext:self.managedObjectContext];
-    [self affecterLocation:lp];
-    
+    [super rendreDisponible];    
 }
 
 -(void)affecterLocation:(LocationPedalo*)loc{
     [super affecterLocation:loc];
     loc.nbPersonnes = self.nbPlaces;
 }
+
+-(NSString*)getNbPlacesOuType{
+    return [NSString stringWithFormat:@"%@",self.nbPlaces];
+}
+
+
+
 
 @end
