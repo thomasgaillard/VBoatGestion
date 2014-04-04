@@ -200,7 +200,7 @@
             <objects>
                 <tabBarController definesPresentationContext="YES" id="DD1-ZN-nXt" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="XNb-1b-6Vj"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="6Qh-mL-kSZ">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -238,14 +238,14 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem id="awU-3Z-sRv">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="z24-Ve-dTn">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="z24-Ve-dTn">
                                             <connections>
-                                                <action selector="saveModalInfos:" destination="8M8-iR-nGR" id="nPV-LI-Hcf"/>
+                                                <action selector="closeModal:" destination="8M8-iR-nGR" id="AKd-VO-Qsw"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="z0l-7p-0l0">
+                                        <barButtonItem key="rightBarButtonItem" title="Valider" id="z0l-7p-0l0">
                                             <connections>
-                                                <action selector="closeModalButton:" destination="8M8-iR-nGR" id="cW7-hJ-VGW"/>
+                                                <action selector="saveModalInfos:" destination="8M8-iR-nGR" id="A60-xG-Kg6"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -388,14 +388,18 @@
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="0.0" height="0.0"/>
                     <connections>
+                        <outlet property="dispoEmbBtn" destination="b8j-HO-dAO" id="SGF-iR-8A7"/>
                         <outlet property="etatEmbarcation" destination="PQh-lj-5pk" id="b5p-1T-1iw"/>
                         <outlet property="hDebutLoc" destination="xir-fL-Etf" id="NPO-Av-b7D"/>
                         <outlet property="hFinLoc" destination="xiF-7M-QZL" id="xOz-28-wbE"/>
+                        <outlet property="indispoEmbBtn" destination="VvH-D9-Lhl" id="p7G-SP-y74"/>
                         <outlet property="navBar" destination="awU-3Z-sRv" id="cKO-Pg-R8a"/>
                         <outlet property="nbPersonnesLoc" destination="NLS-Bt-keB" id="1Jm-kU-28S"/>
                         <outlet property="nbPersonnesLocLabel" destination="Osn-e8-SQu" id="U6d-rr-N7c"/>
                         <outlet property="nbPlacesLabel" destination="t3M-Sb-AO7" id="gUO-de-fWN"/>
                         <outlet property="remarquesLoc" destination="PgW-7a-2pq" id="4lu-Oh-mk0"/>
+                        <outlet property="startLocBtn" destination="2T8-1q-Jyf" id="WaK-Ar-WJt"/>
+                        <outlet property="stopLocBtn" destination="IcL-1n-W3l" id="zR3-Cg-NnO"/>
                         <outlet property="titreLabel" destination="kbR-3o-mMd" id="ZpY-ib-4QD"/>
                         <outlet property="typeLabel" destination="uJz-8C-by5" id="ta9-yE-Dvz"/>
                         <outlet property="typeOuNb" destination="L2E-UK-Fl1" id="48M-t5-TWE"/>
@@ -403,7 +407,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ZZ-wf-8Dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2766" y="-8645"/>
+            <point key="canvasLocation" x="-2715" y="-8633"/>
         </scene>
         <!--Activite View Controller-->
         <scene sceneID="7LZ-4F-6Bz">

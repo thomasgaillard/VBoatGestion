@@ -45,8 +45,7 @@
     self.typeOuNb.text = [self.embarcation getNbPlacesOuType];
     
     self.remarquesLoc.text = self.embarcation.location.remarque;
-    //PBS DATES
-    NSLog(@"%@",self.embarcation.location.heureDebut);
+
     self.hDebutLoc.text = [formatter stringFromDate:self.embarcation.location.heureDebut];
     self.hFinLoc.text = [formatter stringFromDate:self.embarcation.location.heureFin];
     
@@ -63,7 +62,19 @@
         self.nbPersonnesLocLabel.hidden = YES;
         self.titreLabel.text = @"Location de Bateau";
     }
-
+    
+    if([self.embarcation.etat  isEqual: @"enlocation"]){
+        self.indispoEmbBtn.enabled = NO ;
+        self.dispoEmbBtn.enabled = NO ;
+        self.startLocBtn.enabled = NO ;
+    }else if([self.embarcation.etat  isEqual: @"disponible"]){
+        self.dispoEmbBtn.enabled = NO ;
+        self.stopLocBtn.enabled = NO ;
+    }else if([self.embarcation.etat  isEqual: @"indisponible"]){
+        self.indispoEmbBtn.enabled = NO ;
+        self.stopLocBtn.enabled = NO ;
+        self.startLocBtn.enabled = NO ;
+    }
     
     AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
     self.managedObjectContext = appDelegate.managedObjectContext;
@@ -86,14 +97,11 @@
 }
 */
 
-- (IBAction)closeModalButton:(id)sender {
+- (IBAction)closeModal:(id)sender {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)saveModalInfos:(id)sender {
-    
-    [self.embarcation.location setNbPlacesOuType:self.nbPersonnesLoc.text];
-    self.embarcation.location.remarque = self.remarquesLoc.text;
     
     [self saveContext];
     
@@ -102,20 +110,32 @@
 
 - (IBAction)startLoc:(id)sender {
     [self.embarcation depart];
+    [self saveInfos];
+    [self saveContext];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)stopLoc:(id)sender {
-    [self.embarcation retour];
+    [self saveInfos];
+    Facture *f = [NSEntityDescription insertNewObjectForEntityForName:@"Facture"
+                                               inManagedObjectContext:self.managedObjectContext];
+    [self.embarcation.location cloturerLocation:f];
+    Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
+                                                inManagedObjectContext:self.managedObjectContext];
+    self.embarcation.location = l;
+    [self.embarcation rendreDisponible];
+    [self saveContext];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)indispoEmb:(id)sender {
     [self.embarcation rendreIndisponible];
+    [self saveContext];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)dispoEmb:(id)sender {
+    
     Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
                                                 inManagedObjectContext:self.managedObjectContext];
     self.embarcation.location = l;
@@ -129,5 +149,10 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
+}
+
+-(void)saveInfos{
+    [self.embarcation.location setNbPlacesOuType:self.nbPersonnesLoc.text];
+    self.embarcation.location.remarque = self.remarquesLoc.text;
 }
 @end

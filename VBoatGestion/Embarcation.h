@@ -20,7 +20,6 @@
 
 
 -(void)depart;
--(Facture*)retour;
 -(void)rendreIndisponible;
 -(void)rendreDisponible;
 -(void)affecterLocation:(Location*) loc;

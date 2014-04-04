@@ -42,7 +42,7 @@ NSMutableArray *_sections;
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     
     // Fetching Records and saving it in "fetchedRecordsArray" object
-    self.embarcationsArray = [appDelegate getAllPayments];
+    self.embarcationsArray = [appDelegate getAllEmbarcations];
     [self.collectionView reloadData];
 }
 
@@ -101,6 +101,7 @@ NSMutableArray *_sections;
         NSLog(@"%@",embarcation.nom);
         destViewController.embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
         [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+        [self.collectionView reloadData];
     }
 }
 

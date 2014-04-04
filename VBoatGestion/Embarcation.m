@@ -24,12 +24,6 @@
     [self.location lancerLocation];
 }
 
--(Facture*)retour{
-    Facture *f=[self.location cloturerLocation];
-    [self rendreDisponible];
-    return f;
-}
-
 -(void)rendreIndisponible{
     self.etat=@"indisponible";
     NSLog(@"Fonction indisponible, etat : %@",self.etat);
