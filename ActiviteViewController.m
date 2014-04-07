@@ -9,6 +9,8 @@
 #import "ActiviteViewController.h"
 #import "Embarcation.h"
 #import "AppDelegate.h"
+#import "LocationPedalo.h"
+#import "LocationBateau.h"
 #import "ActiviteCollectionViewCell.h"
 #import "ActiviteModalEmbarcation.h"
 #import "Location.h"
@@ -111,6 +113,18 @@ NSMutableArray *_sections;
     
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(singleClik:)];
+    singleTap.numberOfTapsRequired = 1;
+    
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doubleClik:)];
+    doubleTap.numberOfTapsRequired = 2;
+    
+    
+    [singleTap requireGestureRecognizerToFail:doubleTap];
+    [myCell addGestureRecognizer:doubleTap];
+[myCell addGestureRecognizer:singleTap];
+    
+    
     //background
     if([embarcation isKindOfClass:[Pedalo class]]){
         if([embarcation.etat isEqualToString:@"enlocation"])
@@ -183,5 +197,64 @@ NSMutableArray *_sections;
     }
 }
 
+-(void)saveContext{
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
 
+- (IBAction)singleClik:(id)sender {
+    NSLog(@"click");
+    NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
+    ActiviteModalEmbarcation *destViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"modalActivite"];
+    NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
+    
+    Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
+    //myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat];
+    NSLog(@"%@",embarcation.nom);
+    destViewController.embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
+    
+    [self presentModalViewController:destViewController animated:YES];
+
+    [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+    [self.collectionView reloadData];
+}
+
+- (void)affecterLocation:(Embarcation*)embarcation{
+    if([embarcation isKindOfClass:[Bateau class]]){
+        LocationBateau *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationBateau" inManagedObjectContext:self.managedObjectContext];
+        embarcation.location = l;
+    }
+    else{
+        LocationPedalo *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
+                                                    inManagedObjectContext:self.managedObjectContext];
+        embarcation.location = l;
+    }
+
+}
+
+- (IBAction)doubleClik:(id)sender {
+NSLog(@"dddddclick");
+    NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
+    NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
+    Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
+    
+    if([embarcation.etat isEqualToString:@"indisponible"]){
+        [self affecterLocation:embarcation];
+        [embarcation rendreDisponible];
+        
+    }
+    else if([embarcation.etat isEqualToString:@"disponible"]){
+        [embarcation depart];
+    }
+    else{
+        Facture *f = [NSEntityDescription insertNewObjectForEntityForName:@"Facture" inManagedObjectContext:self.managedObjectContext];
+        [embarcation.location cloturerLocation:f];
+        [self affecterLocation:embarcation];
+        [embarcation rendreDisponible];
+    }
+    [self saveContext];
+    [self.collectionView reloadData];
+}
 @end
