@@ -91,16 +91,6 @@ NSMutableArray *_sections;
     
     NSLog([NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat]);
     
-    for (NSString* family in [UIFont familyNames])
-    {
-        NSLog(@"%@", family);
-        
-        for (NSString* name in [UIFont fontNamesForFamilyName: family])
-        {
-            NSLog(@"  %@", name);
-        }
-    }
-    
     AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
     self.managedObjectContext = appDelegate.managedObjectContext;
     

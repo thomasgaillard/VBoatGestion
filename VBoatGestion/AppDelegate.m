@@ -14,6 +14,8 @@
 #import "Location.h"
 #import "GrilleTarifairePedalo.h"
 #import "Paiement.h"
+#import "FacturationDetailsViewController.h"
+#import "FacturationTableViewController.h"
 
 @implementation AppDelegate
 
@@ -80,7 +82,7 @@
     
     //TEST CORE DATA
     
-    NSLog(@"Début");
+    /*NSLog(@"Début");
     Bateau * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Bateau"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
@@ -93,7 +95,7 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-    NSLog(@"Fin");
+    NSLog(@"Fin");*/
     
     self.arrayEmbarcations = [self getAllEmbarcations];
     
@@ -112,16 +114,6 @@
     //Paiement *p1=[self.arrayPaiements firstObject];
     //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mes factures %lu", (unsigned long)self.arrayFacts.count);
-    
-    for (NSString* family in [UIFont familyNames])
-    {
-        NSLog(@"%@", family);
-        
-        for (NSString* name in [UIFont fontNamesForFamilyName: family])
-        {
-            NSLog(@"  %@", name);
-        }
-    }
     
     return YES;
 }
