@@ -82,13 +82,13 @@
     
     //TEST CORE DATA
     
-   /* NSLog(@"Début");
+    /*NSLog(@"Début");
     Pedalo * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
-    newEntry.nom = @"Solarium 10";
+    newEntry.nom = @"Pedalo 1";
     newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"2"];
-    newEntry.etat = @"disponible";
+    newEntry.etat = @"indisponible";
     //  3
     //[newEntry rendreDisponible];
     NSError *error;
@@ -96,6 +96,8 @@
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
     NSLog(@"Fin");*/
+    
+    [GrilleTarifairePedalo tableauPrices];
     
     self.arrayEmbarcations = [self getAllEmbarcations];
     
@@ -179,7 +181,7 @@
         return _persistentStoreCoordinator;
     }
     NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
-                                               stringByAppendingPathComponent: @"VBoatGestion.sqlite"]];
+                                               stringByAppendingPathComponent: @"VBoat-Gestion.sqlite"]];
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
                                    initWithManagedObjectModel:[self managedObjectModel]];

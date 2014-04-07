@@ -376,8 +376,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vln-6U-aA8">
-                                <rect key="frame" x="298" y="345" width="157" height="21"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bu1-wH-RE2">
+                                <rect key="frame" x="0.0" y="0.0" width="703" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
@@ -393,12 +393,15 @@
                     <toolbarItems/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
-                        <outlet property="labelFacture" destination="vln-6U-aA8" id="7lt-A8-pp7"/>
+                        <outlet property="chaqueLocsFacture" destination="xP7-uW-f9H" id="VjS-HR-28B"/>
+                        <outlet property="etatTxt" destination="vln-6U-aA8" id="p68-Gr-KLb"/>
+                        <outlet property="prixTxt" destination="GMh-ws-pBh" id="2Ro-eQ-wRX"/>
+                        <outlet property="remarquesTxt" destination="XZr-kM-Lhu" id="oLH-nq-dgv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUV-bU-mdI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2206" y="-6827"/>
+            <point key="canvasLocation" x="-2200" y="-6873"/>
         </scene>
         <!--Facturation Table View Controller-->
         <scene sceneID="z0T-Ly-NWV">

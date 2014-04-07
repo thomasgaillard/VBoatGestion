@@ -47,13 +47,52 @@
 }
 */
 -(void)rafraichir{
-    self.labelFacture.text=self.facture.etat;
+    self.etatTxt.text=self.facture.etat;
+    self.remarquesTxt.text=self.facture.remarque;
+    self.prixTxt.text=[NSString stringWithFormat:@"%@ ",self.facture.prixTotal];
+    NSLog(@"Compte : %lu",(unsigned long)[self.facture.locations count]);
+    self.listeLocations=[self.facture.locations allObjects];
 }
 
 -(void)selectedFacture:(Facture *)facture
 {
     self.facture=facture;
     [self rafraichir];
+    [self.chaqueLocsFacture reloadData];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    NSLog(@"COUNT : %lu",(unsigned long)[self.listeLocations count]);
+    return [self.listeLocations count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    [formatter setDateFormat:@"HH:mm"];
+    
+    FacturationTableViewLocationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MaLocPedalo" forIndexPath:indexPath];
+    NSLog(@"coucou");
+    Location * loc = [self.listeLocations objectAtIndex:indexPath.row];
+    cell.nomEmbarcation.text=loc.embarcation.nom;
+    cell.heureDebut.text=[formatter stringFromDate:loc.heureDebut];
+    cell.heureFin.text=[formatter stringFromDate:loc.heureFin];
+    cell.nbPersonnes.text=[loc getNbPlacesOuType];
+    cell.remarques.text=loc.remarque;
+    cell.prix.text=[NSString stringWithFormat:@"%@€",[loc calculerPrix]];
+    //NSLog([NSString stringWithFormat:@"%@, %@ ",facture.locations,facture.etat]);
+    
+    return cell;
 }
 
 @end

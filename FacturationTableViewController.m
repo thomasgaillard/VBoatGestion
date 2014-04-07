@@ -75,8 +75,10 @@
     if([facture.locations count]==1){
         Location *loc = [facture.locations anyObject];
         cell.labelFacture.text = [NSString stringWithFormat:@"%@ ",loc.embarcation.nom];
-        NSLog([NSString stringWithFormat:@"%@ ",loc.embarcation]);
+        NSLog([NSString stringWithFormat:@"%@ ",loc.heureFin]);
         NSLog([NSString stringWithFormat:@"%@ ",loc.embarcation.nom]);
+    } else {
+        cell.labelFacture.text = @"Locations multiples";
     }
     //NSLog([NSString stringWithFormat:@"%@, %@ ",facture.locations,facture.etat]);
     

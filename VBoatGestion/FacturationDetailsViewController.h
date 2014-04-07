@@ -7,13 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Location.h"
 #import "Facture.h"
+#import "Embarcation.h"
 #import "FacturationSelectionDelegate.h"
+#import "FacturationTableViewLocationCell.h"
 
-@interface FacturationDetailsViewController : UIViewController <FacturationSelectionDelegate>
+@interface FacturationDetailsViewController : UIViewController <FacturationSelectionDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) Facture *facture;
-@property (weak, nonatomic) IBOutlet UILabel *labelFacture;
+@property (strong, nonatomic) NSArray *listeLocations;
+@property (weak, nonatomic) IBOutlet UILabel *prixTxt;
+@property (weak, nonatomic) IBOutlet UILabel *etatTxt;
+@property (weak, nonatomic) IBOutlet UITextField *remarquesTxt;
+@property (weak, nonatomic) IBOutlet UITableView *chaqueLocsFacture;
 
 -(void)rafraichir;
 @end
