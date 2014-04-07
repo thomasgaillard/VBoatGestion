@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Journee.h"
 #import "Pedalo.h"
+#import "Bateau.h"
 #import "Facture.h"
 #import "Location.h"
 #import "GrilleTarifairePedalo.h"
@@ -79,20 +80,20 @@
     
     //TEST CORE DATA
     
-   /* NSLog(@"Début");
-    Pedalo * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
+    NSLog(@"Début");
+    Bateau * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Bateau"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
-    newEntry.nom = @"Pedalo 3";
-    newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"3"];
-    newEntry.etat = @"enlocation";
+    newEntry.nom = @"Bateau 5";
+    newEntry.type = @"marinello";
+    newEntry.etat = @"indisponible";
     //  3
     //[newEntry rendreDisponible];
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-    NSLog(@"Fin");*/
+    NSLog(@"Fin");
     
     self.arrayEmbarcations = [self getAllEmbarcations];
     

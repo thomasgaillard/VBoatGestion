@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A10D98E18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A10D98D18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf */; };
+		3A10D98F18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A10D98D18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf */; };
 		3A3558FF1885AC6700C573CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3558FE1885AC6700C573CE /* Foundation.framework */; };
 		3A3559011885AC6700C573CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3559001885AC6700C573CE /* CoreGraphics.framework */; };
 		3A3559031885AC6700C573CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3559021885AC6700C573CE /* UIKit.framework */; };
@@ -21,10 +23,8 @@
 		3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */; };
 		3A53039218D86A0100D36D3E /* GrilleTarifaireBateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */; };
 		3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF254F418E1B5E5004FB853 /* Images.xcassets */; };
-		8729530718E097D700CD9809 /* CustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8729530618E097D700CD9809 /* CustomTabBarViewController.m */; };
 		873EADB718E96FB10053FB9D /* Facture.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADB618E96FB10053FB9D /* Facture.m */; };
 		873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADC218E9BA790053FB9D /* ActiviteViewController.m */; };
-		873EADC918EACD650053FB9D /* CustomTabBarSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADC818EACD650053FB9D /* CustomTabBarSegue.m */; };
 		873EADCB18EAE54E0053FB9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873EADCA18EAE54E0053FB9D /* Main.storyboard */; };
 		8794B44018EC4FAC00217F47 /* ActiviteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */; };
 		8794B44318EC58E700217F47 /* ActiviteModalEmbarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8794B44218EC58E700217F47 /* ActiviteModalEmbarcation.m */; };
@@ -55,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A10D98D18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Regular.otf"; sourceTree = "<group>"; };
 		3A3558FB1885AC6700C573CE /* VBoatGestion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VBoatGestion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3558FE1885AC6700C573CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3A3559001885AC6700C573CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -75,14 +76,10 @@
 		3A53039018D86A0100D36D3E /* GrilleTarifaireBateau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrilleTarifaireBateau.h; sourceTree = "<group>"; };
 		3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrilleTarifaireBateau.m; sourceTree = "<group>"; };
 		3AF254F418E1B5E5004FB853 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		8729530518E097D700CD9809 /* CustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTabBarViewController.h; path = ../CustomTabBarViewController.h; sourceTree = "<group>"; };
-		8729530618E097D700CD9809 /* CustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTabBarViewController.m; path = ../CustomTabBarViewController.m; sourceTree = "<group>"; };
 		873EADB518E96FB10053FB9D /* Facture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facture.h; sourceTree = SOURCE_ROOT; };
 		873EADB618E96FB10053FB9D /* Facture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facture.m; sourceTree = SOURCE_ROOT; };
 		873EADC118E9BA790053FB9D /* ActiviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiviteViewController.h; path = ../ActiviteViewController.h; sourceTree = "<group>"; };
 		873EADC218E9BA790053FB9D /* ActiviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiviteViewController.m; path = ../ActiviteViewController.m; sourceTree = "<group>"; };
-		873EADC718EACD650053FB9D /* CustomTabBarSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarSegue.h; sourceTree = "<group>"; };
-		873EADC818EACD650053FB9D /* CustomTabBarSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarSegue.m; sourceTree = "<group>"; };
 		873EADCA18EAE54E0053FB9D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8794B43E18EC4FAC00217F47 /* ActiviteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiviteCollectionViewCell.h; sourceTree = "<group>"; };
 		8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiviteCollectionViewCell.m; sourceTree = "<group>"; };
@@ -141,6 +138,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A10D98C18F2A3F300CEF1A9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A10D98D18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		3A3558F21885AC6700C573CE = {
 			isa = PBXGroup;
 			children = (
@@ -175,12 +180,10 @@
 		3A3559041885AC6700C573CE /* VBoatGestion */ = {
 			isa = PBXGroup;
 			children = (
-				87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */,
 				3A35590D1885AC6700C573CE /* AppDelegate.h */,
 				3A35590E1885AC6700C573CE /* AppDelegate.m */,
-				8729530518E097D700CD9809 /* CustomTabBarViewController.h */,
-				8729530618E097D700CD9809 /* CustomTabBarViewController.m */,
 				873EADCA18EAE54E0053FB9D /* Main.storyboard */,
+				87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */,
 				873EADC118E9BA790053FB9D /* ActiviteViewController.h */,
 				873EADC218E9BA790053FB9D /* ActiviteViewController.m */,
 				8794B43E18EC4FAC00217F47 /* ActiviteCollectionViewCell.h */,
@@ -220,6 +223,7 @@
 				87AD69F618E9674A00C9165D /* Location.h */,
 				87AD69F718E9674A00C9165D /* Location.m */,
 				3AF254F418E1B5E5004FB853 /* Images.xcassets */,
+				3A10D98C18F2A3F300CEF1A9 /* Resources */,
 				3A3559051885AC6700C573CE /* Supporting Files */,
 			);
 			path = VBoatGestion;
@@ -333,6 +337,7 @@
 				873EADCB18EAE54E0053FB9D /* Main.storyboard in Resources */,
 				3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */,
 				3A3559091885AC6700C573CE /* InfoPlist.strings in Resources */,
+				3A10D98E18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A3559281885AC6700C573CE /* InfoPlist.strings in Resources */,
+				3A10D98F18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,7 +361,6 @@
 				87AD69E618E9674A00C9165D /* Flotte.m in Sources */,
 				873EADB718E96FB10053FB9D /* Facture.m in Sources */,
 				8794B44018EC4FAC00217F47 /* ActiviteCollectionViewCell.m in Sources */,
-				8729530718E097D700CD9809 /* CustomTabBarViewController.m in Sources */,
 				3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */,
 				87F3EBE818E4688600FF09C2 /* VboatCoreData.xcdatamodeld in Sources */,
 				87C9535118F2A4C300793634 /* FacturationTableViewCell.m in Sources */,
@@ -371,7 +376,6 @@
 				87AD69F518E9674A00C9165D /* Pedalo.m in Sources */,
 				87AD69F818E9674A00C9165D /* Location.m in Sources */,
 				87AD69E018E9674A00C9165D /* LocationPedalo.m in Sources */,
-				873EADC918EACD650053FB9D /* CustomTabBarSegue.m in Sources */,
 				87AD69E918E9674A00C9165D /* Journee.m in Sources */,
 				87AD69EF18E9674A00C9165D /* Saison.m in Sources */,
 			);

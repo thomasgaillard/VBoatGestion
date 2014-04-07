@@ -69,10 +69,37 @@ NSMutableArray *_sections;
     ActiviteCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
     
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
-    myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat];
+    
+    if([embarcation isKindOfClass:[Pedalo class]]){
+        if([embarcation.etat isEqualToString:@"enlocation"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedEnlocation.png"]];
+        else if([embarcation.etat isEqualToString:@"disponible"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedDispo.png"]];
+        else
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedIndispo.png"]];
+    }
+    else{
+        if([embarcation.etat isEqualToString:@"enlocation"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batEnlocation.png"]];
+        else if([embarcation.etat isEqualToString:@"disponible"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batDispo.png"]];
+        else
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batIndispo.png"]];
+    }
+    
+    myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@", embarcation.nom];
     
     NSLog([NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat]);
     
+    for (NSString* family in [UIFont familyNames])
+    {
+        NSLog(@"%@", family);
+        
+        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+        {
+            NSLog(@"  %@", name);
+        }
+    }
     
     AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
     self.managedObjectContext = appDelegate.managedObjectContext;
