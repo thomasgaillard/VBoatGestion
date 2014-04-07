@@ -10,6 +10,7 @@
 #import "Facture.h"
 #import "AppDelegate.h"
 #import "FacturationTableViewCell.h"
+#import "Location.h"
 
 @interface FacturationTableViewController ()
 
@@ -36,6 +37,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+
+    self.managedObjectContext = appDelegate.managedObjectContext;
     
     // Fetching Records and saving it in "fetchedRecordsArray" object
     self.facturesArray = [appDelegate getAllFacts];
@@ -67,12 +70,15 @@
 {
     FacturationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MaLigneFacture" forIndexPath:indexPath];
     
-    //ActiviteCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
-    
     Facture * facture = [self.facturesArray objectAtIndex:indexPath.row];
-    cell.labelFacture.text = [NSString stringWithFormat:@"%@, %@ ",facture.prixTotal,facture.etat];
     
-    NSLog([NSString stringWithFormat:@"%@, %@ ",facture.prixTotal,facture.etat]);
+    if([facture.locations count]==1){
+        Location *loc = [facture.locations anyObject];
+        cell.labelFacture.text = [NSString stringWithFormat:@"%@ ",loc.embarcation.nom];
+        NSLog([NSString stringWithFormat:@"%@ ",loc.embarcation]);
+        NSLog([NSString stringWithFormat:@"%@ ",loc.embarcation.nom]);
+    }
+    //NSLog([NSString stringWithFormat:@"%@, %@ ",facture.locations,facture.etat]);
     
     
     AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
@@ -135,5 +141,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Facture *selectedFacture = [self.facturesArray objectAtIndex:indexPath.row];
+    if (self.delegate) {
+        [self.delegate selectedFacture:selectedFacture];
+    }
+}
 
 @end

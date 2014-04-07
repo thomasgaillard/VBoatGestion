@@ -365,10 +365,10 @@
             </objects>
             <point key="canvasLocation" x="-4022" y="-8638"/>
         </scene>
-        <!--View Controller-->
+        <!--Facturation Details View Controller-->
         <scene sceneID="vCF-c8-RK1">
             <objects>
-                <viewController id="nFs-BY-yKP" sceneMemberID="viewController">
+                <viewController id="nFs-BY-yKP" customClass="FacturationDetailsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U2s-8f-EC5"/>
                         <viewControllerLayoutGuide type="bottom" id="yg3-Pa-LFO"/>
@@ -376,11 +376,22 @@
                     <view key="view" contentMode="scaleToFill" id="DQx-fH-UhT">
                         <rect key="frame" x="0.0" y="0.0" width="703" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vln-6U-aA8">
+                                <rect key="frame" x="298" y="345" width="157" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <toolbarItems/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="labelFacture" destination="vln-6U-aA8" id="7lt-A8-pp7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUV-bU-mdI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -436,6 +447,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="nxf-y5-fDR">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.01170158382" green="0.97117129059999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="moz-9m-WoY" kind="relationship" relationship="rootViewController" id="CVS-ns-ytX"/>
@@ -445,10 +457,10 @@
             </objects>
             <point key="canvasLocation" x="-2870" y="-7771"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Facturation Split View Controller-->
         <scene sceneID="fwh-ji-jds">
             <objects>
-                <splitViewController id="zlW-5k-ojC" sceneMemberID="viewController">
+                <splitViewController id="zlW-5k-ojC" customClass="FacturationSplitViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="factur" id="RAP-hH-nTc">
                         <inset key="imageInsets" minX="0.0" minY="7" maxX="0.0" maxY="-7"/>
                     </tabBarItem>

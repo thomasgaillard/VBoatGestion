@@ -40,6 +40,8 @@
 		87AD69F818E9674A00C9165D /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69F718E9674A00C9165D /* Location.m */; };
 		87C9534E18F2A22F00793634 /* FacturationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9534D18F2A22F00793634 /* FacturationTableViewController.m */; };
 		87C9535118F2A4C300793634 /* FacturationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535018F2A4C300793634 /* FacturationTableViewCell.m */; };
+		87C9535418F2A86700793634 /* FacturationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535318F2A86700793634 /* FacturationDetailsViewController.m */; };
+		87C9535818F2AFEF00793634 /* FacturationSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */; };
 		87F3EBE218E466F800FF09C2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3EBE118E466F800FF09C2 /* CoreData.framework */; };
 		87F3EBE818E4688600FF09C2 /* VboatCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -109,6 +111,11 @@
 		87C9534D18F2A22F00793634 /* FacturationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacturationTableViewController.m; path = ../FacturationTableViewController.m; sourceTree = "<group>"; };
 		87C9534F18F2A4C300793634 /* FacturationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationTableViewCell.h; sourceTree = "<group>"; };
 		87C9535018F2A4C300793634 /* FacturationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationTableViewCell.m; sourceTree = "<group>"; };
+		87C9535218F2A86700793634 /* FacturationDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationDetailsViewController.h; sourceTree = "<group>"; };
+		87C9535318F2A86700793634 /* FacturationDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationDetailsViewController.m; sourceTree = "<group>"; };
+		87C9535518F2AA6800793634 /* FacturationSelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacturationSelectionDelegate.h; sourceTree = "<group>"; };
+		87C9535618F2AFEF00793634 /* FacturationSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationSplitViewController.h; sourceTree = "<group>"; };
+		87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationSplitViewController.m; sourceTree = "<group>"; };
 		87F3EBE118E466F800FF09C2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		87F3EBE718E4688600FF09C2 /* VboatCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VboatCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,12 +197,15 @@
 				8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */,
 				8794B44118EC58E700217F47 /* ActiviteModalEmbarcation.h */,
 				8794B44218EC58E700217F47 /* ActiviteModalEmbarcation.m */,
+				87C9535618F2AFEF00793634 /* FacturationSplitViewController.h */,
+				87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */,
 				87C9534C18F2A22F00793634 /* FacturationTableViewController.h */,
 				87C9534D18F2A22F00793634 /* FacturationTableViewController.m */,
 				87C9534F18F2A4C300793634 /* FacturationTableViewCell.h */,
 				87C9535018F2A4C300793634 /* FacturationTableViewCell.m */,
-				873EADC718EACD650053FB9D /* CustomTabBarSegue.h */,
-				873EADC818EACD650053FB9D /* CustomTabBarSegue.m */,
+				87C9535218F2A86700793634 /* FacturationDetailsViewController.h */,
+				87C9535318F2A86700793634 /* FacturationDetailsViewController.m */,
+				87C9535518F2AA6800793634 /* FacturationSelectionDelegate.h */,
 				3A53038D18D8691000D36D3E /* GrilleTarifairePedalo.h */,
 				3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */,
 				3A53039018D86A0100D36D3E /* GrilleTarifaireBateau.h */,
@@ -377,6 +387,8 @@
 				87AD69F818E9674A00C9165D /* Location.m in Sources */,
 				87AD69E018E9674A00C9165D /* LocationPedalo.m in Sources */,
 				87AD69E918E9674A00C9165D /* Journee.m in Sources */,
+				87C9535818F2AFEF00793634 /* FacturationSplitViewController.m in Sources */,
+				87C9535418F2A86700793634 /* FacturationDetailsViewController.m in Sources */,
 				87AD69EF18E9674A00C9165D /* Saison.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

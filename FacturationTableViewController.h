@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FacturationSelectionDelegate.h"
 
 @interface FacturationTableViewController : UITableViewController
 
 @property (nonatomic,strong)NSArray* facturesArray;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, assign) id<FacturationSelectionDelegate> delegate;
 
 @end
