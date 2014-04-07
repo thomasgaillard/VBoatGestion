@@ -13,9 +13,6 @@
 
 @dynamic nbPlaces;
 
--(void)rendreDisponible{
-    [super rendreDisponible];    
-}
 
 -(void)affecterLocation:(LocationPedalo*)loc{
     [super affecterLocation:loc];

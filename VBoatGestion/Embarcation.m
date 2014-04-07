@@ -9,7 +9,6 @@
 #import "Embarcation.h"
 #import "Facture.h"
 #import "Location.h"
-#import "AppDelegate.h"
 
 
 @implementation Embarcation

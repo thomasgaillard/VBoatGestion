@@ -120,11 +120,7 @@
     Facture *f = [NSEntityDescription insertNewObjectForEntityForName:@"Facture"
                                                inManagedObjectContext:self.managedObjectContext];
     [self.embarcation.location cloturerLocation:f];
-    Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
-                                                inManagedObjectContext:self.managedObjectContext];
-    self.embarcation.location = l;
-    [self.embarcation rendreDisponible];
-    [self saveContext];
+    [self affecterNouvelleEmbarcation];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -136,11 +132,7 @@
 
 - (IBAction)dispoEmb:(id)sender {
     
-    Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
-                                                inManagedObjectContext:self.managedObjectContext];
-    self.embarcation.location = l;
-    [self.embarcation rendreDisponible];
-    [self saveContext];
+    [self affecterNouvelleEmbarcation];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -154,5 +146,13 @@
 -(void)saveInfos{
     [self.embarcation.location setNbPlacesOuType:self.nbPersonnesLoc.text];
     self.embarcation.location.remarque = self.remarquesLoc.text;
+}
+
+-(void)affecterNouvelleEmbarcation{
+    Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
+                                                inManagedObjectContext:self.managedObjectContext];
+    self.embarcation.location = l;
+    [self.embarcation rendreDisponible];
+    [self saveContext];
 }
 @end

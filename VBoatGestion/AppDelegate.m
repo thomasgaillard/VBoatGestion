@@ -111,6 +111,17 @@
     //Paiement *p1=[self.arrayPaiements firstObject];
     //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mes factures %lu", (unsigned long)self.arrayFacts.count);
+    
+    for (NSString* family in [UIFont familyNames])
+    {
+        NSLog(@"%@", family);
+        
+        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+        {
+            NSLog(@"  %@", name);
+        }
+    }
+    
     return YES;
 }
 

@@ -13,10 +13,6 @@
 
 @dynamic type;
 
--(void)rendreDisponible{
-    [super rendreDisponible];
-    [self affecterLocation:[LocationBateau new]];
-}
 
 -(void)affecterLocation:(LocationBateau*)loc{
     [super affecterLocation:loc];
