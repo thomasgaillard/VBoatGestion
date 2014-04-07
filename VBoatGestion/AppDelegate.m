@@ -95,17 +95,23 @@
     }
     NSLog(@"Fin");*/
     
-    self.arrayPaiements = [self getAllPayments];
+    self.arrayEmbarcations = [self getAllEmbarcations];
     
     //Paiement *p1=[self.arrayPaiements firstObject];
     //NSDecimalNumber *dn = p1.montant;
-    NSLog(@"Mon paiement %lu", (unsigned long)self.arrayPaiements.count);
+    NSLog(@"Mes embarcations %lu", (unsigned long)self.arrayEmbarcations.count);
     
     self.arrayLocs = [self getAllLocs];
     
     //Paiement *p1=[self.arrayPaiements firstObject];
     //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mes locs %lu", (unsigned long)self.arrayLocs.count);
+    
+    self.arrayFacts = [self getAllFacts];
+
+    //Paiement *p1=[self.arrayPaiements firstObject];
+    //NSDecimalNumber *dn = p1.montant;
+    NSLog(@"Mes factures %lu", (unsigned long)self.arrayFacts.count);
     return YES;
 }
 
@@ -186,7 +192,7 @@
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
 }
 
--(NSArray*)getAllPayments
+-(NSArray*)getAllEmbarcations
 {
     // initializing NSFetchRequest
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -211,6 +217,24 @@
     
     //Setting Entity to be Queried
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Location"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+
+-(NSArray*)getAllFacts
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Facture"
                                               inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError* error;

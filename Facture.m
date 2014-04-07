@@ -49,7 +49,7 @@
     [self calculerResteAPayer];
 }
 -(void)ajouterLocation:(Location *)loc{
-    self.prixTotal = [self.prixTotal decimalNumberByAdding:[loc calculerPrix]];
+    //self.prixTotal = [self.prixTotal decimalNumberByAdding:[loc calculerPrix]];
     [self addLocationsObject:loc];
 }
 -(void)calculerResteAPayer{

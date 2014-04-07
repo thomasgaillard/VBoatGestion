@@ -25,10 +25,10 @@
     NSLog(@"Loc début, heure : %@",self.heureDebut);
 }
 
--(Facture*)cloturerLocation{
+-(void)cloturerLocation:(Facture*)fact{
     self.heureFin=[NSDate date];
     NSLog(@"Loc fin, heure : %@",self.heureFin);
-    return [self creerFacture];
+    [fact ajouterLocation:self];
 }
 
 -(void)affecterEmbarcation:(Embarcation*)emb{
@@ -39,13 +39,6 @@
 -(NSDecimalNumber*)calculerPrix{
     NSLog(@"Loc calcul prix dans classe mère location = PAS BIEN");
     return [NSDecimalNumber decimalNumberWithString:@"-1"];
-}
-
--(Facture*)creerFacture{
-    NSLog(@"Loc creer facture");
-    Facture *f=[Facture new];
-    [f ajouterLocation:self];
-    return f;
 }
 
 -(void)setNbPlacesOuType:(NSString*) nbOuType{

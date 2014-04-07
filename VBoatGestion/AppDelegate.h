@@ -18,11 +18,13 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator ;
-@property (nonatomic,strong)NSArray* arrayPaiements;
+@property (nonatomic,strong)NSArray* arrayEmbarcations;
 @property (nonatomic,strong)NSArray* arrayLocs;
+@property (nonatomic,strong)NSArray* arrayFacts;
 
--(NSArray*)getAllPayments;
+-(NSArray*)getAllEmbarcations;
 -(NSArray*)getAllLocs;
+-(NSArray*)getAllFacts;
 -(Location*)returnInstantiateLoc;
 
 @end
