@@ -80,20 +80,20 @@
     
     //TEST CORE DATA
     
-    NSLog(@"Début");
-    Bateau * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Bateau"
+   /* NSLog(@"Début");
+    Pedalo * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
-    newEntry.nom = @"Bateau 5";
-    newEntry.type = @"marinello";
-    newEntry.etat = @"indisponible";
+    newEntry.nom = @"Solarium 10";
+    newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"2"];
+    newEntry.etat = @"disponible";
     //  3
     //[newEntry rendreDisponible];
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-    NSLog(@"Fin");
+    NSLog(@"Fin");*/
     
     self.arrayEmbarcations = [self getAllEmbarcations];
     

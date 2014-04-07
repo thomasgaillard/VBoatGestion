@@ -40,7 +40,7 @@
                         <viewControllerLayoutGuide type="bottom" id="fSd-5P-ElA"/>
                     </layoutGuides>
                     <view key="view" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="5tA-qM-cZf">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="400"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bnV-Hc-rlT">
@@ -195,8 +195,8 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="0.0" height="0.0"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="800" height="400"/>
                     <connections>
                         <outlet property="dispoEmbBtn" destination="b8j-HO-dAO" id="SGF-iR-8A7"/>
                         <outlet property="etatEmbarcation" destination="PQh-lj-5pk" id="b5p-1T-1iw"/>
@@ -230,7 +230,7 @@
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ogx-u9-jfL">
                             <size key="itemSize" width="159" height="112"/>
-                            <size key="headerReferenceSize" width="50" height="60"/>
+                            <size key="headerReferenceSize" width="50" height="80"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
@@ -246,22 +246,85 @@
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </imageView>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="lblmoney" translatesAutoresizingMaskIntoConstraints="NO" id="FeS-Y6-RPy">
+                                    <rect key="frame" x="961" y="36" width="18" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="llblcard" translatesAutoresizingMaskIntoConstraints="NO" id="8Ax-VO-Fse">
+                                    <rect key="frame" x="886" y="36" width="18" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="lbldate" translatesAutoresizingMaskIntoConstraints="NO" id="0hb-Ta-fjs">
+                                    <rect key="frame" x="457" y="36" width="18" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="ped" translatesAutoresizingMaskIntoConstraints="NO" id="bTd-Q5-0kf">
+                                    <rect key="frame" x="10" y="36" width="18" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="boat" translatesAutoresizingMaskIntoConstraints="NO" id="Pj8-rq-2rZ">
+                                    <rect key="frame" x="76" y="36" width="18" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S1z-ot-WI7">
+                                    <rect key="frame" x="32" y="36" width="36" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrA-FV-Wac">
+                                    <rect key="frame" x="983" y="36" width="36" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWW-Bh-ibF">
+                                    <rect key="frame" x="908" y="36" width="36" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boa-5k-X9q">
+                                    <rect key="frame" x="99" y="36" width="36" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tof-Ba-iAc">
+                                    <rect key="frame" x="480" y="36" width="82" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MonEmbarcation" id="Ypw-0y-ePy" customClass="ActiviteCollectionViewCell">
-                                <rect key="frame" x="10" y="70" width="159" height="112"/>
+                                <rect key="frame" x="10" y="90" width="159" height="112"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="159" height="112"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="labelEmbarcation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3X-SQ-UtF">
-                                            <rect key="frame" x="8" y="0.0" width="143" height="21"/>
+                                            <rect key="frame" x="8" y="7" width="143" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="labelHeure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJ5-vF-Sus">
+                                            <rect key="frame" x="74" y="77" width="77" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="0.0" height="0.0"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -269,12 +332,13 @@
                                 <color key="backgroundColor" red="0.011701583824475059" green="0.9711712906316865" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="labelEmbarcation" destination="K3X-SQ-UtF" id="dqZ-Gy-Dt0"/>
+                                    <outlet property="labelHeure" destination="bJ5-vF-Sus" id="JeV-dZ-fXK"/>
                                     <segue destination="8M8-iR-nGR" kind="modal" identifier="modalInfosEmbarcation" id="AEI-Zy-AYZ"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" id="Q43-1W-9q2">
-                            <rect key="frame" x="0.0" y="0.0" width="1024" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1024" height="80"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
@@ -289,6 +353,13 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="lblBateaux" destination="boa-5k-X9q" id="Byk-gb-UJH"/>
+                        <outlet property="lblCb" destination="qWW-Bh-ibF" id="9Wx-di-BcF"/>
+                        <outlet property="lblDate" destination="tof-Ba-iAc" id="J1t-fy-MaY"/>
+                        <outlet property="lblEspeces" destination="lrA-FV-Wac" id="hm4-IX-x3u"/>
+                        <outlet property="lblPedalos" destination="S1z-ot-WI7" id="5SZ-32-RIM"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0oJ-to-Q7h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -568,9 +639,14 @@
         <image name="activite" width="30" height="30"/>
         <image name="admin" width="30" height="30"/>
         <image name="blurredbg" width="1024" height="708"/>
+        <image name="boat" width="18" height="18"/>
         <image name="factur" width="30" height="30"/>
         <image name="flotte" width="30" height="30"/>
+        <image name="lbldate" width="18" height="18"/>
+        <image name="lblmoney" width="18" height="18"/>
+        <image name="llblcard" width="18" height="18"/>
         <image name="menu" width="1024" height="60"/>
+        <image name="ped" width="18" height="18"/>
         <image name="prix" width="30" height="30"/>
         <image name="reglage" width="30" height="30"/>
         <image name="resa" width="30" height="30"/>
