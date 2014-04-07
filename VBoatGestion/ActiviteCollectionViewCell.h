@@ -10,5 +10,6 @@
 
 @interface ActiviteCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *labelEmbarcation;
+@property (weak, nonatomic) IBOutlet UILabel *labelHeure;
 
 @end

@@ -41,6 +41,11 @@ NSMutableArray *_sections;
     [super viewDidLoad];
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd MMMM YYYY"];
+    NSString *dateToday = [formatter stringFromDate:[NSDate date]];
+    [self.lblDate setText: dateToday];
+    
     // Fetching Records and saving it in "fetchedRecordsArray" object
     self.embarcationsArray = [appDelegate getAllEmbarcations];
     [self.collectionView reloadData];
@@ -64,12 +69,49 @@ NSMutableArray *_sections;
     return [self.embarcationsArray count];
 }
 
+-(UIColor*)colorWithHexString:(NSString*)hex
+{
+    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor grayColor];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    
+    if ([cString length] != 6) return  [UIColor grayColor];
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ActiviteCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
     
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     
+    //background
     if([embarcation isKindOfClass:[Pedalo class]]){
         if([embarcation.etat isEqualToString:@"enlocation"])
             myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedEnlocation.png"]];
@@ -87,7 +129,26 @@ NSMutableArray *_sections;
             myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batIndispo.png"]];
     }
     
+    //title
+    if([embarcation.etat isEqualToString:@"enlocation"])
+        myCell.labelEmbarcation.textColor = [self colorWithHexString:@"e74c3c"];
+    else if([embarcation.etat isEqualToString:@"disponible"])
+        myCell.labelEmbarcation.textColor = [self colorWithHexString:@"2ecc70"];
+    else
+        myCell.labelEmbarcation.textColor = [self colorWithHexString:@"95a5a6"];
+    
     myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@", embarcation.nom];
+    myCell.labelEmbarcation.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
+    
+    //hour
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
+    [formatter setDateFormat:@"HH:mm"];
+    
+    if([embarcation.etat isEqualToString:@"enlocation"])
+        myCell.labelHeure.text = [formatter stringFromDate: [[embarcation location] heureDebut]];
+    else
+        myCell.labelHeure.text = @"-";
     
     NSLog([NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat]);
     

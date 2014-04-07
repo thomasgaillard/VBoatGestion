@@ -12,6 +12,11 @@
 
 @property (nonatomic,strong)NSArray* embarcationsArray;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) IBOutlet UILabel *lblDate;
+@property (strong, nonatomic) IBOutlet UILabel *lblBateaux;
+@property (strong, nonatomic) IBOutlet UILabel *lblPedalos;
+@property (strong, nonatomic) IBOutlet UILabel *lblEspeces;
+@property (strong, nonatomic) IBOutlet UILabel *lblCb;
 
 
 @end
