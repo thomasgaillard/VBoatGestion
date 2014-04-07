@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A10D98E18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A10D98D18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf */; };
+		3A10D98F18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A10D98D18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf */; };
 		3A3558FF1885AC6700C573CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3558FE1885AC6700C573CE /* Foundation.framework */; };
 		3A3559011885AC6700C573CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3559001885AC6700C573CE /* CoreGraphics.framework */; };
 		3A3559031885AC6700C573CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3559021885AC6700C573CE /* UIKit.framework */; };
@@ -51,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A10D98D18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Regular.otf"; sourceTree = "<group>"; };
 		3A3558FB1885AC6700C573CE /* VBoatGestion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VBoatGestion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3558FE1885AC6700C573CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3A3559001885AC6700C573CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -129,6 +132,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A10D98C18F2A3F300CEF1A9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A10D98D18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		3A3558F21885AC6700C573CE = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +211,7 @@
 				87AD69F618E9674A00C9165D /* Location.h */,
 				87AD69F718E9674A00C9165D /* Location.m */,
 				3AF254F418E1B5E5004FB853 /* Images.xcassets */,
+				3A10D98C18F2A3F300CEF1A9 /* Resources */,
 				3A3559051885AC6700C573CE /* Supporting Files */,
 			);
 			path = VBoatGestion;
@@ -313,6 +325,7 @@
 				873EADCB18EAE54E0053FB9D /* Main.storyboard in Resources */,
 				3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */,
 				3A3559091885AC6700C573CE /* InfoPlist.strings in Resources */,
+				3A10D98E18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A3559281885AC6700C573CE /* InfoPlist.strings in Resources */,
+				3A10D98F18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

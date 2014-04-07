@@ -80,7 +80,7 @@
     
     //TEST CORE DATA
     
-    /*NSLog(@"Début");
+    NSLog(@"Début");
     Bateau * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Bateau"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
@@ -93,7 +93,7 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-    NSLog(@"Fin");*/
+    NSLog(@"Fin");
     
     self.arrayEmbarcations = [self getAllEmbarcations];
     
