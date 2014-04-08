@@ -41,9 +41,6 @@
     [formatter setDateFormat:@"HH:mm"];
     
     self.navBar.title = self.embarcation.nom;
-    self.etatEmbarcation.text = self.embarcation.etat;
-    self.typeOuNb.text = [self.embarcation getNbPlacesOuType];
-    
     self.remarquesLoc.text = self.embarcation.location.remarque;
 
     self.hDebutLoc.text = [formatter stringFromDate:self.embarcation.location.heureDebut];
@@ -51,31 +48,36 @@
     
     self.nbPersonnesLoc.text = [self.embarcation.location getNbPlacesOuType];
     
+    NSString *text = @"";
     if ([self.embarcation isKindOfClass:[Pedalo class]])
     {
-        self.typeLabel.hidden = YES;
-        self.titreLabel.text = @"Location de Pédalo";
+        text = [NSString stringWithFormat:@"Pédalo : %@ places - ", [self.embarcation getNbPlacesOuType]];
+        
     }
     else if ([self.embarcation isKindOfClass:[Bateau class]]){
-        self.nbPlacesLabel.hidden = YES;
+        text = [NSString stringWithFormat:@"Bateau : %@ - ", [self.embarcation getNbPlacesOuType]];
         self.nbPersonnesLoc.hidden = YES;
         self.nbPersonnesLocLabel.hidden = YES;
-        self.titreLabel.text = @"Location de Bateau";
     }
     
     if([self.embarcation.etat  isEqual: @"enlocation"]){
+        text = [NSString stringWithFormat:@"%@ En location", text];
         self.indispoEmbBtn.enabled = NO ;
         self.dispoEmbBtn.enabled = NO ;
         self.startLocBtn.enabled = NO ;
     }else if([self.embarcation.etat  isEqual: @"disponible"]){
+        text = [NSString stringWithFormat:@"%@ Disponible", text];
         self.dispoEmbBtn.enabled = NO ;
         self.stopLocBtn.enabled = NO ;
     }else if([self.embarcation.etat  isEqual: @"indisponible"]){
+        text = [NSString stringWithFormat:@"%@ Indisponible", text];
         self.indispoEmbBtn.enabled = NO ;
         self.stopLocBtn.enabled = NO ;
         self.startLocBtn.enabled = NO ;
     }
     
+    self.typeOuNb.text = text;
+
     AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
     self.managedObjectContext = appDelegate.managedObjectContext;
 }
