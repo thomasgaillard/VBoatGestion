@@ -24,7 +24,7 @@
 
 -(NSArray*)getAllEmbarcations;
 -(NSArray*)getAllLocs;
--(NSArray*)getAllFacts;
+-(NSArray*)getAllFactsEnCours;
 -(Location*)returnInstantiateLoc;
 
 @end

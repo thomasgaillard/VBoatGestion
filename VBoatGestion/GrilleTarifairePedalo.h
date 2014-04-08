@@ -13,6 +13,6 @@
 + (NSMutableArray*)prix;
 + (void)prix:(NSMutableArray*)nouveauPrix;
 + (void)tableauPrices;
-
++(NSDecimalNumber*)calculerPrix:(NSDate*)heureDebut :(NSDate*)heureFin : (NSDecimalNumber*)nbPersonnes;
 
 @end

@@ -23,9 +23,9 @@
 
 -(id)init;
 -(void)grouperFactures:(Facture*) fac;
--(void)ajouterPaiement:(NSString*) moyenPaiement :(NSDecimalNumber*) somme;
+-(void)ajouterPaiement:(Paiement*)paiement :(NSString*) moyenPaiement :(NSDecimalNumber*) somme;
 -(void)ajouterLocation:(Location*) loc;
--(void)calculerResteAPayer;
+-(NSDecimalNumber*)calculerResteAPayer;
 -(void)recommencerPaiement;
 -(void)cloturerFacture;
 -(void)annulerFacture;

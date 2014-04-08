@@ -42,18 +42,18 @@
     }*/
 }
 
--(void)ajouterPaiement:(NSString*) moyenPaiement :(NSDecimalNumber*) somme{
-    Paiement *paiement=[[Paiement alloc]initPaiement:moyenPaiement :somme];
+-(void)ajouterPaiement:(Paiement*)paiement :(NSString*) moyenPaiement :(NSDecimalNumber*) somme{
+   [paiement initPaiement:moyenPaiement :somme];
     NSLog(@"Nouveau paiement: moyen %@, somme %@",paiement.moyenPaiement ,paiement.montant);
     [self addPaiementsObject:paiement];
-    [self calculerResteAPayer];
+    //[self calculerResteAPayer];
 }
 -(void)ajouterLocation:(Location *)loc{
-    //self.prixTotal = [self.prixTotal decimalNumberByAdding:[loc calculerPrix]];
+    self.prixTotal = [self.prixTotal decimalNumberByAdding:[loc calculerPrix]];
     [self addLocationsObject:loc];
 }
--(void)calculerResteAPayer{
-    NSDecimalNumber *reste = self.prixTotal;
+-(NSDecimalNumber*)calculerResteAPayer{
+    NSDecimalNumber *reste = [self.prixTotal decimalNumberBySubtracting:self.remise];
     NSLog(@"Fonction reste à payer %@, %lu", reste, (unsigned long)self.paiements.count);
     for(Paiement *pay in self.paiements){
         reste = [reste decimalNumberBySubtracting:pay.montant];
@@ -63,11 +63,11 @@
     {
         [self cloturerFacture];
     }
+    return reste;
 }
 
 -(void)recommencerPaiement{
-    //TODO
-    //[self.paiements removeAllObjects];
+    [self removePaiements:self.paiements];
 }
 
 -(void)cloturerFacture{
