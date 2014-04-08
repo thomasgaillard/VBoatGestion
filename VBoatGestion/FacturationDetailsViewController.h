@@ -15,12 +15,23 @@
 
 @interface FacturationDetailsViewController : UIViewController <FacturationSelectionDelegate, UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) Facture *facture;
 @property (strong, nonatomic) NSArray *listeLocations;
 @property (weak, nonatomic) IBOutlet UILabel *prixTxt;
 @property (weak, nonatomic) IBOutlet UILabel *etatTxt;
 @property (weak, nonatomic) IBOutlet UITextField *remarquesTxt;
 @property (weak, nonatomic) IBOutlet UITableView *chaqueLocsFacture;
+@property (weak, nonatomic) IBOutlet UILabel *paiementTxt;
+@property (weak, nonatomic) IBOutlet UILabel *resteAPayerTxt;
+@property (weak, nonatomic) IBOutlet UILabel *remiseLabel;
+@property (weak, nonatomic) IBOutlet UILabel *remiseTxt;
 
+- (IBAction)clicPaveNumerique:(id)sender;
+- (IBAction)clicPaiement:(id)sender;
+- (IBAction)clicRemise:(id)sender;
+- (IBAction)clicRAZ:(id)sender;
 -(void)rafraichir;
+-(void)resteAPayer;
+-(void)saveContext;
 @end

@@ -15,6 +15,6 @@
 @property (nonatomic, retain) NSDecimalNumber * montant;
 @property (nonatomic, retain) NSString * moyenPaiement;
 
--(id)initPaiement:(NSString*) moyenP :(NSDecimalNumber*)somme;
+-(void)initPaiement:(NSString*) moyenP :(NSDecimalNumber*)somme;
 
 @end

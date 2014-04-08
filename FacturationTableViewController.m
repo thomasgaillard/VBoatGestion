@@ -41,7 +41,13 @@
     self.managedObjectContext = appDelegate.managedObjectContext;
     
     // Fetching Records and saving it in "fetchedRecordsArray" object
-    self.facturesArray = [appDelegate getAllFacts];
+    self.facturesArray = [appDelegate getAllFactsEnCours];
+    [self.tableView reloadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:NO];
     [self.tableView reloadData];
 }
 

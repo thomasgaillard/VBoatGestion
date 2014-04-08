@@ -52,6 +52,11 @@ NSMutableArray *_sections;
     self.embarcationsArray = [appDelegate getAllEmbarcations];
     [self.collectionView reloadData];
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:NO];
+    [self.collectionView reloadData];
+}
 
 - (void)didReceiveMemoryWarning
 {

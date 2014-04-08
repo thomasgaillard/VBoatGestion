@@ -111,7 +111,7 @@
     //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mes locs %lu", (unsigned long)self.arrayLocs.count);
     
-    self.arrayFacts = [self getAllFacts];
+    self.arrayFacts = [self getAllFactsEnCours];
 
     //Paiement *p1=[self.arrayPaiements firstObject];
     //NSDecimalNumber *dn = p1.montant;
@@ -233,7 +233,7 @@
     return fetchedRecords;
 }
 
--(NSArray*)getAllFacts
+-(NSArray*)getAllFactsEnCours
 {
     // initializing NSFetchRequest
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -241,7 +241,13 @@
     //Setting Entity to be Queried
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Facture"
                                               inManagedObjectContext:self.managedObjectContext];
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"(etat LIKE[c] 'enCours')"];
+    
+    
     [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
     NSError* error;
     
     // Query on managedObjectContext With Generated fetchRequest
