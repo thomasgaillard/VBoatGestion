@@ -23,6 +23,43 @@
     return self;
 }
 
+-(UIColor*)colorWithHexString:(NSString*)hex
+{
+    NSString *cString = [[hex stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor grayColor];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    
+    if ([cString length] != 6) return  [UIColor grayColor];
+    
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -40,7 +77,12 @@
     [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     [formatter setDateFormat:@"HH:mm"];
     
-    self.navBar.title = self.embarcation.nom;
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
+    titleLabel.text = self.embarcation.nom;
+    titleLabel.textAlignment= NSTextAlignmentCenter;
+    
     self.remarquesLoc.text = self.embarcation.location.remarque;
 
     self.hDebutLoc.text = [formatter stringFromDate:self.embarcation.location.heureDebut];
@@ -51,13 +93,15 @@
     NSString *text = @"";
     if ([self.embarcation isKindOfClass:[Pedalo class]])
     {
-        text = [NSString stringWithFormat:@"Pédalo : %@ places - ", [self.embarcation getNbPlacesOuType]];
+        text = [NSString stringWithFormat:@"Pédalo %@ places - ", [self.embarcation getNbPlacesOuType]];
         
     }
     else if ([self.embarcation isKindOfClass:[Bateau class]]){
-        text = [NSString stringWithFormat:@"Bateau : %@ - ", [self.embarcation getNbPlacesOuType]];
+        text = [NSString stringWithFormat:@"Bateau %@ - ", [self.embarcation getNbPlacesOuType]];
         self.nbPersonnesLoc.hidden = YES;
         self.nbPersonnesLocLabel.hidden = YES;
+        self.btnM.hidden=YES;
+        self.btnP.hidden=YES;
     }
     
     if([self.embarcation.etat  isEqual: @"enlocation"]){
@@ -65,16 +109,27 @@
         self.indispoEmbBtn.enabled = NO ;
         self.dispoEmbBtn.enabled = NO ;
         self.startLocBtn.enabled = NO ;
+        titleLabel.textColor = [self colorWithHexString:@"e74c3c"];
+        self.typeOuNb.textColor = [self colorWithHexString:@"e74c3c"];
     }else if([self.embarcation.etat  isEqual: @"disponible"]){
         text = [NSString stringWithFormat:@"%@ Disponible", text];
         self.dispoEmbBtn.enabled = NO ;
         self.stopLocBtn.enabled = NO ;
+        titleLabel.textColor = [self colorWithHexString:@"2ecc70"];
+        self.typeOuNb.textColor = [self colorWithHexString:@"2ecc70"];
+
     }else if([self.embarcation.etat  isEqual: @"indisponible"]){
         text = [NSString stringWithFormat:@"%@ Indisponible", text];
         self.indispoEmbBtn.enabled = NO ;
         self.stopLocBtn.enabled = NO ;
         self.startLocBtn.enabled = NO ;
+        titleLabel.textColor = [self colorWithHexString:@"95a5a6"];
+        self.typeOuNb.textColor = [self colorWithHexString:@"95a5a6"];
     }
+    
+    
+    [self.navBar setTitleView:titleLabel];
+
     
     self.typeOuNb.text = text;
 
@@ -99,12 +154,29 @@
 }
 */
 
+- (IBAction)btnPlus:(id)sender {
+    NSDecimalNumber *nb = [NSDecimalNumber decimalNumberWithString:self.nbPersonnesLoc.text];
+    nb = [nb decimalNumberByAdding:[NSDecimalNumber decimalNumberWithString:@"1"]];
+    self.nbPersonnesLoc.text = [NSString stringWithFormat:@"%@", nb];
+    if(!self.btnM.enabled)
+        self.btnM.enabled = YES;
+}
+
+- (IBAction)btnMoins:(id)sender {
+    NSDecimalNumber *nb = [NSDecimalNumber decimalNumberWithString:self.nbPersonnesLoc.text];
+    if(nb > [NSDecimalNumber decimalNumberWithString:@"2"]){
+        nb = [nb decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"1"]];
+        if(nb > [NSDecimalNumber decimalNumberWithString:@"1"])
+            self.nbPersonnesLoc.text = [NSString stringWithFormat:@"%@", nb];
+    }
+}
+
 - (IBAction)closeModal:(id)sender {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)saveModalInfos:(id)sender {
-    
+    [self saveInfos];
     [self saveContext];
     
     [self dismissViewControllerAnimated:YES completion:NULL];
