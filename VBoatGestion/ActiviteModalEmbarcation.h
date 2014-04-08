@@ -19,16 +19,12 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
-@property (weak, nonatomic) IBOutlet UILabel *etatEmbarcation;
 @property (weak, nonatomic) IBOutlet UITextField *remarquesLoc;
 @property (weak, nonatomic) IBOutlet UITextField *hDebutLoc;
 @property (weak, nonatomic) IBOutlet UITextField *hFinLoc;
 @property (weak, nonatomic) IBOutlet UITextField *nbPersonnesLoc;
 @property (weak, nonatomic) IBOutlet UILabel *typeOuNb;
-@property (weak, nonatomic) IBOutlet UILabel *nbPlacesLabel;
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *nbPersonnesLocLabel;
-@property (weak, nonatomic) IBOutlet UILabel *titreLabel;
 @property (weak, nonatomic) IBOutlet UIButton *startLocBtn;
 @property (weak, nonatomic) IBOutlet UIButton *stopLocBtn;
 @property (weak, nonatomic) IBOutlet UIButton *indispoEmbBtn;

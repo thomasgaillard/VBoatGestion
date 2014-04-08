@@ -220,7 +220,8 @@ NSMutableArray *_sections;
     NSLog(@"%@",embarcation.nom);
     destViewController.embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     
-    [self presentModalViewController:destViewController animated:YES];
+    [self presentViewController:destViewController animated:YES completion:nil];
+destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
 
     [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
     [self.collectionView reloadData];
