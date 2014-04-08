@@ -55,6 +55,7 @@ NSMutableArray *_sections;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:NO];
+    NSLog(@"CUUUUUUL");
     [self.collectionView reloadData];
 }
 

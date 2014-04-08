@@ -100,11 +100,12 @@
 */
 
 - (IBAction)closeModal:(id)sender {
+    
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)saveModalInfos:(id)sender {
-    
+    [self saveInfos];
     [self saveContext];
     
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -156,5 +157,6 @@
     self.embarcation.location = l;
     [self.embarcation rendreDisponible];
     [self saveContext];
+    
 }
 @end

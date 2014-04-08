@@ -12,6 +12,7 @@
 #import "Bateau.h"
 #import "Location.h"
 #import "AppDelegate.h"
+#import "ActiviteViewController.h"
 
 @interface ActiviteModalEmbarcation : UIViewController
 

@@ -25,7 +25,6 @@
 		3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF254F418E1B5E5004FB853 /* Images.xcassets */; };
 		873EADB718E96FB10053FB9D /* Facture.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADB618E96FB10053FB9D /* Facture.m */; };
 		873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADC218E9BA790053FB9D /* ActiviteViewController.m */; };
-		873EADCB18EAE54E0053FB9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873EADCA18EAE54E0053FB9D /* Main.storyboard */; };
 		8794B44018EC4FAC00217F47 /* ActiviteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */; };
 		8794B44318EC58E700217F47 /* ActiviteModalEmbarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8794B44218EC58E700217F47 /* ActiviteModalEmbarcation.m */; };
 		87AD69DA18E9674900C9165D /* Paiement.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69D918E9674900C9165D /* Paiement.m */; };
@@ -43,6 +42,7 @@
 		87C9535B18F2E05E00793634 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535A18F2E05E00793634 /* Location.m */; };
 		87C9535E18F2E05F00793634 /* Embarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535D18F2E05F00793634 /* Embarcation.m */; };
 		87C9536118F2F4CB00793634 /* FacturationTableViewLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9536018F2F4CB00793634 /* FacturationTableViewLocationCell.m */; };
+		87E6B4A518F4485B004CCE65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E6B4A318F4485B004CCE65 /* Main.storyboard */; };
 		87F3EBE218E466F800FF09C2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3EBE118E466F800FF09C2 /* CoreData.framework */; };
 		87F3EBE818E4688600FF09C2 /* VboatCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -83,7 +83,6 @@
 		873EADB618E96FB10053FB9D /* Facture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facture.m; sourceTree = SOURCE_ROOT; };
 		873EADC118E9BA790053FB9D /* ActiviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiviteViewController.h; path = ../ActiviteViewController.h; sourceTree = "<group>"; };
 		873EADC218E9BA790053FB9D /* ActiviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiviteViewController.m; path = ../ActiviteViewController.m; sourceTree = "<group>"; };
-		873EADCA18EAE54E0053FB9D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8794B43E18EC4FAC00217F47 /* ActiviteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiviteCollectionViewCell.h; sourceTree = "<group>"; };
 		8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiviteCollectionViewCell.m; sourceTree = "<group>"; };
 		8794B44118EC58E700217F47 /* ActiviteModalEmbarcation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiviteModalEmbarcation.h; sourceTree = "<group>"; };
@@ -119,6 +118,7 @@
 		87C9535D18F2E05F00793634 /* Embarcation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Embarcation.m; sourceTree = "<group>"; };
 		87C9535F18F2F4CB00793634 /* FacturationTableViewLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationTableViewLocationCell.h; sourceTree = "<group>"; };
 		87C9536018F2F4CB00793634 /* FacturationTableViewLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationTableViewLocationCell.m; sourceTree = "<group>"; };
+		87E6B4A418F4485B004CCE65 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87F3EBE118E466F800FF09C2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		87F3EBE718E4688600FF09C2 /* VboatCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VboatCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,9 +192,9 @@
 			children = (
 				3A35590D1885AC6700C573CE /* AppDelegate.h */,
 				3A35590E1885AC6700C573CE /* AppDelegate.m */,
-				873EADCA18EAE54E0053FB9D /* Main.storyboard */,
 				87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */,
 				87C9535C18F2E05F00793634 /* Embarcation.h */,
+				87E6B4A318F4485B004CCE65 /* Main.storyboard */,
 				87C9535D18F2E05F00793634 /* Embarcation.m */,
 				87C9535918F2E05E00793634 /* Location.h */,
 				87C9535A18F2E05E00793634 /* Location.m */,
@@ -349,10 +349,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873EADCB18EAE54E0053FB9D /* Main.storyboard in Resources */,
 				3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */,
 				3A3559091885AC6700C573CE /* InfoPlist.strings in Resources */,
 				3A10D98E18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */,
+				87E6B4A518F4485B004CCE65 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +432,14 @@
 				3A3559271885AC6700C573CE /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		87E6B4A318F4485B004CCE65 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				87E6B4A418F4485B004CCE65 /* en */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
