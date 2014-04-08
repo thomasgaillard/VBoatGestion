@@ -30,14 +30,17 @@
 @property (weak, nonatomic) IBOutlet UIButton *stopLocBtn;
 @property (weak, nonatomic) IBOutlet UIButton *indispoEmbBtn;
 @property (weak, nonatomic) IBOutlet UIButton *dispoEmbBtn;
+@property (weak, nonatomic) IBOutlet UIButton *btnP;
+@property (weak, nonatomic) IBOutlet UIButton *btnM;
 
+- (IBAction)btnPlus:(id)sender;
+- (IBAction)btnMoins:(id)sender;
 - (IBAction)closeModal:(id)sender;
 - (IBAction)saveModalInfos:(id)sender;
 - (IBAction)startLoc:(id)sender;
 - (IBAction)stopLoc:(id)sender;
 - (IBAction)indispoEmb:(id)sender;
 - (IBAction)dispoEmb:(id)sender;
-
 -(void)saveContext;
 -(void)saveInfos;
 
