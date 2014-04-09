@@ -36,11 +36,16 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-
-    self.managedObjectContext = appDelegate.managedObjectContext;
+    
     
     // Fetching Records and saving it in "fetchedRecordsArray" object
+    [self reloadFactures];
+}
+
+-(void)reloadFactures
+{
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
     self.facturesArray = [appDelegate getAllFactsEnCours];
     [self.tableView reloadData];
 }
@@ -48,7 +53,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:NO];
-    [self.tableView reloadData];
+    [self reloadFactures];
 }
 
 - (void)didReceiveMemoryWarning
@@ -154,7 +159,7 @@
 {
     Facture *selectedFacture = [self.facturesArray objectAtIndex:indexPath.row];
     if (self.delegate) {
-        [self.delegate selectedFacture:selectedFacture];
+        [self.delegate selectedFacture:selectedFacture :tableView :indexPath];
     }
 }
 

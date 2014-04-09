@@ -107,7 +107,13 @@
     [self rafraichir];
 }
 
+- (IBAction)clicCloture:(id)sender {
+    [self.facture cloturerFacture];
+    [self rafraichir];
+}
+
 -(void)rafraichir{
+    [self resteAPayer];
     self.etatTxt.text=self.facture.etat;
     self.remarquesTxt.text=self.facture.remarque;
     self.prixTxt.text=[NSString stringWithFormat:@"%@ €",self.facture.prixTotal];
@@ -123,18 +129,36 @@
         self.remiseLabel.hidden=NO;
         self.remiseTxt.text=[NSString stringWithFormat:@"%@ €",self.facture.remise];
     }
-    [self resteAPayer];
+    if([self.facture.etat  isEqual:@"payee"]){
+        self.especesBtn.enabled=NO;
+        self.cbBtn.enabled=NO;
+        self.eurosBtn.enabled=NO;
+        self.pcBtn.enabled=NO;
+        self.tempsBtn.enabled=NO;
+        self.clotureBtn.enabled=YES;
+    } else {
+        self.especesBtn.enabled=YES;
+        self.cbBtn.enabled=YES;
+        self.eurosBtn.enabled=YES;
+        self.pcBtn.enabled=YES;
+        self.tempsBtn.enabled=YES;
+        self.clotureBtn.enabled=NO;
+    }
+    [self saveContext];
+    
     
 }
 
 -(void)resteAPayer{
     self.resteAPayerTxt.text=[NSString stringWithFormat:@"%@ €",[self.facture calculerResteAPayer]];
     self.paiementTxt.text=@"0";
-    [self saveContext];
+    
 }
 
--(void)selectedFacture:(Facture *)facture
+-(void)selectedFacture:(Facture *)facture :(FacturationTableViewController *)tableView :(NSIndexPath*) indexPath
 {
+    self.tableView=tableView;
+    self.indexPath=indexPath;
     self.facture=facture;
     [self rafraichir];
     [self.chaqueLocsFacture reloadData];

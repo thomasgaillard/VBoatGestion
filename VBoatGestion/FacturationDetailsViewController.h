@@ -10,12 +10,15 @@
 #import "Location.h"
 #import "Facture.h"
 #import "Embarcation.h"
+#import "FacturationTableViewController.h"
 #import "FacturationSelectionDelegate.h"
 #import "FacturationTableViewLocationCell.h"
 
 @interface FacturationDetailsViewController : UIViewController <FacturationSelectionDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) UITableView *tableView;
+@property (nonatomic, strong) NSIndexPath *indexPath;
 @property (strong, nonatomic) Facture *facture;
 @property (strong, nonatomic) NSArray *listeLocations;
 @property (weak, nonatomic) IBOutlet UILabel *prixTxt;
@@ -26,11 +29,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *resteAPayerTxt;
 @property (weak, nonatomic) IBOutlet UILabel *remiseLabel;
 @property (weak, nonatomic) IBOutlet UILabel *remiseTxt;
+@property (weak, nonatomic) IBOutlet UIButton *especesBtn;
+@property (weak, nonatomic) IBOutlet UIButton *cbBtn;
+@property (weak, nonatomic) IBOutlet UIButton *eurosBtn;
+@property (weak, nonatomic) IBOutlet UIButton *pcBtn;
+@property (weak, nonatomic) IBOutlet UIButton *tempsBtn;
+@property (weak, nonatomic) IBOutlet UIButton *clotureBtn;
 
 - (IBAction)clicPaveNumerique:(id)sender;
 - (IBAction)clicPaiement:(id)sender;
 - (IBAction)clicRemise:(id)sender;
 - (IBAction)clicRAZ:(id)sender;
+- (IBAction)clicCloture:(id)sender;
 -(void)rafraichir;
 -(void)resteAPayer;
 -(void)saveContext;

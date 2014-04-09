@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 @class Facture;
+@class FacturationTableViewController;
 
 @protocol FacturationSelectionDelegate <NSObject>
 @required
--(void)selectedFacture:(Facture *)facture;
+-(void)selectedFacture:(Facture *)facture :(UITableView *) tableView :(NSIndexPath *)indexPath;
 
 @end

@@ -54,25 +54,29 @@
 }
 -(NSDecimalNumber*)calculerResteAPayer{
     NSDecimalNumber *reste = [self.prixTotal decimalNumberBySubtracting:self.remise];
-    NSLog(@"Fonction reste à payer %@, %lu", reste, (unsigned long)self.paiements.count);
-    for(Paiement *pay in self.paiements){
-        reste = [reste decimalNumberBySubtracting:pay.montant];
-        NSLog(@"Calcul reste à payer : %@",reste);
-    }
-    if([reste doubleValue] == 0.0)
+    if([self.etat isEqual:@"enCours"])
     {
-        [self cloturerFacture];
+        NSLog(@"Fonction reste à payer %@, %lu", reste, (unsigned long)self.paiements.count);
+        for(Paiement *pay in self.paiements){
+            reste = [reste decimalNumberBySubtracting:pay.montant];
+            NSLog(@"Calcul reste à payer : %@",reste);
+        }
+        if([reste doubleValue] == 0.0)
+        {
+            self.etat=@"payee";
+        }
     }
     return reste;
 }
 
 -(void)recommencerPaiement{
     [self removePaiements:self.paiements];
+    self.etat=@"enCours";
 }
 
 -(void)cloturerFacture{
     NSLog(@"Cloturer Facture");
-    self.etat=@"payee";
+    self.etat=@"cloturee";
     [self.journee ajouterFacture:self];
     [self ajouterPaiementAuTotalJournee];
 }

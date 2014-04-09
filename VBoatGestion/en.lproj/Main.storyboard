@@ -712,6 +712,16 @@
                                             <action selector="clicPaveNumerique:" destination="nFs-BY-yKP" eventType="touchUpInside" id="KlE-py-ZBB"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7J-30-Yuz">
+                                        <rect key="frame" x="113" y="294" width="111" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Clôturer Facture">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="clicCloture:" destination="nFs-BY-yKP" eventType="touchUpInside" id="QUH-Fc-mTd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -722,14 +732,20 @@
                     <toolbarItems/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
+                        <outlet property="cbBtn" destination="SYx-tI-i1M" id="o0c-ZT-dcA"/>
                         <outlet property="chaqueLocsFacture" destination="xP7-uW-f9H" id="VjS-HR-28B"/>
+                        <outlet property="clotureBtn" destination="I7J-30-Yuz" id="INa-Wy-l3x"/>
+                        <outlet property="especesBtn" destination="a2x-Sy-hpB" id="lda-n7-Mw7"/>
                         <outlet property="etatTxt" destination="vln-6U-aA8" id="p68-Gr-KLb"/>
+                        <outlet property="eurosBtn" destination="3zv-OH-iLE" id="w1I-pJ-WIc"/>
                         <outlet property="paiementTxt" destination="Hkp-k6-NXG" id="OKm-fN-BeV"/>
+                        <outlet property="pcBtn" destination="OCW-5d-cKj" id="bUD-Lg-whu"/>
                         <outlet property="prixTxt" destination="GMh-ws-pBh" id="2Ro-eQ-wRX"/>
                         <outlet property="remarquesTxt" destination="XZr-kM-Lhu" id="oLH-nq-dgv"/>
                         <outlet property="remiseLabel" destination="ymn-xH-171" id="651-fd-VLf"/>
                         <outlet property="remiseTxt" destination="0F3-ic-iKF" id="Z5b-rm-Yd8"/>
                         <outlet property="resteAPayerTxt" destination="SPw-aE-0Ro" id="7j5-zv-SKk"/>
+                        <outlet property="tempsBtn" destination="7wg-ZB-BPM" id="tdY-hm-MHi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUV-bU-mdI" userLabel="First Responder" sceneMemberID="firstResponder"/>
