@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblEspeces;
 @property (strong, nonatomic) IBOutlet UILabel *lblCb;
 - (IBAction)doubleClik:(id)sender;
+-(void)modalDismiss;
 
 
 @end

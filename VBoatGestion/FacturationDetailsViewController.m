@@ -109,6 +109,8 @@
 
 - (IBAction)clicCloture:(id)sender {
     [self.facture cloturerFacture];
+    [self.facturesArray removeObjectAtIndex:self.indexPath];
+    [self.tableView reloadData];
     [self rafraichir];
 }
 
@@ -155,8 +157,9 @@
     
 }
 
--(void)selectedFacture:(Facture *)facture :(FacturationTableViewController *)tableView :(NSIndexPath*) indexPath
+-(void)selectedFacture:(Facture *)facture :(UITableView *)tableView :(NSUInteger*) indexPath :(NSMutableArray*) facturesArray
 {
+    self.facturesArray=facturesArray;
     self.tableView=tableView;
     self.indexPath=indexPath;
     self.facture=facture;

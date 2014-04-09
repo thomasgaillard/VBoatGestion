@@ -221,11 +221,22 @@ NSMutableArray *_sections;
     NSLog(@"%@",embarcation.nom);
     destViewController.embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(modalDismiss)
+                                                 name:@"modalDismissing"
+                                               object:nil];
+    
     [self presentViewController:destViewController animated:YES completion:nil];
 destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
-
+    
     [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
     [self.collectionView reloadData];
+}
+
+-(void)modalDismiss{
+    [self.collectionView reloadData];
+    NSLog(@"CLOSE");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)affecterLocation:(Embarcation*)embarcation{

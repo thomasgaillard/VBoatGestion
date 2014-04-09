@@ -13,7 +13,7 @@
 
 @interface FacturationTableViewController : UITableViewController
 
-@property (nonatomic,strong)NSArray* facturesArray;
+@property (nonatomic,strong)NSMutableArray* facturesArray;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, assign) id<FacturationSelectionDelegate> delegate;
 

@@ -180,23 +180,24 @@
     self.nbPersonnesLoc.text = @"5";
 }
 
+
+
 - (IBAction)closeModal:(id)sender {
-    
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self closing];
 }
 
 - (IBAction)saveModalInfos:(id)sender {
     [self saveInfos];
     [self saveContext];
     
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self closing];
 }
 
 - (IBAction)startLoc:(id)sender {
     [self.embarcation depart];
     [self saveInfos];
     [self saveContext];
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self closing];
 }
 
 - (IBAction)stopLoc:(id)sender {
@@ -205,19 +206,19 @@
                                                inManagedObjectContext:self.managedObjectContext];
     [self.embarcation.location cloturerLocation:f];
     [self affecterNouvelleEmbarcation];
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self closing];
 }
 
 - (IBAction)indispoEmb:(id)sender {
     [self.embarcation rendreIndisponible];
     [self saveContext];
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self closing];
 }
 
 - (IBAction)dispoEmb:(id)sender {
     
     [self affecterNouvelleEmbarcation];
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self closing];
 }
 
 -(void)saveContext{
@@ -239,5 +240,12 @@
     [self.embarcation rendreDisponible];
     [self saveContext];
     
+}
+
+- (void)closing {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"modalDismissing"
+                                                        object:nil
+                                                      userInfo:nil];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 @end

@@ -12,6 +12,6 @@
 
 @protocol FacturationSelectionDelegate <NSObject>
 @required
--(void)selectedFacture:(Facture *)facture :(UITableView *) tableView :(NSIndexPath *)indexPath;
+-(void)selectedFacture:(Facture *)facture :(UITableView *) tableView :(NSUInteger *)indexPath :(NSMutableArray*) facturesArray;
 
 @end

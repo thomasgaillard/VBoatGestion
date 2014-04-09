@@ -18,7 +18,8 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) UITableView *tableView;
-@property (nonatomic, strong) NSIndexPath *indexPath;
+@property NSUInteger *indexPath;
+@property (nonatomic, strong) NSMutableArray *facturesArray;
 @property (strong, nonatomic) Facture *facture;
 @property (strong, nonatomic) NSArray *listeLocations;
 @property (weak, nonatomic) IBOutlet UILabel *prixTxt;

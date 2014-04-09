@@ -46,7 +46,7 @@
 {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     self.managedObjectContext = appDelegate.managedObjectContext;
-    self.facturesArray = [appDelegate getAllFactsEnCours];
+    self.facturesArray = [[appDelegate getAllFactsEnCours] mutableCopy];
     [self.tableView reloadData];
 }
 
@@ -159,7 +159,7 @@
 {
     Facture *selectedFacture = [self.facturesArray objectAtIndex:indexPath.row];
     if (self.delegate) {
-        [self.delegate selectedFacture:selectedFacture :tableView :indexPath];
+        [self.delegate selectedFacture:selectedFacture :tableView :indexPath.row :self.facturesArray];
     }
 }
 
