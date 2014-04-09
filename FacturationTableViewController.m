@@ -50,6 +50,20 @@
     [self.tableView reloadData];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    if (self.facturesArray.count == 0) {
+        
+    }else
+    {
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO  scrollPosition:UITableViewScrollPositionBottom];
+        Facture *selectedFacture = [self.facturesArray objectAtIndex:[NSIndexPath indexPathForRow:0 inSection:0].row];
+        if (self.delegate) {
+        [self.delegate selectedFacture:selectedFacture :self.tableView :[NSIndexPath indexPathForRow:0 inSection:0].row :self.facturesArray];
+        }
+    }
+    [super viewDidAppear:YES];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:NO];
