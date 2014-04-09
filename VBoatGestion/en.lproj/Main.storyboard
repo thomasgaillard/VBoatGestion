@@ -753,6 +753,20 @@
                                 <rect key="frame" x="-312" y="0.0" width="1024" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktf-EV-c5y">
+                                <rect key="frame" x="0.0" y="66" width="703" height="650"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pas de factures en cours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnC-Od-6pY">
+                                        <rect key="frame" x="256" y="314" width="191" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
@@ -766,6 +780,7 @@
                         <outlet property="especesBtn" destination="a2x-Sy-hpB" id="lda-n7-Mw7"/>
                         <outlet property="etatTxt" destination="vln-6U-aA8" id="p68-Gr-KLb"/>
                         <outlet property="eurosBtn" destination="3zv-OH-iLE" id="w1I-pJ-WIc"/>
+                        <outlet property="noFactures" destination="ktf-EV-c5y" id="5rO-zw-BCP"/>
                         <outlet property="paiementTxt" destination="Hkp-k6-NXG" id="OKm-fN-BeV"/>
                         <outlet property="pcBtn" destination="OCW-5d-cKj" id="bUD-Lg-whu"/>
                         <outlet property="prixTxt" destination="GMh-ws-pBh" id="2Ro-eQ-wRX"/>

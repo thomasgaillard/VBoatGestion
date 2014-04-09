@@ -159,12 +159,17 @@
 
 -(void)selectedFacture:(Facture *)facture :(UITableView *)tableView :(NSUInteger*) indexPath :(NSMutableArray*) facturesArray
 {
-    self.facturesArray=facturesArray;
-    self.tableView=tableView;
-    self.indexPath=indexPath;
-    self.facture=facture;
-    [self rafraichir];
-    [self.chaqueLocsFacture reloadData];
+        self.noFactures.hidden=YES;
+        self.facturesArray=facturesArray;
+        self.tableView=tableView;
+        self.indexPath=indexPath;
+        self.facture=facture;
+        [self rafraichir];
+        [self.chaqueLocsFacture reloadData];
+}
+
+-(void)noFactures:(int)empty{
+    self.noFactures.hidden=NO;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
