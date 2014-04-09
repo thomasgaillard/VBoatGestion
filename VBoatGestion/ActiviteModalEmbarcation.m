@@ -100,8 +100,10 @@
         text = [NSString stringWithFormat:@"Bateau %@ - ", [self.embarcation getNbPlacesOuType]];
         self.nbPersonnesLoc.hidden = YES;
         self.nbPersonnesLocLabel.hidden = YES;
-        self.btnM.hidden=YES;
-        self.btnP.hidden=YES;
+        self.btn2.hidden=YES;
+        self.btn3.hidden=YES;
+        self.btn4.hidden=YES;
+        self.btn5.hidden=YES;
     }
     
     if([self.embarcation.etat  isEqual: @"enlocation"]){
@@ -125,6 +127,14 @@
         self.startLocBtn.enabled = NO ;
         titleLabel.textColor = [self colorWithHexString:@"95a5a6"];
         self.typeOuNb.textColor = [self colorWithHexString:@"95a5a6"];
+        self.btn2.enabled = NO;
+        self.btn3.enabled = NO;
+        self.btn4.enabled = NO;
+        self.btn5.enabled = NO;
+        self.nbPersonnesLocLabel.enabled=NO;
+        self.nbPersonnesLoc.enabled = NO;
+        self.lblDeb.enabled=NO;
+        self.lblFin.enabled=NO;
     }
     
     
@@ -154,21 +164,20 @@
 }
 */
 
-- (IBAction)btnPlus:(id)sender {
-    NSDecimalNumber *nb = [NSDecimalNumber decimalNumberWithString:self.nbPersonnesLoc.text];
-    nb = [nb decimalNumberByAdding:[NSDecimalNumber decimalNumberWithString:@"1"]];
-    self.nbPersonnesLoc.text = [NSString stringWithFormat:@"%@", nb];
-    if(!self.btnM.enabled)
-        self.btnM.enabled = YES;
+- (IBAction)clickBtn2:(id)sender {
+    self.nbPersonnesLoc.text = @"2";
 }
 
-- (IBAction)btnMoins:(id)sender {
-    NSDecimalNumber *nb = [NSDecimalNumber decimalNumberWithString:self.nbPersonnesLoc.text];
-    if(nb > [NSDecimalNumber decimalNumberWithString:@"2"]){
-        nb = [nb decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"1"]];
-        if(nb > [NSDecimalNumber decimalNumberWithString:@"1"])
-            self.nbPersonnesLoc.text = [NSString stringWithFormat:@"%@", nb];
-    }
+- (IBAction)clickBtn3:(id)sender {
+    self.nbPersonnesLoc.text = @"3";
+}
+
+- (IBAction)clickBtn4:(id)sender {
+    self.nbPersonnesLoc.text = @"4";
+}
+
+- (IBAction)clickBtn5:(id)sender {
+    self.nbPersonnesLoc.text = @"5";
 }
 
 - (IBAction)closeModal:(id)sender {
