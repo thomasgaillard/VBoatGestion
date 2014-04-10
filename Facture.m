@@ -33,13 +33,26 @@
 -(void)grouperFactures:(Facture*) fac{
     NSLog(@"Grouper factures");
     //TODO
-    /*Location *l = [self.locations firstObject];
-    for(Location *loc in fac.locations){
-        if (loc.embarcation == l.embarcation) {
-            l.heureFin=loc.heureFin;
-        }else
-            [self ajouterLocation:loc];
-    }*/
+    Location *l = [self.locations anyObject];
+    if(self.locations.count ==1 && fac.locations.count==1)
+    {
+        for(Location *loc in fac.locations){
+            if (loc.embarcation == l.embarcation) {
+                l.heureDebut=[l.heureDebut earlierDate:loc.heureDebut];
+                l.heureFin=[l.heureFin laterDate:loc.heureFin];
+                self.prixTotal=[l calculerPrix];
+            }else
+                [self ajouterLocation:loc];
+        }
+    }
+    else{
+        for(Location *loc in fac.locations){
+                [self ajouterLocation:loc];
+        }
+    }
+    fac.etat=@"groupee";
+    fac.remarque=@"Facture groupee";
+    [fac.journee ajouterFacture:self];
 }
 
 -(void)ajouterPaiement:(Paiement*)paiement :(NSString*) moyenPaiement :(NSDecimalNumber*) somme{

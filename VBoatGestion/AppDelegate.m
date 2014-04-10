@@ -82,11 +82,11 @@
     
     //TEST CORE DATA
     
-    NSLog(@"Début");
+    /*NSLog(@"Début");
     Pedalo * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
-    newEntry.nom = @"Pedalo 1";
+    newEntry.nom = @"Solarium 6";
     newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"2"];
     newEntry.etat = @"indisponible";
     //  3
@@ -95,7 +95,7 @@
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-    NSLog(@"Fin");
+    NSLog(@"Fin");*/
     
     [GrilleTarifairePedalo tableauPrices];
     
