@@ -31,6 +31,7 @@
 {
     [super viewDidLoad];
     
+    self.tableView.allowsMultipleSelectionDuringEditing = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -40,6 +41,68 @@
     
     // Fetching Records and saving it in "fetchedRecordsArray" object
     [self reloadFactures];
+    //[self updateButtonsToMatchTableState];
+}
+
+
+- (IBAction)optionGrouper:(id)sender {
+    if (self.tableView.editing)
+    {
+        // Delete what the user selected.
+        NSArray *selectedRows = [self.tableView indexPathsForSelectedRows];
+        BOOL deleteSpecificRows = selectedRows.count > 1;
+        if (deleteSpecificRows)
+        {
+
+                
+                NSMutableIndexSet *indicesOfItemsToDelete = [NSMutableIndexSet new];
+                
+                NSIndexPath *first = [selectedRows firstObject];
+                
+                Facture *selectedFacture = [self.facturesArray objectAtIndex:first.row];
+                
+                for (NSUInteger nombre=1; nombre<selectedRows.count; nombre++) {
+                    NSIndexPath *each = [selectedRows objectAtIndex:nombre];
+                    [selectedFacture grouperFactures:[self.facturesArray objectAtIndex:each.row]];
+                }
+                
+                NSLog(@"À GROUPER OK");
+
+
+            // Build an NSIndexSet of all the objects to delete, so they can all be removed at once.
+            
+            // Delete the objects from our data model.
+            //[self.dataArray removeObjectsAtIndexes:indicesOfItemsToDelete];
+            
+            // Tell the tableView that we deleted the objects
+            //[self.tableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationAutomatic];
+            NSLog(@"À GROUPER OUPS");
+        }
+        else
+        {
+            // Delete everything, delete the objects from our data model
+            // Tell the tableView that we deleted the objects.
+            // Because we are deleting all the rows, just reload the current table section
+            NSLog(@"NOTHING TO GROUP");
+        }
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Whoops BIG PB, couldn't save: %@", [error localizedDescription]);
+        }
+        [self reloadFactures];
+        
+        [self.tableView setEditing:NO animated:YES];
+        self.optionAnnulerBtn.hidden=YES;
+    }else{
+        [self.tableView setEditing:YES animated:YES];
+        self.optionAnnulerBtn.hidden=NO;
+    }
+}
+
+
+- (IBAction)optionAnnuler:(id)sender {
+    [self.tableView setEditing:NO animated:YES];
+    self.optionAnnulerBtn.hidden=YES;
 }
 
 -(void)reloadFactures

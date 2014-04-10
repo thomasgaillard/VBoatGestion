@@ -17,6 +17,11 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, assign) id<FacturationSelectionDelegate> delegate;
 
+@property (weak, nonatomic) IBOutlet UIButton *optionGrouperBtn;
+@property (weak, nonatomic) IBOutlet UIButton *optionAnnulerBtn;
+
+- (IBAction)optionAnnuler:(id)sender;
+- (IBAction)optionGrouper:(id)sender;
 -(void)reloadFactures;
 
 @end
