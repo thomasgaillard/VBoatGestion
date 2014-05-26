@@ -10,7 +10,7 @@ TODO - VBoatGestion
 * Remettre elements dans barre bleu
 * Rajouter if quand montant negatif
 * Annuler facture
-* Créer Pedalo
+* Créer Paddle
 * Bouton fin d'année?
 * Peut-on mettre les chiffres des jours précédent?
 * Reductions inversées (argent en plus)
