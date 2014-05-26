@@ -11,3 +11,7 @@ TODO - VBoatGestion
 * Rajouter if quand montant negatif
 * Annuler facture
 * Créer Pedalo
+* Bouton fin d'année?
+* Peut-on mettre les chiffres des jours précédent?
+* Reductions inversées (argent en plus)
+* Bug factures - liason?
