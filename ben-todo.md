@@ -7,4 +7,3 @@ TODO - Benjamin
 * Blog : créer une page d'accueil, une de news, une paddle, une bateaux, une pédalo, une ski nautique avec liens depuis la page d'accueil avec les polygone stylés)
 * Blog : mettre les plugins nécessaires (news, photos instagram comprenant hashtag #vboat, slider, référencement, commentaires via facebook, le plus de truc liés aux réseauw sociaux)
 * Proposer d'autres idées pour le référencement
-* Voir avec Arnaud ou Alex pour augmentation prix Paddle??
