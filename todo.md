@@ -2,14 +2,6 @@ TODO - VBoatGestion
 =========
 
 * Par defaut : dispo
-* Quand click sur éspèces ou cb -> total par defaut
-* Remettre ecran vide premier plan
-
-
-
-
-
-
 
 * Delete facturation => vidage ecran
 * Rajouter if quand montant negatif (inferieur 0 rendu monnaie paiement ok)
@@ -17,10 +9,6 @@ TODO - VBoatGestion
 * Annuler facture
 * Bug factures - liason?
 * Reductions inversées (argent en plus)
-
-
-
-
 
 * Créer Paddle
 * Bouton fin d'année?
