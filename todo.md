@@ -3,7 +3,6 @@ TODO - VBoatGestion
 
 * Par defaut : dispo
 * -
-* Mettre petit 1 dans menu badges
 * Bug factures - liason?
 * Reductions inversées (argent en plus)
 * -
