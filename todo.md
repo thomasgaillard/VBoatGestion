@@ -1,17 +1,27 @@
 TODO - VBoatGestion
 =========
 
-* Enlever " Nouvelle facturation"
 * Par defaut : dispo
 * Quand click sur éspèces ou cb -> total par defaut
-* Delete facturation => vidage ecran
 * Remettre ecran vide premier plan
+
+
+
+
+
+
+
+* Delete facturation => vidage ecran
+* Rajouter if quand montant negatif (inferieur 0 rendu monnaie paiement ok)
 * Mettre petit 1 dans menu badges
-* Remettre elements dans barre bleu
-* Rajouter if quand montant negatif
 * Annuler facture
+* Bug factures - liason?
+* Reductions inversées (argent en plus)
+
+
+
+
+
 * Créer Paddle
 * Bouton fin d'année?
 * Peut-on mettre les chiffres des jours précédent?
-* Reductions inversées (argent en plus)
-* Bug factures - liason?
