@@ -113,6 +113,9 @@
     UIButton *btn = sender;
     Paiement *p = [NSEntityDescription insertNewObjectForEntityForName:@"Paiement"
                                                 inManagedObjectContext:self.managedObjectContext];
+    if([self.paiementTxt.text  isEqual: @"0"]){
+        self.paiementTxt.text = self.resteAPayerTxt.text;
+    }
     [self.facture ajouterPaiement:p :btn.titleLabel.text :[NSDecimalNumber decimalNumberWithString:self.paiementTxt.text] ];
     
     [self rafraichir];
