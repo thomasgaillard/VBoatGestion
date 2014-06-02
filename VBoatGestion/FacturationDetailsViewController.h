@@ -43,6 +43,7 @@
 - (IBAction)clicRemise:(id)sender;
 - (IBAction)clicRAZ:(id)sender;
 - (IBAction)clicCloture:(id)sender;
+- (IBAction)clicAnnuler:(id)sender;
 -(void)rafraichir;
 -(void)resteAPayer;
 -(void)saveContext;

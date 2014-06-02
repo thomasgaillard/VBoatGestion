@@ -112,6 +112,34 @@
     [self.facturesArray removeObjectAtIndex:self.indexPath];
     [self.tableView reloadData];
     [self rafraichir];
+    [self noFactures:0];
+}
+
+- (IBAction)clicAnnuler:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Annuler la facture?"
+                          message:@""
+                          delegate:self  // set nil if you don't want the yes button callback
+                          cancelButtonTitle:@"Non"
+                          otherButtonTitles:@"Oui", nil];
+    [alert show];
+    
+    
+}
+
+// POPUP Callback
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
+(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        //NO
+    } else {
+        //YES
+        [self.facture annulerFacture];
+        [self.facturesArray removeObjectAtIndex:self.indexPath];
+        [self.tableView reloadData];
+        [self rafraichir];
+        [self noFactures:0];
+    }
 }
 
 -(void)rafraichir{
