@@ -153,7 +153,7 @@
     [self.facturesArray removeObjectAtIndex:self.indexPath];
     [self.tableView reloadData];
     [self rafraichir];
-    [self noFactures:0];
+    [self selectPremiereFact];
 }
 
 - (IBAction)clicAnnuler:(id)sender {
@@ -168,6 +168,8 @@
     
 }
 
+
+
 // POPUP Callback
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
 (NSInteger)buttonIndex {
@@ -179,7 +181,19 @@
         [self.facturesArray removeObjectAtIndex:self.indexPath];
         [self.tableView reloadData];
         [self rafraichir];
+        [self selectPremiereFact];
+    }
+}
+
+- (void)selectPremiereFact
+{
+    if([self.facturesArray count]==0)
+    {
         [self noFactures:0];
+    }else{
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO  scrollPosition:UITableViewScrollPositionBottom];
+    Facture *selectedFacture = [self.facturesArray objectAtIndex:[NSIndexPath indexPathForRow:0 inSection:0].row];
+        [self selectedFacture:selectedFacture :self.tableView :[NSIndexPath indexPathForRow:0 inSection:0].row :self.facturesArray];
     }
 }
 
@@ -229,7 +243,7 @@
 -(void)selectedFacture:(Facture *)facture :(UITableView *)tableView :(NSUInteger*) indexPath :(NSMutableArray*) facturesArray
 {
         self.noFactures.hidden=YES;
-    self.noFacturesBg.hidden=YES;
+        self.noFacturesBg.hidden=YES;
         self.facturesArray=facturesArray;
         self.tableView=tableView;
         self.indexPath=indexPath;

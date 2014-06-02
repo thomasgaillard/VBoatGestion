@@ -111,6 +111,7 @@
     self.managedObjectContext = appDelegate.managedObjectContext;
     self.facturesArray = [[appDelegate getAllFactsEnCours] mutableCopy];
     [self.tableView reloadData];
+    [self viewDidAppear:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
