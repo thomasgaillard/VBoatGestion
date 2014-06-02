@@ -162,7 +162,6 @@ NSMutableArray *_sections;
     
     //hour
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     [formatter setDateFormat:@"HH:mm"];
     
     if([embarcation.etat isEqualToString:@"enlocation"])

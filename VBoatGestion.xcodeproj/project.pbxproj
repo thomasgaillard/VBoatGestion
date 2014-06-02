@@ -67,7 +67,6 @@
 		3A3559001885AC6700C573CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3A3559021885AC6700C573CE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3A3559061885AC6700C573CE /* VBoatGestion-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VBoatGestion-Info.plist"; sourceTree = "<group>"; };
-		3A3559081885AC6700C573CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A35590A1885AC6700C573CE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3A35590C1885AC6700C573CE /* VBoatGestion-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VBoatGestion-Prefix.pch"; sourceTree = "<group>"; };
 		3A35590D1885AC6700C573CE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,7 +74,6 @@
 		3A35591C1885AC6700C573CE /* VBoatGestionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VBoatGestionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A35591D1885AC6700C573CE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3A3559251885AC6700C573CE /* VBoatGestionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VBoatGestionTests-Info.plist"; sourceTree = "<group>"; };
-		3A3559271885AC6700C573CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3A3559291885AC6700C573CE /* VBoatGestionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VBoatGestionTests.m; sourceTree = "<group>"; };
 		3A53038D18D8691000D36D3E /* GrilleTarifairePedalo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrilleTarifairePedalo.h; sourceTree = "<group>"; };
 		3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrilleTarifairePedalo.m; sourceTree = "<group>"; };
@@ -106,6 +104,9 @@
 		87AD69EE18E9674A00C9165D /* Saison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Saison.m; sourceTree = SOURCE_ROOT; };
 		87AD69F318E9674A00C9165D /* Pedalo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pedalo.h; sourceTree = "<group>"; };
 		87AD69F418E9674A00C9165D /* Pedalo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pedalo.m; sourceTree = "<group>"; };
+		87B010B5193CCF7D00D61811 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Main.storyboard; sourceTree = "<group>"; };
+		87B010B6193CCF7D00D61811 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		87B010B7193CCF7D00D61811 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		87C9534C18F2A22F00793634 /* FacturationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacturationTableViewController.h; path = ../FacturationTableViewController.h; sourceTree = "<group>"; };
 		87C9534D18F2A22F00793634 /* FacturationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacturationTableViewController.m; path = ../FacturationTableViewController.m; sourceTree = "<group>"; };
 		87C9534F18F2A4C300793634 /* FacturationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationTableViewCell.h; sourceTree = "<group>"; };
@@ -121,7 +122,6 @@
 		87C9535D18F2E05F00793634 /* Embarcation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Embarcation.m; sourceTree = "<group>"; };
 		87C9535F18F2F4CB00793634 /* FacturationTableViewLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationTableViewLocationCell.h; sourceTree = "<group>"; };
 		87C9536018F2F4CB00793634 /* FacturationTableViewLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationTableViewLocationCell.m; sourceTree = "<group>"; };
-		87E6B4A418F4485B004CCE65 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87F3EBE118E466F800FF09C2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		87F3EBE718E4688600FF09C2 /* VboatCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VboatCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -337,6 +337,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 3A3558F21885AC6700C573CE;
 			productRefGroup = 3A3558FC1885AC6700C573CE /* Products */;
@@ -427,7 +428,7 @@
 		3A3559071885AC6700C573CE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3A3559081885AC6700C573CE /* en */,
+				87B010B6193CCF7D00D61811 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -435,7 +436,7 @@
 		3A3559261885AC6700C573CE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				3A3559271885AC6700C573CE /* en */,
+				87B010B7193CCF7D00D61811 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -443,7 +444,7 @@
 		87E6B4A318F4485B004CCE65 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				87E6B4A418F4485B004CCE65 /* en */,
+				87B010B5193CCF7D00D61811 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
