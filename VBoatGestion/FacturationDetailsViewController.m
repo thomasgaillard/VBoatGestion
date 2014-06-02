@@ -156,6 +156,48 @@
     [self.facturesArray removeObjectAtIndex:self.indexPath];
     [self.tableView reloadData];
     [self rafraichir];
+    [self selectPremiereFact];
+}
+
+- (IBAction)clicAnnuler:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Annuler la facture?"
+                          message:@""
+                          delegate:self  // set nil if you don't want the yes button callback
+                          cancelButtonTitle:@"Non"
+                          otherButtonTitles:@"Oui", nil];
+    [alert show];
+    
+    
+}
+
+
+
+// POPUP Callback
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
+(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        //NO
+    } else {
+        //YES
+        [self.facture annulerFacture];
+        [self.facturesArray removeObjectAtIndex:self.indexPath];
+        [self.tableView reloadData];
+        [self rafraichir];
+        [self selectPremiereFact];
+    }
+}
+
+- (void)selectPremiereFact
+{
+    if([self.facturesArray count]==0)
+    {
+        [self noFactures:0];
+    }else{
+    [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO  scrollPosition:UITableViewScrollPositionBottom];
+    Facture *selectedFacture = [self.facturesArray objectAtIndex:[NSIndexPath indexPathForRow:0 inSection:0].row];
+        [self selectedFacture:selectedFacture :self.tableView :[NSIndexPath indexPathForRow:0 inSection:0].row :self.facturesArray];
+    }
 }
 
 -(void)rafraichir{
@@ -204,7 +246,7 @@
 -(void)selectedFacture:(Facture *)facture :(UITableView *)tableView :(NSUInteger*) indexPath :(NSMutableArray*) facturesArray
 {
         self.noFactures.hidden=YES;
-    self.noFacturesBg.hidden=YES;
+        self.noFacturesBg.hidden=YES;
         self.facturesArray=facturesArray;
         self.tableView=tableView;
         self.indexPath=indexPath;
