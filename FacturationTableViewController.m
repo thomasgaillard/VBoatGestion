@@ -112,7 +112,10 @@
     self.facturesArray = [[appDelegate getAllFactsEnCours] mutableCopy];
     [self.tableView reloadData];
     
-    NSString *nb = [NSString stringWithFormat:@"%lu ",(unsigned long)[self.facturesArray count]];
+    NSString *nb = [NSString stringWithFormat:@"%lu",(unsigned long)[self.facturesArray count]];
+    if([nb isEqual:@"0"]){
+        nb=nil;
+    }
     [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue: nb];
     
     [self viewDidAppear:YES];

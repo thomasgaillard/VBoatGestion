@@ -223,16 +223,20 @@
 }
 
 - (void)diminuerNumeroBadge {
-    NSDecimalNumber *nbEnCours ;
+    NSString *nbEnCours ;
     
     if([[[[[[self tabBarController] tabBar] items] objectAtIndex:1] badgeValue] length] == 0){
-        nbEnCours = [NSDecimalNumber decimalNumberWithString:@"0"];
+        nbEnCours = @"0";
         
     }else {
-        nbEnCours = [NSDecimalNumber decimalNumberWithString:[[[[[self tabBarController] tabBar] items] objectAtIndex:1] badgeValue]];
+        nbEnCours = [[[[[self tabBarController] tabBar] items] objectAtIndex:1] badgeValue];
     }
-    nbEnCours = [nbEnCours decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"1"]];
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:[nbEnCours stringValue]];
+    nbEnCours = [NSString stringWithFormat:@"%@",[[NSDecimalNumber decimalNumberWithString:nbEnCours] decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"1"]]];
+    if([nbEnCours isEqual:@"0"]){
+        nbEnCours=nil;
+    }
+
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:nbEnCours];
 }
 
 -(void)rafraichir{
