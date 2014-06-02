@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3A10D98E18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A10D98D18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf */; };
 		3A10D98F18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3A10D98D18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf */; };
+		3A1BDA70193CB2BC00066205 /* ReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1BDA6F193CB2BC00066205 /* ReservationViewController.m */; };
 		3A3558FF1885AC6700C573CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3558FE1885AC6700C573CE /* Foundation.framework */; };
 		3A3559011885AC6700C573CE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3559001885AC6700C573CE /* CoreGraphics.framework */; };
 		3A3559031885AC6700C573CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3559021885AC6700C573CE /* UIKit.framework */; };
@@ -59,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		3A10D98D18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Regular.otf"; sourceTree = "<group>"; };
+		3A1BDA6E193CB2BC00066205 /* ReservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationViewController.h; sourceTree = "<group>"; };
+		3A1BDA6F193CB2BC00066205 /* ReservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationViewController.m; sourceTree = "<group>"; };
 		3A3558FB1885AC6700C573CE /* VBoatGestion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VBoatGestion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A3558FE1885AC6700C573CE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3A3559001885AC6700C573CE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -210,6 +213,8 @@
 				87C9534D18F2A22F00793634 /* FacturationTableViewController.m */,
 				87C9534F18F2A4C300793634 /* FacturationTableViewCell.h */,
 				87C9535018F2A4C300793634 /* FacturationTableViewCell.m */,
+				3A1BDA6E193CB2BC00066205 /* ReservationViewController.h */,
+				3A1BDA6F193CB2BC00066205 /* ReservationViewController.m */,
 				87C9535218F2A86700793634 /* FacturationDetailsViewController.h */,
 				87C9535318F2A86700793634 /* FacturationDetailsViewController.m */,
 				87C9535F18F2F4CB00793634 /* FacturationTableViewLocationCell.h */,
@@ -381,6 +386,7 @@
 				3A35590F1885AC6700C573CE /* AppDelegate.m in Sources */,
 				87AD69EC18E9674A00C9165D /* LocationBateau.m in Sources */,
 				8794B44318EC58E700217F47 /* ActiviteModalEmbarcation.m in Sources */,
+				3A1BDA70193CB2BC00066205 /* ReservationViewController.m in Sources */,
 				87AD69DA18E9674900C9165D /* Paiement.m in Sources */,
 				873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */,
 				3A35590B1885AC6700C573CE /* main.m in Sources */,
