@@ -37,6 +37,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *tempsBtn;
 @property (weak, nonatomic) IBOutlet UIButton *clotureBtn;
 @property (weak, nonatomic) IBOutlet UIView *noFactures;
+@property (weak, nonatomic) IBOutlet UIImageView *noFacturesBg;
+@property (weak, nonatomic) IBOutlet UILabel *aucuneFacturation;
 
 - (IBAction)clicPaveNumerique:(id)sender;
 - (IBAction)clicPaiement:(id)sender;
