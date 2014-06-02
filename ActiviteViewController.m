@@ -252,6 +252,19 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
 
 }
 
+- (void)augmenterNumeroBadge {
+    NSDecimalNumber *nbEnCours ;
+    
+    if([[[[[[self tabBarController] tabBar] items] objectAtIndex:1] badgeValue] length] == 0){
+        nbEnCours = [NSDecimalNumber decimalNumberWithString:@"0"];
+        
+    }else {
+        nbEnCours = [NSDecimalNumber decimalNumberWithString:[[[[[self tabBarController] tabBar] items] objectAtIndex:1] badgeValue]];
+    }
+    nbEnCours = [nbEnCours decimalNumberByAdding:[NSDecimalNumber decimalNumberWithString:@"1"]];
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:[nbEnCours stringValue]];
+}
+
 - (IBAction)doubleClik:(id)sender {
 NSLog(@"dddddclick");
     NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
@@ -271,6 +284,8 @@ NSLog(@"dddddclick");
         [embarcation.location cloturerLocation:f];
         [self affecterLocation:embarcation];
         [embarcation rendreDisponible];
+        
+        [self augmenterNumeroBadge];
     }
     [self saveContext];
     [self.collectionView reloadData];

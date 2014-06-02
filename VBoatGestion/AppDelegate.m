@@ -117,6 +117,12 @@
     //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mes factures %lu", (unsigned long)self.arrayFacts.count);
     
+    self.arrayPaiements = [self getAllPaiements];
+    
+    //Paiement *p1=[self.arrayPaiements firstObject];
+    //NSDecimalNumber *dn = p1.montant;
+    NSLog(@"Mes paiements %lu", (unsigned long)self.arrayPaiements.count);
+    
     return YES;
 }
 
@@ -248,6 +254,26 @@
     
     [fetchRequest setEntity:entity];
     [fetchRequest setPredicate:predicate];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+
+-(NSArray*)getAllPaiements
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Paiement"
+                                              inManagedObjectContext:self.managedObjectContext];
+
+    
+    [fetchRequest setEntity:entity];
     NSError* error;
     
     // Query on managedObjectContext With Generated fetchRequest

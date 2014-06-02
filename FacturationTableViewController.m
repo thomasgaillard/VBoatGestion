@@ -111,7 +111,24 @@
     self.managedObjectContext = appDelegate.managedObjectContext;
     self.facturesArray = [[appDelegate getAllFactsEnCours] mutableCopy];
     [self.tableView reloadData];
+    
+    NSString *nb = [NSString stringWithFormat:@"%lu ",(unsigned long)[self.facturesArray count]];
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue: nb];
+    
     [self viewDidAppear:YES];
+}
+
+- (void)augmenterNumeroBadge {
+    NSDecimalNumber *nbEnCours ;
+    
+    if([[[[[[self tabBarController] tabBar] items] objectAtIndex:1] badgeValue] length] == 0){
+        nbEnCours = [NSDecimalNumber decimalNumberWithString:@"0"];
+        
+    }else {
+        nbEnCours = [NSDecimalNumber decimalNumberWithString:[[[[[self tabBarController] tabBar] items] objectAtIndex:1] badgeValue]];
+    }
+    nbEnCours = [nbEnCours decimalNumberByAdding:[NSDecimalNumber decimalNumberWithString:@"1"]];
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:[nbEnCours stringValue]];
 }
 
 -(void)viewDidAppear:(BOOL)animated{

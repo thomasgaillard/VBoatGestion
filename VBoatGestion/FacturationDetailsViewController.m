@@ -149,21 +149,42 @@
 }
 
 - (IBAction)clicCloture:(id)sender {
+    if([[NSDecimalNumber decimalNumberWithString:self.resteAPayerTxt.text] doubleValue]<0.0){
+        Paiement *rendu = [NSEntityDescription insertNewObjectForEntityForName:@"Paiement"
+                                                    inManagedObjectContext:self.managedObjectContext];
+        [self.facture ajouterPaiement:rendu :@"Espèces" :[NSDecimalNumber decimalNumberWithString:self.resteAPayerTxt.text] ];
+        
+        [self rafraichir];
+    }
     [self.facture cloturerFacture];
     [self.facturesArray removeObjectAtIndex:self.indexPath];
     [self.tableView reloadData];
     [self rafraichir];
     [self selectPremiereFact];
+    [self diminuerNumeroBadge];
 }
 
 - (IBAction)clicAnnuler:(id)sender {
+    if(self.remarquesTxt.text.length==0){
+    UIAlertView *alert = [[UIAlertView alloc]
+                        initWithTitle:@"Annuler la facture"
+                        message:@"Pour annuler, merci d'entrer un motif d'annulation."
+                        delegate:self  // set nil if you don't want the yes button callback
+                        cancelButtonTitle:@"Modifier"
+                        otherButtonTitles: nil];
+        [alert show];
+    }
+    else
+    {
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"Annuler la facture?"
                           message:@""
                           delegate:self  // set nil if you don't want the yes button callback
                           cancelButtonTitle:@"Non"
                           otherButtonTitles:@"Oui", nil];
-    [alert show];
+        [alert show];
+    }
+    
     
     
 }
@@ -182,6 +203,7 @@
         [self.tableView reloadData];
         [self rafraichir];
         [self selectPremiereFact];
+        [self diminuerNumeroBadge];
     }
 }
 
@@ -195,6 +217,19 @@
     Facture *selectedFacture = [self.facturesArray objectAtIndex:[NSIndexPath indexPathForRow:0 inSection:0].row];
         [self selectedFacture:selectedFacture :self.tableView :[NSIndexPath indexPathForRow:0 inSection:0].row :self.facturesArray];
     }
+}
+
+- (void)diminuerNumeroBadge {
+    NSDecimalNumber *nbEnCours ;
+    
+    if([[[[[[self tabBarController] tabBar] items] objectAtIndex:1] badgeValue] length] == 0){
+        nbEnCours = [NSDecimalNumber decimalNumberWithString:@"0"];
+        
+    }else {
+        nbEnCours = [NSDecimalNumber decimalNumberWithString:[[[[[self tabBarController] tabBar] items] objectAtIndex:1] badgeValue]];
+    }
+    nbEnCours = [nbEnCours decimalNumberBySubtracting:[NSDecimalNumber decimalNumberWithString:@"1"]];
+    [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:[nbEnCours stringValue]];
 }
 
 -(void)rafraichir{

@@ -74,7 +74,7 @@
             reste = [reste decimalNumberBySubtracting:pay.montant];
             NSLog(@"Calcul reste à payer : %@",reste);
         }
-        if([reste doubleValue] == 0.0)
+        if([reste doubleValue] <= 0.0)
         {
             self.etat=@"payee";
         }

@@ -206,6 +206,7 @@
                                                inManagedObjectContext:self.managedObjectContext];
     [self.embarcation.location cloturerLocation:f];
     [self affecterNouvelleEmbarcation];
+    
     [self closing];
 }
 
