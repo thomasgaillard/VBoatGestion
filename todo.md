@@ -5,7 +5,7 @@ TODO - VBoatGestion
 * -
 * Bug factures - liason?
 * Reductions inversées (argent en plus - modifs prix total)
-* bug des deux listeners partout
+* bug des deux listeners partout (seulement sur menu ok, tout le reste => crash)
 * focus sur remarque quand annnulation
 * -
 * Créer Paddle
