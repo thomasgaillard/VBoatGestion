@@ -19,11 +19,13 @@
 		3A35591E1885AC6700C573CE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A35591D1885AC6700C573CE /* XCTest.framework */; };
 		3A35591F1885AC6700C573CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3558FE1885AC6700C573CE /* Foundation.framework */; };
 		3A3559201885AC6700C573CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3559021885AC6700C573CE /* UIKit.framework */; };
-		3A3559281885AC6700C573CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A3559261885AC6700C573CE /* InfoPlist.strings */; };
 		3A35592A1885AC6700C573CE /* VBoatGestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3559291885AC6700C573CE /* VBoatGestionTests.m */; };
 		3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */; };
 		3A53039218D86A0100D36D3E /* GrilleTarifaireBateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */; };
 		3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF254F418E1B5E5004FB853 /* Images.xcassets */; };
+		873D4528193DD1E400E64D2A /* FlotteCollectionViewCell.h.m in Sources */ = {isa = PBXBuildFile; fileRef = 873D4525193DD1E400E64D2A /* FlotteCollectionViewCell.h.m */; };
+		873D4529193DD1E400E64D2A /* FlotteModalEmbarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 873D4527193DD1E400E64D2A /* FlotteModalEmbarcation.m */; };
+		873D452C193DD1F300E64D2A /* FlotteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873D452B193DD1F300E64D2A /* FlotteViewController.m */; };
 		873EADB718E96FB10053FB9D /* Facture.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADB618E96FB10053FB9D /* Facture.m */; };
 		873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADC218E9BA790053FB9D /* ActiviteViewController.m */; };
 		8794B44018EC4FAC00217F47 /* ActiviteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */; };
@@ -80,6 +82,14 @@
 		3A53039018D86A0100D36D3E /* GrilleTarifaireBateau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrilleTarifaireBateau.h; sourceTree = "<group>"; };
 		3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrilleTarifaireBateau.m; sourceTree = "<group>"; };
 		3AF254F418E1B5E5004FB853 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		873D4522193DC79300E64D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		873D4523193DC79300E64D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		873D4524193DD1E400E64D2A /* FlotteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlotteCollectionViewCell.h; sourceTree = "<group>"; };
+		873D4525193DD1E400E64D2A /* FlotteCollectionViewCell.h.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlotteCollectionViewCell.h.m; sourceTree = "<group>"; };
+		873D4526193DD1E400E64D2A /* FlotteModalEmbarcation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlotteModalEmbarcation.h; sourceTree = "<group>"; };
+		873D4527193DD1E400E64D2A /* FlotteModalEmbarcation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlotteModalEmbarcation.m; sourceTree = "<group>"; };
+		873D452A193DD1F300E64D2A /* FlotteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlotteViewController.h; sourceTree = "<group>"; };
+		873D452B193DD1F300E64D2A /* FlotteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlotteViewController.m; sourceTree = "<group>"; };
 		873EADB518E96FB10053FB9D /* Facture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facture.h; sourceTree = SOURCE_ROOT; };
 		873EADB618E96FB10053FB9D /* Facture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facture.m; sourceTree = SOURCE_ROOT; };
 		873EADC118E9BA790053FB9D /* ActiviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiviteViewController.h; path = ../ActiviteViewController.h; sourceTree = "<group>"; };
@@ -104,9 +114,6 @@
 		87AD69EE18E9674A00C9165D /* Saison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Saison.m; sourceTree = SOURCE_ROOT; };
 		87AD69F318E9674A00C9165D /* Pedalo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pedalo.h; sourceTree = "<group>"; };
 		87AD69F418E9674A00C9165D /* Pedalo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pedalo.m; sourceTree = "<group>"; };
-		87B010B5193CCF7D00D61811 /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/Main.storyboard; sourceTree = "<group>"; };
-		87B010B6193CCF7D00D61811 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		87B010B7193CCF7D00D61811 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		87C9534C18F2A22F00793634 /* FacturationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacturationTableViewController.h; path = ../FacturationTableViewController.h; sourceTree = "<group>"; };
 		87C9534D18F2A22F00793634 /* FacturationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacturationTableViewController.m; path = ../FacturationTableViewController.m; sourceTree = "<group>"; };
 		87C9534F18F2A4C300793634 /* FacturationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationTableViewCell.h; sourceTree = "<group>"; };
@@ -196,8 +203,8 @@
 				3A35590D1885AC6700C573CE /* AppDelegate.h */,
 				3A35590E1885AC6700C573CE /* AppDelegate.m */,
 				87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */,
-				87C9535C18F2E05F00793634 /* Embarcation.h */,
 				87E6B4A318F4485B004CCE65 /* Main.storyboard */,
+				87C9535C18F2E05F00793634 /* Embarcation.h */,
 				87C9535D18F2E05F00793634 /* Embarcation.m */,
 				87C9535918F2E05E00793634 /* Location.h */,
 				87C9535A18F2E05E00793634 /* Location.m */,
@@ -207,6 +214,12 @@
 				8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */,
 				8794B44118EC58E700217F47 /* ActiviteModalEmbarcation.h */,
 				8794B44218EC58E700217F47 /* ActiviteModalEmbarcation.m */,
+				873D452A193DD1F300E64D2A /* FlotteViewController.h */,
+				873D452B193DD1F300E64D2A /* FlotteViewController.m */,
+				873D4524193DD1E400E64D2A /* FlotteCollectionViewCell.h */,
+				873D4525193DD1E400E64D2A /* FlotteCollectionViewCell.h.m */,
+				873D4526193DD1E400E64D2A /* FlotteModalEmbarcation.h */,
+				873D4527193DD1E400E64D2A /* FlotteModalEmbarcation.m */,
 				87C9535618F2AFEF00793634 /* FacturationSplitViewController.h */,
 				87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */,
 				87C9534C18F2A22F00793634 /* FacturationTableViewController.h */,
@@ -273,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				3A3559251885AC6700C573CE /* VBoatGestionTests-Info.plist */,
-				3A3559261885AC6700C573CE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -366,7 +378,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A3559281885AC6700C573CE /* InfoPlist.strings in Resources */,
 				3A10D98F18F2A44B00CEF1A9 /* LeagueGothic-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +395,7 @@
 				3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */,
 				87F3EBE818E4688600FF09C2 /* VboatCoreData.xcdatamodeld in Sources */,
 				87C9535118F2A4C300793634 /* FacturationTableViewCell.m in Sources */,
+				873D4528193DD1E400E64D2A /* FlotteCollectionViewCell.h.m in Sources */,
 				3A35590F1885AC6700C573CE /* AppDelegate.m in Sources */,
 				87AD69EC18E9674A00C9165D /* LocationBateau.m in Sources */,
 				8794B44318EC58E700217F47 /* ActiviteModalEmbarcation.m in Sources */,
@@ -392,8 +404,10 @@
 				873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */,
 				3A35590B1885AC6700C573CE /* main.m in Sources */,
 				87AD69DD18E9674A00C9165D /* Bateau.m in Sources */,
+				873D4529193DD1E400E64D2A /* FlotteModalEmbarcation.m in Sources */,
 				87C9536118F2F4CB00793634 /* FacturationTableViewLocationCell.m in Sources */,
 				87C9535B18F2E05E00793634 /* Location.m in Sources */,
+				873D452C193DD1F300E64D2A /* FlotteViewController.m in Sources */,
 				87C9534E18F2A22F00793634 /* FacturationTableViewController.m in Sources */,
 				3A53039218D86A0100D36D3E /* GrilleTarifaireBateau.m in Sources */,
 				87AD69F518E9674A00C9165D /* Pedalo.m in Sources */,
@@ -428,15 +442,7 @@
 		3A3559071885AC6700C573CE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				87B010B6193CCF7D00D61811 /* fr */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		3A3559261885AC6700C573CE /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				87B010B7193CCF7D00D61811 /* fr */,
+				873D4523193DC79300E64D2A /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -444,7 +450,7 @@
 		87E6B4A318F4485B004CCE65 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				87B010B5193CCF7D00D61811 /* fr */,
+				873D4522193DC79300E64D2A /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

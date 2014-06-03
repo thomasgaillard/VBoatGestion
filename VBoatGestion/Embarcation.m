@@ -48,6 +48,10 @@
     return @"Erreur de type : classe Embarcation instanciée";
 }
 
+-(void)setNbPlacesOuType:(NSString*) nbPlacesOuType{
+    
+}
+
 
 
 

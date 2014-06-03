@@ -1,18 +1,18 @@
 //
-//  ActiviteModalEmbarcation.m
+//  FlotteModalEmbarcation.m
 //  VBoatGestion
 //
 //  Created by Maxence Mermoz on 02/04/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
-#import "ActiviteModalEmbarcation.h"
+#import "FlotteModalEmbarcation.h"
 
-@interface ActiviteModalEmbarcation ()
+@interface FlotteModalEmbarcation ()
 
 @end
 
-@implementation ActiviteModalEmbarcation
+@implementation FlotteModalEmbarcation
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -74,6 +74,7 @@
     }*/
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
     [formatter setDateFormat:@"HH:mm"];
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
@@ -82,58 +83,45 @@
     titleLabel.text = self.embarcation.nom;
     titleLabel.textAlignment= NSTextAlignmentCenter;
     
-    self.remarquesLoc.text = self.embarcation.location.remarque;
-
-    self.hDebutLoc.text = [formatter stringFromDate:self.embarcation.location.heureDebut];
-    self.hFinLoc.text = [formatter stringFromDate:self.embarcation.location.heureFin];
-    
-    self.nbPersonnesLoc.text = [self.embarcation.location getNbPlacesOuType];
+    self.nomText.text = self.embarcation.nom;
+    self.nbPersonnesLoc.text = [self.embarcation getNbPlacesOuType];
     
     NSString *text = @"";
     if ([self.embarcation isKindOfClass:[Pedalo class]])
     {
         text = [NSString stringWithFormat:@"Pédalo %@ places - ", [self.embarcation getNbPlacesOuType]];
-        
+        self.nbPersonnesLocLabel.hidden = NO;
+        self.typeLabel.hidden = YES;
     }
     else if ([self.embarcation isKindOfClass:[Bateau class]]){
         text = [NSString stringWithFormat:@"Bateau %@ - ", [self.embarcation getNbPlacesOuType]];
-        self.nbPersonnesLoc.hidden = YES;
         self.nbPersonnesLocLabel.hidden = YES;
-        self.btn2.hidden=YES;
-        self.btn3.hidden=YES;
-        self.btn4.hidden=YES;
-        self.btn5.hidden=YES;
+        self.typeLabel.hidden = NO;
     }
     
     if([self.embarcation.etat  isEqual: @"enlocation"]){
         text = [NSString stringWithFormat:@"%@ En location", text];
-        self.indispoEmbBtn.enabled = NO ;
-        self.dispoEmbBtn.enabled = NO ;
-        self.startLocBtn.enabled = NO ;
+        self.nomText.enabled = NO;
+        self.nbPersonnesLoc.enabled = NO;
+        self.supprBtn.enabled = NO;
+
         titleLabel.textColor = [self colorWithHexString:@"e74c3c"];
         self.typeOuNb.textColor = [self colorWithHexString:@"e74c3c"];
     }else if([self.embarcation.etat  isEqual: @"disponible"]){
         text = [NSString stringWithFormat:@"%@ Disponible", text];
-        self.dispoEmbBtn.enabled = NO ;
-        self.stopLocBtn.enabled = NO ;
+        self.nomText.enabled = NO;
+        self.nbPersonnesLoc.enabled = NO;
+        self.supprBtn.enabled = NO;
+
         titleLabel.textColor = [self colorWithHexString:@"2ecc70"];
         self.typeOuNb.textColor = [self colorWithHexString:@"2ecc70"];
 
     }else if([self.embarcation.etat  isEqual: @"indisponible"]){
         text = [NSString stringWithFormat:@"%@ Indisponible", text];
-        self.indispoEmbBtn.enabled = NO ;
-        self.stopLocBtn.enabled = NO ;
-        self.startLocBtn.enabled = NO ;
+
         titleLabel.textColor = [self colorWithHexString:@"95a5a6"];
         self.typeOuNb.textColor = [self colorWithHexString:@"95a5a6"];
-        self.btn2.enabled = NO;
-        self.btn3.enabled = NO;
-        self.btn4.enabled = NO;
-        self.btn5.enabled = NO;
-        self.nbPersonnesLocLabel.enabled=NO;
-        self.nbPersonnesLoc.enabled = NO;
-        self.lblDeb.enabled=NO;
-        self.lblFin.enabled=NO;
+ 
     }
     
     
@@ -163,21 +151,6 @@
 }
 */
 
-- (IBAction)clickBtn2:(id)sender {
-    self.nbPersonnesLoc.text = @"2";
-}
-
-- (IBAction)clickBtn3:(id)sender {
-    self.nbPersonnesLoc.text = @"3";
-}
-
-- (IBAction)clickBtn4:(id)sender {
-    self.nbPersonnesLoc.text = @"4";
-}
-
-- (IBAction)clickBtn5:(id)sender {
-    self.nbPersonnesLoc.text = @"5";
-}
 
 
 
@@ -192,34 +165,16 @@
     [self closing];
 }
 
-- (IBAction)startLoc:(id)sender {
-    [self.embarcation depart];
+- (IBAction)supprimerEmb:(id)sender {
+    [self.managedObjectContext deleteObject:self.embarcation];
     [self saveInfos];
     [self saveContext];
-    [self closing];
-}
-
-- (IBAction)stopLoc:(id)sender {
-    [self saveInfos];
-    Facture *f = [NSEntityDescription insertNewObjectForEntityForName:@"Facture"
-                                               inManagedObjectContext:self.managedObjectContext];
-    [self.embarcation.location cloturerLocation:f];
-    [self affecterNouvelleEmbarcation];
     
     [self closing];
 }
 
-- (IBAction)indispoEmb:(id)sender {
-    [self.embarcation rendreIndisponible];
-    [self saveContext];
-    [self closing];
-}
 
-- (IBAction)dispoEmb:(id)sender {
-    
-    [self affecterNouvelleEmbarcation];
-    [self closing];
-}
+
 
 -(void)saveContext{
     NSError *error;
@@ -229,17 +184,8 @@
 }
 
 -(void)saveInfos{
-    [self.embarcation.location setNbPlacesOuType:self.nbPersonnesLoc.text];
-    self.embarcation.location.remarque = self.remarquesLoc.text;
-}
-
--(void)affecterNouvelleEmbarcation{
-    Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
-                                                inManagedObjectContext:self.managedObjectContext];
-    self.embarcation.location = l;
-    [self.embarcation rendreDisponible];
-    [self saveContext];
-    
+    [self.embarcation setNbPlacesOuType:self.nbPersonnesLoc.text];
+    self.embarcation.nom = self.nomText.text;
 }
 
 - (void)closing {

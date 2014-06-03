@@ -1,31 +1,31 @@
 //
-//  ActiviteViewController.m
+//  FlotteViewController.m
 //  VBoatGestion
 //
 //  Created by Maxence Mermoz on 31/03/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
-#import "ActiviteViewController.h"
+#import "FlotteViewController.h"
 #import "Embarcation.h"
 #import "AppDelegate.h"
 #import "LocationPedalo.h"
 #import "LocationBateau.h"
-#import "ActiviteCollectionViewCell.h"
-#import "ActiviteModalEmbarcation.h"
+#import "FlotteCollectionViewCell.h"
+#import "FlotteModalEmbarcation.h"
 #import "Location.h"
 
 
 //NSString *kCellID = @"MonEmbarcation";                          // UICollectionViewCell storyboard id
 
-@interface ActiviteViewController (){
+@interface FlotteViewController (){
 
 NSMutableArray *_sections;
     
 }
 @end
 
-@implementation ActiviteViewController
+@implementation FlotteViewController
 
 
 
@@ -61,7 +61,8 @@ NSMutableArray *_sections;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:NO];
-    [self rafraichir];
+    NSLog(@"CUUUUUUL");
+    [self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -120,7 +121,7 @@ NSMutableArray *_sections;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ActiviteCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
+    FlotteCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
     
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     
@@ -165,16 +166,7 @@ NSMutableArray *_sections;
     myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@", embarcation.nom];
     myCell.labelEmbarcation.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
     
-    //hour
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm"];
-    
-    if([embarcation.etat isEqualToString:@"enlocation"])
-        myCell.labelHeure.text = [formatter stringFromDate: [[embarcation location] heureDebut]];
-    else
-        myCell.labelHeure.text = @"-";
-    
-    NSLog([NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat]);
+    myCell.labelPlaces.text = [NSString stringWithFormat:@"%@",[embarcation getNbPlacesOuType]];
     
     AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
     self.managedObjectContext = appDelegate.managedObjectContext;
@@ -195,7 +187,7 @@ NSMutableArray *_sections;
 {
     if ([segue.identifier isEqualToString:@"modalInfosEmbarcation"]) {
         NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
-        ActiviteModalEmbarcation *destViewController = segue.destinationViewController;
+        FlotteModalEmbarcation *destViewController = segue.destinationViewController;
         NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
         
         Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
@@ -217,9 +209,8 @@ NSMutableArray *_sections;
 - (IBAction)singleClik:(id)sender {
     NSLog(@"click");
     NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
-    ActiviteModalEmbarcation *destViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"modalActivite"];
+    FlotteModalEmbarcation *destViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"modalFlotte"];
     NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
-    
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     //myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat];
     NSLog(@"%@",embarcation.nom);
@@ -238,60 +229,49 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
 }
 
 -(void)modalDismiss{
-    [self.collectionView reloadData];
+    [self rafraichir];
     NSLog(@"CLOSE");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)affecterLocation:(Embarcation*)embarcation{
-    if([embarcation isKindOfClass:[Bateau class]]){
-        LocationBateau *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationBateau" inManagedObjectContext:self.managedObjectContext];
-        embarcation.location = l;
-    }
-    else{
-        LocationPedalo *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
-                                                    inManagedObjectContext:self.managedObjectContext];
-        embarcation.location = l;
-    }
-
-}
-
-- (void)augmenterNumeroBadge {
-    NSDecimalNumber *nbEnCours ;
-    
-    if([[[[[[self tabBarController] tabBar] items] objectAtIndex:1] badgeValue] length] == 0){
-        nbEnCours = [NSDecimalNumber decimalNumberWithString:@"0"];
-        
-    }else {
-        nbEnCours = [NSDecimalNumber decimalNumberWithString:[[[[[self tabBarController] tabBar] items] objectAtIndex:1] badgeValue]];
-    }
-    nbEnCours = [nbEnCours decimalNumberByAdding:[NSDecimalNumber decimalNumberWithString:@"1"]];
-    [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:[nbEnCours stringValue]];
-}
-
 - (IBAction)doubleClik:(id)sender {
-NSLog(@"dddddclick");
-    NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
-    NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
-    Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
-    
-    if([embarcation.etat isEqualToString:@"indisponible"]){
-        [self affecterLocation:embarcation];
-        [embarcation rendreDisponible];
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Création"
+                          message:@"Créer une embarcation et la configurer"
+                          delegate:self  // set nil if you don't want the yes button callback
+                          cancelButtonTitle:@"Annuler"
+                          otherButtonTitles:@"Bateau", @"Pedalo", nil];
+    [alert show];
+}
+
+// POPUP Callback
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
+(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+
+    } else if (buttonIndex ==1) {
+        //bateau
+        Bateau * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Bateau"
+                                                          inManagedObjectContext:self.managedObjectContext];
+        //  2
+        newEntry.nom = @"Nouveau Bateau";
+        newEntry.type = @"Type";
+        newEntry.etat = @"indisponible";
         
-    }
-    else if([embarcation.etat isEqualToString:@"disponible"]){
-        [embarcation depart];
-    }
-    else{
-        Facture *f = [NSEntityDescription insertNewObjectForEntityForName:@"Facture" inManagedObjectContext:self.managedObjectContext];
-        [embarcation.location cloturerLocation:f];
-        [self affecterLocation:embarcation];
-        [embarcation rendreDisponible];
+        [self saveContext];
+        [self rafraichir];
         
-        [self augmenterNumeroBadge];
+    } else if (buttonIndex ==2) {
+        //pedalo
+        Pedalo * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
+                                                          inManagedObjectContext:self.managedObjectContext];
+        //  2
+        newEntry.nom = @"Nouveau Pedalo";
+        newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"2"];
+        newEntry.etat = @"indisponible";
+        
+        [self saveContext];
+        [self rafraichir];
     }
-    [self saveContext];
-    [self.collectionView reloadData];
 }
 @end

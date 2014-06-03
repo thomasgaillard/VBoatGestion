@@ -23,7 +23,8 @@
     return [NSString stringWithFormat:@"%@",self.nbPlaces];
 }
 
-
-
+-(void)setNbPlacesOuType:(NSString*) nbPlacesOuType{
+    self.nbPlaces = [NSDecimalNumber decimalNumberWithString:nbPlacesOuType];
+}
 
 @end

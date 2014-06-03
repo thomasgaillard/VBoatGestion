@@ -216,6 +216,13 @@
     if (textField == self.remarquesTxt) {
         self.facture.remarque=self.remarquesTxt.text;
         [self saveContext];
+    } else if (textField == self.prixTxt){
+        if([[NSDecimalNumber decimalNumberWithString:self.prixTxt.text] doubleValue] >= [self.facture.prixTotal doubleValue]){
+            self.facture.prixTotal = [NSDecimalNumber decimalNumberWithString:self.prixTxt.text];
+            [self rafraichir];
+        } else{
+            self.prixTxt.text=[NSString stringWithFormat:@"%@",self.facture.prixTotal];
+        }
     }
 }
 
@@ -253,7 +260,8 @@
     self.remarquesTxt.delegate=self;
     self.etatTxt.text=self.facture.etat;
     self.remarquesTxt.text=self.facture.remarque;
-    self.prixTxt.text=[NSString stringWithFormat:@"%@ €",self.facture.prixTotal];
+    self.prixTxt.text=[NSString stringWithFormat:@"%@",self.facture.prixTotal];
+    self.prixTxt.delegate=self;
     NSLog(@"Compte : %lu",(unsigned long)[self.facture.locations count]);
     self.listeLocations=[self.facture.locations allObjects];
     self.paiementTxt.text=@"0";

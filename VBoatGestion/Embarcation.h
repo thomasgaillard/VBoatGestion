@@ -24,5 +24,6 @@
 -(void)rendreDisponible;
 -(void)affecterLocation:(Location*) loc;
 -(NSString*)getNbPlacesOuType;
+-(void)setNbPlacesOuType:(NSString*) nbPlacesOuType;
 
 @end
