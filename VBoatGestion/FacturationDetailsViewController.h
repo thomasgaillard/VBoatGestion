@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSMutableArray *facturesArray;
 @property (strong, nonatomic) Facture *facture;
 @property (strong, nonatomic) NSArray *listeLocations;
-@property (weak, nonatomic) IBOutlet UILabel *prixTxt;
+@property (weak, nonatomic) IBOutlet UITextField *prixTxt;
 @property (weak, nonatomic) IBOutlet UILabel *etatTxt;
 @property (weak, nonatomic) IBOutlet UITextField *remarquesTxt;
 @property (weak, nonatomic) IBOutlet UITableView *chaqueLocsFacture;

@@ -198,7 +198,9 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
 (NSInteger)buttonIndex {
     if (buttonIndex == 0) {
-        //NO
+        if ([alertView.title  isEqual: @"Annuler la facture"]){
+            [self.remarquesTxt becomeFirstResponder];
+        }
     } else {
         //YES
         [self.facture annulerFacture];
@@ -207,6 +209,13 @@
         [self rafraichir];
         [self selectPremiereFact];
         [self diminuerNumeroBadge];
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    if (textField == self.remarquesTxt) {
+        self.facture.remarque=self.remarquesTxt.text;
+        [self saveContext];
     }
 }
 
@@ -241,6 +250,7 @@
 
 -(void)rafraichir{
     [self resteAPayer];
+    self.remarquesTxt.delegate=self;
     self.etatTxt.text=self.facture.etat;
     self.remarquesTxt.text=self.facture.remarque;
     self.prixTxt.text=[NSString stringWithFormat:@"%@ €",self.facture.prixTotal];
