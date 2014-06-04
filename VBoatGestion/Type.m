@@ -1,18 +1,18 @@
 //
-//  GrillePrix.m
+//  Type.m
 //  VBoatGestion
 //
 //  Created by Maxence Mermoz on 04/06/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
+#import "Type.h"
 #import "GrillePrix.h"
-#import "Prix.h"
 
 
-@implementation GrillePrix
+@implementation Type
 
-@dynamic identifiantFacturation;
-@dynamic grille;
+@dynamic nom;
+@dynamic grillePrix;
 
 @end

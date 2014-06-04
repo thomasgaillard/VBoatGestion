@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C1021" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Bateau" representedClassName="Bateau" parentEntity="Embarcation" syncable="YES">
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
+    <entity name="Bateau" representedClassName="Bateau" parentEntity="Embarcation" syncable="YES"/>
     <entity name="Embarcation" representedClassName="Embarcation" isAbstract="YES" syncable="YES">
         <attribute name="etat" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Type" syncable="YES"/>
     </entity>
     <entity name="Facture" representedClassName="Facture" syncable="YES">
         <attribute name="etat" optional="YES" attributeType="String" defaultValueString="enCours" syncable="YES"/>
@@ -39,17 +38,16 @@
         <attribute name="remarque" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="embarcation" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Embarcation" syncable="YES"/>
     </entity>
-    <entity name="LocationBateau" representedClassName="LocationBateau" parentEntity="Location" syncable="YES">
-        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="LocationPedalo" representedClassName="LocationPedalo" parentEntity="Location" syncable="YES">
+    <entity name="LocationPedaloPlaces" representedClassName="LocationPedaloPlaces" parentEntity="Location" syncable="YES">
         <attribute name="nbPersonnes" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
     </entity>
+    <entity name="Paddle" representedClassName="Paddle" parentEntity="Embarcation" syncable="YES"/>
     <entity name="Paiement" representedClassName="Paiement" syncable="YES">
         <attribute name="montant" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="moyenPaiement" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Pedalo" representedClassName="Pedalo" parentEntity="Embarcation" syncable="YES">
+    <entity name="Pedalo" representedClassName="Pedalo" parentEntity="Embarcation" syncable="YES"/>
+    <entity name="PedaloPlaces" representedClassName="PedaloPlaces" parentEntity="Pedalo" syncable="YES">
         <attribute name="nbPlaces" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <entity name="Prix" representedClassName="Prix" syncable="YES">
@@ -60,19 +58,33 @@
         <attribute name="annee" attributeType="Decimal" minValueString="2014" defaultValueString="0.0" syncable="YES"/>
         <relationship name="journees" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Journee" syncable="YES"/>
     </entity>
+    <entity name="Type" representedClassName="Type" isAbstract="YES" syncable="YES">
+        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="grillePrix" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GrillePrix" syncable="YES"/>
+    </entity>
+    <entity name="TypeBateau" representedClassName="TypeBateau" parentEntity="Type" syncable="YES"/>
+    <entity name="TypePaddle" representedClassName="TypePaddle" parentEntity="Type" syncable="YES"/>
+    <entity name="TypePedalo" representedClassName="TypePedalo" parentEntity="Type" syncable="YES"/>
+    <entity name="TypePedaloPlaces" representedClassName="TypePedaloPlaces" parentEntity="Type" syncable="YES"/>
     <elements>
-        <element name="Bateau" positionX="259" positionY="557" width="128" height="58"/>
-        <element name="Embarcation" positionX="169" positionY="387" width="128" height="88"/>
+        <element name="Bateau" positionX="259" positionY="557" width="128" height="43"/>
+        <element name="Embarcation" positionX="169" positionY="387" width="128" height="103"/>
         <element name="Facture" positionX="18" positionY="207" width="128" height="148"/>
         <element name="Flotte" positionX="340" positionY="396" width="128" height="58"/>
         <element name="Journee" positionX="225" positionY="68" width="128" height="148"/>
         <element name="Location" positionX="-155" positionY="344" width="128" height="103"/>
-        <element name="LocationBateau" positionX="-200" positionY="567" width="128" height="58"/>
-        <element name="LocationPedalo" positionX="-56" positionY="512" width="128" height="58"/>
+        <element name="LocationPedaloPlaces" positionX="-56" positionY="512" width="128" height="58"/>
         <element name="Paiement" positionX="304" positionY="269" width="128" height="73"/>
-        <element name="Pedalo" positionX="115" positionY="521" width="128" height="58"/>
+        <element name="Pedalo" positionX="115" positionY="521" width="128" height="43"/>
         <element name="Saison" positionX="27" positionY="27" width="128" height="73"/>
         <element name="GrillePrix" positionX="-171" positionY="32" width="128" height="73"/>
         <element name="Prix" positionX="-153" positionY="162" width="128" height="73"/>
+        <element name="Type" positionX="36" positionY="207" width="128" height="73"/>
+        <element name="PedaloPlaces" positionX="45" positionY="216" width="128" height="58"/>
+        <element name="Paddle" positionX="54" positionY="225" width="128" height="43"/>
+        <element name="TypeBateau" positionX="90" positionY="234" width="128" height="43"/>
+        <element name="TypePedalo" positionX="36" positionY="180" width="128" height="43"/>
+        <element name="TypePaddle" positionX="45" positionY="189" width="128" height="43"/>
+        <element name="TypePedaloPlaces" positionX="54" positionY="198" width="128" height="43"/>
     </elements>
 </model>

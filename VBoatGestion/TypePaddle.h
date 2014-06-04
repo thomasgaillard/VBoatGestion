@@ -1,5 +1,5 @@
 //
-//  Pedalo.h
+//  TypePaddle.h
 //  VBoatGestion
 //
 //  Created by Maxence Mermoz on 04/06/2014.
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Embarcation.h"
+#import "Type.h"
 
 
-@interface Pedalo : Embarcation
+@interface TypePaddle : Type
 
 
 @end

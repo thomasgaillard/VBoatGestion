@@ -1,16 +1,15 @@
 //
-//  LocationPedalo.m
+//  LocationPedaloPlaces.m
 //  VBoatGestion
 //
-//  Created by Maxence Mermoz on 31/03/2014.
+//  Created by Maxence Mermoz on 04/06/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
-#import "LocationPedalo.h"
+#import "LocationPedaloPlaces.h"
 #import "GrilleTarifairePedalo.h"
 
-
-@implementation LocationPedalo
+@implementation LocationPedaloPlaces
 
 @dynamic nbPersonnes;
 
@@ -30,6 +29,5 @@
 -(NSString*)getNbPlacesOuType{
     return [NSString stringWithFormat:@"%@",self.nbPersonnes];;
 }
-
 
 @end

@@ -10,9 +10,10 @@
 #import "GrillePrix.h"
 #import "Prix.h"
 #import "AppDelegate.h"
-#import "LocationPedalo.h"
-#import "LocationBateau.h"
+#import "Location.h"
+#import "LocationPedaloPlaces.h"
 #import "PrixCollectionViewCell.h"
+#import "PedaloPlaces.h"
 #import "FlotteModalEmbarcation.h"
 #import "Location.h"
 
@@ -186,7 +187,7 @@ NSMutableArray *_sections;
                                                           inManagedObjectContext:self.managedObjectContext];
         //  2
         newEntry.nom = @"Nouveau Bateau";
-        newEntry.type = @"Type";
+        //newEntry.type = @"Type";
         newEntry.etat = @"indisponible";
         
         [self saveContext];
@@ -194,7 +195,7 @@ NSMutableArray *_sections;
         
     } else if (buttonIndex ==2) {
         //pedalo
-        Pedalo * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
+        PedaloPlaces * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"PedaloPlaces"
                                                           inManagedObjectContext:self.managedObjectContext];
         //  2
         newEntry.nom = @"Nouveau Pedalo";

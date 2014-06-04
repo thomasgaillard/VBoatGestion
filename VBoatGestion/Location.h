@@ -2,15 +2,14 @@
 //  Location.h
 //  VBoatGestion
 //
-//  Created by Maxence Mermoz on 31/03/2014.
+//  Created by Maxence Mermoz on 04/06/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Embarcation;
-@class Facture;
+@class Embarcation, Facture;
 
 @interface Location : NSManagedObject
 
@@ -25,6 +24,5 @@
 -(NSDecimalNumber*)calculerPrix;
 -(void)setNbPlacesOuType:(NSString*) nbOuType;
 -(NSString*)getNbPlacesOuType;
-
 
 @end

@@ -1,5 +1,5 @@
 //
-//  Pedalo.h
+//  PedaloPlaces.h
 //  VBoatGestion
 //
 //  Created by Maxence Mermoz on 04/06/2014.
@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "Embarcation.h"
+#import "Pedalo.h"
 
 
-@interface Pedalo : Embarcation
+@interface PedaloPlaces : Pedalo
 
+@property (nonatomic, retain) NSDecimalNumber * nbPlaces;
 
 @end

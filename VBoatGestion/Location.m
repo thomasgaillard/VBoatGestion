@@ -2,14 +2,13 @@
 //  Location.m
 //  VBoatGestion
 //
-//  Created by Maxence Mermoz on 31/03/2014.
+//  Created by Maxence Mermoz on 04/06/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
 #import "Location.h"
 #import "Embarcation.h"
 #import "Facture.h"
-#import "AppDelegate.h"
 
 
 @implementation Location
@@ -41,13 +40,14 @@
     return [NSDecimalNumber decimalNumberWithString:@"-1"];
 }
 
--(void)setNbPlacesOuType:(NSString*) nbOuType{
-}
 -(NSString*)getNbPlacesOuType{
-    return @"Problème de type : classe Location instanciée";
+    //return self.type;
+    return 0;
 }
 
-
+-(void)setNbPlacesOuType:(NSString*) nbOuType{
+    //self.type = nbOuType;
+}
 
 
 @end

@@ -613,7 +613,7 @@
                                         <rect key="frame" x="603" y="21" width="61" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XZr-kM-Lhu">
                                         <rect key="frame" x="180" y="21" width="300" height="30"/>
@@ -1288,14 +1288,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre de places :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWc-TS-0YA">
-                                <rect key="frame" x="20" y="157" width="198" height="21"/>
+                                <rect key="frame" x="20" y="320" width="198" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.3803921938" blue="0.49411767719999999" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1d-xW-IGv">
-                                <rect key="frame" x="20" y="157" width="198" height="21"/>
+                                <rect key="frame" x="20" y="207" width="198" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.3803921938" blue="0.49411767719999999" alpha="1" colorSpace="deviceRGB"/>
@@ -1309,14 +1309,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KNs-n0-d3C">
-                                <rect key="frame" x="215" y="153" width="271" height="30"/>
+                                <rect key="frame" x="215" y="316" width="271" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.0" green="0.67058825489999996" blue="0.87450987099999999" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyy-tl-6JR">
-                                <rect key="frame" x="222" y="255" width="97" height="30"/>
+                                <rect key="frame" x="196" y="400" width="149" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Supprimer">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1325,6 +1325,14 @@
                                     <action selector="supprimerEmb:" destination="91d-vQ-WKd" eventType="touchUpInside" id="e9C-du-k3X"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y4k-PP-cvF">
+                                <rect key="frame" x="215" y="110" width="271" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="91d-vQ-WKd" id="InK-hi-KLw"/>
+                                    <outlet property="delegate" destination="91d-vQ-WKd" id="bNn-5h-d5H"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.70999999999999996" colorSpace="calibratedWhite"/>
                     </view>
@@ -1340,6 +1348,7 @@
                         <outlet property="nbPersonnesLoc" destination="KNs-n0-d3C" id="kiZ-B2-HOa"/>
                         <outlet property="nbPersonnesLocLabel" destination="NWc-TS-0YA" id="4P5-Rm-sCT"/>
                         <outlet property="nomText" destination="31J-sz-uT9" id="eoU-Ne-Xfu"/>
+                        <outlet property="selectionType" destination="Y4k-PP-cvF" id="FAL-N0-mQf"/>
                         <outlet property="supprBtn" destination="vyy-tl-6JR" id="cG3-i7-qcX"/>
                         <outlet property="typeLabel" destination="U1d-xW-IGv" id="F2S-Ky-SPv"/>
                         <outlet property="typeOuNb" destination="fkb-Ei-5EH" id="02i-Hc-BYm"/>

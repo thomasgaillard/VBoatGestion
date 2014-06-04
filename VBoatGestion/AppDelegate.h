@@ -23,12 +23,18 @@
 @property (nonatomic,strong)NSArray* arrayFacts;
 @property (nonatomic,strong)NSArray* arrayPaiements;
 @property (nonatomic,strong)NSArray* arrayGrillesPrix;
+@property (nonatomic,strong)NSArray* arrayTypes;
 
 -(NSArray*)getAllEmbarcations;
 -(NSArray*)getAllLocs;
 -(NSArray*)getAllFactsEnCours;
 -(NSArray*)getAllPaiements;
 -(NSArray*)getAllGrillesPrix;
+-(NSArray*)getAllTypes;
+-(NSArray*)getAllTypesBateau;
+-(NSArray*)getAllTypesPedalo;
+-(NSArray*)getAllTypesPedaloPlaces;
+-(NSArray*)getAllTypesPaddle;
 -(Location*)returnInstantiateLoc;
 
 @end

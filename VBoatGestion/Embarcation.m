@@ -2,13 +2,13 @@
 //  Embarcation.m
 //  VBoatGestion
 //
-//  Created by Maxence Mermoz on 31/03/2014.
+//  Created by Maxence Mermoz on 04/06/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
 #import "Embarcation.h"
-#import "Facture.h"
 #import "Location.h"
+#import "Type.h"
 
 
 @implementation Embarcation
@@ -16,6 +16,7 @@
 @dynamic etat;
 @dynamic nom;
 @dynamic location;
+@dynamic type;
 
 -(void)depart{
     self.etat=@"enlocation";
@@ -39,21 +40,14 @@
     NSLog(@"Fonction disponible, etat : %@",self.etat);
 }
 
--(void)affecterLocation:(Location*)loc{
-    //self.location = loc;
-    //[self.location affecterEmbarcation: self];
-}
 
 -(NSString*)getNbPlacesOuType{
-    return @"Erreur de type : classe Embarcation instanciée";
+    return self.type.nom;
 }
 
--(void)setNbPlacesOuType:(NSString*) nbPlacesOuType{
-    
+-(void)setNbPlacesOuType:(Type*) nbPlacesOuType{
+    self.type = nbPlacesOuType;
 }
-
-
-
 
 
 @end

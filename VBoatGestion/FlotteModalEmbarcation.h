@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong)Embarcation *embarcation ;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
+@property (nonatomic, strong)NSArray *types ;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navBar;
 @property (weak, nonatomic) IBOutlet UITextField *nomText;
 
@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nbPersonnesLocLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *supprBtn;
+@property (weak, nonatomic) IBOutlet UIPickerView *selectionType;
 
 
 - (IBAction)closeModal:(id)sender;

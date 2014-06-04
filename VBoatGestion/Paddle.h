@@ -1,5 +1,5 @@
 //
-//  Pedalo.h
+//  Paddle.h
 //  VBoatGestion
 //
 //  Created by Maxence Mermoz on 04/06/2014.
@@ -11,7 +11,7 @@
 #import "Embarcation.h"
 
 
-@interface Pedalo : Embarcation
+@interface Paddle : Embarcation
 
 
 @end

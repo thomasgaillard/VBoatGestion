@@ -1,8 +1,8 @@
 //
-//  LocationPedalo.h
+//  LocationPedaloPlaces.h
 //  VBoatGestion
 //
-//  Created by Maxence Mermoz on 31/03/2014.
+//  Created by Maxence Mermoz on 04/06/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
@@ -11,7 +11,7 @@
 #import "Location.h"
 
 
-@interface LocationPedalo : Location
+@interface LocationPedaloPlaces : Location
 
 @property (nonatomic, retain) NSDecimalNumber * nbPersonnes;
 

@@ -7,6 +7,9 @@
 //
 
 #import "FlotteModalEmbarcation.h"
+#import "Type.h"
+#import "PedaloPlaces.h"
+#import "Paddle.h"
 
 @interface FlotteModalEmbarcation ()
 
@@ -64,6 +67,9 @@
 {
     [super viewDidLoad];
     
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    
     //Remplissage Label
     //self.labelModal.text=[NSString stringWithFormat:@"Nom: %@, Etat: %@, Remarques loc: %@",self.embarcation.nom, self.embarcation.etat, self.embarcation.location.remarque];
     
@@ -87,17 +93,30 @@
     self.nbPersonnesLoc.text = [self.embarcation getNbPlacesOuType];
     
     NSString *text = @"";
-    if ([self.embarcation isKindOfClass:[Pedalo class]])
+    if ([self.embarcation isKindOfClass:[PedaloPlaces class]])
     {
+        self.types= [appDelegate getAllTypesPedaloPlaces];
         text = [NSString stringWithFormat:@"Pédalo %@ places - ", [self.embarcation getNbPlacesOuType]];
         self.nbPersonnesLocLabel.hidden = NO;
         self.typeLabel.hidden = YES;
     }
     else if ([self.embarcation isKindOfClass:[Bateau class]]){
+        self.types= [appDelegate getAllTypesBateau];
         text = [NSString stringWithFormat:@"Bateau %@ - ", [self.embarcation getNbPlacesOuType]];
         self.nbPersonnesLocLabel.hidden = YES;
         self.typeLabel.hidden = NO;
+    }else if ([self.embarcation isKindOfClass:[Pedalo class]]){
+        self.types= [appDelegate getAllTypesPedalo];
+        text = [NSString stringWithFormat:@"Pedalo %@ - ", [self.embarcation getNbPlacesOuType]];
+        self.nbPersonnesLocLabel.hidden = YES;
+        self.typeLabel.hidden = NO;
+    }else if ([self.embarcation isKindOfClass:[Paddle class]]){
+        self.types= [appDelegate getAllTypesPaddle];
+        text = [NSString stringWithFormat:@"Paddle %@ - ", [self.embarcation getNbPlacesOuType]];
+        self.nbPersonnesLocLabel.hidden = YES;
+        self.typeLabel.hidden = NO;
     }
+    
     
     if([self.embarcation.etat  isEqual: @"enlocation"]){
         text = [NSString stringWithFormat:@"%@ En location", text];
@@ -129,9 +148,11 @@
 
     
     self.typeOuNb.text = text;
+    
+    if(self.embarcation.type!=nil)
+        [self.selectionType selectRow:[self.types indexOfObject:self.embarcation.type] inComponent:0 animated:YES];
 
-    AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
-    self.managedObjectContext = appDelegate.managedObjectContext;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -139,6 +160,38 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+    
+}
+
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
+{
+    return self.types.count;
+    
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row   forComponent:(NSInteger)component
+{
+    Type *t = [self.types objectAtIndex:row];
+    return t.nom;
+    
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component{
+    
+    self.embarcation.type = [self.types objectAtIndex:row];
+
+}
+
+
+
+
 
 /*
 #pragma mark - Navigation
@@ -184,7 +237,7 @@
 }
 
 -(void)saveInfos{
-    [self.embarcation setNbPlacesOuType:self.nbPersonnesLoc.text];
+    //[self.embarcation setNbPlacesOuType:self.nbPersonnesLoc.text];
     self.embarcation.nom = self.nomText.text;
 }
 

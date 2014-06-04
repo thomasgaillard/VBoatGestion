@@ -9,11 +9,11 @@
 #import "FlotteViewController.h"
 #import "Embarcation.h"
 #import "AppDelegate.h"
-#import "LocationPedalo.h"
-#import "LocationBateau.h"
+#import "LocationPedaloPlaces.h"
 #import "FlotteCollectionViewCell.h"
 #import "FlotteModalEmbarcation.h"
 #import "Location.h"
+#import "PedaloPlaces.h"
 
 
 //NSString *kCellID = @"MonEmbarcation";                          // UICollectionViewCell storyboard id
@@ -240,7 +240,7 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
                           message:@"Créer une embarcation et la configurer"
                           delegate:self  // set nil if you don't want the yes button callback
                           cancelButtonTitle:@"Annuler"
-                          otherButtonTitles:@"Bateau", @"Pedalo", nil];
+                          otherButtonTitles:@"Bateau", @"Pedalo", @"PedaloPlaces", @"Paddle", nil];
     [alert show];
 }
 
@@ -255,7 +255,8 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
                                                           inManagedObjectContext:self.managedObjectContext];
         //  2
         newEntry.nom = @"Nouveau Bateau";
-        newEntry.type = @"Type";
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        newEntry.type = [[appDelegate getAllTypesBateau] objectAtIndex:0];
         newEntry.etat = @"indisponible";
         
         [self saveContext];
@@ -263,11 +264,31 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
         
     } else if (buttonIndex ==2) {
         //pedalo
-        Pedalo * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
+        PedaloPlaces * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
                                                           inManagedObjectContext:self.managedObjectContext];
         //  2
         newEntry.nom = @"Nouveau Pedalo";
+        newEntry.etat = @"indisponible";
+        
+        [self saveContext];
+        [self rafraichir];
+    } else if (buttonIndex ==3) {
+        //pedalo
+        PedaloPlaces * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"PedaloPlaces"
+                                                                inManagedObjectContext:self.managedObjectContext];
+        //  2
+        newEntry.nom = @"Nouveau Pedalo Places";
         newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"2"];
+        newEntry.etat = @"indisponible";
+        
+        [self saveContext];
+        [self rafraichir];
+    } else if (buttonIndex ==4) {
+        //pedalo
+        PedaloPlaces * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Paddle"
+                                                                inManagedObjectContext:self.managedObjectContext];
+        //  2
+        newEntry.nom = @"Nouveau Paddle";
         newEntry.etat = @"indisponible";
         
         [self saveContext];

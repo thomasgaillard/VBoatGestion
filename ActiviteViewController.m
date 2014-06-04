@@ -9,8 +9,8 @@
 #import "ActiviteViewController.h"
 #import "Embarcation.h"
 #import "AppDelegate.h"
-#import "LocationPedalo.h"
-#import "LocationBateau.h"
+#import "LocationPedaloPlaces.h"
+#import "Location.h"
 #import "ActiviteCollectionViewCell.h"
 #import "ActiviteModalEmbarcation.h"
 #import "Location.h"
@@ -245,11 +245,11 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
 
 - (void)affecterLocation:(Embarcation*)embarcation{
     if([embarcation isKindOfClass:[Bateau class]]){
-        LocationBateau *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationBateau" inManagedObjectContext:self.managedObjectContext];
+        Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
         embarcation.location = l;
     }
     else{
-        LocationPedalo *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
+        LocationPedaloPlaces *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedaloPlaces"
                                                     inManagedObjectContext:self.managedObjectContext];
         embarcation.location = l;
     }

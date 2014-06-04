@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Journee.h"
-#import "Pedalo.h"
+#import "PedaloPlaces.h"
 #import "Bateau.h"
 #import "Facture.h"
 #import "Location.h"
@@ -17,6 +17,7 @@
 #import "FacturationDetailsViewController.h"
 #import "FacturationTableViewController.h"
 #import "Prix.h"
+#import "Type.h"
 #import "GrillePrix.h"
 
 @implementation AppDelegate
@@ -85,19 +86,41 @@
     //TEST CORE DATA
     
     /*NSLog(@"Début");
-    Pedalo * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Pedalo"
+    PedaloPlaces * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"PedaloPlaces"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
-    newEntry.nom = @"Pedalo 1";
+    newEntry.nom = @"Pedalo 3";
     newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"2"];
     newEntry.etat = @"indisponible";
     //  3
     //[newEntry rendreDisponible];
+    
+    NSLog(@"Fin");
+    
+    Type *paddle = [NSEntityDescription insertNewObjectForEntityForName:@"TypePaddle"
+                                                        inManagedObjectContext:self.managedObjectContext];
+    paddle.nom = @"Normal";
+    Type *bateauM = [NSEntityDescription insertNewObjectForEntityForName:@"TypeBateau"
+                                                 inManagedObjectContext:self.managedObjectContext];
+    bateauM.nom = @"Marinello";
+    Type *bateauC = [NSEntityDescription insertNewObjectForEntityForName:@"TypeBateau"
+                                                  inManagedObjectContext:self.managedObjectContext];
+    bateauC.nom = @"Conerro";
+    Type *pedPl = [NSEntityDescription insertNewObjectForEntityForName:@"TypePedaloPlaces"
+                                                  inManagedObjectContext:self.managedObjectContext];
+    pedPl.nom = @"Places";
+    Type *tob = [NSEntityDescription insertNewObjectForEntityForName:@"TypePedalo"
+                                                inManagedObjectContext:self.managedObjectContext];
+    tob.nom = @"Toboggan";
+    Type *plong = [NSEntityDescription insertNewObjectForEntityForName:@"TypePedalo"
+                                              inManagedObjectContext:self.managedObjectContext];
+    plong.nom = @"Plongeoir";
+    newEntry.type=pedPl;
+    
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-    NSLog(@"Fin");*/
+    }*/
     
     /*Prix *p1 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
                                              inManagedObjectContext:self.managedObjectContext];
@@ -149,6 +172,12 @@
     //Paiement *p1=[self.arrayPaiements firstObject];
     //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mes grilles prix %lu", (unsigned long)self.arrayGrillesPrix.count);
+    
+    self.arrayTypes = [self getAllTypes];
+    
+    //Paiement *p1=[self.arrayPaiements firstObject];
+    //NSDecimalNumber *dn = p1.montant;
+    NSLog(@"Mes types %lu", (unsigned long)self.arrayTypes.count);
     
     return YES;
 }
@@ -317,6 +346,102 @@
     
     //Setting Entity to be Queried
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"GrillePrix"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+
+-(NSArray*)getAllTypes
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Type"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+-(NSArray*)getAllTypesBateau
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TypeBateau"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+-(NSArray*)getAllTypesPedalo
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TypePedalo"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+-(NSArray*)getAllTypesPedaloPlaces
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TypePedaloPlaces"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+-(NSArray*)getAllTypesPaddle
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"TypePaddle"
                                               inManagedObjectContext:self.managedObjectContext];
     
     

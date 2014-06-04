@@ -23,10 +23,22 @@
 		3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */; };
 		3A53039218D86A0100D36D3E /* GrilleTarifaireBateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */; };
 		3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF254F418E1B5E5004FB853 /* Images.xcassets */; };
-		870A369A193F21700018F144 /* GrillePrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A3699193F21700018F144 /* GrillePrix.m */; };
-		870A369D193F21700018F144 /* Prix.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A369C193F21700018F144 /* Prix.m */; };
 		870A36A2193F251F0018F144 /* PrixCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A369F193F251F0018F144 /* PrixCollectionViewCell.m */; };
 		870A36A3193F251F0018F144 /* PrixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36A1193F251F0018F144 /* PrixViewController.m */; };
+		870A36A6193F5E590018F144 /* GrillePrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36A5193F5E590018F144 /* GrillePrix.m */; };
+		870A36A9193F5E590018F144 /* Paddle.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36A8193F5E590018F144 /* Paddle.m */; };
+		870A36AC193F5E590018F144 /* Prix.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36AB193F5E590018F144 /* Prix.m */; };
+		870A36B5193F5E590018F144 /* PedaloPlaces.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36B4193F5E590018F144 /* PedaloPlaces.m */; };
+		870A36B8193F5E590018F144 /* Pedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36B7193F5E590018F144 /* Pedalo.m */; };
+		870A36BB193F5E590018F144 /* Bateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36BA193F5E590018F144 /* Bateau.m */; };
+		870A36BE193F5E5A0018F144 /* Embarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36BD193F5E5A0018F144 /* Embarcation.m */; };
+		870A36C1193F5E5A0018F144 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36C0193F5E5A0018F144 /* Location.m */; };
+		870A36C7193F5EF20018F144 /* LocationPedaloPlaces.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36C6193F5EF20018F144 /* LocationPedaloPlaces.m */; };
+		870A36CA193F72490018F144 /* TypePaddle.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36C9193F72490018F144 /* TypePaddle.m */; };
+		870A36CD193F724A0018F144 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36CC193F724A0018F144 /* Type.m */; };
+		870A36D0193F724A0018F144 /* TypePedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36CF193F724A0018F144 /* TypePedalo.m */; };
+		870A36D3193F724A0018F144 /* TypePedaloPlaces.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36D2193F724A0018F144 /* TypePedaloPlaces.m */; };
+		870A36D6193F724A0018F144 /* TypeBateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36D5193F724A0018F144 /* TypeBateau.m */; };
 		873D4528193DD1E400E64D2A /* FlotteCollectionViewCell.h.m in Sources */ = {isa = PBXBuildFile; fileRef = 873D4525193DD1E400E64D2A /* FlotteCollectionViewCell.h.m */; };
 		873D4529193DD1E400E64D2A /* FlotteModalEmbarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 873D4527193DD1E400E64D2A /* FlotteModalEmbarcation.m */; };
 		873D452C193DD1F300E64D2A /* FlotteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873D452B193DD1F300E64D2A /* FlotteViewController.m */; };
@@ -35,19 +47,13 @@
 		8794B44018EC4FAC00217F47 /* ActiviteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */; };
 		8794B44318EC58E700217F47 /* ActiviteModalEmbarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8794B44218EC58E700217F47 /* ActiviteModalEmbarcation.m */; };
 		87AD69DA18E9674900C9165D /* Paiement.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69D918E9674900C9165D /* Paiement.m */; };
-		87AD69DD18E9674A00C9165D /* Bateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69DC18E9674A00C9165D /* Bateau.m */; };
-		87AD69E018E9674A00C9165D /* LocationPedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69DF18E9674A00C9165D /* LocationPedalo.m */; };
 		87AD69E618E9674A00C9165D /* Flotte.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69E518E9674A00C9165D /* Flotte.m */; };
 		87AD69E918E9674A00C9165D /* Journee.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69E818E9674A00C9165D /* Journee.m */; };
-		87AD69EC18E9674A00C9165D /* LocationBateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69EB18E9674A00C9165D /* LocationBateau.m */; };
 		87AD69EF18E9674A00C9165D /* Saison.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69EE18E9674A00C9165D /* Saison.m */; };
-		87AD69F518E9674A00C9165D /* Pedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69F418E9674A00C9165D /* Pedalo.m */; };
 		87C9534E18F2A22F00793634 /* FacturationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9534D18F2A22F00793634 /* FacturationTableViewController.m */; };
 		87C9535118F2A4C300793634 /* FacturationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535018F2A4C300793634 /* FacturationTableViewCell.m */; };
 		87C9535418F2A86700793634 /* FacturationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535318F2A86700793634 /* FacturationDetailsViewController.m */; };
 		87C9535818F2AFEF00793634 /* FacturationSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */; };
-		87C9535B18F2E05E00793634 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535A18F2E05E00793634 /* Location.m */; };
-		87C9535E18F2E05F00793634 /* Embarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535D18F2E05F00793634 /* Embarcation.m */; };
 		87C9536118F2F4CB00793634 /* FacturationTableViewLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9536018F2F4CB00793634 /* FacturationTableViewLocationCell.m */; };
 		87E6B4A518F4485B004CCE65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E6B4A318F4485B004CCE65 /* Main.storyboard */; };
 		87F3EBE218E466F800FF09C2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3EBE118E466F800FF09C2 /* CoreData.framework */; };
@@ -86,14 +92,38 @@
 		3A53039018D86A0100D36D3E /* GrilleTarifaireBateau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrilleTarifaireBateau.h; sourceTree = "<group>"; };
 		3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrilleTarifaireBateau.m; sourceTree = "<group>"; };
 		3AF254F418E1B5E5004FB853 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		870A3698193F21700018F144 /* GrillePrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrillePrix.h; sourceTree = "<group>"; };
-		870A3699193F21700018F144 /* GrillePrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrillePrix.m; sourceTree = "<group>"; };
-		870A369B193F21700018F144 /* Prix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prix.h; sourceTree = "<group>"; };
-		870A369C193F21700018F144 /* Prix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Prix.m; sourceTree = "<group>"; };
 		870A369E193F251F0018F144 /* PrixCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrixCollectionViewCell.h; sourceTree = "<group>"; };
 		870A369F193F251F0018F144 /* PrixCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrixCollectionViewCell.m; sourceTree = "<group>"; };
 		870A36A0193F251F0018F144 /* PrixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrixViewController.h; sourceTree = "<group>"; };
 		870A36A1193F251F0018F144 /* PrixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrixViewController.m; sourceTree = "<group>"; };
+		870A36A4193F5E590018F144 /* GrillePrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrillePrix.h; sourceTree = "<group>"; };
+		870A36A5193F5E590018F144 /* GrillePrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrillePrix.m; sourceTree = "<group>"; };
+		870A36A7193F5E590018F144 /* Paddle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paddle.h; sourceTree = "<group>"; };
+		870A36A8193F5E590018F144 /* Paddle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paddle.m; sourceTree = "<group>"; };
+		870A36AA193F5E590018F144 /* Prix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prix.h; sourceTree = "<group>"; };
+		870A36AB193F5E590018F144 /* Prix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Prix.m; sourceTree = "<group>"; };
+		870A36B3193F5E590018F144 /* PedaloPlaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PedaloPlaces.h; sourceTree = "<group>"; };
+		870A36B4193F5E590018F144 /* PedaloPlaces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PedaloPlaces.m; sourceTree = "<group>"; };
+		870A36B6193F5E590018F144 /* Pedalo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pedalo.h; sourceTree = "<group>"; };
+		870A36B7193F5E590018F144 /* Pedalo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pedalo.m; sourceTree = "<group>"; };
+		870A36B9193F5E590018F144 /* Bateau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bateau.h; sourceTree = "<group>"; };
+		870A36BA193F5E590018F144 /* Bateau.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bateau.m; sourceTree = "<group>"; };
+		870A36BC193F5E5A0018F144 /* Embarcation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Embarcation.h; sourceTree = "<group>"; };
+		870A36BD193F5E5A0018F144 /* Embarcation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Embarcation.m; sourceTree = "<group>"; };
+		870A36BF193F5E5A0018F144 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
+		870A36C0193F5E5A0018F144 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
+		870A36C5193F5EF20018F144 /* LocationPedaloPlaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPedaloPlaces.h; sourceTree = SOURCE_ROOT; };
+		870A36C6193F5EF20018F144 /* LocationPedaloPlaces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPedaloPlaces.m; sourceTree = SOURCE_ROOT; };
+		870A36C8193F72490018F144 /* TypePaddle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypePaddle.h; sourceTree = "<group>"; };
+		870A36C9193F72490018F144 /* TypePaddle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypePaddle.m; sourceTree = "<group>"; };
+		870A36CB193F724A0018F144 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
+		870A36CC193F724A0018F144 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
+		870A36CE193F724A0018F144 /* TypePedalo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypePedalo.h; sourceTree = "<group>"; };
+		870A36CF193F724A0018F144 /* TypePedalo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypePedalo.m; sourceTree = "<group>"; };
+		870A36D1193F724A0018F144 /* TypePedaloPlaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypePedaloPlaces.h; sourceTree = "<group>"; };
+		870A36D2193F724A0018F144 /* TypePedaloPlaces.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypePedaloPlaces.m; sourceTree = "<group>"; };
+		870A36D4193F724A0018F144 /* TypeBateau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeBateau.h; sourceTree = "<group>"; };
+		870A36D5193F724A0018F144 /* TypeBateau.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeBateau.m; sourceTree = "<group>"; };
 		873D4522193DC79300E64D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		873D4523193DC79300E64D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		873D4524193DD1E400E64D2A /* FlotteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlotteCollectionViewCell.h; sourceTree = "<group>"; };
@@ -112,20 +142,12 @@
 		8794B44218EC58E700217F47 /* ActiviteModalEmbarcation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiviteModalEmbarcation.m; sourceTree = "<group>"; };
 		87AD69D818E9674900C9165D /* Paiement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paiement.h; sourceTree = "<group>"; };
 		87AD69D918E9674900C9165D /* Paiement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paiement.m; sourceTree = "<group>"; };
-		87AD69DB18E9674A00C9165D /* Bateau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bateau.h; sourceTree = "<group>"; };
-		87AD69DC18E9674A00C9165D /* Bateau.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bateau.m; sourceTree = "<group>"; };
-		87AD69DE18E9674A00C9165D /* LocationPedalo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPedalo.h; sourceTree = "<group>"; };
-		87AD69DF18E9674A00C9165D /* LocationPedalo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPedalo.m; sourceTree = "<group>"; };
 		87AD69E418E9674A00C9165D /* Flotte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flotte.h; sourceTree = "<group>"; };
 		87AD69E518E9674A00C9165D /* Flotte.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flotte.m; sourceTree = "<group>"; };
 		87AD69E718E9674A00C9165D /* Journee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journee.h; sourceTree = "<group>"; };
 		87AD69E818E9674A00C9165D /* Journee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journee.m; sourceTree = "<group>"; };
-		87AD69EA18E9674A00C9165D /* LocationBateau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationBateau.h; sourceTree = "<group>"; };
-		87AD69EB18E9674A00C9165D /* LocationBateau.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationBateau.m; sourceTree = "<group>"; };
 		87AD69ED18E9674A00C9165D /* Saison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Saison.h; sourceTree = SOURCE_ROOT; };
 		87AD69EE18E9674A00C9165D /* Saison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Saison.m; sourceTree = SOURCE_ROOT; };
-		87AD69F318E9674A00C9165D /* Pedalo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pedalo.h; sourceTree = "<group>"; };
-		87AD69F418E9674A00C9165D /* Pedalo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pedalo.m; sourceTree = "<group>"; };
 		87C9534C18F2A22F00793634 /* FacturationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacturationTableViewController.h; path = ../FacturationTableViewController.h; sourceTree = "<group>"; };
 		87C9534D18F2A22F00793634 /* FacturationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacturationTableViewController.m; path = ../FacturationTableViewController.m; sourceTree = "<group>"; };
 		87C9534F18F2A4C300793634 /* FacturationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationTableViewCell.h; sourceTree = "<group>"; };
@@ -135,10 +157,6 @@
 		87C9535518F2AA6800793634 /* FacturationSelectionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacturationSelectionDelegate.h; sourceTree = "<group>"; };
 		87C9535618F2AFEF00793634 /* FacturationSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationSplitViewController.h; sourceTree = "<group>"; };
 		87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationSplitViewController.m; sourceTree = "<group>"; };
-		87C9535918F2E05E00793634 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
-		87C9535A18F2E05E00793634 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
-		87C9535C18F2E05F00793634 /* Embarcation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Embarcation.h; sourceTree = "<group>"; };
-		87C9535D18F2E05F00793634 /* Embarcation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Embarcation.m; sourceTree = "<group>"; };
 		87C9535F18F2F4CB00793634 /* FacturationTableViewLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationTableViewLocationCell.h; sourceTree = "<group>"; };
 		87C9536018F2F4CB00793634 /* FacturationTableViewLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationTableViewLocationCell.m; sourceTree = "<group>"; };
 		87F3EBE118E466F800FF09C2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -214,16 +232,7 @@
 			children = (
 				3A35590D1885AC6700C573CE /* AppDelegate.h */,
 				3A35590E1885AC6700C573CE /* AppDelegate.m */,
-				87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */,
-				870A369B193F21700018F144 /* Prix.h */,
-				870A369C193F21700018F144 /* Prix.m */,
-				870A3698193F21700018F144 /* GrillePrix.h */,
-				870A3699193F21700018F144 /* GrillePrix.m */,
 				87E6B4A318F4485B004CCE65 /* Main.storyboard */,
-				87C9535C18F2E05F00793634 /* Embarcation.h */,
-				87C9535D18F2E05F00793634 /* Embarcation.m */,
-				87C9535918F2E05E00793634 /* Location.h */,
-				87C9535A18F2E05E00793634 /* Location.m */,
 				873EADC118E9BA790053FB9D /* ActiviteViewController.h */,
 				873EADC218E9BA790053FB9D /* ActiviteViewController.m */,
 				8794B43E18EC4FAC00217F47 /* ActiviteCollectionViewCell.h */,
@@ -253,6 +262,35 @@
 				87C9535F18F2F4CB00793634 /* FacturationTableViewLocationCell.h */,
 				87C9536018F2F4CB00793634 /* FacturationTableViewLocationCell.m */,
 				87C9535518F2AA6800793634 /* FacturationSelectionDelegate.h */,
+				87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */,
+				870A36BF193F5E5A0018F144 /* Location.h */,
+				870A36C0193F5E5A0018F144 /* Location.m */,
+				870A36C5193F5EF20018F144 /* LocationPedaloPlaces.h */,
+				870A36C6193F5EF20018F144 /* LocationPedaloPlaces.m */,
+				870A36BC193F5E5A0018F144 /* Embarcation.h */,
+				870A36BD193F5E5A0018F144 /* Embarcation.m */,
+				870A36B9193F5E590018F144 /* Bateau.h */,
+				870A36BA193F5E590018F144 /* Bateau.m */,
+				870A36B6193F5E590018F144 /* Pedalo.h */,
+				870A36B7193F5E590018F144 /* Pedalo.m */,
+				870A36B3193F5E590018F144 /* PedaloPlaces.h */,
+				870A36B4193F5E590018F144 /* PedaloPlaces.m */,
+				870A36AA193F5E590018F144 /* Prix.h */,
+				870A36AB193F5E590018F144 /* Prix.m */,
+				870A36A7193F5E590018F144 /* Paddle.h */,
+				870A36A8193F5E590018F144 /* Paddle.m */,
+				870A36CB193F724A0018F144 /* Type.h */,
+				870A36CC193F724A0018F144 /* Type.m */,
+				870A36D4193F724A0018F144 /* TypeBateau.h */,
+				870A36D5193F724A0018F144 /* TypeBateau.m */,
+				870A36D1193F724A0018F144 /* TypePedaloPlaces.h */,
+				870A36D2193F724A0018F144 /* TypePedaloPlaces.m */,
+				870A36CE193F724A0018F144 /* TypePedalo.h */,
+				870A36CF193F724A0018F144 /* TypePedalo.m */,
+				870A36C8193F72490018F144 /* TypePaddle.h */,
+				870A36C9193F72490018F144 /* TypePaddle.m */,
+				870A36A4193F5E590018F144 /* GrillePrix.h */,
+				870A36A5193F5E590018F144 /* GrillePrix.m */,
 				3A53038D18D8691000D36D3E /* GrilleTarifairePedalo.h */,
 				3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */,
 				3A53039018D86A0100D36D3E /* GrilleTarifaireBateau.h */,
@@ -261,20 +299,12 @@
 				873EADB618E96FB10053FB9D /* Facture.m */,
 				87AD69D818E9674900C9165D /* Paiement.h */,
 				87AD69D918E9674900C9165D /* Paiement.m */,
-				87AD69DB18E9674A00C9165D /* Bateau.h */,
-				87AD69DC18E9674A00C9165D /* Bateau.m */,
-				87AD69DE18E9674A00C9165D /* LocationPedalo.h */,
-				87AD69DF18E9674A00C9165D /* LocationPedalo.m */,
 				87AD69E418E9674A00C9165D /* Flotte.h */,
 				87AD69E518E9674A00C9165D /* Flotte.m */,
 				87AD69E718E9674A00C9165D /* Journee.h */,
 				87AD69E818E9674A00C9165D /* Journee.m */,
-				87AD69EA18E9674A00C9165D /* LocationBateau.h */,
-				87AD69EB18E9674A00C9165D /* LocationBateau.m */,
 				87AD69ED18E9674A00C9165D /* Saison.h */,
 				87AD69EE18E9674A00C9165D /* Saison.m */,
-				87AD69F318E9674A00C9165D /* Pedalo.h */,
-				87AD69F418E9674A00C9165D /* Pedalo.m */,
 				3AF254F418E1B5E5004FB853 /* Images.xcassets */,
 				3A10D98C18F2A3F300CEF1A9 /* Resources */,
 				3A3559051885AC6700C573CE /* Supporting Files */,
@@ -411,36 +441,42 @@
 			files = (
 				870A36A2193F251F0018F144 /* PrixCollectionViewCell.m in Sources */,
 				87AD69E618E9674A00C9165D /* Flotte.m in Sources */,
+				870A36B5193F5E590018F144 /* PedaloPlaces.m in Sources */,
 				873EADB718E96FB10053FB9D /* Facture.m in Sources */,
+				870A36A9193F5E590018F144 /* Paddle.m in Sources */,
+				870A36CD193F724A0018F144 /* Type.m in Sources */,
 				8794B44018EC4FAC00217F47 /* ActiviteCollectionViewCell.m in Sources */,
 				3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */,
 				87F3EBE818E4688600FF09C2 /* VboatCoreData.xcdatamodeld in Sources */,
+				870A36D6193F724A0018F144 /* TypeBateau.m in Sources */,
 				87C9535118F2A4C300793634 /* FacturationTableViewCell.m in Sources */,
 				873D4528193DD1E400E64D2A /* FlotteCollectionViewCell.h.m in Sources */,
 				3A35590F1885AC6700C573CE /* AppDelegate.m in Sources */,
-				87AD69EC18E9674A00C9165D /* LocationBateau.m in Sources */,
+				870A36BE193F5E5A0018F144 /* Embarcation.m in Sources */,
 				8794B44318EC58E700217F47 /* ActiviteModalEmbarcation.m in Sources */,
+				870A36D0193F724A0018F144 /* TypePedalo.m in Sources */,
 				3A1BDA70193CB2BC00066205 /* ReservationViewController.m in Sources */,
 				87AD69DA18E9674900C9165D /* Paiement.m in Sources */,
+				870A36CA193F72490018F144 /* TypePaddle.m in Sources */,
+				870A36D3193F724A0018F144 /* TypePedaloPlaces.m in Sources */,
+				870A36A6193F5E590018F144 /* GrillePrix.m in Sources */,
+				870A36AC193F5E590018F144 /* Prix.m in Sources */,
 				873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */,
 				3A35590B1885AC6700C573CE /* main.m in Sources */,
-				870A369A193F21700018F144 /* GrillePrix.m in Sources */,
-				87AD69DD18E9674A00C9165D /* Bateau.m in Sources */,
 				870A36A3193F251F0018F144 /* PrixViewController.m in Sources */,
+				870A36BB193F5E590018F144 /* Bateau.m in Sources */,
 				873D4529193DD1E400E64D2A /* FlotteModalEmbarcation.m in Sources */,
 				87C9536118F2F4CB00793634 /* FacturationTableViewLocationCell.m in Sources */,
-				87C9535B18F2E05E00793634 /* Location.m in Sources */,
 				873D452C193DD1F300E64D2A /* FlotteViewController.m in Sources */,
-				870A369D193F21700018F144 /* Prix.m in Sources */,
 				87C9534E18F2A22F00793634 /* FacturationTableViewController.m in Sources */,
 				3A53039218D86A0100D36D3E /* GrilleTarifaireBateau.m in Sources */,
-				87AD69F518E9674A00C9165D /* Pedalo.m in Sources */,
-				87C9535E18F2E05F00793634 /* Embarcation.m in Sources */,
-				87AD69E018E9674A00C9165D /* LocationPedalo.m in Sources */,
 				87AD69E918E9674A00C9165D /* Journee.m in Sources */,
 				87C9535818F2AFEF00793634 /* FacturationSplitViewController.m in Sources */,
 				87C9535418F2A86700793634 /* FacturationDetailsViewController.m in Sources */,
+				870A36C7193F5EF20018F144 /* LocationPedaloPlaces.m in Sources */,
 				87AD69EF18E9674A00C9165D /* Saison.m in Sources */,
+				870A36C1193F5E5A0018F144 /* Location.m in Sources */,
+				870A36B8193F5E590018F144 /* Pedalo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
