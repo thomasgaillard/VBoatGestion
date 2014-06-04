@@ -7,6 +7,7 @@
 //
 
 #import "ActiviteModalEmbarcation.h"
+#import "Facture.h"
 
 @interface ActiviteModalEmbarcation ()
 
@@ -210,9 +211,33 @@
 }
 
 - (IBAction)indispoEmb:(id)sender {
-    [self.embarcation rendreIndisponible];
-    [self saveContext];
-    [self closing];
+    NSMutableArray* facturesArray;
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    facturesArray = [[appDelegate getAllFactsEnCours] mutableCopy];
+    BOOL embarcationEnCoursDeFacturation = NO;
+    for (Facture *fact in facturesArray) {
+        for (Location *loc in fact.locations) {
+            if (loc.embarcation == self.embarcation) {
+                embarcationEnCoursDeFacturation = YES;
+            }
+        }
+    }
+    
+    if(embarcationEnCoursDeFacturation==NO)
+    {
+        [self.embarcation rendreIndisponible];
+        [self saveContext];
+        [self closing];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Rendre indisponible"
+                              message:@"Impossible de rendre indisponible, une facturation est en cours."
+                              delegate:nil  // set nil if you don't want the yes button callback
+                              cancelButtonTitle:@"Annuler"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (IBAction)dispoEmb:(id)sender {
