@@ -23,6 +23,10 @@
 		3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */; };
 		3A53039218D86A0100D36D3E /* GrilleTarifaireBateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */; };
 		3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF254F418E1B5E5004FB853 /* Images.xcassets */; };
+		870A369A193F21700018F144 /* GrillePrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A3699193F21700018F144 /* GrillePrix.m */; };
+		870A369D193F21700018F144 /* Prix.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A369C193F21700018F144 /* Prix.m */; };
+		870A36A2193F251F0018F144 /* PrixCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A369F193F251F0018F144 /* PrixCollectionViewCell.m */; };
+		870A36A3193F251F0018F144 /* PrixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36A1193F251F0018F144 /* PrixViewController.m */; };
 		873D4528193DD1E400E64D2A /* FlotteCollectionViewCell.h.m in Sources */ = {isa = PBXBuildFile; fileRef = 873D4525193DD1E400E64D2A /* FlotteCollectionViewCell.h.m */; };
 		873D4529193DD1E400E64D2A /* FlotteModalEmbarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 873D4527193DD1E400E64D2A /* FlotteModalEmbarcation.m */; };
 		873D452C193DD1F300E64D2A /* FlotteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873D452B193DD1F300E64D2A /* FlotteViewController.m */; };
@@ -82,6 +86,14 @@
 		3A53039018D86A0100D36D3E /* GrilleTarifaireBateau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrilleTarifaireBateau.h; sourceTree = "<group>"; };
 		3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrilleTarifaireBateau.m; sourceTree = "<group>"; };
 		3AF254F418E1B5E5004FB853 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		870A3698193F21700018F144 /* GrillePrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrillePrix.h; sourceTree = "<group>"; };
+		870A3699193F21700018F144 /* GrillePrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrillePrix.m; sourceTree = "<group>"; };
+		870A369B193F21700018F144 /* Prix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Prix.h; sourceTree = "<group>"; };
+		870A369C193F21700018F144 /* Prix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Prix.m; sourceTree = "<group>"; };
+		870A369E193F251F0018F144 /* PrixCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrixCollectionViewCell.h; sourceTree = "<group>"; };
+		870A369F193F251F0018F144 /* PrixCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrixCollectionViewCell.m; sourceTree = "<group>"; };
+		870A36A0193F251F0018F144 /* PrixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrixViewController.h; sourceTree = "<group>"; };
+		870A36A1193F251F0018F144 /* PrixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrixViewController.m; sourceTree = "<group>"; };
 		873D4522193DC79300E64D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		873D4523193DC79300E64D2A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		873D4524193DD1E400E64D2A /* FlotteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlotteCollectionViewCell.h; sourceTree = "<group>"; };
@@ -203,6 +215,10 @@
 				3A35590D1885AC6700C573CE /* AppDelegate.h */,
 				3A35590E1885AC6700C573CE /* AppDelegate.m */,
 				87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */,
+				870A369B193F21700018F144 /* Prix.h */,
+				870A369C193F21700018F144 /* Prix.m */,
+				870A3698193F21700018F144 /* GrillePrix.h */,
+				870A3699193F21700018F144 /* GrillePrix.m */,
 				87E6B4A318F4485B004CCE65 /* Main.storyboard */,
 				87C9535C18F2E05F00793634 /* Embarcation.h */,
 				87C9535D18F2E05F00793634 /* Embarcation.m */,
@@ -220,6 +236,10 @@
 				873D4525193DD1E400E64D2A /* FlotteCollectionViewCell.h.m */,
 				873D4526193DD1E400E64D2A /* FlotteModalEmbarcation.h */,
 				873D4527193DD1E400E64D2A /* FlotteModalEmbarcation.m */,
+				870A36A0193F251F0018F144 /* PrixViewController.h */,
+				870A36A1193F251F0018F144 /* PrixViewController.m */,
+				870A369E193F251F0018F144 /* PrixCollectionViewCell.h */,
+				870A369F193F251F0018F144 /* PrixCollectionViewCell.m */,
 				87C9535618F2AFEF00793634 /* FacturationSplitViewController.h */,
 				87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */,
 				87C9534C18F2A22F00793634 /* FacturationTableViewController.h */,
@@ -389,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				870A36A2193F251F0018F144 /* PrixCollectionViewCell.m in Sources */,
 				87AD69E618E9674A00C9165D /* Flotte.m in Sources */,
 				873EADB718E96FB10053FB9D /* Facture.m in Sources */,
 				8794B44018EC4FAC00217F47 /* ActiviteCollectionViewCell.m in Sources */,
@@ -403,11 +424,14 @@
 				87AD69DA18E9674900C9165D /* Paiement.m in Sources */,
 				873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */,
 				3A35590B1885AC6700C573CE /* main.m in Sources */,
+				870A369A193F21700018F144 /* GrillePrix.m in Sources */,
 				87AD69DD18E9674A00C9165D /* Bateau.m in Sources */,
+				870A36A3193F251F0018F144 /* PrixViewController.m in Sources */,
 				873D4529193DD1E400E64D2A /* FlotteModalEmbarcation.m in Sources */,
 				87C9536118F2F4CB00793634 /* FacturationTableViewLocationCell.m in Sources */,
 				87C9535B18F2E05E00793634 /* Location.m in Sources */,
 				873D452C193DD1F300E64D2A /* FlotteViewController.m in Sources */,
+				870A369D193F21700018F144 /* Prix.m in Sources */,
 				87C9534E18F2A22F00793634 /* FacturationTableViewController.m in Sources */,
 				3A53039218D86A0100D36D3E /* GrilleTarifaireBateau.m in Sources */,
 				87AD69F518E9674A00C9165D /* Pedalo.m in Sources */,

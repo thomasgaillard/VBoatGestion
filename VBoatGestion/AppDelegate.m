@@ -16,6 +16,8 @@
 #import "Paiement.h"
 #import "FacturationDetailsViewController.h"
 #import "FacturationTableViewController.h"
+#import "Prix.h"
+#import "GrillePrix.h"
 
 @implementation AppDelegate
 
@@ -97,6 +99,25 @@
     }
     NSLog(@"Fin");*/
     
+    /*Prix *p1 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    Prix *p2 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    p1.temps=@"15";
+    p1.montant=@"12";
+    
+    GrillePrix *g1 = [NSEntityDescription insertNewObjectForEntityForName:@"GrillePrix"
+                                                   inManagedObjectContext:self.managedObjectContext];
+    
+    g1.identifiantFacturation=@"Pedalo1Place";
+    [g1 addGrilleObject:p1];
+    [g1 addGrilleObject:p2];
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }*/
+    
     [GrilleTarifairePedalo tableauPrices];
     
     self.arrayEmbarcations = [self getAllEmbarcations];
@@ -122,6 +143,12 @@
     //Paiement *p1=[self.arrayPaiements firstObject];
     //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mes paiements %lu", (unsigned long)self.arrayPaiements.count);
+    
+    self.arrayGrillesPrix = [self getAllGrillesPrix];
+    
+    //Paiement *p1=[self.arrayPaiements firstObject];
+    //NSDecimalNumber *dn = p1.montant;
+    NSLog(@"Mes grilles prix %lu", (unsigned long)self.arrayGrillesPrix.count);
     
     return YES;
 }
@@ -272,6 +299,26 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Paiement"
                                               inManagedObjectContext:self.managedObjectContext];
 
+    
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+
+-(NSArray*)getAllGrillesPrix
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"GrillePrix"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
     
     [fetchRequest setEntity:entity];
     NSError* error;
