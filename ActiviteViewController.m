@@ -14,6 +14,7 @@
 #import "ActiviteCollectionViewCell.h"
 #import "ActiviteModalEmbarcation.h"
 #import "Location.h"
+#import "PedaloPlaces.h"
 
 
 //NSString *kCellID = @"MonEmbarcation";                          // UICollectionViewCell storyboard id
@@ -244,13 +245,13 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
 }
 
 - (void)affecterLocation:(Embarcation*)embarcation{
-    if([embarcation isKindOfClass:[Bateau class]]){
-        Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
+    if([embarcation isKindOfClass:[PedaloPlaces class]]){
+        LocationPedaloPlaces *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedaloPlaces"
+                                                                inManagedObjectContext:self.managedObjectContext];
         embarcation.location = l;
     }
     else{
-        LocationPedaloPlaces *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedaloPlaces"
-                                                    inManagedObjectContext:self.managedObjectContext];
+        Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
         embarcation.location = l;
     }
 

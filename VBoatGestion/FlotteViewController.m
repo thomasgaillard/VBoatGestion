@@ -14,6 +14,7 @@
 #import "FlotteModalEmbarcation.h"
 #import "Location.h"
 #import "PedaloPlaces.h"
+#import "Paddle.h"
 
 
 //NSString *kCellID = @"MonEmbarcation";                          // UICollectionViewCell storyboard id
@@ -247,6 +248,7 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
 // POPUP Callback
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
 (NSInteger)buttonIndex {
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     if (buttonIndex == 0) {
 
     } else if (buttonIndex ==1) {
@@ -255,7 +257,6 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
                                                           inManagedObjectContext:self.managedObjectContext];
         //  2
         newEntry.nom = @"Nouveau Bateau";
-        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
         newEntry.type = [[appDelegate getAllTypesBateau] objectAtIndex:0];
         newEntry.etat = @"indisponible";
         
@@ -269,7 +270,7 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
         //  2
         newEntry.nom = @"Nouveau Pedalo";
         newEntry.etat = @"indisponible";
-        
+        newEntry.type = [[appDelegate getAllTypesPedalo] objectAtIndex:0];
         [self saveContext];
         [self rafraichir];
     } else if (buttonIndex ==3) {
@@ -278,6 +279,7 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
                                                                 inManagedObjectContext:self.managedObjectContext];
         //  2
         newEntry.nom = @"Nouveau Pedalo Places";
+        newEntry.type = [[appDelegate getAllTypesPedaloPlaces] objectAtIndex:0];
         newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"2"];
         newEntry.etat = @"indisponible";
         
@@ -285,10 +287,11 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
         [self rafraichir];
     } else if (buttonIndex ==4) {
         //pedalo
-        PedaloPlaces * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Paddle"
+        Paddle * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Paddle"
                                                                 inManagedObjectContext:self.managedObjectContext];
         //  2
         newEntry.nom = @"Nouveau Paddle";
+        newEntry.type = [[appDelegate getAllTypesPaddle] objectAtIndex:0];
         newEntry.etat = @"indisponible";
         
         [self saveContext];

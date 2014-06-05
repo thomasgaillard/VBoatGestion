@@ -24,5 +24,6 @@
 -(void)affecterLocation:(Location*) loc;
 -(NSString*)getNbPlacesOuType;
 -(void)setNbPlacesOuType:(NSString*) nbPlacesOuType;
+-(void)setPlaces:(NSString*) nb;
 
 @end

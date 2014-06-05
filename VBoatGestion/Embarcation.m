@@ -49,5 +49,9 @@
     self.type = nbPlacesOuType;
 }
 
+-(void)setPlaces:(NSString *)nb{
+    NSLog(@"PAS ICI");
+}
+
 
 @end

@@ -24,8 +24,11 @@
     return [NSString stringWithFormat:@"%@", self.nbPlaces];
 }
 
--(void)setNbPlacesOuType:(NSString*) nbPlacesOuType{
-    self.nbPlaces = [NSDecimalNumber decimalNumberWithString:nbPlacesOuType];
+-(void)setPlaces:(NSString *)nb{
+    NSLog(@"Good function");
+    self.nbPlaces = [NSDecimalNumber decimalNumberWithString:nb];
 }
+
+
 
 @end

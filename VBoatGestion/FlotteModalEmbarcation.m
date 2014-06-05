@@ -105,16 +105,19 @@
         text = [NSString stringWithFormat:@"Bateau %@ - ", [self.embarcation getNbPlacesOuType]];
         self.nbPersonnesLocLabel.hidden = YES;
         self.typeLabel.hidden = NO;
+        self.nbPersonnesLoc.hidden=YES;
     }else if ([self.embarcation isKindOfClass:[Pedalo class]]){
         self.types= [appDelegate getAllTypesPedalo];
         text = [NSString stringWithFormat:@"Pedalo %@ - ", [self.embarcation getNbPlacesOuType]];
         self.nbPersonnesLocLabel.hidden = YES;
         self.typeLabel.hidden = NO;
+        self.nbPersonnesLoc.hidden=YES;
     }else if ([self.embarcation isKindOfClass:[Paddle class]]){
         self.types= [appDelegate getAllTypesPaddle];
         text = [NSString stringWithFormat:@"Paddle %@ - ", [self.embarcation getNbPlacesOuType]];
         self.nbPersonnesLocLabel.hidden = YES;
         self.typeLabel.hidden = NO;
+        self.nbPersonnesLoc.hidden=YES;
     }
     
     
@@ -123,6 +126,7 @@
         self.nomText.enabled = NO;
         self.nbPersonnesLoc.enabled = NO;
         self.supprBtn.enabled = NO;
+        self.selectionType.userInteractionEnabled=NO;
 
         titleLabel.textColor = [self colorWithHexString:@"e74c3c"];
         self.typeOuNb.textColor = [self colorWithHexString:@"e74c3c"];
@@ -131,6 +135,7 @@
         self.nomText.enabled = NO;
         self.nbPersonnesLoc.enabled = NO;
         self.supprBtn.enabled = NO;
+        self.selectionType.userInteractionEnabled=NO;
 
         titleLabel.textColor = [self colorWithHexString:@"2ecc70"];
         self.typeOuNb.textColor = [self colorWithHexString:@"2ecc70"];
@@ -237,6 +242,11 @@
 }
 
 -(void)saveInfos{
+    if ([self.embarcation isKindOfClass:[PedaloPlaces class]])
+    {
+        NSLog(self.nbPersonnesLoc.text);
+        [self.embarcation setPlaces:self.nbPersonnesLoc.text];
+    }
     //[self.embarcation setNbPlacesOuType:self.nbPersonnesLoc.text];
     self.embarcation.nom = self.nomText.text;
 }
