@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSString * nom;
 @property (nonatomic, retain) NSSet *grillePrix;
+
 @end
 
 @interface Type (CoreDataGeneratedAccessors)

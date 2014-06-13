@@ -20,8 +20,6 @@
 		3A35591F1885AC6700C573CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3558FE1885AC6700C573CE /* Foundation.framework */; };
 		3A3559201885AC6700C573CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A3559021885AC6700C573CE /* UIKit.framework */; };
 		3A35592A1885AC6700C573CE /* VBoatGestionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3559291885AC6700C573CE /* VBoatGestionTests.m */; };
-		3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */; };
-		3A53039218D86A0100D36D3E /* GrilleTarifaireBateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */; };
 		3AF254F518E1B5E5004FB853 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AF254F418E1B5E5004FB853 /* Images.xcassets */; };
 		870A36A2193F251F0018F144 /* PrixCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A369F193F251F0018F144 /* PrixCollectionViewCell.m */; };
 		870A36A3193F251F0018F144 /* PrixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36A1193F251F0018F144 /* PrixViewController.m */; };
@@ -44,6 +42,7 @@
 		873D452C193DD1F300E64D2A /* FlotteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873D452B193DD1F300E64D2A /* FlotteViewController.m */; };
 		873EADB718E96FB10053FB9D /* Facture.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADB618E96FB10053FB9D /* Facture.m */; };
 		873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 873EADC218E9BA790053FB9D /* ActiviteViewController.m */; };
+		8758073D194AFACF00D2ECDB /* PrixCollectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8758073C194AFACF00D2ECDB /* PrixCollectionHeader.m */; };
 		8794B44018EC4FAC00217F47 /* ActiviteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */; };
 		8794B44318EC58E700217F47 /* ActiviteModalEmbarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8794B44218EC58E700217F47 /* ActiviteModalEmbarcation.m */; };
 		87AD69DA18E9674900C9165D /* Paiement.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69D918E9674900C9165D /* Paiement.m */; };
@@ -87,10 +86,6 @@
 		3A35591D1885AC6700C573CE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3A3559251885AC6700C573CE /* VBoatGestionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VBoatGestionTests-Info.plist"; sourceTree = "<group>"; };
 		3A3559291885AC6700C573CE /* VBoatGestionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VBoatGestionTests.m; sourceTree = "<group>"; };
-		3A53038D18D8691000D36D3E /* GrilleTarifairePedalo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrilleTarifairePedalo.h; sourceTree = "<group>"; };
-		3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrilleTarifairePedalo.m; sourceTree = "<group>"; };
-		3A53039018D86A0100D36D3E /* GrilleTarifaireBateau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrilleTarifaireBateau.h; sourceTree = "<group>"; };
-		3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrilleTarifaireBateau.m; sourceTree = "<group>"; };
 		3AF254F418E1B5E5004FB853 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		870A369E193F251F0018F144 /* PrixCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrixCollectionViewCell.h; sourceTree = "<group>"; };
 		870A369F193F251F0018F144 /* PrixCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrixCollectionViewCell.m; sourceTree = "<group>"; };
@@ -136,6 +131,8 @@
 		873EADB618E96FB10053FB9D /* Facture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facture.m; sourceTree = SOURCE_ROOT; };
 		873EADC118E9BA790053FB9D /* ActiviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActiviteViewController.h; path = ../ActiviteViewController.h; sourceTree = "<group>"; };
 		873EADC218E9BA790053FB9D /* ActiviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActiviteViewController.m; path = ../ActiviteViewController.m; sourceTree = "<group>"; };
+		8758073B194AFACF00D2ECDB /* PrixCollectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrixCollectionHeader.h; sourceTree = "<group>"; };
+		8758073C194AFACF00D2ECDB /* PrixCollectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrixCollectionHeader.m; sourceTree = "<group>"; };
 		8794B43E18EC4FAC00217F47 /* ActiviteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiviteCollectionViewCell.h; sourceTree = "<group>"; };
 		8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiviteCollectionViewCell.m; sourceTree = "<group>"; };
 		8794B44118EC58E700217F47 /* ActiviteModalEmbarcation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiviteModalEmbarcation.h; sourceTree = "<group>"; };
@@ -249,6 +246,8 @@
 				870A36A1193F251F0018F144 /* PrixViewController.m */,
 				870A369E193F251F0018F144 /* PrixCollectionViewCell.h */,
 				870A369F193F251F0018F144 /* PrixCollectionViewCell.m */,
+				8758073B194AFACF00D2ECDB /* PrixCollectionHeader.h */,
+				8758073C194AFACF00D2ECDB /* PrixCollectionHeader.m */,
 				87C9535618F2AFEF00793634 /* FacturationSplitViewController.h */,
 				87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */,
 				87C9534C18F2A22F00793634 /* FacturationTableViewController.h */,
@@ -291,10 +290,6 @@
 				870A36C9193F72490018F144 /* TypePaddle.m */,
 				870A36A4193F5E590018F144 /* GrillePrix.h */,
 				870A36A5193F5E590018F144 /* GrillePrix.m */,
-				3A53038D18D8691000D36D3E /* GrilleTarifairePedalo.h */,
-				3A53038E18D8691000D36D3E /* GrilleTarifairePedalo.m */,
-				3A53039018D86A0100D36D3E /* GrilleTarifaireBateau.h */,
-				3A53039118D86A0100D36D3E /* GrilleTarifaireBateau.m */,
 				873EADB518E96FB10053FB9D /* Facture.h */,
 				873EADB618E96FB10053FB9D /* Facture.m */,
 				87AD69D818E9674900C9165D /* Paiement.h */,
@@ -446,7 +441,6 @@
 				870A36A9193F5E590018F144 /* Paddle.m in Sources */,
 				870A36CD193F724A0018F144 /* Type.m in Sources */,
 				8794B44018EC4FAC00217F47 /* ActiviteCollectionViewCell.m in Sources */,
-				3A53038F18D8691000D36D3E /* GrilleTarifairePedalo.m in Sources */,
 				87F3EBE818E4688600FF09C2 /* VboatCoreData.xcdatamodeld in Sources */,
 				870A36D6193F724A0018F144 /* TypeBateau.m in Sources */,
 				87C9535118F2A4C300793634 /* FacturationTableViewCell.m in Sources */,
@@ -460,6 +454,7 @@
 				870A36CA193F72490018F144 /* TypePaddle.m in Sources */,
 				870A36D3193F724A0018F144 /* TypePedaloPlaces.m in Sources */,
 				870A36A6193F5E590018F144 /* GrillePrix.m in Sources */,
+				8758073D194AFACF00D2ECDB /* PrixCollectionHeader.m in Sources */,
 				870A36AC193F5E590018F144 /* Prix.m in Sources */,
 				873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */,
 				3A35590B1885AC6700C573CE /* main.m in Sources */,
@@ -469,7 +464,6 @@
 				87C9536118F2F4CB00793634 /* FacturationTableViewLocationCell.m in Sources */,
 				873D452C193DD1F300E64D2A /* FlotteViewController.m in Sources */,
 				87C9534E18F2A22F00793634 /* FacturationTableViewController.m in Sources */,
-				3A53039218D86A0100D36D3E /* GrilleTarifaireBateau.m in Sources */,
 				87AD69E918E9674A00C9165D /* Journee.m in Sources */,
 				87C9535818F2AFEF00793634 /* FacturationSplitViewController.m in Sources */,
 				87C9535418F2A86700793634 /* FacturationDetailsViewController.m in Sources */,

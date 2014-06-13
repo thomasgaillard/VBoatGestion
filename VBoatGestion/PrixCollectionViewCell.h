@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class Prix;
+
 @interface PrixCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UILabel *labelEmbarcation;
-@property (weak, nonatomic) IBOutlet UILabel *labelPlaces;
+
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (weak, nonatomic) IBOutlet UILabel *heureLabel;
+@property (weak, nonatomic) IBOutlet UITextField *montantTxt;
+@property (weak, nonatomic) Prix *prix;
+- (IBAction)startEdit:(id)sender;
 
 @end

@@ -8,16 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PrixViewController : UICollectionViewController
+@class Type;
+
+@interface PrixViewController : UIViewController
 
 @property (nonatomic,strong)NSArray* grillesPrixArray;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) IBOutlet UILabel *lblDate;
-@property (strong, nonatomic) IBOutlet UILabel *lblBateaux;
-@property (strong, nonatomic) IBOutlet UILabel *lblPedalos;
-@property (strong, nonatomic) IBOutlet UILabel *lblEspeces;
-@property (strong, nonatomic) IBOutlet UILabel *lblCb;
-- (IBAction)doubleClik:(id)sender;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic,strong)Type* type;
+@property (weak, nonatomic) IBOutlet UIButton *ajoutGrilleBtn;
+@property (weak, nonatomic) IBOutlet UIPickerView *selectionType;
+- (IBAction)ajoutType:(id)sender;
+- (IBAction)ajoutGrille:(id)sender;
+- (IBAction)supprType:(id)sender;
+
+
+@property (nonatomic, strong)NSArray *types ;
 -(void)modalDismiss;
 
 

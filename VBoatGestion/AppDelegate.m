@@ -12,7 +12,6 @@
 #import "Bateau.h"
 #import "Facture.h"
 #import "Location.h"
-#import "GrilleTarifairePedalo.h"
 #import "Paiement.h"
 #import "FacturationDetailsViewController.h"
 #import "FacturationTableViewController.h"
@@ -93,9 +92,9 @@
     newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"2"];
     newEntry.etat = @"indisponible";
     //  3
-    //[newEntry rendreDisponible];
+    //[newEntry rendreDisponible];*/
     
-    NSLog(@"Fin");
+    /*NSLog(@"Fin");
     
     Type *paddle = [NSEntityDescription insertNewObjectForEntityForName:@"TypePaddle"
                                                         inManagedObjectContext:self.managedObjectContext];
@@ -128,6 +127,9 @@
                                              inManagedObjectContext:self.managedObjectContext];
     p1.temps=@"15";
     p1.montant=@"12";
+     
+    p2.temps=@"30";
+    p2.montant=@"15";
     
     GrillePrix *g1 = [NSEntityDescription insertNewObjectForEntityForName:@"GrillePrix"
                                                    inManagedObjectContext:self.managedObjectContext];
@@ -135,14 +137,17 @@
     g1.identifiantFacturation=@"Pedalo1Place";
     [g1 addGrilleObject:p1];
     [g1 addGrilleObject:p2];
+     
+     Type *plong = [NSEntityDescription insertNewObjectForEntityForName:@"TypePedalo"
+     inManagedObjectContext:self.managedObjectContext];
+     plong.nom = @"Trampo";
+    [plong addGrillePrixObject:g1];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }*/
-    
-    [GrilleTarifairePedalo tableauPrices];
-    
+        
     self.arrayEmbarcations = [self getAllEmbarcations];
     
     //Paiement *p1=[self.arrayPaiements firstObject];
@@ -243,7 +248,7 @@
         return _persistentStoreCoordinator;
     }
     NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
-                                               stringByAppendingPathComponent: @"VBoat-Gestion.sqlite"]];
+                                               stringByAppendingPathComponent: @"VBoat-Gestion-iPad.sqlite"]];
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
                                    initWithManagedObjectModel:[self managedObjectModel]];

@@ -8,7 +8,6 @@
 
 #import "FacturationDetailsViewController.h"
 #import "AppDelegate.h"
-#import "GrilleTarifairePedalo.h"
 
 @interface FacturationDetailsViewController ()
 
@@ -140,7 +139,9 @@
     } else if ([btn.titleLabel.text  isEqual: @"Temps"]){
         Location *loc = [self.facture.locations anyObject];
 
-        self.facture.remise= [self.facture.prixTotal decimalNumberBySubtracting:[GrilleTarifairePedalo calculerPrix:[NSDate dateWithTimeIntervalSinceNow:[loc.heureDebut timeIntervalSinceDate:loc.heureFin]+[[[NSDecimalNumber decimalNumberWithString:self.paiementTxt.text] decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"60"]]doubleValue]] : [NSDate date]: [NSDecimalNumber decimalNumberWithString:loc.getNbPlacesOuType]]];
+        //REMISE TEMPS !!!!
+        Location *l = [self.listeLocations firstObject];
+        self.facture.remise= [self.facture.prixTotal decimalNumberBySubtracting:[l calcul:[NSDate dateWithTimeIntervalSinceNow:[loc.heureDebut timeIntervalSinceDate:loc.heureFin]+[[[NSDecimalNumber decimalNumberWithString:self.paiementTxt.text] decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"60"]]doubleValue]] : [NSDate date]]];
         NSLog(@"%f",[[NSDecimalNumber decimalNumberWithString:self.paiementTxt.text] doubleValue]);
     }
     [self rafraichir];

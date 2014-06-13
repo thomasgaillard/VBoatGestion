@@ -139,21 +139,35 @@ NSMutableArray *_sections;
     
     
     //background
-    if([embarcation isKindOfClass:[Pedalo class]]){
+    if([embarcation isKindOfClass:[PedaloPlaces class]]){
         if([embarcation.etat isEqualToString:@"enlocation"])
-            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedEnlocation.png"]];
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedEnlocationType.png"]];
         else if([embarcation.etat isEqualToString:@"disponible"])
-            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedDispo.png"]];
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedDispoType.png"]];
         else
-            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedIndispo.png"]];
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedIndispoType.png"]];
     }
-    else{
+    else if([embarcation isKindOfClass:[Bateau class]]){
         if([embarcation.etat isEqualToString:@"enlocation"])
-            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batEnlocation.png"]];
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batEnlocationType.png"]];
         else if([embarcation.etat isEqualToString:@"disponible"])
-            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batDispo.png"]];
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batDispoType.png"]];
         else
-            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batIndispo.png"]];
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batIndispoType.png"]];
+    } else if([embarcation isKindOfClass:[Pedalo class]]){
+        if([embarcation.etat isEqualToString:@"enlocation"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"toboEnlocationType.png"]];
+        else if([embarcation.etat isEqualToString:@"disponible"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"toboDispoType.png"]];
+        else
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"toboIndispoType.png"]];
+    } else if([embarcation isKindOfClass:[Paddle class]]){
+        if([embarcation.etat isEqualToString:@"enlocation"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"padEnlocationType.png"]];
+        else if([embarcation.etat isEqualToString:@"disponible"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"padDispoType.png"]];
+        else
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"padIndispoType.png"]];
     }
     
     //title

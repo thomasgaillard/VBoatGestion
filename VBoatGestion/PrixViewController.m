@@ -16,6 +16,9 @@
 #import "PedaloPlaces.h"
 #import "FlotteModalEmbarcation.h"
 #import "Location.h"
+#import "Type.h"
+#import "TypePedaloPlaces.h"
+#import "PrixCollectionHeader.h"
 
 
 //NSString *kCellID = @"MonEmbarcation";                          // UICollectionViewCell storyboard id
@@ -43,10 +46,8 @@ NSMutableArray *_sections;
 - (void)rafraichir
 {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    // Fetching Records and saving it in "fetchedRecordsArray" object
-    self.grillesPrixArray = [appDelegate getAllGrillesPrix];
-    NSLog(@"%lu",(unsigned long)self.grillesPrixArray.count);
-    [self.collectionView reloadData];
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    self.types= [appDelegate getAllTypes];
 }
 
 - (void)viewDidLoad
@@ -57,15 +58,25 @@ NSMutableArray *_sections;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd MMMM YYYY"];
     NSString *dateToday = [formatter stringFromDate:[NSDate date]];
-    [self.lblDate setText: dateToday];
+    //[self.lblDate setText: dateToday];
     
-    [self rafraichir];
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    self.types= [appDelegate getAllTypes];
+    
+    [self.selectionType selectRow:0 inComponent:0 animated:NO];
+    self.type = [self.types objectAtIndex:0];
+    self.grillesPrixArray = [self.type.grillePrix allObjects];
+    [self.collectionView reloadData];
+
+    //[self rafraichir];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:NO];
+    self.collectionView.allowsSelection=YES;
     NSLog(@"CUUUUUUL");
-    [self.collectionView reloadData];
+    //[self.collectionView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,6 +89,16 @@ NSMutableArray *_sections;
 {
     // Return the number of sections.
     NSLog(@"%lu",(unsigned long)self.grillesPrixArray.count);
+    
+    if(self.grillesPrixArray.count ==0)
+    {
+
+        [self remplirGrille:self.type];
+        [self saveContext];
+        self.grillesPrixArray = [self.type.grillePrix allObjects];
+        [self.collectionView reloadData];
+    }
+    
     return self.grillesPrixArray.count;
 }
 
@@ -126,13 +147,19 @@ NSMutableArray *_sections;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    PrixCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
+    PrixCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"unPrix" forIndexPath:indexPath];
     
     GrillePrix *grille = [self.grillesPrixArray objectAtIndex:indexPath.section];
     Prix *prix = [grille.grille objectAtIndex:indexPath.item];
     
-    myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@", prix.montant];
-    myCell.labelEmbarcation.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
+    NSLog(@"Durée : %@, prix : %@", prix.temps, prix.montant);
+    myCell.heureLabel.text = [NSString stringWithFormat:@"%@", prix.temps];
+    myCell.heureLabel.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
+    myCell.montantTxt.text = [NSString stringWithFormat:@"%@", prix.montant];
+    myCell.montantTxt.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
+    myCell.prix=prix;
+    
+    myCell.montantTxt.delegate=self;
     
     //myCell.labelPlaces.text = [NSString stringWithFormat:@"%@",[embarcation getNbPlacesOuType]];
     
@@ -147,11 +174,45 @@ NSMutableArray *_sections;
     return myCell;
 }
 
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableview = nil;
+    
+    if (kind == UICollectionElementKindSectionHeader) {
+        PrixCollectionHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"grilleHeader" forIndexPath:indexPath];
+        
+        GrillePrix *grille = [self.grillesPrixArray objectAtIndex:indexPath.section];
+        
+        NSString *title = grille.identifiantFacturation;
+        headerView.titreGrille.text = title;
+        
+        reusableview = headerView;
+    }
+
+    return reusableview;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+
+    NSArray *selection=[self.collectionView indexPathsForSelectedItems];
+    NSIndexPath *idp = [selection firstObject];
+    PrixCollectionViewCell *myCell=[self.collectionView cellForItemAtIndexPath:idp];
+    
+    myCell.prix.montant=textField.text;
+    [self saveContext];
+    
+    [self.collectionView deselectItemAtIndexPath:idp animated:NO];
+
+    return YES;
+}
+
+
+
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+/*- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"modalInfosEmbarcation"]) {
         NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
@@ -166,7 +227,7 @@ NSMutableArray *_sections;
         [self.collectionView reloadData];
     }
 }
-
+*/
 -(void)saveContext{
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
@@ -174,36 +235,257 @@ NSMutableArray *_sections;
     }
 }
 
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+    
+}
 
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent: (NSInteger)component
+{
+    return self.types.count;
+    
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row   forComponent:(NSInteger)component
+{
+    Type *t = [self.types objectAtIndex:row];
+    return t.nom;
+    
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component{
+    self.type = [self.types objectAtIndex:row];
+    self.grillesPrixArray = [self.type.grillePrix allObjects];
+    [self.collectionView reloadData];
+    if ([self.type isKindOfClass:[TypePedaloPlaces class]]){
+        self.ajoutGrilleBtn.hidden=NO;
+    } else{
+        self.ajoutGrilleBtn.hidden=YES;
+    }
+    
+    //self.embarcation.type = [self.types objectAtIndex:row];
+    
+}
+
+- (IBAction)ajoutType:(id)sender {
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Nouveau type" message:@"Entrer le nom du type" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles: @"Bateau", @"Pedalo", @"PedaloPlaces", @"Paddle", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag=1;
+    [alert show];
+
+}
+
+- (IBAction)ajoutGrille:(id)sender {
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Nouvelle grille de pédalo à places" message:@"Entrer le nombre de places" delegate:self cancelButtonTitle:@"Annuler" otherButtonTitles: @"Créer", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    alert.tag=2;
+    [alert show];
+}
+
+- (IBAction)supprType:(id)sender {
+    [self.managedObjectContext deleteObject:self.type];
+    [self rafraichir];
+    [self.selectionType reloadAllComponents];
+}
 
 // POPUP Callback
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
 (NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-
-    } else if (buttonIndex ==1) {
-        //bateau
-        Bateau * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Bateau"
-                                                          inManagedObjectContext:self.managedObjectContext];
-        //  2
-        newEntry.nom = @"Nouveau Bateau";
-        //newEntry.type = @"Type";
-        newEntry.etat = @"indisponible";
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    
+    switch (alertView.tag){
+    
+    case 1:
+    
+    if (![[alertView textFieldAtIndex:0].text isEqual:@""]) {
         
+        if (buttonIndex == 0) {
+            
+        } else if (buttonIndex ==1) {
+            //Bateau
+            Type *newType = [NSEntityDescription insertNewObjectForEntityForName:@"TypeBateau"
+                                                          inManagedObjectContext:self.managedObjectContext];
+            newType.nom = [alertView textFieldAtIndex:0].text;
+            [self remplirGrille:newType];
+        } else if (buttonIndex ==2) {
+            //Pedalo
+            Type *newType = [NSEntityDescription insertNewObjectForEntityForName:@"TypePedalo"
+                                                          inManagedObjectContext:self.managedObjectContext];
+            newType.nom = [alertView textFieldAtIndex:0].text;
+            [self remplirGrille:newType];
+        } else if (buttonIndex ==3) {
+            //pedalo places
+            Type *newType = [NSEntityDescription insertNewObjectForEntityForName:@"TypePedaloPlaces"
+                                                          inManagedObjectContext:self.managedObjectContext];
+            newType.nom = [alertView textFieldAtIndex:0].text;
+            [self remplirGrille:newType];
+        } else if (buttonIndex ==4) {
+            //paddle
+            Type *newType = [NSEntityDescription insertNewObjectForEntityForName:@"TypePaddle"
+                                                          inManagedObjectContext:self.managedObjectContext];
+            newType.nom = [alertView textFieldAtIndex:0].text;
+            [self remplirGrille:newType];
+        }
         [self saveContext];
         [self rafraichir];
-        
-    } else if (buttonIndex ==2) {
-        //pedalo
-        PedaloPlaces * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"PedaloPlaces"
-                                                          inManagedObjectContext:self.managedObjectContext];
-        //  2
-        newEntry.nom = @"Nouveau Pedalo";
-        newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"2"];
-        newEntry.etat = @"indisponible";
-        
-        [self saveContext];
-        [self rafraichir];
+        [self.selectionType reloadAllComponents];
     }
+    
+    break;
+    
+    case 2 :
+            if (buttonIndex == 0) {
+                
+            } else if (buttonIndex ==1) {
+                [self remplirGrille:self.type];
+                self.grillesPrixArray = [self.type.grillePrix allObjects];
+                GrillePrix *g = [self.grillesPrixArray lastObject];
+                g.identifiantFacturation = [alertView textFieldAtIndex:0].text;
+                [self.collectionView reloadData];
+            }
+            
+    break;
+            
+    }
+}
+
+-(void)remplirGrille:(Type *)newType{
+    GrillePrix *g1 = [NSEntityDescription insertNewObjectForEntityForName:@"GrillePrix"
+                                               inManagedObjectContext:self.managedObjectContext];
+
+    g1.identifiantFacturation=[NSString stringWithFormat:@"%@", newType.nom];
+
+    //30
+    Prix *p1 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                            inManagedObjectContext:self.managedObjectContext];
+    NSString *timeS = @"30 min";
+    p1.temps=timeS;
+    p1.montant=@"0";
+    [g1 addGrilleObject:p1];
+    
+    //45
+    Prix *p2 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    timeS = @"45 min";
+    p2.temps=timeS;
+    p2.montant=@"0";
+    [g1 addGrilleObject:p2];
+    
+    //1
+    Prix *p3 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    timeS = @"1h";
+    p3.temps=timeS;
+    p3.montant=@"0";
+    [g1 addGrilleObject:p3];
+    
+    //1h15
+    Prix *p4 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    timeS = @"1h15min";
+    p4.temps=timeS;
+    p4.montant=@"0";
+    [g1 addGrilleObject:p4];
+    //30
+    Prix *p12 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    timeS = @"1h30min";
+    p12.temps=timeS;
+    p12.montant=@"0";
+    [g1 addGrilleObject:p12];
+    
+    //45
+    Prix *p22 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    timeS = @"1h45min";
+    p22.temps=timeS;
+    p22.montant=@"0";
+    [g1 addGrilleObject:p22];
+    
+    //1
+    Prix *p32 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    timeS = @"2h";
+    p32.temps=timeS;
+    p32.montant=@"0";
+    [g1 addGrilleObject:p32];
+    
+    //1h15
+    Prix *p42 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    timeS = @"2h15min";
+    p42.temps=timeS;
+    p42.montant=@"0";
+    [g1 addGrilleObject:p42];
+    
+    //30
+    Prix *p13 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                              inManagedObjectContext:self.managedObjectContext];
+    timeS = @"2h30min";
+    p13.temps=timeS;
+    p13.montant=@"0";
+    [g1 addGrilleObject:p13];
+    
+    //45
+    Prix *p23 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    timeS = @"2h45min";
+    p23.temps=timeS;
+    p23.montant=@"0";
+    [g1 addGrilleObject:p23];
+    
+    //1
+    Prix *p33 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    timeS = @"3h";
+    p33.temps=timeS;
+    p33.montant=@"0";
+    [g1 addGrilleObject:p33];
+    
+    //1h15
+    Prix *p44 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                             inManagedObjectContext:self.managedObjectContext];
+    timeS = @"3h15min";
+    p44.temps=timeS;
+    p44.montant=@"0";
+    [g1 addGrilleObject:p44];
+    
+    //30
+    Prix *p14 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                              inManagedObjectContext:self.managedObjectContext];
+    timeS = @"3h30min";
+    p14.temps=timeS;
+    p14.montant=@"0";
+    [g1 addGrilleObject:p14];
+    
+    //45
+    Prix *p24 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                              inManagedObjectContext:self.managedObjectContext];
+    timeS = @"3h45min";
+    p24.temps=timeS;
+    p24.montant=@"0";
+    [g1 addGrilleObject:p24];
+    
+    //1
+    Prix *p34 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                              inManagedObjectContext:self.managedObjectContext];
+    timeS = @"4h";
+    p34.temps=timeS;
+    p34.montant=@"0";
+    [g1 addGrilleObject:p34];
+    
+    //PAR HEURE
+    Prix *p = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
+                                            inManagedObjectContext:self.managedObjectContext];
+    timeS = @"€/heure";
+    p.temps=timeS;
+    p.montant=@"0";
+    [g1 addGrilleObject:p];
+    
+    [newType addGrillePrixObject:g1];
+    [self saveContext];
 }
 @end

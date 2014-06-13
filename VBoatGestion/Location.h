@@ -19,9 +19,10 @@
 @property (nonatomic, retain) Embarcation *embarcation;
 
 -(void)lancerLocation;
--(void)cloturerLocation:(Facture*)fact;;
+-(void)cloturerLocation:(Facture*)fact;
 -(void)affecterEmbarcation:(Embarcation*)emb;
 -(NSDecimalNumber*)calculerPrix;
+-(NSDecimalNumber*)calcul:(NSDate*)hD :(NSDate*)hF;
 -(void)setNbPlacesOuType:(NSString*) nbOuType;
 -(NSString*)getNbPlacesOuType;
 

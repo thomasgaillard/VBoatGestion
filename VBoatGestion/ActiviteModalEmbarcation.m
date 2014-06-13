@@ -8,6 +8,9 @@
 
 #import "ActiviteModalEmbarcation.h"
 #import "Facture.h"
+#import "Pedalo.h"
+#import "PedaloPlaces.h"
+#import "LocationPedaloPlaces.h"
 
 @interface ActiviteModalEmbarcation ()
 
@@ -206,8 +209,8 @@
                                                inManagedObjectContext:self.managedObjectContext];
     [self.embarcation.location cloturerLocation:f];
     [self affecterNouvelleEmbarcation];
-    
-    [self closing];
+    [self.embarcation rendreDisponible];
+    [self closingStopLoc];
 }
 
 - (IBAction)indispoEmb:(id)sender {
@@ -241,8 +244,8 @@
 }
 
 - (IBAction)dispoEmb:(id)sender {
-    
     [self affecterNouvelleEmbarcation];
+    [self.embarcation rendreDisponible];
     [self closing];
 }
 
@@ -259,16 +262,26 @@
 }
 
 -(void)affecterNouvelleEmbarcation{
-    Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedalo"
-                                                inManagedObjectContext:self.managedObjectContext];
-    self.embarcation.location = l;
-    [self.embarcation rendreDisponible];
+    if([self.embarcation isKindOfClass:[PedaloPlaces class]]){
+        LocationPedaloPlaces *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedaloPlaces"
+                                                                inManagedObjectContext:self.managedObjectContext];
+        self.embarcation.location = l;
+    }
+    else{
+        Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
+        self.embarcation.location = l;
+    }
     [self saveContext];
-    
 }
 
 - (void)closing {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"modalDismissing"
+                                                        object:nil
+                                                      userInfo:nil];
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+- (void)closingStopLoc {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"modalDismissingStopLoc"
                                                         object:nil
                                                       userInfo:nil];
     [self dismissViewControllerAnimated:YES completion:NULL];

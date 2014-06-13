@@ -7,6 +7,8 @@
 //
 
 #import "PrixCollectionViewCell.h"
+#import "Prix.h"
+#import "AppDelegate.h"
 
 @implementation PrixCollectionViewCell
 
@@ -14,9 +16,19 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        self.managedObjectContext = appDelegate.managedObjectContext;
     }
     return self;
+}
+
+
+
+-(void)saveContext{
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
 }
 
 /*
@@ -28,4 +40,9 @@
 }
 */
 
+- (IBAction)startEdit:(id)sender {
+    UICollectionView *col = (UICollectionView *)[self superview];
+    NSIndexPath *indexPath = [col indexPathForCell:self];
+    [col selectItemAtIndexPath:indexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+}
 @end

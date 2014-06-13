@@ -15,6 +15,7 @@
 #import "ActiviteModalEmbarcation.h"
 #import "Location.h"
 #import "PedaloPlaces.h"
+#import "Paddle.h"
 
 
 //NSString *kCellID = @"MonEmbarcation";                          // UICollectionViewCell storyboard id
@@ -138,7 +139,7 @@ NSMutableArray *_sections;
     
     
     //background
-    if([embarcation isKindOfClass:[Pedalo class]]){
+    if([embarcation isKindOfClass:[PedaloPlaces class]]){
         if([embarcation.etat isEqualToString:@"enlocation"])
             myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedEnlocation.png"]];
         else if([embarcation.etat isEqualToString:@"disponible"])
@@ -146,13 +147,27 @@ NSMutableArray *_sections;
         else
             myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"pedIndispo.png"]];
     }
-    else{
+    else if([embarcation isKindOfClass:[Bateau class]]){
         if([embarcation.etat isEqualToString:@"enlocation"])
             myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batEnlocation.png"]];
         else if([embarcation.etat isEqualToString:@"disponible"])
             myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batDispo.png"]];
         else
             myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"batIndispo.png"]];
+    } else if([embarcation isKindOfClass:[Pedalo class]]){
+        if([embarcation.etat isEqualToString:@"enlocation"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"toboEnlocation.png"]];
+        else if([embarcation.etat isEqualToString:@"disponible"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"toboDispo.png"]];
+        else
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"toboIndispo.png"]];
+    } else if([embarcation isKindOfClass:[Paddle class]]){
+        if([embarcation.etat isEqualToString:@"enlocation"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"padEnlocation.png"]];
+        else if([embarcation.etat isEqualToString:@"disponible"])
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"padDispo.png"]];
+        else
+            myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"padIndispo.png"]];
     }
     
     //title
@@ -230,6 +245,10 @@ NSMutableArray *_sections;
                                              selector:@selector(modalDismiss)
                                                  name:@"modalDismissing"
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(modalDismissStopLoc)
+                                                 name:@"modalDismissingStopLoc"
+                                               object:nil];
     
     [self presentViewController:destViewController animated:YES completion:nil];
 destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
@@ -242,6 +261,13 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
     [self.collectionView reloadData];
     NSLog(@"CLOSE");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+-(void)modalDismissStopLoc{
+    [self.collectionView reloadData];
+    NSLog(@"CLOSE");
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self augmenterNumeroBadge];
 }
 
 - (void)affecterLocation:(Embarcation*)embarcation{

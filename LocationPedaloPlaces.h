@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSDecimalNumber * nbPersonnes;
 
 -(NSDecimalNumber*)calculerPrix;
+-(NSDecimalNumber*)calcul:(NSDate*)hD :(NSDate*)hF;
 -(void)modifierNbPersonnes:(NSDecimalNumber*)nbPersonnes;
 
 @end
