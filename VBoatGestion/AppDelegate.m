@@ -184,6 +184,12 @@
     //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mes types %lu", (unsigned long)self.arrayTypes.count);
     
+    self.arrayJourneesEnCours = [self getAllJourneesEnCours];
+    
+    //Paiement *p1=[self.arrayPaiements firstObject];
+    //NSDecimalNumber *dn = p1.montant;
+    NSLog(@"Mes journées en cours %lu", (unsigned long)self.arrayJourneesEnCours.count);
+    
     return YES;
 }
 
@@ -451,6 +457,76 @@
     
     
     [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+
+-(NSArray*)getAllJourneesEnCours
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Journee"
+                                              inManagedObjectContext:self.managedObjectContext];
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"(etat LIKE[c] 'encours')"];
+    
+    
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+
+-(NSArray*)getAllFactsSuivies{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Facture"
+                                              inManagedObjectContext:self.managedObjectContext];
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"(etat LIKE[c] 'annulee' OR etat LIKE[c] 'remisee')"];
+    
+    
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+
+-(NSArray*)getAllFactsRemisees{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Facture"
+                                              inManagedObjectContext:self.managedObjectContext];
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"(etat LIKE[c] 'remisee')"];
+    
+    
+    [fetchRequest setEntity:entity];
+    [fetchRequest setPredicate:predicate];
     NSError* error;
     
     // Query on managedObjectContext With Generated fetchRequest

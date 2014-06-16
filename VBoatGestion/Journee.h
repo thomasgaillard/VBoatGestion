@@ -22,6 +22,7 @@
 -(void)initierJournee;
 -(void)cloturerJournee;
 -(void)ajouterFacture:(Facture*) fact;
+-(void)ajouterPaiements:(Facture*) fact;
 
 @end
 

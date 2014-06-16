@@ -19,7 +19,7 @@
 -(NSDecimalNumber*)calcul:(NSDate*)hD :(NSDate*)hF{
     
     //import grille
-    NSArray *grilles = [self.embarcation.type.grillePrix allObjects];
+    NSArray *grilles = [self.embarcation.type.grillePrix array];
     GrillePrix *grilleP = [grilles objectAtIndex:[self.nbPersonnes doubleValue]-2];
     NSArray *grille = [grilleP.grille array];
     NSLog(@"BEH");

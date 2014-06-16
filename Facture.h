@@ -29,7 +29,7 @@
 -(void)recommencerPaiement;
 -(void)cloturerFacture;
 -(void)annulerFacture;
--(void)ajouterPaiementAuTotalJournee;
+-(void)initJournee: (Journee*) journee;
 
 @end
 

@@ -64,18 +64,22 @@ NSMutableArray *_sections;
     self.managedObjectContext = appDelegate.managedObjectContext;
     self.types= [appDelegate getAllTypes];
     
-    [self.selectionType selectRow:0 inComponent:0 animated:NO];
-    self.type = [self.types objectAtIndex:0];
-    self.grillesPrixArray = [self.type.grillePrix allObjects];
-    [self.collectionView reloadData];
-
+    if (self.types.count!=0) {
+       
+        [self.selectionType selectRow:0 inComponent:0 animated:NO];
+        self.type = [self.types objectAtIndex:0];
+        self.grillesPrixArray = [self.type.grillePrix array];
+        [self.collectionView reloadData];
+    }
     //[self rafraichir];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:NO];
     self.collectionView.allowsSelection=YES;
-    NSLog(@"CUUUUUUL");
+    self.pwdView.hidden=NO;
+    self.pwdIncorrect.hidden=YES;
+    self.pwdTxt.text=@"";
     //[self.collectionView reloadData];
 }
 
@@ -95,7 +99,7 @@ NSMutableArray *_sections;
 
         [self remplirGrille:self.type];
         [self saveContext];
-        self.grillesPrixArray = [self.type.grillePrix allObjects];
+        self.grillesPrixArray = [self.type.grillePrix array];
         [self.collectionView reloadData];
     }
     
@@ -258,7 +262,7 @@ NSMutableArray *_sections;
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row   inComponent:(NSInteger)component{
     self.type = [self.types objectAtIndex:row];
-    self.grillesPrixArray = [self.type.grillePrix allObjects];
+    self.grillesPrixArray = [self.type.grillePrix array];
     [self.collectionView reloadData];
     if ([self.type isKindOfClass:[TypePedaloPlaces class]]){
         self.ajoutGrilleBtn.hidden=NO;
@@ -268,6 +272,15 @@ NSMutableArray *_sections;
     
     //self.embarcation.type = [self.types objectAtIndex:row];
     
+}
+
+- (IBAction)valider:(id)sender {
+    if ([self.pwdTxt.text isEqual:@"VArnoux"]) {
+        self.pwdView.hidden=YES;
+    }else{
+        self.pwdView.hidden=NO;
+        self.pwdIncorrect.hidden=NO;
+    }
 }
 
 - (IBAction)ajoutType:(id)sender {
@@ -341,9 +354,11 @@ NSMutableArray *_sections;
                 
             } else if (buttonIndex ==1) {
                 [self remplirGrille:self.type];
-                self.grillesPrixArray = [self.type.grillePrix allObjects];
+                self.grillesPrixArray = [self.type.grillePrix array];
                 GrillePrix *g = [self.grillesPrixArray lastObject];
                 g.identifiantFacturation = [alertView textFieldAtIndex:0].text;
+                [self saveContext];
+                self.grillesPrixArray = [self.type.grillePrix array];
                 [self.collectionView reloadData];
             }
             

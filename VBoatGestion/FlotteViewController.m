@@ -81,7 +81,7 @@ NSMutableArray *_sections;
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.embarcationsArray count];
+    return [self.embarcationsArray count]+1;
 }
 
 -(UIColor*)colorWithHexString:(NSString*)hex
@@ -121,7 +121,9 @@ NSMutableArray *_sections;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+{    
+    if (indexPath.row<[self.embarcationsArray count]) {
+        
     FlotteCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
     
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
@@ -182,16 +184,33 @@ NSMutableArray *_sections;
     myCell.labelEmbarcation.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
     
     myCell.labelPlaces.text = [NSString stringWithFormat:@"%@",[embarcation getNbPlacesOuType]];
-    
-    AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
-    self.managedObjectContext = appDelegate.managedObjectContext;
-    
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+       
+        AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
+        self.managedObjectContext = appDelegate.managedObjectContext;
+        
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        
+    return myCell;
+    } else {
+        FlotteCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"AjoutEmbarcation" forIndexPath:indexPath];
+        
+        myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btnPlus.png"]];
+        myCell.labelEmbarcation.text =@"Ajouter";
+        myCell.labelPlaces.text=@"";
+        myCell.labelEmbarcation.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
+        myCell.labelEmbarcation.textColor = [self colorWithHexString:@"95a5a6"];
+        
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(clickAdd:)];
+        singleTap.numberOfTapsRequired = 1;
+        [myCell addGestureRecognizer:singleTap];
+        return myCell;
     }
     
-    return myCell;
+    
+
 }
 
 
@@ -241,6 +260,16 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
     
     [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
     [self.collectionView reloadData];
+}
+
+- (void)clickAdd:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Création"
+                          message:@"Créer une embarcation et la configurer"
+                          delegate:self  // set nil if you don't want the yes button callback
+                          cancelButtonTitle:@"Annuler"
+                          otherButtonTitles:@"Bateau", @"Pedalo", @"PedaloPlaces", @"Paddle", nil];
+    [alert show];
 }
 
 -(void)modalDismiss{

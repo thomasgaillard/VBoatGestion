@@ -8,17 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ActiviteViewController : UICollectionViewController
+@class Journee;
+
+@interface ActiviteViewController : UIViewController
 
 @property (nonatomic,strong)NSArray* embarcationsArray;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UILabel *lblDate;
 @property (strong, nonatomic) IBOutlet UILabel *lblBateaux;
 @property (strong, nonatomic) IBOutlet UILabel *lblPedalos;
 @property (strong, nonatomic) IBOutlet UILabel *lblEspeces;
 @property (strong, nonatomic) IBOutlet UILabel *lblCb;
+@property (strong, nonatomic) Journee *journee;
+@property (strong, nonatomic) NSArray *arrayJourneeEnCours;
+@property (weak, nonatomic) IBOutlet UIView *viewNouvelleJournee;
 - (IBAction)doubleClik:(id)sender;
 -(void)modalDismiss;
+- (IBAction)creerJournee:(id)sender;
 
 
 @end

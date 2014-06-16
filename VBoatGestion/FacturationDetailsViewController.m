@@ -166,6 +166,7 @@
     [self rafraichir];
     [self selectPremiereFact];
     [self diminuerNumeroBadge];
+    [self saveContext];
 }
 
 - (IBAction)clicAnnuler:(id)sender {

@@ -25,10 +25,15 @@
 -(id)init{
     self = [super init];
     self.prixTotal = [NSDecimalNumber decimalNumberWithString:@"0"];
+    self.remise = [NSDecimalNumber decimalNumberWithString:@"0"];
     self.etat = @"encours";
     self.locations=[[NSMutableSet alloc] init];
     self.paiements=[[NSMutableSet alloc] init];
     return self;
+}
+-(void)initJournee: (Journee*) journee{
+    self.journee=journee;
+    [journee ajouterFacture:self];
 }
 -(void)grouperFactures:(Facture*) fac{
     NSLog(@"Grouper factures");
@@ -50,9 +55,11 @@
                 [self ajouterLocation:loc];
         }
     }
+    self.journee=fac.journee;
     fac.etat=@"groupee";
     fac.remarque=@"Facture groupee";
     [fac.journee ajouterFacture:self];
+    NSLog(@"Facture groupee journée : %@", self.journee.nbLocBateaux);
 }
 
 -(void)ajouterPaiement:(Paiement*)paiement :(NSString*) moyenPaiement :(NSDecimalNumber*) somme{
@@ -88,27 +95,22 @@
 }
 
 -(void)cloturerFacture{
-    NSLog(@"Cloturer Facture");
-    self.etat=@"cloturee";
+    NSLog(@"Cloturer Facture %@",self.journee);
+    [self.journee ajouterPaiements:self];
+    if ([self.remise doubleValue] == 0) {
+        self.etat=@"cloturee";
+    }else
+    {
+        self.etat=@"remisee";
+    }
+    NSLog(self.etat);
     [self.journee ajouterFacture:self];
-    [self ajouterPaiementAuTotalJournee];
 }
 
 -(void)annulerFacture{
     NSLog(@"Annuler Facture");
     self.etat=@"annulee";
     [self.journee ajouterFacture:self];
-}
-
--(void)ajouterPaiementAuTotalJournee{
-    NSLog(@"Ajouter paiements au total");
-    for(Paiement *pay in self.paiements){
-        if([pay.moyenPaiement  isEqual: @"especes"]){
-            [self.journee.totalEspeces decimalNumberByAdding:pay.montant];
-        }else if([pay.moyenPaiement  isEqual: @"cb"]){
-            [self.journee.totalCb decimalNumberByAdding:pay.montant];
-        }
-    }
 }
 
 

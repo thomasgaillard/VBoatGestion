@@ -16,6 +16,8 @@
 #import "Location.h"
 #import "PedaloPlaces.h"
 #import "Paddle.h"
+#import "Journee.h"
+#import "Facture.h"
 
 
 //NSString *kCellID = @"MonEmbarcation";                          // UICollectionViewCell storyboard id
@@ -45,24 +47,42 @@ NSMutableArray *_sections;
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     // Fetching Records and saving it in "fetchedRecordsArray" object
     self.embarcationsArray = [appDelegate getAllEmbarcations];
+    self.arrayJourneeEnCours = [appDelegate getAllJourneesEnCours];
+    if ([self.arrayJourneeEnCours count]==0) {
+        self.viewNouvelleJournee.hidden=NO;
+        self.journee = nil;
+    }else
+    {
+        self.viewNouvelleJournee.hidden=YES;
+        self.journee = [self.arrayJourneeEnCours firstObject];
+    }
     [self.collectionView reloadData];
+    self.lblCb.text=[NSString stringWithFormat:@"%@",self.journee.totalCb];
+    self.lblEspeces.text=[NSString stringWithFormat:@"%@",self.journee.totalEspeces];
+    self.lblBateaux.text=[NSString stringWithFormat:@"%@",self.journee.nbLocBateaux];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd MMMM YYYY"];
     NSString *dateToday = [formatter stringFromDate:[NSDate date]];
     [self.lblDate setText: dateToday];
+    
+    
     
     [self rafraichir];
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:NO];
+    
+    
+    
     [self rafraichir];
 }
 
@@ -263,6 +283,19 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+- (IBAction)creerJournee:(id)sender {
+    if (self.journee == nil) {
+        Journee *jour = [NSEntityDescription insertNewObjectForEntityForName:@"Journee"
+                                                     inManagedObjectContext:self.managedObjectContext];
+        self.journee=jour;
+        [self.journee initierJournee];
+        self.viewNouvelleJournee.hidden=YES;
+        NSLog(@"eetat : %@",self.journee.etat);
+        [self saveContext];
+        [self rafraichir];
+    }
+}
+
 -(void)modalDismissStopLoc{
     [self.collectionView reloadData];
     NSLog(@"CLOSE");
@@ -315,7 +348,7 @@ NSLog(@"dddddclick");
         [embarcation.location cloturerLocation:f];
         [self affecterLocation:embarcation];
         [embarcation rendreDisponible];
-        
+        [f initJournee:self.journee];
         [self augmenterNumeroBadge];
     }
     [self saveContext];

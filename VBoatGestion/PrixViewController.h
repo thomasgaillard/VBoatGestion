@@ -18,6 +18,10 @@
 @property (nonatomic,strong)Type* type;
 @property (weak, nonatomic) IBOutlet UIButton *ajoutGrilleBtn;
 @property (weak, nonatomic) IBOutlet UIPickerView *selectionType;
+@property (weak, nonatomic) IBOutlet UILabel *pwdIncorrect;
+@property (weak, nonatomic) IBOutlet UITextField *pwdTxt;
+@property (weak, nonatomic) IBOutlet UIView *pwdView;
+- (IBAction)valider:(id)sender;
 - (IBAction)ajoutType:(id)sender;
 - (IBAction)ajoutGrille:(id)sender;
 - (IBAction)supprType:(id)sender;

@@ -24,10 +24,13 @@
 @property (nonatomic,strong)NSArray* arrayPaiements;
 @property (nonatomic,strong)NSArray* arrayGrillesPrix;
 @property (nonatomic,strong)NSArray* arrayTypes;
+@property (nonatomic,strong)NSArray* arrayJourneesEnCours;
 
 -(NSArray*)getAllEmbarcations;
 -(NSArray*)getAllLocs;
 -(NSArray*)getAllFactsEnCours;
+-(NSArray*)getAllFactsSuivies;
+-(NSArray*)getAllFactsRemisees;
 -(NSArray*)getAllPaiements;
 -(NSArray*)getAllGrillesPrix;
 -(NSArray*)getAllTypes;
@@ -35,6 +38,7 @@
 -(NSArray*)getAllTypesPedalo;
 -(NSArray*)getAllTypesPedaloPlaces;
 -(NSArray*)getAllTypesPaddle;
+-(NSArray*)getAllJourneesEnCours;
 -(Location*)returnInstantiateLoc;
 
 @end

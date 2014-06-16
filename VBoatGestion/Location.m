@@ -40,7 +40,7 @@
 
 - (NSDecimalNumber*)calcul:(NSDate*)hD :(NSDate*)hF {
     //import grille
-    GrillePrix *grilleP = [self.embarcation.type.grillePrix anyObject];
+    GrillePrix *grilleP = [self.embarcation.type.grillePrix firstObject];
     NSArray *grille = [grilleP.grille array];
     Prix *p;
     

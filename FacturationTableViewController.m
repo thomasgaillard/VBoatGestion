@@ -76,7 +76,7 @@
             
             // Tell the tableView that we deleted the objects
             //[self.tableView deleteRowsAtIndexPaths:selectedRows withRowAnimation:UITableViewRowAnimationAutomatic];
-            NSLog(@"À GROUPER OUPS");
+            //NSLog(@"À GROUPER OUPS");
         }
         else
         {
@@ -135,7 +135,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    if (self.facturesArray.count == 0) {
+     if (self.facturesArray.count == 0) {
         //Facture *selectedFacture = [self.facturesArray objectAtIndex:[NSIndexPath indexPathForRow:0 inSection:0].row];
         if (self.delegate) {
             [self.delegate noFactures:0];

@@ -60,31 +60,31 @@
     </entity>
     <entity name="Type" representedClassName="Type" isAbstract="YES" syncable="YES">
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="grillePrix" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GrillePrix" syncable="YES"/>
+        <relationship name="grillePrix" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="GrillePrix" syncable="YES"/>
     </entity>
     <entity name="TypeBateau" representedClassName="TypeBateau" parentEntity="Type" syncable="YES"/>
     <entity name="TypePaddle" representedClassName="TypePaddle" parentEntity="Type" syncable="YES"/>
     <entity name="TypePedalo" representedClassName="TypePedalo" parentEntity="Type" syncable="YES"/>
     <entity name="TypePedaloPlaces" representedClassName="TypePedaloPlaces" parentEntity="Type" syncable="YES"/>
     <elements>
-        <element name="Bateau" positionX="259" positionY="557" width="128" height="43"/>
+        <element name="Bateau" positionX="259" positionY="557" width="128" height="45"/>
         <element name="Embarcation" positionX="169" positionY="387" width="128" height="103"/>
         <element name="Facture" positionX="18" positionY="207" width="128" height="148"/>
         <element name="Flotte" positionX="340" positionY="396" width="128" height="58"/>
+        <element name="GrillePrix" positionX="-171" positionY="32" width="128" height="73"/>
         <element name="Journee" positionX="225" positionY="68" width="128" height="148"/>
         <element name="Location" positionX="-155" positionY="344" width="128" height="103"/>
         <element name="LocationPedaloPlaces" positionX="-56" positionY="512" width="128" height="58"/>
+        <element name="Paddle" positionX="54" positionY="225" width="128" height="45"/>
         <element name="Paiement" positionX="304" positionY="269" width="128" height="73"/>
-        <element name="Pedalo" positionX="115" positionY="521" width="128" height="43"/>
-        <element name="Saison" positionX="27" positionY="27" width="128" height="73"/>
-        <element name="GrillePrix" positionX="-171" positionY="32" width="128" height="73"/>
-        <element name="Prix" positionX="-153" positionY="162" width="128" height="73"/>
-        <element name="Type" positionX="36" positionY="207" width="128" height="73"/>
+        <element name="Pedalo" positionX="115" positionY="521" width="128" height="45"/>
         <element name="PedaloPlaces" positionX="45" positionY="216" width="128" height="58"/>
-        <element name="Paddle" positionX="54" positionY="225" width="128" height="43"/>
-        <element name="TypeBateau" positionX="90" positionY="234" width="128" height="43"/>
-        <element name="TypePedalo" positionX="36" positionY="180" width="128" height="43"/>
-        <element name="TypePaddle" positionX="45" positionY="189" width="128" height="43"/>
-        <element name="TypePedaloPlaces" positionX="54" positionY="198" width="128" height="43"/>
+        <element name="Prix" positionX="-153" positionY="162" width="128" height="73"/>
+        <element name="Saison" positionX="27" positionY="27" width="128" height="73"/>
+        <element name="Type" positionX="36" positionY="207" width="128" height="75"/>
+        <element name="TypeBateau" positionX="90" positionY="234" width="128" height="45"/>
+        <element name="TypePaddle" positionX="45" positionY="189" width="128" height="45"/>
+        <element name="TypePedalo" positionX="36" positionY="180" width="128" height="45"/>
+        <element name="TypePedaloPlaces" positionX="54" positionY="198" width="128" height="45"/>
     </elements>
 </model>
