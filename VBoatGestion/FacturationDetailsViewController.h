@@ -37,6 +37,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *tempsBtn;
 @property (weak, nonatomic) IBOutlet UIButton *clotureBtn;
 @property (weak, nonatomic) IBOutlet UIView *noFactures;
+@property (weak, nonatomic) IBOutlet UIButton *razPBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *noFacturesBg;
 @property (weak, nonatomic) IBOutlet UILabel *aucuneFacturation;
 

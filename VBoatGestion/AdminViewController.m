@@ -66,6 +66,8 @@
     for(Facture *fact in self.arrayFacturesRemisees){
         if ([fact.etat  isEqual: @"remisee"]) {
             self.totalRemises=[self.totalRemises decimalNumberByAdding:fact.remise];
+        } else if ([fact.etat  isEqual: @"enCours"]){
+            self.finDJ.enabled=NO;
         }
         
     }

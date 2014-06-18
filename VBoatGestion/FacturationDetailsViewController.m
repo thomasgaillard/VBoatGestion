@@ -131,11 +131,25 @@
     
     //retour prix >4h
     //return [total decimalNumberByRoundingAccordingToBehavior:handlerUp];
+    
     if ([btn.titleLabel.text  isEqual: @"Euros"]) {
+        if ([[NSDecimalNumber decimalNumberWithString:self.paiementTxt.text] doubleValue]>[[self.facture calculerResteAPayer] doubleValue]) {
+            self.facture.remise = [self.facture calculerResteAPayer];
+        }
+        else
+        {
         self.facture.remise = [NSDecimalNumber decimalNumberWithString:self.paiementTxt.text];
+        }
     } else if ([btn.titleLabel.text  isEqual: @"%"]){
         NSLog([NSString stringWithFormat:@"%@ €",[NSDecimalNumber decimalNumberWithString:self.prixTxt.text]]);
-        self.facture.remise = [[[[self.facture.prixTotal decimalNumberByMultiplyingBy:[[NSDecimalNumber decimalNumberWithString:self.paiementTxt.text] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"100"]]] decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"2"]] decimalNumberByRoundingAccordingToBehavior:handlerDown] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"2"]];
+        if ([[[[[self.facture.prixTotal decimalNumberByMultiplyingBy:[[NSDecimalNumber decimalNumberWithString:self.paiementTxt.text] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"100"]]] decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"2"]] decimalNumberByRoundingAccordingToBehavior:handlerDown] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"2"]]doubleValue]>[[self.facture calculerResteAPayer] doubleValue]) {
+            self.facture.remise = [self.facture calculerResteAPayer];
+        }
+        else
+        {
+            self.facture.remise = [[[[self.facture.prixTotal decimalNumberByMultiplyingBy:[[NSDecimalNumber decimalNumberWithString:self.paiementTxt.text] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"100"]]] decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"2"]] decimalNumberByRoundingAccordingToBehavior:handlerDown] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:@"2"]];
+        }
+        
     } else if ([btn.titleLabel.text  isEqual: @"Temps"]){
         Location *loc = [self.facture.locations anyObject];
 
@@ -144,6 +158,7 @@
         self.facture.remise= [self.facture.prixTotal decimalNumberBySubtracting:[l calcul:[NSDate dateWithTimeIntervalSinceNow:[loc.heureDebut timeIntervalSinceDate:loc.heureFin]+[[[NSDecimalNumber decimalNumberWithString:self.paiementTxt.text] decimalNumberByMultiplyingBy:[NSDecimalNumber decimalNumberWithString:@"60"]]doubleValue]] : [NSDate date]]];
         NSLog(@"%f",[[NSDecimalNumber decimalNumberWithString:self.paiementTxt.text] doubleValue]);
     }
+    
     [self rafraichir];
 }
 
@@ -275,6 +290,14 @@
         self.remiseTxt.hidden=NO;
         self.remiseLabel.hidden=NO;
         self.remiseTxt.text=[NSString stringWithFormat:@"%@ €",self.facture.remise];
+    }
+    NSLog(@"RAP %@",self.resteAPayerTxt.text);
+    NSLog(@"Tot %@",self.prixTxt.text);
+    if([self.resteAPayerTxt.text  isEqual: [NSString stringWithFormat:@"%@ €",self.prixTxt.text]]){
+        
+        self.razPBtn.enabled=NO;
+    }else{
+        self.razPBtn.enabled=YES;
     }
     if([self.facture.etat  isEqual:@"payee"]){
         self.especesBtn.enabled=NO;

@@ -56,6 +56,8 @@
 		87C9535418F2A86700793634 /* FacturationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535318F2A86700793634 /* FacturationDetailsViewController.m */; };
 		87C9535818F2AFEF00793634 /* FacturationSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */; };
 		87C9536118F2F4CB00793634 /* FacturationTableViewLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9536018F2F4CB00793634 /* FacturationTableViewLocationCell.m */; };
+		87D96C5A1951E826006DBA77 /* AdminSaisonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D96C591951E826006DBA77 /* AdminSaisonTableViewController.m */; };
+		87D96C5D1951E847006DBA77 /* AdminSaisonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87D96C5C1951E847006DBA77 /* AdminSaisonTableViewCell.m */; };
 		87DED305194B1B850041FA14 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DED304194B1B850041FA14 /* Type.m */; };
 		87E6B4A518F4485B004CCE65 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E6B4A318F4485B004CCE65 /* Main.storyboard */; };
 		87F3EBE218E466F800FF09C2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3EBE118E466F800FF09C2 /* CoreData.framework */; };
@@ -163,6 +165,10 @@
 		87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationSplitViewController.m; sourceTree = "<group>"; };
 		87C9535F18F2F4CB00793634 /* FacturationTableViewLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationTableViewLocationCell.h; sourceTree = "<group>"; };
 		87C9536018F2F4CB00793634 /* FacturationTableViewLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationTableViewLocationCell.m; sourceTree = "<group>"; };
+		87D96C581951E826006DBA77 /* AdminSaisonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminSaisonTableViewController.h; sourceTree = "<group>"; };
+		87D96C591951E826006DBA77 /* AdminSaisonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminSaisonTableViewController.m; sourceTree = "<group>"; };
+		87D96C5B1951E847006DBA77 /* AdminSaisonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminSaisonTableViewCell.h; sourceTree = "<group>"; };
+		87D96C5C1951E847006DBA77 /* AdminSaisonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminSaisonTableViewCell.m; sourceTree = "<group>"; };
 		87DED303194B1B850041FA14 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
 		87DED304194B1B850041FA14 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
 		87F3EBE118E466F800FF09C2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -243,6 +249,10 @@
 				8754DABC194F9A5300119D4B /* AdminJourneeTableViewCell.m */,
 				8754DAB8194F9A0500119D4B /* AdminJourneeTableTableViewController.h */,
 				8754DAB9194F9A0500119D4B /* AdminJourneeTableTableViewController.m */,
+				87D96C5B1951E847006DBA77 /* AdminSaisonTableViewCell.h */,
+				87D96C5C1951E847006DBA77 /* AdminSaisonTableViewCell.m */,
+				87D96C581951E826006DBA77 /* AdminSaisonTableViewController.h */,
+				87D96C591951E826006DBA77 /* AdminSaisonTableViewController.m */,
 				8754DAB5194E4EC500119D4B /* AdminViewController.h */,
 				8754DAB6194E4EC500119D4B /* AdminViewController.m */,
 				873EADC118E9BA790053FB9D /* ActiviteViewController.h */,
@@ -465,12 +475,14 @@
 				870A36D0193F724A0018F144 /* TypePedalo.m in Sources */,
 				3A1BDA70193CB2BC00066205 /* ReservationViewController.m in Sources */,
 				87AD69DA18E9674900C9165D /* Paiement.m in Sources */,
+				87D96C5D1951E847006DBA77 /* AdminSaisonTableViewCell.m in Sources */,
 				8754DAB7194E4EC500119D4B /* AdminViewController.m in Sources */,
 				870A36CA193F72490018F144 /* TypePaddle.m in Sources */,
 				870A36D3193F724A0018F144 /* TypePedaloPlaces.m in Sources */,
 				870A36A6193F5E590018F144 /* GrillePrix.m in Sources */,
 				8758073D194AFACF00D2ECDB /* PrixCollectionHeader.m in Sources */,
 				870A36AC193F5E590018F144 /* Prix.m in Sources */,
+				87D96C5A1951E826006DBA77 /* AdminSaisonTableViewController.m in Sources */,
 				873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */,
 				3A35590B1885AC6700C573CE /* main.m in Sources */,
 				870A36A3193F251F0018F144 /* PrixViewController.m in Sources */,

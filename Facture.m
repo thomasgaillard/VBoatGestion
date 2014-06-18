@@ -58,7 +58,8 @@
     self.journee=fac.journee;
     fac.etat=@"groupee";
     fac.remarque=@"Facture groupee";
-    [fac.journee ajouterFacture:self];
+    [fac.journee removeFacturesObject:fac];
+    [self.journee ajouterFacture:self];
     NSLog(@"Facture groupee journée : %@", self.journee.nbLocBateaux);
 }
 
@@ -91,6 +92,7 @@
 
 -(void)recommencerPaiement{
     [self removePaiements:self.paiements];
+    self.remise=[NSDecimalNumber decimalNumberWithString:@"0"];
     self.etat=@"enCours";
 }
 
