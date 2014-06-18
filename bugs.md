@@ -10,4 +10,4 @@ Bogues
 
 ## Rapide
 * Dans flotte => double clique pour ajouter à supprimer
-* Dans flotte et home -> clique sur deux embarcations => crash
+* Dans flotte et home => clique sur deux embarcations => crash
