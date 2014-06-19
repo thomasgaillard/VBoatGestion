@@ -94,13 +94,19 @@
     self.nbPersonnesLoc.text = [self.embarcation.location getNbPlacesOuType];
     
     NSString *text = @"";
-    if ([self.embarcation isKindOfClass:[Pedalo class]])
+    if ([self.embarcation isKindOfClass:[PedaloPlaces class]])
     {
         text = [NSString stringWithFormat:@"Pédalo %@ places - ", [self.embarcation getNbPlacesOuType]];
+        self.nbPersonnesLoc.hidden = NO;
+        self.nbPersonnesLocLabel.hidden = NO;
+        self.btn2.hidden=NO;
+        self.btn3.hidden=NO;
+        self.btn4.hidden=NO;
+        self.btn5.hidden=NO;
         
     }
-    else if ([self.embarcation isKindOfClass:[Bateau class]]){
-        text = [NSString stringWithFormat:@"Bateau %@ - ", [self.embarcation getNbPlacesOuType]];
+    else {
+        text = [NSString stringWithFormat:@"%@ %@ - ", NSStringFromClass ([self.embarcation class]), [self.embarcation getNbPlacesOuType]];
         self.nbPersonnesLoc.hidden = YES;
         self.nbPersonnesLocLabel.hidden = YES;
         self.btn2.hidden=YES;
