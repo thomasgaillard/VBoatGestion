@@ -181,7 +181,7 @@ NSMutableArray *_sections;
         myCell.labelEmbarcation.textColor = [self colorWithHexString:@"95a5a6"];
     
     myCell.labelEmbarcation.text = [NSString stringWithFormat:@"%@", embarcation.nom];
-    myCell.labelEmbarcation.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
+    myCell.labelEmbarcation.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:20];
     
     myCell.labelPlaces.text = [NSString stringWithFormat:@"%@",[embarcation getNbPlacesOuType]];
        
