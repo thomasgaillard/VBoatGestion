@@ -39,6 +39,7 @@
 -(NSArray*)getAllTypesPedaloPlaces;
 -(NSArray*)getAllTypesPaddle;
 -(NSArray*)getAllJourneesEnCours;
+-(NSArray*)getAllJournees;
 -(Location*)returnInstantiateLoc;
 
 @end
