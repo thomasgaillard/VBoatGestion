@@ -118,6 +118,9 @@
         self.nbPersonnesLocLabel.hidden = YES;
         self.typeLabel.hidden = NO;
         self.nbPersonnesLoc.hidden=YES;
+        self.idBeaconsLabel.hidden=YES;
+        self.minorTxt.hidden=YES;
+        self.majorTxt.hidden=YES;
     }
     
     

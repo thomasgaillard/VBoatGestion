@@ -26,6 +26,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *typeOuNb;
 @property (weak, nonatomic) IBOutlet UILabel *nbPersonnesLocLabel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *idBeaconsLabel;
+@property (weak, nonatomic) IBOutlet UITextField *majorTxt;
+@property (weak, nonatomic) IBOutlet UITextField *minorTxt;
 @property (weak, nonatomic) IBOutlet UIButton *supprBtn;
 @property (weak, nonatomic) IBOutlet UIPickerView *selectionType;
 

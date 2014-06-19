@@ -1459,6 +1459,25 @@
                                     <outlet property="delegate" destination="91d-vQ-WKd" id="bNn-5h-d5H"/>
                                 </connections>
                             </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Major" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zFj-sN-GxF">
+                                <rect key="frame" x="215" y="381" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Identifiants beacons :" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2Y-y9-voY">
+                                <rect key="frame" x="20" y="385" width="165" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.3803921938" blue="0.49411767719999999" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minor" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rVZ-bk-XH6">
+                                <rect key="frame" x="403" y="381" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="0.70999999999999996" colorSpace="calibratedWhite"/>
                     </view>
@@ -1470,6 +1489,9 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="540" height="540"/>
                     <connections>
+                        <outlet property="idBeaconsLabel" destination="X2Y-y9-voY" id="tYt-go-lDK"/>
+                        <outlet property="majorTxt" destination="zFj-sN-GxF" id="lJH-qC-Mhn"/>
+                        <outlet property="minorTxt" destination="rVZ-bk-XH6" id="onk-U7-tDU"/>
                         <outlet property="navBar" destination="1rT-MC-Q62" id="xO8-cj-DMz"/>
                         <outlet property="nbPersonnesLoc" destination="KNs-n0-d3C" id="kiZ-B2-HOa"/>
                         <outlet property="nbPersonnesLocLabel" destination="NWc-TS-0YA" id="4P5-Rm-sCT"/>
