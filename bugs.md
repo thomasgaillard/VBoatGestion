@@ -14,3 +14,4 @@ Bogues
 
 ## V2
 * Obligation d'entrer les pedalo places dans l'ordre de nombre de personne croissant => pas bien
+* Réservations pas en web avec attribution bateaux pédalos automatique
