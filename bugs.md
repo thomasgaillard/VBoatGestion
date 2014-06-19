@@ -11,3 +11,8 @@ Bogues
 ## Rapide
 * Dans flotte => double clique pour ajouter à supprimer
 * Dans flotte et home => clique sur deux embarcations => crash
+* Quand on groupe des factures, ça déselectionne
+
+## V2
+* Obligation d'entrer les pedalo places dans l'ordre de nombre de personne croissant => pas bien
+* Réservations pas en web avec attribution bateaux pédalos automatique
