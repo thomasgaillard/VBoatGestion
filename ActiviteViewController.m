@@ -146,17 +146,44 @@ NSMutableArray *_sections;
     
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(singleClik:)];
-    singleTap.numberOfTapsRequired = 1;
     
-    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doubleClik:)];
+    
+    
+    
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
+                                             initWithTarget:self
+                                             action:@selector(doubleClik:)];
+    doubleTap.delegate = self;
     doubleTap.numberOfTapsRequired = 2;
-    
-    
-    [singleTap requireGestureRecognizerToFail:doubleTap];
+    doubleTap.numberOfTouchesRequired = 1;
     [myCell addGestureRecognizer:doubleTap];
-[myCell addGestureRecognizer:singleTap];
     
+    
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]
+                                       initWithTarget:self
+                                       action:@selector(singleClik:)];
+    singleTap.delegate = self;
+    singleTap.numberOfTapsRequired = 1;
+    singleTap.numberOfTouchesRequired = 1;
+    [myCell addGestureRecognizer:singleTap];
+    [singleTap requireGestureRecognizerToFail:doubleTap];
+
+    
+    
+    
+    
+//    
+//    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(singleClik:)];
+//    singleTap.numberOfTapsRequired = 1;
+//    
+//    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doubleClik:)];
+//    doubleTap.numberOfTapsRequired = 2;
+//    
+//    
+//    [singleTap requireGestureRecognizerToFail:doubleTap];
+//    [myCell addGestureRecognizer:doubleTap];
+//[myCell addGestureRecognizer:singleTap];
+//    
     
     //background
     if([embarcation isKindOfClass:[PedaloPlaces class]]){
