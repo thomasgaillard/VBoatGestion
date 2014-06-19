@@ -9,7 +9,7 @@ Bogues
 * Les embarcations passent dessus la barre bleu du haut
 
 ## Rapide
-* Dans flotte => double clique pour ajouter à supprimer
+* Confirmation de suppression dans flotte
 * Dans flotte et home => clique sur deux embarcations => crash
 * Quand on groupe des factures, ça déselectionne
 
