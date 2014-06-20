@@ -184,14 +184,6 @@
 }
 
 - (IBAction)finDeJournee:(id)sender {
-    NSLog(@"COaaaa %@",self.journee.etat);
-    [self.journee cloturerJournee];
-    NSLog(@"COaaaa22 %@",self.journee.etat);
-    [self saveContext];
-    [self rafraichir];
-}
-
-- (IBAction)finDeJournee:(id)sender {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [self.journee cloturerJournee];
     self.arrayEmbarcations = [appDelegate getAllEmbarcations];
