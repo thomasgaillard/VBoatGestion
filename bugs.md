@@ -17,6 +17,7 @@ Bogues
 * Supprimer journée dans compta
 * Mettre les deux mots de passe
 * Animations cachée dans fin de journée
+* Début de journée le soir ..... mais problème de date ducoup
 
 ## V2
 * Obligation d'entrer les pedalo places dans l'ordre de nombre de personne croissant => pas bien
