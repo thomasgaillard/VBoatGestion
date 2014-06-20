@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XYPieChart/XYPieChart.h"
 
 @class Journee;
 
-@interface AdminViewController : UIViewController
+@interface AdminViewController : UIViewController <XYPieChartDelegate, XYPieChartDataSource>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) Journee *journee;
@@ -28,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *pwdIncorrect;
 - (IBAction)valider:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *ongletJournee;
+@property (strong, nonatomic) IBOutlet XYPieChart *chart;
+@property(nonatomic, strong) NSMutableArray *slices;
+@property(nonatomic, strong) NSArray        *sliceColors;
 @property (weak, nonatomic) IBOutlet UIButton *ongletSaison;
 @property (weak, nonatomic) IBOutlet UIView *ongletSaisonView;
 @property (weak, nonatomic) IBOutlet UIView *ongletJourneeView;

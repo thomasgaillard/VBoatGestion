@@ -7,6 +7,7 @@
 //
 
 #import "AdminViewController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "Journee.h"
 #import "AppDelegate.h"
 #import "Facture.h"
@@ -52,8 +53,37 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.slices = [NSMutableArray arrayWithCapacity:10];
+
+    //NSDecimalNumber *total = [[self.journee.totalCb decimalNumberByAdding:self.journee.totalEspeces] decimalNumberByAdding:self.totalRemises];
+    
+    //NSNumber *espece = [NSNumber numberWithDouble:[[[self.journee.totalEspeces decimalNumberByMultiplyingBy:[NSDecimalNumber numberWithInt:100]] decimalNumberByDividingBy:total] doubleValue]];
+   
+
+    
+    [self.chart setDataSource:self];
+    [self.chart setStartPieAngle:M_PI_2];
+    [self.chart setAnimationSpeed:1.0];
+    [self.chart setLabelRadius:160];
+    [self.chart setShowPercentage:YES];
+    [self.chart setPieBackgroundColor:[UIColor colorWithWhite:0.95 alpha:0]];
+    [self.chart setPieCenter:CGPointMake(240, 240)];
+    [self.chart setUserInteractionEnabled:NO];
+    [self.chart setLabelShadowColor:[UIColor blackColor]];
+    
+    NSLog(@"%@", self.journee.totalCb);
+
+    
+    
+    self.sliceColors =[NSArray arrayWithObjects:
+                       [UIColor colorWithRed:46/255.0 green:204/255.0 blue:112/255.0 alpha:0.6],
+                       [UIColor colorWithRed:232/255.0 green:77/255.0 blue:61/255.0 alpha:0.6],
+                       [UIColor colorWithRed:149/255.0 green:165/255.0 blue:166/255.0 alpha:0.6], nil];
+    
+
 }
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -80,6 +110,26 @@
         
     }
     self.remisesTxt.text=[NSString stringWithFormat:@"%@ €",self.totalRemises];
+
+    [_slices removeAllObjects];
+    
+    NSNumber *especes = [NSNumber numberWithInt: 0];
+    if (self.journee.totalEspeces != nil)
+        especes = self.journee.totalEspeces;
+    [_slices addObject:especes];
+    
+    NSNumber *cb = [NSNumber numberWithInt: 0];
+    if (self.journee.totalCb != nil)
+        cb = self.journee.totalCb;
+    [_slices addObject:cb];
+    
+    NSNumber *reduc = [NSNumber numberWithInt: 0];
+    if (self.totalRemises != nil)
+        reduc = self.totalRemises;
+    [_slices addObject:reduc];
+
+    [self.chart reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -115,30 +165,28 @@
     }
 }
 
-- (IBAction)nouvelleJournee:(id)sender {
-    Journee *jour = [NSEntityDescription insertNewObjectForEntityForName:@"Journee"
-                                                      inManagedObjectContext:self.managedObjectContext];
-    self.journee=jour;
-    [self.journee initierJournee];
-    
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    self.arrayEmbarcations = [appDelegate getAllEmbarcations];
-    for (Embarcation *emb in self.arrayEmbarcations) {
-        if([emb isKindOfClass:[PedaloPlaces class]]){
-            LocationPedaloPlaces *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedaloPlaces"
-                                                                    inManagedObjectContext:self.managedObjectContext];
-            emb.location = l;
-        }
-        else{
-            Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
-            emb.location = l;
-        }
-        [emb rendreDisponible];
-    }
-   
-    //TODO
-    self.fondDeCaisseNouvelleJ;
-    
+- (NSUInteger)numberOfSlicesInPieChart:(XYPieChart *)pieChart
+{
+    NSLog(@"graph");
+    return self.slices.count;
+}
+
+- (CGFloat)pieChart:(XYPieChart *)pieChart valueForSliceAtIndex:(NSUInteger)index
+{
+    NSLog(@"graph1");
+    return [[self.slices objectAtIndex:index] intValue];
+}
+
+- (UIColor *)pieChart:(XYPieChart *)pieChart colorForSliceAtIndex:(NSUInteger)index
+{
+    NSLog(@"graph2");
+    return [self.sliceColors objectAtIndex:(index % self.sliceColors.count)];
+}
+
+- (IBAction)finDeJournee:(id)sender {
+    NSLog(@"COaaaa %@",self.journee.etat);
+    [self.journee cloturerJournee];
+    NSLog(@"COaaaa22 %@",self.journee.etat);
     [self saveContext];
     [self rafraichir];
 }

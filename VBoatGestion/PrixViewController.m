@@ -54,7 +54,8 @@ NSMutableArray *_sections;
 {
     [super viewDidLoad];
     
-    
+    _mdpinc.textColor = [self colorWithHexString:@"95a5a6"];
+    _mdpinc.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd MMMM YYYY"];
     NSString *dateToday = [formatter stringFromDate:[NSDate date]];

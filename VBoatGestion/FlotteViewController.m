@@ -131,12 +131,10 @@ NSMutableArray *_sections;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(singleClik:)];
     singleTap.numberOfTapsRequired = 1;
     
-    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(doubleClik:)];
-    doubleTap.numberOfTapsRequired = 2;
+ 
     
     
-    [singleTap requireGestureRecognizerToFail:doubleTap];
-    [myCell addGestureRecognizer:doubleTap];
+  
 [myCell addGestureRecognizer:singleTap];
     
     
@@ -200,12 +198,12 @@ NSMutableArray *_sections;
         myCell.contentView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"btnPlus.png"]];
         myCell.labelEmbarcation.text =@"Ajouter";
         myCell.labelPlaces.text=@"";
-        myCell.labelEmbarcation.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
+        myCell.labelEmbarcation.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:20];
         myCell.labelEmbarcation.textColor = [self colorWithHexString:@"95a5a6"];
         
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(clickAdd:)];
-        singleTap.numberOfTapsRequired = 1;
-        [myCell addGestureRecognizer:singleTap];
+        UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(clickAdd:)];
+        singleTap2.numberOfTapsRequired = 1;
+        [myCell addGestureRecognizer:singleTap2];
         return myCell;
     }
     
@@ -276,16 +274,6 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
     [self rafraichir];
     NSLog(@"CLOSE");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (IBAction)doubleClik:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:@"Création"
-                          message:@"Créer une embarcation et la configurer"
-                          delegate:self  // set nil if you don't want the yes button callback
-                          cancelButtonTitle:@"Annuler"
-                          otherButtonTitles:@"Bateau", @"Pedalo", @"PedaloPlaces", @"Paddle", nil];
-    [alert show];
 }
 
 // POPUP Callback

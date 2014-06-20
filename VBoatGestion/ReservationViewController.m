@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *urlText = @"http://v-boat.fr/bateaux/pedalo.php?valid=ok";
+    NSString *urlText = @"http://v-boat.fr/bateaux/pedalo.php";
     [_resaWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlText]]];
     return;
 }
