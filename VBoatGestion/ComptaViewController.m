@@ -31,11 +31,37 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self rafraichir];
+    
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)sortArrayJourneesByDate{
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date"
+                                                 ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *newArray;
+    newArray = [self.arrayJournees sortedArrayUsingDescriptors:sortDescriptors];
+    self.arrayJournees=newArray;
+}
+
+-(void)rafraichir{
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     self.managedObjectContext = appDelegate.managedObjectContext;
     self.arrayJournees = [appDelegate getAllJournees];
     self.arrayMois = [[NSMutableArray alloc] init];
     [self.choixMoisSC removeAllSegments];
+    
+    self.datePicker.datePickerMode=UIDatePickerModeDate;
+    
+    [self sortArrayJourneesByDate];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"MMMM"];
@@ -55,14 +81,6 @@
     [self.choixMoisSC setSelectedSegmentIndex:0];
     self.moisEnCours = [self.arrayMois objectAtIndex:self.choixMoisSC.selectedSegmentIndex];
     [self rafraichirMois];
-    
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)rafraichirMois
@@ -79,11 +97,23 @@
     self.titreMois.text=[NSString stringWithFormat:@"Stats %@",self.moisEnCours];
     for(Journee *j in self.arrayJournees){
         NSString* mois=[formatter stringFromDate:j.date];
-        if ([mois  isEqual: self.moisEnCours]) {
+        
+        if ([self.moisEnCours isEqual:@"Année"]) {
             [self.arrayJoursMoiEnCours addObject:j];
             self.locMoisNumber = [self.locMoisNumber decimalNumberByAdding:j.nbLocBateaux];
             self.especesMoisNumber = [self.especesMoisNumber decimalNumberByAdding:j.totalEspeces];
             self.cbMoisNumber = [self.cbMoisNumber decimalNumberByAdding:j.totalCb];
+            self.titreTotaux.text=@"Totaux de l'année";
+            self.titreMoyenne.text=@"Moyenne par mois";
+            self.tableView.hidden=YES;
+        }else if ([mois  isEqual: self.moisEnCours]) {
+            [self.arrayJoursMoiEnCours addObject:j];
+            self.locMoisNumber = [self.locMoisNumber decimalNumberByAdding:j.nbLocBateaux];
+            self.especesMoisNumber = [self.especesMoisNumber decimalNumberByAdding:j.totalEspeces];
+            self.cbMoisNumber = [self.cbMoisNumber decimalNumberByAdding:j.totalCb];
+            self.titreTotaux.text=@"Totaux du mois";
+            self.titreMoyenne.text=@"Moyenne par jour";
+            self.tableView.hidden=NO;
         }
     }
     NSLog(@"Count %lu",(unsigned long)self.arrayJoursMoiEnCours.count);
@@ -94,11 +124,20 @@
     self.cbMois.text=[NSString stringWithFormat:@"%@ €",self.cbMoisNumber];
     self.totalMois.text=[NSString stringWithFormat:@"%@ €",[self.especesMoisNumber decimalNumberByAdding:self.cbMoisNumber]];
     
+    if ([self.moisEnCours isEqual:@"Année"]) {
+       
+        self.locMoyenne.text=[NSString stringWithFormat:@"%@",[self.locMoisNumber decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lu",(unsigned long)self.arrayMois.count-1]]withBehavior:roundingBehavior]];
+        self.cbMoyenne.text=[NSString stringWithFormat:@"%@ €",[self.cbMoisNumber decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lu",(unsigned long)self.arrayMois.count-1]]withBehavior:roundingBehavior]];
+        self.especesMoyenne.text=[NSString stringWithFormat:@"%@ €",[self.especesMoisNumber decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lu",(unsigned long)self.arrayMois.count-1]]withBehavior:roundingBehavior]];
+        self.totalMoyenne.text=[NSString stringWithFormat:@"%@ €",[[self.especesMoisNumber decimalNumberByAdding:self.cbMoisNumber] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lu",(unsigned long)self.arrayMois.count-1]]withBehavior:roundingBehavior]];
+        
+    }else{
+    
     self.locMoyenne.text=[NSString stringWithFormat:@"%@",[self.locMoisNumber decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lu",(unsigned long)self.arrayJoursMoiEnCours.count]]withBehavior:roundingBehavior]];
     self.cbMoyenne.text=[NSString stringWithFormat:@"%@ €",[self.cbMoisNumber decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lu",(unsigned long)self.arrayJoursMoiEnCours.count]]withBehavior:roundingBehavior]];
     self.especesMoyenne.text=[NSString stringWithFormat:@"%@ €",[self.especesMoisNumber decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lu",(unsigned long)self.arrayJoursMoiEnCours.count]]withBehavior:roundingBehavior]];
     self.totalMoyenne.text=[NSString stringWithFormat:@"%@ €",[[self.especesMoisNumber decimalNumberByAdding:self.cbMoisNumber] decimalNumberByDividingBy:[NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%lu",(unsigned long)self.arrayJoursMoiEnCours.count]]withBehavior:roundingBehavior]];
-        
+    }
     }
     
     [self.tableView reloadData];
@@ -152,7 +191,55 @@
     cell.montantCb.text= [NSString stringWithFormat:@"%@",j.totalCb];
     cell.total.text= [NSString stringWithFormat:@"%@",[j.totalCb decimalNumberByAdding:j.totalEspeces]];
     //NSLog([NSString stringWithFormat:@"%@, %@ ",facture.locations,facture.etat]);
-    
+    cell.nbLocs.delegate=self;
+    cell.montantEspèces.delegate=self;
+    cell.montantCb.delegate=self;
+    cell.jour=j;
     return cell;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    
+    NSIndexPath *idp=[self.tableView indexPathForSelectedRow];
+    ComptaTableViewCell *myCell=[self.tableView cellForRowAtIndexPath:idp];
+    
+    if (textField==myCell.nbLocs) {
+        myCell.jour.nbLocBateaux=[NSDecimalNumber decimalNumberWithString:textField.text];
+        NSLog(@"NBLOOOOOOOCS");
+    } else if (textField==myCell.montantEspèces)
+    {
+        myCell.jour.totalEspeces=[NSDecimalNumber decimalNumberWithString:textField.text];
+    } else if (textField==myCell.montantCb)
+    {
+        myCell.jour.totalCb=[NSDecimalNumber decimalNumberWithString:textField.text];
+    }
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    [self.tableView deselectRowAtIndexPath:idp animated:NO];
+    
+    return YES;
+}
+
+- (IBAction)ajouterJournee:(id)sender {
+    Journee * jour = [NSEntityDescription insertNewObjectForEntityForName:@"Journee"
+     inManagedObjectContext:self.managedObjectContext];
+     [jour initierJournee];
+     jour.date = self.datePicker.date;
+     jour.totalCb = [NSDecimalNumber decimalNumberWithString:self.cbAdd.text];
+     jour.totalEspeces = [NSDecimalNumber decimalNumberWithString:self.especesAdd.text];
+     jour.nbLocBateaux = [NSDecimalNumber decimalNumberWithString:self.nbLocsAdd.text];
+     [jour cloturerJournee];
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    
+    [self rafraichir];
+    
 }
 @end

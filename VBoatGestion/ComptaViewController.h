@@ -29,10 +29,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *especesMois;
 @property (weak, nonatomic) IBOutlet UILabel *locMois;
 
+@property (weak, nonatomic) IBOutlet UILabel *titreTotaux;
+@property (weak, nonatomic) IBOutlet UILabel *titreMoyenne;
 @property (strong, nonatomic) NSDecimalNumber *totalMoisNumber;
 @property (strong, nonatomic) NSDecimalNumber *cbMoisNumber;
 @property (strong, nonatomic) NSDecimalNumber *especesMoisNumber;
 @property (strong, nonatomic) NSDecimalNumber *locMoisNumber;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UITextField *nbLocsAdd;
+@property (weak, nonatomic) IBOutlet UITextField *especesAdd;
+@property (weak, nonatomic) IBOutlet UITextField *cbAdd;
+- (IBAction)ajouterJournee:(id)sender;
 
 @end

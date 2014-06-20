@@ -22,8 +22,6 @@
     return self;
 }
 
-
-
 -(void)saveContext{
     NSError *error;
     if (![self.managedObjectContext save:&error]) {

@@ -31,4 +31,9 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)startEdit:(id)sender {
+    UITableView *col = (UITableView *)[[self superview] superview];
+    NSIndexPath *indexPath = [col indexPathForCell:self];
+    [col selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+}
 @end
