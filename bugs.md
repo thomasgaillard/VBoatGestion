@@ -10,7 +10,6 @@ Bogues
 
 ## Rapide
 * Dans flotte et home => clique sur deux embarcations => crash
-* Quand on groupe des factures, ça déselectionne
 * Crach clique dansflotte
 
 ## V2
