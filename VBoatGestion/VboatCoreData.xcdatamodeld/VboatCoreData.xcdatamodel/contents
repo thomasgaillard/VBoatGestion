@@ -26,6 +26,7 @@
     <entity name="Journee" representedClassName="Journee" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="etat" optional="YES" attributeType="String" defaultValueString="enCours" syncable="YES"/>
+        <attribute name="fondDeCaisse" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="nbLocBateaux" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="nbLocPedalos" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="totalCb" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
@@ -54,10 +55,6 @@
         <attribute name="montant" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="temps" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="Saison" representedClassName="Saison" syncable="YES">
-        <attribute name="annee" attributeType="Decimal" minValueString="2014" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="journees" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Journee" syncable="YES"/>
-    </entity>
     <entity name="Type" representedClassName="Type" isAbstract="YES" syncable="YES">
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="grillePrix" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="GrillePrix" syncable="YES"/>
@@ -72,7 +69,7 @@
         <element name="Facture" positionX="18" positionY="207" width="128" height="148"/>
         <element name="Flotte" positionX="340" positionY="396" width="128" height="58"/>
         <element name="GrillePrix" positionX="-171" positionY="32" width="128" height="73"/>
-        <element name="Journee" positionX="225" positionY="68" width="128" height="148"/>
+        <element name="Journee" positionX="225" positionY="68" width="128" height="163"/>
         <element name="Location" positionX="-155" positionY="344" width="128" height="103"/>
         <element name="LocationPedaloPlaces" positionX="-56" positionY="512" width="128" height="58"/>
         <element name="Paddle" positionX="54" positionY="225" width="128" height="45"/>
@@ -80,7 +77,6 @@
         <element name="Pedalo" positionX="115" positionY="521" width="128" height="45"/>
         <element name="PedaloPlaces" positionX="45" positionY="216" width="128" height="58"/>
         <element name="Prix" positionX="-153" positionY="162" width="128" height="73"/>
-        <element name="Saison" positionX="27" positionY="27" width="128" height="73"/>
         <element name="Type" positionX="36" positionY="207" width="128" height="75"/>
         <element name="TypeBateau" positionX="90" positionY="234" width="128" height="45"/>
         <element name="TypePaddle" positionX="45" positionY="189" width="128" height="45"/>
