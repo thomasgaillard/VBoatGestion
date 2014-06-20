@@ -13,6 +13,7 @@ Bogues
 * Crach clique dansflotte
 * Mot de passe sur gestion flotte
 * Modifier nom type et grilles
+* Grille des prix : changer €/heure en €/15min
 
 ## V2
 * Obligation d'entrer les pedalo places dans l'ordre de nombre de personne croissant => pas bien
