@@ -12,7 +12,10 @@ Bogues
 * Dans flotte et home => clique sur deux embarcations => crash
 * Crach clique dansflotte
 * Mot de passe sur gestion flotte
+* Modifier nom type et grilles
+* Grille des prix : changer €/heure en €/15min
 
 ## V2
 * Obligation d'entrer les pedalo places dans l'ordre de nombre de personne croissant => pas bien
 * Réservations pas en web avec attribution bateaux pédalos automatique
+* Drag n drop sur les places
