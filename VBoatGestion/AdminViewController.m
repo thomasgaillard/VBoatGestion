@@ -10,6 +10,10 @@
 #import "Journee.h"
 #import "AppDelegate.h"
 #import "Facture.h"
+#import "Paiement.h"
+#import "Location.h"
+#import "PedaloPlaces.h"
+#import "LocationPedaloPlaces.h"
 
 @interface AdminViewController ()
 
@@ -32,12 +36,16 @@
     self.arrayJourneeEnCours = [appDelegate getAllJourneesEnCours];
     if ([self.arrayJourneeEnCours count]==0) {
         self.finDJ.enabled = NO;
+        self.nouvelleJBtn.enabled=YES;
+        self.fondDeCaisseNouvelleJ.enabled=YES;
     }else
     {
         self.journee = [self.arrayJourneeEnCours firstObject];
         self.arrayFacturesRemisees = [self.journee.factures allObjects];
         NSLog(@"Factures :%lu",(unsigned long)[self.journee.factures count]);
         self.finDJ.enabled = YES;
+        self.nouvelleJBtn.enabled=NO;
+        self.fondDeCaisseNouvelleJ.enabled=NO;
     }
 }
 
@@ -107,25 +115,54 @@
     }
 }
 
-- (IBAction)finDeJournee:(id)sender {
-    NSLog(@"COaaaa %@",self.journee.etat);
-    [self.journee cloturerJournee];
-    NSLog(@"COaaaa22 %@",self.journee.etat);
+- (IBAction)nouvelleJournee:(id)sender {
+    Journee *jour = [NSEntityDescription insertNewObjectForEntityForName:@"Journee"
+                                                      inManagedObjectContext:self.managedObjectContext];
+    self.journee=jour;
+    [self.journee initierJournee];
+    
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.arrayEmbarcations = [appDelegate getAllEmbarcations];
+    for (Embarcation *emb in self.arrayEmbarcations) {
+        if([emb isKindOfClass:[PedaloPlaces class]]){
+            LocationPedaloPlaces *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedaloPlaces"
+                                                                    inManagedObjectContext:self.managedObjectContext];
+            emb.location = l;
+        }
+        else{
+            Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
+            emb.location = l;
+        }
+        [emb rendreDisponible];
+    }
+   
+    //TODO
+    self.fondDeCaisseNouvelleJ;
+    
     [self saveContext];
     [self rafraichir];
 }
 
-- (IBAction)ongletJourneeBtn:(id)sender {
-    self.ongletSaisonView.hidden=YES;
-    self.ongletJourneeView.hidden=NO;
-    self.ongletSaison.enabled=YES;
-    self.ongletJournee.enabled=NO;
-}
-
-- (IBAction)ongletSaisonBtn:(id)sender {
-    self.ongletSaisonView.hidden=NO;
-    self.ongletJourneeView.hidden=YES;
-    self.ongletSaison.enabled=NO;
-    self.ongletJournee.enabled=YES;
+- (IBAction)finDeJournee:(id)sender {
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    [self.journee cloturerJournee];
+    self.arrayEmbarcations = [appDelegate getAllEmbarcations];
+    for (Embarcation *emb in self.arrayEmbarcations) {
+        [emb rendreIndisponible];
+    }
+    self.arrayFactures = [appDelegate getAllFacts];
+    for (Facture *fact in self.arrayFactures) {
+        [self.managedObjectContext deleteObject:fact];
+    }
+    self.arrayPaiements = [appDelegate getAllPaiements];
+    for (Paiement *pay in self.arrayPaiements) {
+        [self.managedObjectContext deleteObject:pay];
+    }
+    self.arrayLocations = [appDelegate getAllLocs];
+    for (Location *loc in self.arrayLocations) {
+        [self.managedObjectContext deleteObject:loc];
+    }
+    [self saveContext];
+    [self rafraichir];
 }
 @end

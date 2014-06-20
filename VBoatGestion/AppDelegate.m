@@ -168,7 +168,7 @@
     //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mes locs %lu", (unsigned long)self.arrayLocs.count);
     
-    self.arrayFacts = [self getAllFactsEnCours];
+    self.arrayFacts = [self getAllFacts];
 
     //Paiement *p1=[self.arrayPaiements firstObject];
     //NSDecimalNumber *dn = p1.montant;
@@ -302,7 +302,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     //Setting Entity to be Queried
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Location"
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"LocationPedaloPlaces"
                                               inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError* error;
@@ -404,6 +404,25 @@
     
     //Setting Entity to be Queried
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"TypeBateau"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+-(NSArray*)getAllFacts
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Facture"
                                               inManagedObjectContext:self.managedObjectContext];
     
     

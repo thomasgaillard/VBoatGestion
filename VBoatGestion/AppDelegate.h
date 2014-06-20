@@ -30,6 +30,7 @@
 -(NSArray*)getAllLocs;
 -(NSArray*)getAllFactsEnCours;
 -(NSArray*)getAllFactsSuivies;
+-(NSArray*)getAllFacts;
 -(NSArray*)getAllFactsRemisees;
 -(NSArray*)getAllPaiements;
 -(NSArray*)getAllGrillesPrix;

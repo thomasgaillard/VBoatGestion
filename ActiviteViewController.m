@@ -312,16 +312,7 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
 }
 
 - (IBAction)creerJournee:(id)sender {
-    if (self.journee == nil) {
-        Journee *jour = [NSEntityDescription insertNewObjectForEntityForName:@"Journee"
-                                                     inManagedObjectContext:self.managedObjectContext];
-        self.journee=jour;
-        [self.journee initierJournee];
-        self.viewNouvelleJournee.hidden=YES;
-        NSLog(@"eetat : %@",self.journee.etat);
-        [self saveContext];
-        [self rafraichir];
-    }
+   
 }
 
 -(void)modalDismissStopLoc{
