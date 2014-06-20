@@ -92,7 +92,7 @@
     
     //TEST CORE DATA
     
-    /*NSLog(@"Début");
+    NSLog(@"Début");
     PedaloPlaces * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"PedaloPlaces"
                                                       inManagedObjectContext:self.managedObjectContext];
     //  2
@@ -102,7 +102,7 @@
     //  3
     //[newEntry rendreDisponible];*/
     
-    /*NSLog(@"Fin");
+    NSLog(@"Fin");
     
     Type *paddle = [NSEntityDescription insertNewObjectForEntityForName:@"TypePaddle"
                                                         inManagedObjectContext:self.managedObjectContext];
@@ -127,7 +127,7 @@
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }*/
+    }
     
     /*Prix *p1 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
                                              inManagedObjectContext:self.managedObjectContext];
@@ -151,10 +151,10 @@
      plong.nom = @"Trampo";
     [plong addGrillePrixObject:g1];
     */
-    NSError *error;
+    /*NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
+    }*/
         
     self.arrayEmbarcations = [self getAllEmbarcations];
     

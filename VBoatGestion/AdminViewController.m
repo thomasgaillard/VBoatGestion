@@ -183,6 +183,34 @@
     return [self.sliceColors objectAtIndex:(index % self.sliceColors.count)];
 }
 
+- (IBAction)nouvelleJournee:(id)sender {
+    Journee *jour = [NSEntityDescription insertNewObjectForEntityForName:@"Journee"
+                                                  inManagedObjectContext:self.managedObjectContext];
+    self.journee=jour;
+    [self.journee initierJournee];
+    
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.arrayEmbarcations = [appDelegate getAllEmbarcations];
+    for (Embarcation *emb in self.arrayEmbarcations) {
+        if([emb isKindOfClass:[PedaloPlaces class]]){
+            LocationPedaloPlaces *l = [NSEntityDescription insertNewObjectForEntityForName:@"LocationPedaloPlaces"
+                                                                    inManagedObjectContext:self.managedObjectContext];
+            emb.location = l;
+        }
+        else{
+            Location *l = [NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
+            emb.location = l;
+        }
+        [emb rendreDisponible];
+    }
+    
+    //TODO
+    self.fondDeCaisseNouvelleJ;
+    
+    [self saveContext];
+    [self rafraichir];
+}
+
 - (IBAction)finDeJournee:(id)sender {
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
     [self.journee cloturerJournee];
@@ -205,4 +233,6 @@
     [self saveContext];
     [self rafraichir];
 }
+
+
 @end
