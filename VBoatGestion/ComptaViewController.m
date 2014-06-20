@@ -36,6 +36,16 @@
     
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self rafraichir];
+    self.pwdView.hidden=NO;
+    self.pwdIncorrect.hidden=YES;
+    self.pwdTxt.text=@"";
+    
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -160,6 +170,14 @@
     [self rafraichirMois];
 }
 
+- (IBAction)valider:(id)sender {
+    if ([self.pwdTxt.text isEqual:@"VArnoux"]) {
+        self.pwdView.hidden=YES;
+    }else{
+        self.pwdView.hidden=NO;
+        self.pwdIncorrect.hidden=NO;
+    }
+}
 
 #pragma mark - Table view data source
 

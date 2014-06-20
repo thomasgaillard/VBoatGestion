@@ -42,4 +42,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *cbAdd;
 - (IBAction)ajouterJournee:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *finDJ;
+@property (weak, nonatomic) IBOutlet UIView *pwdView;
+@property (weak, nonatomic) IBOutlet UITextField *pwdTxt;
+@property (weak, nonatomic) IBOutlet UILabel *pwdIncorrect;
+- (IBAction)valider:(id)sender;
+
 @end

@@ -57,6 +57,9 @@ NSMutableArray *_sections;
     NSString *dateToday = [formatter stringFromDate:[NSDate date]];
     [self.lblDate setText: dateToday];
     
+    AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    
     [self rafraichir];
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -183,8 +186,7 @@ NSMutableArray *_sections;
     
     myCell.labelPlaces.text = [NSString stringWithFormat:@"%@",[embarcation getNbPlacesOuType]];
        
-        AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
-        self.managedObjectContext = appDelegate.managedObjectContext;
+        
         
         NSError *error;
         if (![self.managedObjectContext save:&error]) {

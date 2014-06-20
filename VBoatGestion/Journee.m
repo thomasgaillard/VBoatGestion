@@ -2,7 +2,7 @@
 //  Journee.m
 //  VBoatGestion
 //
-//  Created by Maxence Mermoz on 31/03/2014.
+//  Created by Maxence Mermoz on 20/06/2014.
 //  Copyright (c) 2014 V-Boat. All rights reserved.
 //
 
@@ -10,10 +10,12 @@
 #import "Facture.h"
 #import "Paiement.h"
 
+
 @implementation Journee
 
 @dynamic date;
 @dynamic etat;
+@dynamic fondDeCaisse;
 @dynamic nbLocBateaux;
 @dynamic nbLocPedalos;
 @dynamic totalCb;
@@ -43,7 +45,7 @@
     {
         [self removeFacturesObject:fact];
     }//else if ([fact.etat  isEqual: @"payee"]||[fact.etat  isEqual: @"annulee"]){
-       // [self.listeFacturesCloturees addObject:fact];
+    // [self.listeFacturesCloturees addObject:fact];
     NSLog(@"Facture ajoutée en cours %lu",(unsigned long)self.factures.count);
     
     
@@ -80,7 +82,7 @@
     if(nil == urlConnection) {
         NSLog(@"Couldn't create connection to url %@", url);
     }
-
+    
 }
 
 -(void) connectionDidFinishLoading:(NSURLConnection*)connection {

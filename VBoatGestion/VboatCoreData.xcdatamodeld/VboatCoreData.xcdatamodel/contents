@@ -3,7 +3,10 @@
     <entity name="Bateau" representedClassName="Bateau" parentEntity="Embarcation" syncable="YES"/>
     <entity name="Embarcation" representedClassName="Embarcation" isAbstract="YES" syncable="YES">
         <attribute name="etat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="major" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="minor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" syncable="YES"/>
         <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Type" syncable="YES"/>
     </entity>
@@ -47,6 +50,9 @@
         <attribute name="montant" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="moyenPaiement" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Password" representedClassName="Password" syncable="YES">
+        <attribute name="pass" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Pedalo" representedClassName="Pedalo" parentEntity="Embarcation" syncable="YES"/>
     <entity name="PedaloPlaces" representedClassName="PedaloPlaces" parentEntity="Pedalo" syncable="YES">
         <attribute name="nbPlaces" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
@@ -65,7 +71,7 @@
     <entity name="TypePedaloPlaces" representedClassName="TypePedaloPlaces" parentEntity="Type" syncable="YES"/>
     <elements>
         <element name="Bateau" positionX="259" positionY="557" width="128" height="45"/>
-        <element name="Embarcation" positionX="169" positionY="387" width="128" height="103"/>
+        <element name="Embarcation" positionX="169" positionY="387" width="128" height="150"/>
         <element name="Facture" positionX="18" positionY="207" width="128" height="148"/>
         <element name="Flotte" positionX="340" positionY="396" width="128" height="58"/>
         <element name="GrillePrix" positionX="-171" positionY="32" width="128" height="73"/>
@@ -82,5 +88,6 @@
         <element name="TypePaddle" positionX="45" positionY="189" width="128" height="45"/>
         <element name="TypePedalo" positionX="36" positionY="180" width="128" height="45"/>
         <element name="TypePedaloPlaces" positionX="54" positionY="198" width="128" height="45"/>
+        <element name="Password" positionX="36" positionY="180" width="128" height="60"/>
     </elements>
 </model>

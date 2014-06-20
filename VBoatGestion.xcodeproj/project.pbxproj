@@ -32,7 +32,6 @@
 		870A36B5193F5E590018F144 /* PedaloPlaces.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36B4193F5E590018F144 /* PedaloPlaces.m */; };
 		870A36B8193F5E590018F144 /* Pedalo.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36B7193F5E590018F144 /* Pedalo.m */; };
 		870A36BB193F5E590018F144 /* Bateau.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36BA193F5E590018F144 /* Bateau.m */; };
-		870A36BE193F5E5A0018F144 /* Embarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36BD193F5E5A0018F144 /* Embarcation.m */; };
 		870A36C1193F5E5A0018F144 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36C0193F5E5A0018F144 /* Location.m */; };
 		870A36C7193F5EF20018F144 /* LocationPedaloPlaces.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36C6193F5EF20018F144 /* LocationPedaloPlaces.m */; };
 		870A36CA193F72490018F144 /* TypePaddle.m in Sources */ = {isa = PBXBuildFile; fileRef = 870A36C9193F72490018F144 /* TypePaddle.m */; };
@@ -50,12 +49,13 @@
 		8758073D194AFACF00D2ECDB /* PrixCollectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8758073C194AFACF00D2ECDB /* PrixCollectionHeader.m */; };
 		87826D6F1954623300A382F0 /* ComptaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87826D6C1954623300A382F0 /* ComptaTableViewCell.m */; };
 		87826D701954623300A382F0 /* ComptaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87826D6E1954623300A382F0 /* ComptaViewController.m */; };
+		87826D73195485AB00A382F0 /* Password.m in Sources */ = {isa = PBXBuildFile; fileRef = 87826D72195485AB00A382F0 /* Password.m */; };
+		87826D76195485AB00A382F0 /* Journee.m in Sources */ = {isa = PBXBuildFile; fileRef = 87826D75195485AB00A382F0 /* Journee.m */; };
+		87826D79195485AB00A382F0 /* Embarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 87826D78195485AB00A382F0 /* Embarcation.m */; };
 		8794B44018EC4FAC00217F47 /* ActiviteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */; };
 		8794B44318EC58E700217F47 /* ActiviteModalEmbarcation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8794B44218EC58E700217F47 /* ActiviteModalEmbarcation.m */; };
 		87AD69DA18E9674900C9165D /* Paiement.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69D918E9674900C9165D /* Paiement.m */; };
 		87AD69E618E9674A00C9165D /* Flotte.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69E518E9674A00C9165D /* Flotte.m */; };
-		87AD69E918E9674A00C9165D /* Journee.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69E818E9674A00C9165D /* Journee.m */; };
-		87AD69EF18E9674A00C9165D /* Saison.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AD69EE18E9674A00C9165D /* Saison.m */; };
 		87C9534E18F2A22F00793634 /* FacturationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9534D18F2A22F00793634 /* FacturationTableViewController.m */; };
 		87C9535118F2A4C300793634 /* FacturationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535018F2A4C300793634 /* FacturationTableViewCell.m */; };
 		87C9535418F2A86700793634 /* FacturationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535318F2A86700793634 /* FacturationDetailsViewController.m */; };
@@ -115,8 +115,6 @@
 		870A36B7193F5E590018F144 /* Pedalo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pedalo.m; sourceTree = "<group>"; };
 		870A36B9193F5E590018F144 /* Bateau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bateau.h; sourceTree = "<group>"; };
 		870A36BA193F5E590018F144 /* Bateau.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bateau.m; sourceTree = "<group>"; };
-		870A36BC193F5E5A0018F144 /* Embarcation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Embarcation.h; sourceTree = "<group>"; };
-		870A36BD193F5E5A0018F144 /* Embarcation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Embarcation.m; sourceTree = "<group>"; };
 		870A36BF193F5E5A0018F144 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Location.h; sourceTree = "<group>"; };
 		870A36C0193F5E5A0018F144 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Location.m; sourceTree = "<group>"; };
 		870A36C5193F5EF20018F144 /* LocationPedaloPlaces.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationPedaloPlaces.h; sourceTree = SOURCE_ROOT; };
@@ -151,6 +149,12 @@
 		87826D6C1954623300A382F0 /* ComptaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComptaTableViewCell.m; sourceTree = "<group>"; };
 		87826D6D1954623300A382F0 /* ComptaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComptaViewController.h; sourceTree = "<group>"; };
 		87826D6E1954623300A382F0 /* ComptaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComptaViewController.m; sourceTree = "<group>"; };
+		87826D71195485AB00A382F0 /* Password.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Password.h; sourceTree = "<group>"; };
+		87826D72195485AB00A382F0 /* Password.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Password.m; sourceTree = "<group>"; };
+		87826D74195485AB00A382F0 /* Journee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journee.h; sourceTree = "<group>"; };
+		87826D75195485AB00A382F0 /* Journee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journee.m; sourceTree = "<group>"; };
+		87826D77195485AB00A382F0 /* Embarcation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Embarcation.h; sourceTree = "<group>"; };
+		87826D78195485AB00A382F0 /* Embarcation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Embarcation.m; sourceTree = "<group>"; };
 		8794B43E18EC4FAC00217F47 /* ActiviteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiviteCollectionViewCell.h; sourceTree = "<group>"; };
 		8794B43F18EC4FAC00217F47 /* ActiviteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiviteCollectionViewCell.m; sourceTree = "<group>"; };
 		8794B44118EC58E700217F47 /* ActiviteModalEmbarcation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiviteModalEmbarcation.h; sourceTree = "<group>"; };
@@ -159,10 +163,6 @@
 		87AD69D918E9674900C9165D /* Paiement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paiement.m; sourceTree = "<group>"; };
 		87AD69E418E9674A00C9165D /* Flotte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flotte.h; sourceTree = "<group>"; };
 		87AD69E518E9674A00C9165D /* Flotte.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Flotte.m; sourceTree = "<group>"; };
-		87AD69E718E9674A00C9165D /* Journee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Journee.h; sourceTree = "<group>"; };
-		87AD69E818E9674A00C9165D /* Journee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Journee.m; sourceTree = "<group>"; };
-		87AD69ED18E9674A00C9165D /* Saison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Saison.h; sourceTree = SOURCE_ROOT; };
-		87AD69EE18E9674A00C9165D /* Saison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Saison.m; sourceTree = SOURCE_ROOT; };
 		87C9534C18F2A22F00793634 /* FacturationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FacturationTableViewController.h; path = ../FacturationTableViewController.h; sourceTree = "<group>"; };
 		87C9534D18F2A22F00793634 /* FacturationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FacturationTableViewController.m; path = ../FacturationTableViewController.m; sourceTree = "<group>"; };
 		87C9534F18F2A4C300793634 /* FacturationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationTableViewCell.h; sourceTree = "<group>"; };
@@ -253,6 +253,12 @@
 				3A35590E1885AC6700C573CE /* AppDelegate.m */,
 				3A7BC472195416DA00D12152 /* Main.storyboard */,
 				3A7BC471195416DA00D12152 /* InfoPlist.strings */,
+				87826D77195485AB00A382F0 /* Embarcation.h */,
+				87826D78195485AB00A382F0 /* Embarcation.m */,
+				87826D74195485AB00A382F0 /* Journee.h */,
+				87826D75195485AB00A382F0 /* Journee.m */,
+				87826D71195485AB00A382F0 /* Password.h */,
+				87826D72195485AB00A382F0 /* Password.m */,
 				8754DABB194F9A5300119D4B /* AdminJourneeTableViewCell.h */,
 				8754DABC194F9A5300119D4B /* AdminJourneeTableViewCell.m */,
 				8754DAB8194F9A0500119D4B /* AdminJourneeTableTableViewController.h */,
@@ -300,8 +306,6 @@
 				870A36C0193F5E5A0018F144 /* Location.m */,
 				870A36C5193F5EF20018F144 /* LocationPedaloPlaces.h */,
 				870A36C6193F5EF20018F144 /* LocationPedaloPlaces.m */,
-				870A36BC193F5E5A0018F144 /* Embarcation.h */,
-				870A36BD193F5E5A0018F144 /* Embarcation.m */,
 				870A36B9193F5E590018F144 /* Bateau.h */,
 				870A36BA193F5E590018F144 /* Bateau.m */,
 				870A36B6193F5E590018F144 /* Pedalo.h */,
@@ -330,10 +334,6 @@
 				87AD69D918E9674900C9165D /* Paiement.m */,
 				87AD69E418E9674A00C9165D /* Flotte.h */,
 				87AD69E518E9674A00C9165D /* Flotte.m */,
-				87AD69E718E9674A00C9165D /* Journee.h */,
-				87AD69E818E9674A00C9165D /* Journee.m */,
-				87AD69ED18E9674A00C9165D /* Saison.h */,
-				87AD69EE18E9674A00C9165D /* Saison.m */,
 				3AF254F418E1B5E5004FB853 /* Images.xcassets */,
 				3A10D98C18F2A3F300CEF1A9 /* Resources */,
 				3A3559051885AC6700C573CE /* Supporting Files */,
@@ -488,16 +488,17 @@
 				87C9535118F2A4C300793634 /* FacturationTableViewCell.m in Sources */,
 				873D4528193DD1E400E64D2A /* FlotteCollectionViewCell.m in Sources */,
 				3A35590F1885AC6700C573CE /* AppDelegate.m in Sources */,
-				870A36BE193F5E5A0018F144 /* Embarcation.m in Sources */,
 				8794B44318EC58E700217F47 /* ActiviteModalEmbarcation.m in Sources */,
 				870A36D0193F724A0018F144 /* TypePedalo.m in Sources */,
 				3A1BDA70193CB2BC00066205 /* ReservationViewController.m in Sources */,
 				87AD69DA18E9674900C9165D /* Paiement.m in Sources */,
 				8754DAB7194E4EC500119D4B /* AdminViewController.m in Sources */,
 				870A36CA193F72490018F144 /* TypePaddle.m in Sources */,
+				87826D73195485AB00A382F0 /* Password.m in Sources */,
 				870A36D3193F724A0018F144 /* TypePedaloPlaces.m in Sources */,
 				870A36A6193F5E590018F144 /* GrillePrix.m in Sources */,
 				8758073D194AFACF00D2ECDB /* PrixCollectionHeader.m in Sources */,
+				87826D79195485AB00A382F0 /* Embarcation.m in Sources */,
 				870A36AC193F5E590018F144 /* Prix.m in Sources */,
 				873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */,
 				3A35590B1885AC6700C573CE /* main.m in Sources */,
@@ -508,16 +509,15 @@
 				87C9536118F2F4CB00793634 /* FacturationTableViewLocationCell.m in Sources */,
 				873D452C193DD1F300E64D2A /* FlotteViewController.m in Sources */,
 				87C9534E18F2A22F00793634 /* FacturationTableViewController.m in Sources */,
-				87AD69E918E9674A00C9165D /* Journee.m in Sources */,
 				87C9535818F2AFEF00793634 /* FacturationSplitViewController.m in Sources */,
 				87C9535418F2A86700793634 /* FacturationDetailsViewController.m in Sources */,
 				870A36C7193F5EF20018F144 /* LocationPedaloPlaces.m in Sources */,
 				8754DABA194F9A0500119D4B /* AdminJourneeTableTableViewController.m in Sources */,
 				87826D6F1954623300A382F0 /* ComptaTableViewCell.m in Sources */,
 				87826D701954623300A382F0 /* ComptaViewController.m in Sources */,
-				87AD69EF18E9674A00C9165D /* Saison.m in Sources */,
 				87DED305194B1B850041FA14 /* Type.m in Sources */,
 				870A36C1193F5E5A0018F144 /* Location.m in Sources */,
+				87826D76195485AB00A382F0 /* Journee.m in Sources */,
 				870A36B8193F5E590018F144 /* Pedalo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
