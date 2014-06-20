@@ -68,7 +68,6 @@
                 
                 NSLog(@"À GROUPER OK");
 
-
             // Build an NSIndexSet of all the objects to delete, so they can all be removed at once.
             
             // Delete the objects from our data model.
@@ -89,10 +88,11 @@
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Whoops BIG PB, couldn't save: %@", [error localizedDescription]);
         }
-        [self reloadFactures];
         
         [self.tableView setEditing:NO animated:YES];
+        [self reloadFactures];
         self.optionAnnulerBtn.hidden=YES;
+        
     }else{
         [self.tableView setEditing:YES animated:YES];
         self.optionAnnulerBtn.hidden=NO;

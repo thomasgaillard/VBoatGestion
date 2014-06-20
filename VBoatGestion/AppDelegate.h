@@ -30,6 +30,7 @@
 -(NSArray*)getAllLocs;
 -(NSArray*)getAllFactsEnCours;
 -(NSArray*)getAllFactsSuivies;
+-(NSArray*)getAllFacts;
 -(NSArray*)getAllFactsRemisees;
 -(NSArray*)getAllPaiements;
 -(NSArray*)getAllGrillesPrix;
@@ -39,6 +40,7 @@
 -(NSArray*)getAllTypesPedaloPlaces;
 -(NSArray*)getAllTypesPaddle;
 -(NSArray*)getAllJourneesEnCours;
+-(NSArray*)getAllJournees;
 -(Location*)returnInstantiateLoc;
 
 @end

@@ -32,10 +32,18 @@
     //Status bar text white
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    /*
-    Journee *jour1 = [Journee new];
+    
+    /*Journee * jour1 = [NSEntityDescription insertNewObjectForEntityForName:@"Journee"
+                                                            inManagedObjectContext:self.managedObjectContext];
     [jour1 initierJournee];
-    NSLog(@"coucou");
+    jour1.date = [NSDate dateWithTimeIntervalSinceNow:43728000];
+    jour1.totalCb = [NSDecimalNumber decimalNumberWithString:@"1340"];
+    jour1.totalEspeces = [NSDecimalNumber decimalNumberWithString:@"12220"];
+    jour1.nbLocBateaux = [NSDecimalNumber decimalNumberWithString:@"490"];
+    [jour1 cloturerJournee];*/
+    
+    
+    /*NSLog(@"coucou");
     Embarcation *test = [Embarcation new];
     Embarcation *test2 = [Embarcation new];
     [test rendreDisponible];
@@ -142,11 +150,11 @@
      inManagedObjectContext:self.managedObjectContext];
      plong.nom = @"Trampo";
     [plong addGrillePrixObject:g1];
-    
+    */
     NSError *error;
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }*/
+    }
         
     self.arrayEmbarcations = [self getAllEmbarcations];
     
@@ -160,7 +168,7 @@
     //NSDecimalNumber *dn = p1.montant;
     NSLog(@"Mes locs %lu", (unsigned long)self.arrayLocs.count);
     
-    self.arrayFacts = [self getAllFactsEnCours];
+    self.arrayFacts = [self getAllFacts];
 
     //Paiement *p1=[self.arrayPaiements firstObject];
     //NSDecimalNumber *dn = p1.montant;
@@ -294,7 +302,7 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     //Setting Entity to be Queried
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Location"
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"LocationPedaloPlaces"
                                               inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     NSError* error;
@@ -408,6 +416,25 @@
     // Returning Fetched Records
     return fetchedRecords;
 }
+-(NSArray*)getAllFacts
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Facture"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    
+    [fetchRequest setEntity:entity];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
 -(NSArray*)getAllTypesPedalo
 {
     // initializing NSFetchRequest
@@ -481,6 +508,25 @@
     
     [fetchRequest setEntity:entity];
     [fetchRequest setPredicate:predicate];
+    NSError* error;
+    
+    // Query on managedObjectContext With Generated fetchRequest
+    NSArray *fetchedRecords = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    
+    // Returning Fetched Records
+    return fetchedRecords;
+}
+-(NSArray*)getAllJournees
+{
+    // initializing NSFetchRequest
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    //Setting Entity to be Queried
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Journee"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    
+    [fetchRequest setEntity:entity];
     NSError* error;
     
     // Query on managedObjectContext With Generated fetchRequest

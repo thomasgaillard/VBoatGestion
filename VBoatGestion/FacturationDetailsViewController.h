@@ -14,6 +14,8 @@
 #import "FacturationSelectionDelegate.h"
 #import "FacturationTableViewLocationCell.h"
 
+@class Journee;
+
 @interface FacturationDetailsViewController : UIViewController <FacturationSelectionDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
@@ -22,6 +24,8 @@
 @property (nonatomic, strong) NSMutableArray *facturesArray;
 @property (strong, nonatomic) Facture *facture;
 @property (strong, nonatomic) NSArray *listeLocations;
+@property (strong, nonatomic) NSArray* arrayJourneeEnCours;
+@property (strong, nonatomic) Journee* journee;
 @property (weak, nonatomic) IBOutlet UITextField *prixTxt;
 @property (weak, nonatomic) IBOutlet UILabel *etatTxt;
 @property (weak, nonatomic) IBOutlet UITextField *remarquesTxt;
@@ -40,6 +44,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *razPBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *noFacturesBg;
 @property (weak, nonatomic) IBOutlet UILabel *aucuneFacturation;
+@property (weak, nonatomic) IBOutlet UILabel *dateTopBar;
+@property (weak, nonatomic) IBOutlet UILabel *especesTopBar;
+@property (weak, nonatomic) IBOutlet UILabel *cbTopBar;
 
 - (IBAction)clicPaveNumerique:(id)sender;
 - (IBAction)clicPaiement:(id)sender;

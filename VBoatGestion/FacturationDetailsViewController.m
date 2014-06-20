@@ -8,6 +8,7 @@
 
 #import "FacturationDetailsViewController.h"
 #import "AppDelegate.h"
+#import "Journee.h"
 
 @interface FacturationDetailsViewController ()
 
@@ -65,6 +66,12 @@
 {
     AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
     self.managedObjectContext = appDelegate.managedObjectContext;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd MMMM YYYY"];
+    NSString *dateToday = [formatter stringFromDate:[NSDate date]];
+    [self.dateTopBar setText: dateToday];
+    
     [self rafraichir];
     
      _aucuneFacturation.textColor = [self colorWithHexString:@"95a5a6"];
@@ -274,6 +281,18 @@
 
 -(void)rafraichir{
     [self resteAPayer];
+    
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.arrayJourneeEnCours = [appDelegate getAllJourneesEnCours];
+    if ([self.arrayJourneeEnCours count]==0) {
+        self.journee = nil;
+    }else
+    {
+        self.journee = [self.arrayJourneeEnCours firstObject];
+    }
+    self.cbTopBar.text=[NSString stringWithFormat:@"%@",self.journee.totalCb];
+    self.especesTopBar.text=[NSString stringWithFormat:@"%@",self.journee.totalEspeces];
+    
     self.remarquesTxt.delegate=self;
     self.etatTxt.text=self.facture.etat;
     self.remarquesTxt.text=self.facture.remarque;

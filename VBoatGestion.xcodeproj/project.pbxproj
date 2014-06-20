@@ -170,6 +170,10 @@
 		87C9536018F2F4CB00793634 /* FacturationTableViewLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationTableViewLocationCell.m; sourceTree = "<group>"; };
 		87DED303194B1B850041FA14 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
 		87DED304194B1B850041FA14 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
+		87F2DA031953151200739179 /* ComptaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComptaViewController.h; sourceTree = "<group>"; };
+		87F2DA041953151200739179 /* ComptaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComptaViewController.m; sourceTree = "<group>"; };
+		87F2DA061953472C00739179 /* ComptaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComptaTableViewCell.h; sourceTree = "<group>"; };
+		87F2DA071953472C00739179 /* ComptaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComptaTableViewCell.m; sourceTree = "<group>"; };
 		87F3EBE118E466F800FF09C2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		87F3EBE718E4688600FF09C2 /* VboatCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VboatCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -487,6 +491,7 @@
 				870A36CA193F72490018F144 /* TypePaddle.m in Sources */,
 				870A36D3193F724A0018F144 /* TypePedaloPlaces.m in Sources */,
 				870A36A6193F5E590018F144 /* GrillePrix.m in Sources */,
+				87F2DA051953151200739179 /* ComptaViewController.m in Sources */,
 				8758073D194AFACF00D2ECDB /* PrixCollectionHeader.m in Sources */,
 				870A36AC193F5E590018F144 /* Prix.m in Sources */,
 				873EADC318E9BA790053FB9D /* ActiviteViewController.m in Sources */,
@@ -503,6 +508,7 @@
 				87C9535418F2A86700793634 /* FacturationDetailsViewController.m in Sources */,
 				870A36C7193F5EF20018F144 /* LocationPedaloPlaces.m in Sources */,
 				8754DABA194F9A0500119D4B /* AdminJourneeTableTableViewController.m in Sources */,
+				87F2DA081953472C00739179 /* ComptaTableViewCell.m in Sources */,
 				87AD69EF18E9674A00C9165D /* Saison.m in Sources */,
 				87DED305194B1B850041FA14 /* Type.m in Sources */,
 				870A36C1193F5E5A0018F144 /* Location.m in Sources */,

@@ -18,6 +18,10 @@
 @property (strong, nonatomic) NSArray *arrayJourneeEnCours;
 @property (strong, nonatomic) NSArray *arrayFacturesRemisees;
 @property (strong, nonatomic) NSDecimalNumber *totalRemises;
+@property (strong, nonatomic) NSArray *arrayEmbarcations;
+@property (strong, nonatomic) NSArray *arrayPaiements;
+@property (strong, nonatomic) NSArray *arrayLocations;
+@property (strong, nonatomic) NSArray *arrayFactures;
 
 @property (weak, nonatomic) IBOutlet UIButton *finDJ;
 @property (weak, nonatomic) IBOutlet UIView *pwdView;
@@ -37,6 +41,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalCbTxt;
 @property (weak, nonatomic) IBOutlet UILabel *totalTxt;
 @property (weak, nonatomic) IBOutlet UILabel *remisesTxt;
+@property (weak, nonatomic) IBOutlet UIButton *nouvelleJBtn;
+@property (weak, nonatomic) IBOutlet UITextField *fondDeCaisseNouvelleJ;
+@property (weak, nonatomic) IBOutlet UILabel *fondDeCaisseJEnCours;
+- (IBAction)nouvelleJournee:(id)sender;
 
 - (IBAction)finDeJournee:(id)sender;
 - (IBAction)ongletJourneeBtn:(id)sender;
