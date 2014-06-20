@@ -20,6 +20,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lblPedalos;
 @property (strong, nonatomic) IBOutlet UILabel *lblEspeces;
 @property (strong, nonatomic) IBOutlet UILabel *lblCb;
+@property (weak, nonatomic) IBOutlet UILabel *commencerJournee;
 @property (strong, nonatomic) Journee *journee;
 @property (strong, nonatomic) NSArray *arrayJourneeEnCours;
 @property (weak, nonatomic) IBOutlet UIView *viewNouvelleJournee;

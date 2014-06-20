@@ -227,11 +227,26 @@
 }
 
 - (IBAction)supprimerEmb:(id)sender {
-    [self.managedObjectContext deleteObject:self.embarcation];
-    [self saveInfos];
-    [self saveContext];
-    
-    [self closing];
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Supprimer l'embarcation?"
+                          message:@""
+                          delegate:self  // set nil if you don't want the yes button callback
+                          cancelButtonTitle:@"Non"
+                          otherButtonTitles:@"Oui", nil];
+    [alert show];
+}
+
+// POPUP Callback
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
+(NSInteger)buttonIndex {
+    if (buttonIndex != 0) {
+        //YES
+        [self.managedObjectContext deleteObject:self.embarcation];
+        [self saveInfos];
+        [self saveContext];
+        
+        [self closing];
+    }
 }
 
 

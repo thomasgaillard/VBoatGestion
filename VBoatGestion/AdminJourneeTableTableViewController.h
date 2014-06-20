@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface AdminJourneeTableTableViewController : UIViewController
 
 @property (strong, nonatomic) NSArray *arrayFactProblemes;

@@ -72,7 +72,8 @@ NSMutableArray *_sections;
     [formatter setDateFormat:@"dd MMMM YYYY"];
     NSString *dateToday = [formatter stringFromDate:[NSDate date]];
     [self.lblDate setText: dateToday];
-    
+    _commencerJournee.textColor = [self colorWithHexString:@"95a5a6"];
+    _commencerJournee.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:26];
     
     
     [self rafraichir];

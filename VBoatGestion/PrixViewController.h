@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *pwdIncorrect;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTxt;
 @property (weak, nonatomic) IBOutlet UIView *pwdView;
+@property (weak, nonatomic) IBOutlet UILabel *mdpinc;
 - (IBAction)valider:(id)sender;
 - (IBAction)ajoutType:(id)sender;
 - (IBAction)ajoutGrille:(id)sender;
