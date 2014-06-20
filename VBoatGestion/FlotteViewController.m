@@ -131,14 +131,23 @@ NSMutableArray *_sections;
     
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     
-    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(singleClik:)];
-    singleTap.numberOfTapsRequired = 1;
-    
- 
-    
-    
-  
-[myCell addGestureRecognizer:singleTap];
+        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
+                                             initWithTarget:self
+                                             action:@selector(doubleClik:)];
+        doubleTap.delegate = self;
+        doubleTap.numberOfTapsRequired = 2;
+        doubleTap.numberOfTouchesRequired = 1;
+        [myCell addGestureRecognizer:doubleTap];
+        
+        
+        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]
+                                             initWithTarget:self
+                                             action:@selector(singleClik:)];
+        singleTap.delegate = self;
+        singleTap.numberOfTapsRequired = 1;
+        singleTap.numberOfTouchesRequired = 1;
+        [myCell addGestureRecognizer:singleTap];
+        [singleTap requireGestureRecognizerToFail:doubleTap];
     
     
     //background
