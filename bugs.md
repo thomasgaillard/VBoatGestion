@@ -12,6 +12,7 @@ Bogues
 * Début de journée le soir ..... mais problème de date ducoup
 * Pourquoi on peut supprimer un type utilisé?
 * Qu'est-ce que la première grille dans pédaloPlace?
+* Gestion de la flotte : obligation d'avoir des types avant pas de crach
 
 ## V1.5
 * Les embarcations passent dessus la barre bleu du haut : Collection View
