@@ -13,9 +13,7 @@ Bogues
 * Pourquoi on peut supprimer un type utilisé?
 * Qu'est-ce que la première grille dans pédaloPlace?
 * Gestion de la flotte : obligation d'avoir des types avant pas de crach
-* Champ remarque à vider quand on rentre dessus
 * Dans fin de journée, quand on modifie le prix ==> modifier total
-* Enlever correcteur
 * Rajouter durée
 
 ## V1.5
