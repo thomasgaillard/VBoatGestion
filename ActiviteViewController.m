@@ -67,6 +67,7 @@ NSMutableArray *_sections;
     [super viewDidLoad];
     
     AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.managedObjectContext = appDelegate.managedObjectContext;
 
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd MMMM YYYY"];
@@ -240,9 +241,6 @@ NSMutableArray *_sections;
         myCell.labelHeure.text = @"-";
     
     NSLog([NSString stringWithFormat:@"%@, %@ ",embarcation.nom,embarcation.etat]);
-    
-    AppDelegate* appDelegate  = [UIApplication sharedApplication].delegate;
-    self.managedObjectContext = appDelegate.managedObjectContext;
     
     NSError *error;
     if (![self.managedObjectContext save:&error]) {

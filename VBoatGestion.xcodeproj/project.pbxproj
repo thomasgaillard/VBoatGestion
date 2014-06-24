@@ -61,6 +61,10 @@
 		87C9535418F2A86700793634 /* FacturationDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535318F2A86700793634 /* FacturationDetailsViewController.m */; };
 		87C9535818F2AFEF00793634 /* FacturationSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */; };
 		87C9536118F2F4CB00793634 /* FacturationTableViewLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87C9536018F2F4CB00793634 /* FacturationTableViewLocationCell.m */; };
+		87DC77D919586F0B00C694A9 /* libEstimoteSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DC77D819586F0B00C694A9 /* libEstimoteSDK.a */; };
+		87DC77DB19586F1B00C694A9 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DC77DA19586F1B00C694A9 /* CoreBluetooth.framework */; };
+		87DC77DD19586F2400C694A9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DC77DC19586F2400C694A9 /* CoreLocation.framework */; };
+		87DC77DF19586F3000C694A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87DC77DE19586F3000C694A9 /* SystemConfiguration.framework */; };
 		87DED305194B1B850041FA14 /* Type.m in Sources */ = {isa = PBXBuildFile; fileRef = 87DED304194B1B850041FA14 /* Type.m */; };
 		87F3EBE218E466F800FF09C2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3EBE118E466F800FF09C2 /* CoreData.framework */; };
 		87F3EBE818E4688600FF09C2 /* VboatCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87F3EBE618E4688600FF09C2 /* VboatCoreData.xcdatamodeld */; };
@@ -174,6 +178,10 @@
 		87C9535718F2AFEF00793634 /* FacturationSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationSplitViewController.m; sourceTree = "<group>"; };
 		87C9535F18F2F4CB00793634 /* FacturationTableViewLocationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacturationTableViewLocationCell.h; sourceTree = "<group>"; };
 		87C9536018F2F4CB00793634 /* FacturationTableViewLocationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacturationTableViewLocationCell.m; sourceTree = "<group>"; };
+		87DC77D819586F0B00C694A9 /* libEstimoteSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEstimoteSDK.a; path = EstimoteSDK/libEstimoteSDK.a; sourceTree = "<group>"; };
+		87DC77DA19586F1B00C694A9 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		87DC77DC19586F2400C694A9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		87DC77DE19586F3000C694A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		87DED303194B1B850041FA14 /* Type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Type.h; sourceTree = "<group>"; };
 		87DED304194B1B850041FA14 /* Type.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Type.m; sourceTree = "<group>"; };
 		87F3EBE118E466F800FF09C2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -185,6 +193,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87DC77DF19586F3000C694A9 /* SystemConfiguration.framework in Frameworks */,
+				87DC77DD19586F2400C694A9 /* CoreLocation.framework in Frameworks */,
+				87DC77DB19586F1B00C694A9 /* CoreBluetooth.framework in Frameworks */,
+				87DC77D919586F0B00C694A9 /* libEstimoteSDK.a in Frameworks */,
 				3AF6AE151954153000781CAC /* QuartzCore.framework in Frameworks */,
 				87F3EBE218E466F800FF09C2 /* CoreData.framework in Frameworks */,
 				3A3559011885AC6700C573CE /* CoreGraphics.framework in Frameworks */,
@@ -236,6 +248,10 @@
 		3A3558FD1885AC6700C573CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				87DC77DE19586F3000C694A9 /* SystemConfiguration.framework */,
+				87DC77DC19586F2400C694A9 /* CoreLocation.framework */,
+				87DC77DA19586F1B00C694A9 /* CoreBluetooth.framework */,
+				87DC77D819586F0B00C694A9 /* libEstimoteSDK.a */,
 				3AF6AE141954153000781CAC /* QuartzCore.framework */,
 				87F3EBE118E466F800FF09C2 /* CoreData.framework */,
 				3A3558FE1885AC6700C573CE /* Foundation.framework */,
@@ -624,7 +640,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VBoatGestion/VBoatGestion-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/EstimoteSDK/Headers";
 				INFOPLIST_FILE = "VBoatGestion/VBoatGestion-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EstimoteSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -637,7 +658,15 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "VBoatGestion/VBoatGestion-Prefix.pch";
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(SRCROOT)/EstimoteSDK/Headers",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = "VBoatGestion/VBoatGestion-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/EstimoteSDK",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
