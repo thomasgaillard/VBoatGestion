@@ -5,7 +5,6 @@ Bogues
 * Crach clique dans flotte
 * Mot de passe sur gestion flotte
 * Modifier nom type et grilles
-* Grille des prix : changer €/heure en €/15min
 * Supprimer journée dans compta
 * Mettre les deux mots de passe
 * Animations cachée dans fin de journée
