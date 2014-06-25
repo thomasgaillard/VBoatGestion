@@ -6,7 +6,9 @@ Bogues
 * Mettre les deux mots de passe
 * Pourquoi on peut supprimer un type utilisé?
 * Export chiffres
+* Mot de passe dans flotte
 * A chaque endroit ou il y a un null, rien n'écrire :)
+* Modifier chiffre en haut dans flotte et rajouter infos dans resas, grilles, fin de journée, stats, reglages
 
 ## V1.5
 * Les embarcations passent dessus la barre bleu du haut : Collection View
