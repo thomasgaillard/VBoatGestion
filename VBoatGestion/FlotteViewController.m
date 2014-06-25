@@ -123,6 +123,16 @@ NSMutableArray *_sections;
                            alpha:1.0f];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row<[self.embarcationsArray count]) {
+        [self singleClik:self];
+    }
+    else{
+        [self clickAdd:self];
+    }
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {    
     if (indexPath.row<[self.embarcationsArray count]) {
@@ -131,25 +141,7 @@ NSMutableArray *_sections;
     
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     
-        UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
-                                             initWithTarget:self
-                                             action:@selector(doubleClik:)];
-        doubleTap.delegate = self;
-        doubleTap.numberOfTapsRequired = 2;
-        doubleTap.numberOfTouchesRequired = 1;
-        [myCell addGestureRecognizer:doubleTap];
         
-        
-        UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]
-                                             initWithTarget:self
-                                             action:@selector(singleClik:)];
-        singleTap.delegate = self;
-        singleTap.numberOfTapsRequired = 1;
-        singleTap.numberOfTouchesRequired = 1;
-        [myCell addGestureRecognizer:singleTap];
-        [singleTap requireGestureRecognizerToFail:doubleTap];
-    
-    
     //background
     if([embarcation isKindOfClass:[PedaloPlaces class]]){
         if([embarcation.etat isEqualToString:@"enlocation"])
@@ -211,10 +203,6 @@ NSMutableArray *_sections;
         myCell.labelPlaces.text=@"";
         myCell.labelEmbarcation.font = [UIFont fontWithName:@"LeagueGothic-Regular" size:20];
         myCell.labelEmbarcation.textColor = [self colorWithHexString:@"95a5a6"];
-        
-        UITapGestureRecognizer *singleTap2 = [[UITapGestureRecognizer alloc] initWithTarget: self action:@selector(clickAdd:)];
-        singleTap2.numberOfTapsRequired = 1;
-        [myCell addGestureRecognizer:singleTap2];
         return myCell;
     }
     
