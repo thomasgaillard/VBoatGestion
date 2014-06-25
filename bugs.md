@@ -8,6 +8,8 @@ Bogues
 * Pourquoi on peut supprimer un type utilisé?
 * Qu'est-ce que la première grille dans pédaloPlace?
 * Dans fin de journée, quand on modifie le prix ==> modifier total
+* Export chiffres
+* Fin de saison
 
 ## V1.5
 * Les embarcations passent dessus la barre bleu du haut : Collection View
