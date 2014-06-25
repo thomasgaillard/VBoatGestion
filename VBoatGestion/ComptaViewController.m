@@ -179,6 +179,19 @@
     }
 }
 
+- (IBAction)finDeSaisonBtn:(id)sender {
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.arrayJournees = [appDelegate getAllJournees];
+    for (Journee *jour in self.arrayJournees) {
+        [self.managedObjectContext deleteObject:jour];
+    }
+    NSError *error;
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+    [self rafraichir];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -220,10 +233,16 @@
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        ComptaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"day" forIndexPath:indexPath];
+        ComptaTableViewCell *myCell= [self.tableView cellForRowAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:myCell.jour];
         //add code here to do what you want when you hit delete
         [self.arrayJoursMoiEnCours removeObjectAtIndex:[indexPath row]];
         [self.tableView reloadData];
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        [self rafraichir];
     }
 }
 
@@ -247,8 +266,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (![self.managedObjectContext save:&error]) {
         NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
     }
-    
+    myCell.total.text= [NSString stringWithFormat:@"%@",[myCell.jour.totalCb decimalNumberByAdding:myCell.jour.totalEspeces]];
     [self.tableView deselectRowAtIndexPath:idp animated:NO];
+    [self rafraichirMois];
+    [self.tableView reloadData];
     
     return YES;
 }

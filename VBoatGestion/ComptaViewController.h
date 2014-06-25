@@ -47,5 +47,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *pwdTxt;
 @property (weak, nonatomic) IBOutlet UILabel *pwdIncorrect;
 - (IBAction)valider:(id)sender;
+- (IBAction)finDeSaisonBtn:(id)sender;
 
 @end

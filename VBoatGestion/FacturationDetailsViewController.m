@@ -385,10 +385,28 @@
     FacturationTableViewLocationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MaLocPedalo" forIndexPath:indexPath];
     NSLog(@"coucou");
     Location * loc = [self.listeLocations objectAtIndex:indexPath.row];
+    
+    NSDecimalNumber *dureeDecimal = [[NSDecimalNumber decimalNumberWithDecimal:[[NSNumber numberWithInt:[loc.heureFin timeIntervalSinceDate:loc.heureDebut]] decimalValue]] decimalNumberByDividingBy: [NSDecimalNumber decimalNumberWithString:@"60"]];
+    
+    //arrondi temps
+    NSDecimalNumberHandler *handlerMid = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundPlain
+                                                                                                scale:0
+                                                                                     raiseOnExactness:NO
+                                                                                      raiseOnOverflow:NO
+                                                                                     raiseOnUnderflow:NO
+                                                                                  raiseOnDivideByZero:NO];
+    dureeDecimal = [dureeDecimal decimalNumberByRoundingAccordingToBehavior:handlerMid];
+    
+    NSInteger duree = [dureeDecimal integerValue];
+
+    NSInteger minutes = duree % 60;
+    NSInteger hours = (duree / 60);
+    
     cell.nomEmbarcation.text=loc.embarcation.nom;
     cell.heureDebut.text=[NSString stringWithFormat:@"%@h%@",[formatter stringFromDate:loc.heureDebut],[formatter2 stringFromDate:loc.heureDebut]];
     cell.heureFin.text=[NSString stringWithFormat:@"%@h%@",[formatter stringFromDate:loc.heureFin],[formatter2 stringFromDate:loc.heureFin]];
-    cell.duree.text=[self stringFromTimeInterval:[loc.heureFin timeIntervalSinceDate:loc.heureDebut]];
+    cell.duree.text=[NSString stringWithFormat:@"%ldh%02ld",(long)hours,(long)minutes
+                     ];
     cell.nbPersonnes.text=[loc getNbPlacesOuType];
     cell.remarques.text=loc.remarque;
     cell.prix.text=[NSString stringWithFormat:@"%@ €",[loc calculerPrix]];
@@ -398,6 +416,8 @@
 }
 
 - (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
+    
+    
     NSInteger ti = (NSInteger)interval;
     NSInteger seconds = ti % 60;
     NSInteger minutes = (ti / 60) % 60;
