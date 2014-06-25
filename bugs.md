@@ -1,15 +1,13 @@
 Bogues
 =========
 
-* Dans flotte et home => clique sur deux embarcations => crash
-* Crach clique dans flotte
 * Mot de passe sur gestion flotte
-* Modifier nom type et grilles
-* Supprimer journée dans compta
+* Modifier nom type et grilles (par default la première : ecrire deux places)
 * Mettre les deux mots de passe
 * Pourquoi on peut supprimer un type utilisé?
-* Qu'est-ce que la première grille dans pédaloPlace?
 * Dans fin de journée, quand on modifie le prix ==> modifier total
+* Export chiffres
+* Fin de saison
 
 ## V1.5
 * Les embarcations passent dessus la barre bleu du haut : Collection View
