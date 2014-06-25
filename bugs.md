@@ -5,7 +5,6 @@ Bogues
 * Modifier nom type et grilles (par default la première : ecrire deux places)
 * Mettre les deux mots de passe
 * Pourquoi on peut supprimer un type utilisé?
-* Dans fin de journée, quand on modifie le prix ==> modifier total
 * Export chiffres
 * A chaque endroit ou il y a un null, rien n'écrire :)
 
