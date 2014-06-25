@@ -1,12 +1,10 @@
 Bogues
 =========
 
-* Dans flotte et home => clique sur deux embarcations => crash
 * Mot de passe sur gestion flotte
-* Modifier nom type et grilles
+* Modifier nom type et grilles (par default la première : ecrire deux places)
 * Mettre les deux mots de passe
 * Pourquoi on peut supprimer un type utilisé?
-* Qu'est-ce que la première grille dans pédaloPlace?
 * Dans fin de journée, quand on modifie le prix ==> modifier total
 * Export chiffres
 * Fin de saison
