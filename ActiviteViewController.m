@@ -83,7 +83,11 @@ NSMutableArray *_sections;
 {
     [super viewWillAppear:NO];
     
-    
+    UITapGestureRecognizer *doubleTapFolderGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleClik:)];
+    [doubleTapFolderGesture setNumberOfTapsRequired:2];
+    [doubleTapFolderGesture setNumberOfTouchesRequired:1];
+    [self.view addGestureRecognizer:doubleTapFolderGesture];
+    doubleTapFolderGesture.delaysTouchesBegan = YES;
     
     [self rafraichir];
 }
@@ -142,6 +146,11 @@ NSMutableArray *_sections;
                            alpha:1.0f];
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self singleClik:self];
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ActiviteCollectionViewCell *myCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MonEmbarcation" forIndexPath:indexPath];
@@ -149,15 +158,8 @@ NSMutableArray *_sections;
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     
     
-    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
-                                             initWithTarget:self
-                                             action:@selector(doubleClik:)];
-    doubleTap.delegate = self;
-    doubleTap.numberOfTapsRequired = 2;
-    doubleTap.numberOfTouchesRequired = 1;
-    [myCell addGestureRecognizer:doubleTap];
-    
-    
+ 
+   /*
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc]
                                        initWithTarget:self
                                        action:@selector(singleClik:)];
@@ -165,7 +167,7 @@ NSMutableArray *_sections;
     singleTap.numberOfTapsRequired = 1;
     singleTap.numberOfTouchesRequired = 1;
     [myCell addGestureRecognizer:singleTap];
-    [singleTap requireGestureRecognizerToFail:doubleTap];
+    [singleTap requireGestureRecognizerToFail:doubleTap];*/
 
     
     
@@ -344,29 +346,40 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
     [[[[[self tabBarController] tabBar] items] objectAtIndex:1] setBadgeValue:[nbEnCours stringValue]];
 }
 
-- (IBAction)doubleClik:(id)sender {
-NSLog(@"dddddclick");
-    NSArray *indexPaths = [self.collectionView indexPathsForSelectedItems];
-    NSIndexPath *indexPath = [indexPaths objectAtIndex:0];
-    Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
+- (void) doubleClik:(UITapGestureRecognizer *)sender
+{
+
     
-    if([embarcation.etat isEqualToString:@"indisponible"]){
-        [self affecterLocation:embarcation];
-        [embarcation rendreDisponible];
-        
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        CGPoint point = [sender locationInView:self.collectionView];
+        NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:point];
+        if (indexPath)
+        {
+            Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
+            
+            if([embarcation.etat isEqualToString:@"indisponible"]){
+                [self affecterLocation:embarcation];
+                [embarcation rendreDisponible];
+                
+            }
+            else if([embarcation.etat isEqualToString:@"disponible"]){
+                [embarcation depart];
+            }
+            else{
+                Facture *f = [NSEntityDescription insertNewObjectForEntityForName:@"Facture" inManagedObjectContext:self.managedObjectContext];
+                [embarcation.location cloturerLocation:f];
+                [self affecterLocation:embarcation];
+                [embarcation rendreDisponible];
+                [f initJournee:self.journee];
+                [self augmenterNumeroBadge];
+            }
+            [self saveContext];
+            [self.collectionView reloadData];
+
+        }
+
     }
-    else if([embarcation.etat isEqualToString:@"disponible"]){
-        [embarcation depart];
-    }
-    else{
-        Facture *f = [NSEntityDescription insertNewObjectForEntityForName:@"Facture" inManagedObjectContext:self.managedObjectContext];
-        [embarcation.location cloturerLocation:f];
-        [self affecterLocation:embarcation];
-        [embarcation rendreDisponible];
-        [f initJournee:self.journee];
-        [self augmenterNumeroBadge];
-    }
-    [self saveContext];
-    [self.collectionView reloadData];
 }
+
 @end

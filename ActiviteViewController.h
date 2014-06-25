@@ -24,7 +24,6 @@
 @property (strong, nonatomic) Journee *journee;
 @property (strong, nonatomic) NSArray *arrayJourneeEnCours;
 @property (weak, nonatomic) IBOutlet UIView *viewNouvelleJournee;
-- (IBAction)doubleClik:(id)sender;
 -(void)modalDismiss;
 - (IBAction)creerJournee:(id)sender;
 
