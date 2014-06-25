@@ -180,16 +180,31 @@
 }
 
 - (IBAction)finDeSaisonBtn:(id)sender {
-    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
-    self.arrayJournees = [appDelegate getAllJournees];
-    for (Journee *jour in self.arrayJournees) {
-        [self.managedObjectContext deleteObject:jour];
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Supprimer les données de la saison?"
+                          message:@""
+                          delegate:self  // set nil if you don't want the yes button callback
+                          cancelButtonTitle:@"Non"
+                          otherButtonTitles:@"Oui", nil];
+    [alert show];
+}
+
+// POPUP Callback
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
+(NSInteger)buttonIndex {
+    if (buttonIndex != 0) {
+        //YES
+        AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+        self.arrayJournees = [appDelegate getAllJournees];
+        for (Journee *jour in self.arrayJournees) {
+            [self.managedObjectContext deleteObject:jour];
+        }
+        NSError *error;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        [self rafraichir];
     }
-    NSError *error;
-    if (![self.managedObjectContext save:&error]) {
-        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-    }
-    [self rafraichir];
 }
 
 #pragma mark - Table view data source
@@ -244,6 +259,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         }
         [self rafraichir];
     }
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"Supprimer";
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
