@@ -7,7 +7,6 @@ Bogues
 * Modifier nom type et grilles
 * Supprimer journée dans compta
 * Mettre les deux mots de passe
-* Animations cachée dans fin de journée
 * Pourquoi on peut supprimer un type utilisé?
 * Qu'est-ce que la première grille dans pédaloPlace?
 * Dans fin de journée, quand on modifie le prix ==> modifier total
