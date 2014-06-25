@@ -5,18 +5,11 @@ Bogues
 * Crach clique dans flotte
 * Mot de passe sur gestion flotte
 * Modifier nom type et grilles
-* Grille des prix : changer €/heure en €/15min
 * Supprimer journée dans compta
 * Mettre les deux mots de passe
-* Animations cachée dans fin de journée
-* Début de journée le soir ..... mais problème de date ducoup
 * Pourquoi on peut supprimer un type utilisé?
 * Qu'est-ce que la première grille dans pédaloPlace?
-* Gestion de la flotte : obligation d'avoir des types avant pas de crach
-* Champ remarque à vider quand on rentre dessus
 * Dans fin de journée, quand on modifie le prix ==> modifier total
-* Enlever correcteur
-* Rajouter durée
 
 ## V1.5
 * Les embarcations passent dessus la barre bleu du haut : Collection View
