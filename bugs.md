@@ -14,7 +14,6 @@ Bogues
 * Qu'est-ce que la première grille dans pédaloPlace?
 * Gestion de la flotte : obligation d'avoir des types avant pas de crach
 * Dans fin de journée, quand on modifie le prix ==> modifier total
-* Rajouter durée
 
 ## V1.5
 * Les embarcations passent dessus la barre bleu du haut : Collection View
