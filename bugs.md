@@ -7,7 +7,6 @@ Bogues
 * Pourquoi on peut supprimer un type utilisé?
 * Dans fin de journée, quand on modifie le prix ==> modifier total
 * Export chiffres
-* Fin de saison
 * A chaque endroit ou il y a un null, rien n'écrire :)
 
 ## V1.5
