@@ -28,12 +28,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *pwdTxt;
 @property (weak, nonatomic) IBOutlet UILabel *pwdIncorrect;
 - (IBAction)valider:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *ongletJournee;
 @property (strong, nonatomic) IBOutlet XYPieChart *chart;
 @property(nonatomic, strong) NSMutableArray *slices;
 @property(nonatomic, strong) NSArray        *sliceColors;
-@property (weak, nonatomic) IBOutlet UIButton *ongletSaison;
-@property (weak, nonatomic) IBOutlet UIView *ongletSaisonView;
 @property (weak, nonatomic) IBOutlet UIView *ongletJourneeView;
 
 @property (weak, nonatomic) IBOutlet UILabel *nbLocsTxt;
@@ -47,7 +44,5 @@
 - (IBAction)nouvelleJournee:(id)sender;
 
 - (IBAction)finDeJournee:(id)sender;
-- (IBAction)ongletJourneeBtn:(id)sender;
-- (IBAction)ongletSaisonBtn:(id)sender;
 
 @end

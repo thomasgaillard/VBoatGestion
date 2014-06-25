@@ -496,7 +496,7 @@ NSMutableArray *_sections;
     //PAR HEURE
     Prix *p = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"
                                             inManagedObjectContext:self.managedObjectContext];
-    timeS = @"€/heure";
+    timeS = @"€/15min";
     p.temps=timeS;
     p.montant=@"0";
     [g1 addGrilleObject:p];

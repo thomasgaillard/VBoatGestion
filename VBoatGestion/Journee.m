@@ -38,7 +38,6 @@
 -(void)ajouterFacture:(Facture*) fact {
     //TODO fact.journee = self;
     //[self removeFacturesObject:fact];
-    
     if([fact.etat  isEqual: @"enCours"] || [fact.etat  isEqual: @"remisee"] || [fact.etat  isEqual: @"annulee"]){
         [self addFacturesObject:fact];
     }else
@@ -54,6 +53,11 @@
 }
 
 -(void)ajouterPaiements:(Facture*) fact {
+    if ([self.nbLocBateaux doubleValue]==0.0) {
+        self.date = [NSDate date];
+        NSLog(@"Date 1st facture");
+    }
+    
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd%20MMMM%20YYYY"];
     NSString *dateToday = [formatter stringFromDate:[NSDate date]];

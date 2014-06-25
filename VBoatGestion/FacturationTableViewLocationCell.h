@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nomEmbarcation;
 @property (weak, nonatomic) IBOutlet UILabel *heureDebut;
 @property (weak, nonatomic) IBOutlet UILabel *heureFin;
+@property (weak, nonatomic) IBOutlet UILabel *duree;
 @property (weak, nonatomic) IBOutlet UILabel *remarques;
 @property (weak, nonatomic) IBOutlet UILabel *nbPersonnes;
 @property (weak, nonatomic) IBOutlet UILabel *prix;

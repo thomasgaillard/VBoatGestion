@@ -378,20 +378,31 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"HH:mm"];
+    [formatter setDateFormat:@"HH"];
+    NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
+    [formatter2 setDateFormat:@"mm"];
     
     FacturationTableViewLocationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MaLocPedalo" forIndexPath:indexPath];
     NSLog(@"coucou");
     Location * loc = [self.listeLocations objectAtIndex:indexPath.row];
     cell.nomEmbarcation.text=loc.embarcation.nom;
-    cell.heureDebut.text=[formatter stringFromDate:loc.heureDebut];
-    cell.heureFin.text=[formatter stringFromDate:loc.heureFin];
+    cell.heureDebut.text=[NSString stringWithFormat:@"%@h%@",[formatter stringFromDate:loc.heureDebut],[formatter2 stringFromDate:loc.heureDebut]];
+    cell.heureFin.text=[NSString stringWithFormat:@"%@h%@",[formatter stringFromDate:loc.heureFin],[formatter2 stringFromDate:loc.heureFin]];
+    cell.duree.text=[self stringFromTimeInterval:[loc.heureFin timeIntervalSinceDate:loc.heureDebut]];
     cell.nbPersonnes.text=[loc getNbPlacesOuType];
     cell.remarques.text=loc.remarque;
     cell.prix.text=[NSString stringWithFormat:@"%@ €",[loc calculerPrix]];
     //NSLog([NSString stringWithFormat:@"%@, %@ ",facture.locations,facture.etat]);
     
     return cell;
+}
+
+- (NSString *)stringFromTimeInterval:(NSTimeInterval)interval {
+    NSInteger ti = (NSInteger)interval;
+    NSInteger seconds = ti % 60;
+    NSInteger minutes = (ti / 60) % 60;
+    NSInteger hours = (ti / 3600);
+    return [NSString stringWithFormat:@"%02ldh%02ld", (long)hours, (long)minutes];
 }
 
 -(void)saveContext{

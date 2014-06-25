@@ -299,7 +299,9 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
                                                           inManagedObjectContext:self.managedObjectContext];
         //  2
         newEntry.nom = @"Nouveau Bateau";
-        newEntry.type = [[appDelegate getAllTypesBateau] objectAtIndex:0];
+        if ([[appDelegate getAllTypesBateau] count]!=0) {
+            newEntry.type = [[appDelegate getAllTypesBateau] objectAtIndex:0];
+        }
         newEntry.etat = @"indisponible";
         
         [self saveContext];
@@ -312,7 +314,9 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
         //  2
         newEntry.nom = @"Nouveau Pedalo";
         newEntry.etat = @"indisponible";
-        newEntry.type = [[appDelegate getAllTypesPedalo] objectAtIndex:0];
+        if ([[appDelegate getAllTypesPedalo] count]!=0) {
+            newEntry.type = [[appDelegate getAllTypesPedalo] objectAtIndex:0];
+        }
         [self saveContext];
         [self rafraichir];
     } else if (buttonIndex ==3) {
@@ -321,7 +325,9 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
                                                                 inManagedObjectContext:self.managedObjectContext];
         //  2
         newEntry.nom = @"Nouveau Pedalo Places";
-        newEntry.type = [[appDelegate getAllTypesPedaloPlaces] objectAtIndex:0];
+        if ([[appDelegate getAllTypesPedaloPlaces] count]!=0) {
+            newEntry.type = [[appDelegate getAllTypesPedaloPlaces] objectAtIndex:0];
+        }
         newEntry.nbPlaces = [NSDecimalNumber decimalNumberWithString:@"2"];
         newEntry.etat = @"indisponible";
         
@@ -333,7 +339,9 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
                                                                 inManagedObjectContext:self.managedObjectContext];
         //  2
         newEntry.nom = @"Nouveau Paddle";
-        newEntry.type = [[appDelegate getAllTypesPaddle] objectAtIndex:0];
+        if ([[appDelegate getAllTypesPaddle] count]!=0) {
+            newEntry.type = [[appDelegate getAllTypesPaddle] objectAtIndex:0];
+        }
         newEntry.etat = @"indisponible";
         
         [self saveContext];

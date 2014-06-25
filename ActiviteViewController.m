@@ -149,9 +149,6 @@ NSMutableArray *_sections;
     Embarcation * embarcation = [self.embarcationsArray objectAtIndex:indexPath.row];
     
     
-    
-    
-    
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
                                              initWithTarget:self
                                              action:@selector(doubleClik:)];

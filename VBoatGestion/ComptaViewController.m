@@ -216,6 +216,17 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        ComptaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"day" forIndexPath:indexPath];
+        //add code here to do what you want when you hit delete
+        [self.arrayJoursMoiEnCours removeObjectAtIndex:[indexPath row]];
+        [self.tableView reloadData];
+    }
+}
+
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     
     NSIndexPath *idp=[self.tableView indexPathForSelectedRow];
