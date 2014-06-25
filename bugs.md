@@ -8,7 +8,6 @@ Bogues
 * Supprimer journée dans compta
 * Mettre les deux mots de passe
 * Animations cachée dans fin de journée
-* Début de journée le soir ..... mais problème de date ducoup
 * Pourquoi on peut supprimer un type utilisé?
 * Qu'est-ce que la première grille dans pédaloPlace?
 * Dans fin de journée, quand on modifie le prix ==> modifier total
