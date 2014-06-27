@@ -2,11 +2,9 @@ Bogues
 =========
 
 * Mot de passe sur gestion flotte
-* Modifier nom type et grilles (par default la première : ecrire deux places)
 * Mettre les deux mots de passe
 * Pourquoi on peut supprimer un type utilisé?
 * Export chiffres
-* Mot de passe dans flotte
 * A chaque endroit ou il y a un null, rien n'écrire :)
 * Modifier chiffre en haut dans flotte et rajouter infos dans resas, grilles, fin de journée, stats, reglages
 
