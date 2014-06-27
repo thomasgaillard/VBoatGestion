@@ -190,7 +190,7 @@ NSMutableArray *_sections;
         
         NSString *title = grille.identifiantFacturation;
         headerView.titreGrille.text = title;
-        
+        headerView.grille=grille;
         reusableview = headerView;
     }
 
@@ -198,7 +198,6 @@ NSMutableArray *_sections;
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
-
     NSArray *selection=[self.collectionView indexPathsForSelectedItems];
     NSIndexPath *idp = [selection firstObject];
     PrixCollectionViewCell *myCell=[self.collectionView cellForItemAtIndexPath:idp];
@@ -300,9 +299,31 @@ NSMutableArray *_sections;
 }
 
 - (IBAction)supprType:(id)sender {
-    [self.managedObjectContext deleteObject:self.type];
-    [self rafraichir];
-    [self.selectionType reloadAllComponents];
+    NSArray* embArray;
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    embArray = [appDelegate getAllEmbarcations];
+    BOOL typeExists = NO;
+    for (Embarcation *emb in embArray) {
+            if (emb.type == self.type) {
+                typeExists = YES;
+            }
+    }
+    
+    if(typeExists==NO)
+    {
+        [self.managedObjectContext deleteObject:self.type];
+        [self rafraichir];
+        [self.selectionType reloadAllComponents];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Supprimer le type"
+                              message:@"Impossible de supprimer ce type, il est utilisé."
+                              delegate:nil  // set nil if you don't want the yes button callback
+                              cancelButtonTitle:@"Annuler"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
 }
 
 // POPUP Callback
@@ -372,7 +393,12 @@ NSMutableArray *_sections;
     GrillePrix *g1 = [NSEntityDescription insertNewObjectForEntityForName:@"GrillePrix"
                                                inManagedObjectContext:self.managedObjectContext];
 
-    g1.identifiantFacturation=[NSString stringWithFormat:@"%@", newType.nom];
+    if ([newType isKindOfClass:[TypePedaloPlaces class]]) {
+        g1.identifiantFacturation=[NSString stringWithFormat:@"2 places"];
+    } else
+    {
+        g1.identifiantFacturation=[NSString stringWithFormat:@"%@", newType.nom];
+    }
 
     //30
     Prix *p1 = [NSEntityDescription insertNewObjectForEntityForName:@"Prix"

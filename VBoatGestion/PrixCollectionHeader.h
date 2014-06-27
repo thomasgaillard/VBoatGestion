@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class GrillePrix;
+
 @interface PrixCollectionHeader : UICollectionReusableView
 
-@property (weak, nonatomic) IBOutlet UILabel *titreGrille;
+@property (weak, nonatomic) IBOutlet UITextField *titreGrille;
+@property (nonatomic,strong)GrillePrix* grille;
+
+- (IBAction)modifTitreGrille:(id)sender;
 
 @end

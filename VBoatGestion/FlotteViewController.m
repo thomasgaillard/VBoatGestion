@@ -126,6 +126,7 @@ NSMutableArray *_sections;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row<[self.embarcationsArray count]) {
+        NSLog(@"Paths %ld",(long)indexPath.row);
         [self singleClik:self];
     }
     else{
@@ -334,6 +335,15 @@ destViewController.view.superview.frame = CGRectMake(0, 0, 540, 540);
         
         [self saveContext];
         [self rafraichir];
+    }
+}
+
+- (IBAction)valider:(id)sender {
+    if ([self.pwdTxt.text isEqual:@"VArnoux"]) {
+        self.pwdView.hidden=YES;
+    }else{
+        self.pwdView.hidden=NO;
+        self.pwdIncorrect.hidden=NO;
     }
 }
 @end

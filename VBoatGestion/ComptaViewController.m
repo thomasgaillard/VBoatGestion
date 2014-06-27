@@ -173,7 +173,12 @@
 - (IBAction)valider:(id)sender {
     if ([self.pwdTxt.text isEqual:@"VArnoux"]) {
         self.pwdView.hidden=YES;
-    }else{
+        self.devOnglet.hidden=NO;
+    }else if ([self.pwdTxt.text isEqual:@"$VArnoux74"]) {
+        self.devOnglet.hidden=YES;
+        self.pwdView.hidden=YES;
+    }
+    else{
         self.pwdView.hidden=NO;
         self.pwdIncorrect.hidden=NO;
     }
@@ -309,6 +314,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     [self rafraichir];
+    
+}
+
+- (IBAction)export:(id)sender {
     
 }
 @end

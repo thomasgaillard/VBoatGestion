@@ -7,6 +7,8 @@
 //
 
 #import "PrixCollectionHeader.h"
+#import "GrillePrix.h"
+#import "AppDelegate.h"
 
 @implementation PrixCollectionHeader
 
@@ -28,4 +30,14 @@
 }
 */
 
+- (IBAction)modifTitreGrille:(id)sender {
+    
+    NSLog(@"MODIFS");
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    self.grille.identifiantFacturation=self.titreGrille.text;
+    NSError *error;
+    if (![appDelegate.managedObjectContext save:&error]) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }
+}
 @end

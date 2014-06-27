@@ -41,11 +41,13 @@
 @property (weak, nonatomic) IBOutlet UITextField *especesAdd;
 @property (weak, nonatomic) IBOutlet UITextField *cbAdd;
 - (IBAction)ajouterJournee:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *exporter;
 
 @property (weak, nonatomic) IBOutlet UIButton *finDJ;
 @property (weak, nonatomic) IBOutlet UIView *pwdView;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTxt;
 @property (weak, nonatomic) IBOutlet UILabel *pwdIncorrect;
+@property (weak, nonatomic) IBOutlet UIView *devOnglet;
 - (IBAction)valider:(id)sender;
 - (IBAction)finDeSaisonBtn:(id)sender;
 
