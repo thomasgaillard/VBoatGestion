@@ -1,7 +1,6 @@
 Bogues
 =========
 
-* Mot de passe sur gestion flotte
 * Mettre les deux mots de passe
 * Export chiffres
 * A chaque endroit ou il y a un null, rien n'écrire :)
