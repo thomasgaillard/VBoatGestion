@@ -3,6 +3,7 @@ Bogues
 
 * Export chiffres
 * A chaque endroit ou il y a un null, rien n'écrire :)
+* Enlever le correcteur orthographique
 * Modifier chiffre en haut dans flotte et rajouter infos dans resas, grilles, fin de journée, stats, reglages
 
 ## V1.5
