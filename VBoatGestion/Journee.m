@@ -40,10 +40,10 @@
     //[self removeFacturesObject:fact];
     if([fact.etat  isEqual: @"enCours"] || [fact.etat  isEqual: @"remisee"] || [fact.etat  isEqual: @"annulee"]){
         [self addFacturesObject:fact];
-    }else
+    }/*else
     {
         [self removeFacturesObject:fact];
-    }//else if ([fact.etat  isEqual: @"payee"]||[fact.etat  isEqual: @"annulee"]){
+    }//else if ([fact.etat  isEqual: @"payee"]||[fact.etat  isEqual: @"annulee"]){*/
     // [self.listeFacturesCloturees addObject:fact];
     NSLog(@"Facture ajoutée en cours %lu",(unsigned long)self.factures.count);
     
