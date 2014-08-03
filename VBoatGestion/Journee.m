@@ -85,16 +85,37 @@
     NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:request delegate:self];
     if(nil == urlConnection) {
         NSLog(@"Couldn't create connection to url %@", url);
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Couldn't create connection to url"
+                              message:@""
+                              delegate:self  // set nil if you don't want the yes button callback
+                              cancelButtonTitle:@"Ok"
+                              otherButtonTitles: nil];
+        [alert show];
     }
     
 }
 
 -(void) connectionDidFinishLoading:(NSURLConnection*)connection {
     NSLog(@"Connect OK");
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Connect OK"
+                          message:@""
+                          delegate:self  // set nil if you don't want the yes button callback
+                          cancelButtonTitle:@"Ok"
+                          otherButtonTitles: nil];
+    [alert show];
 }
 
 -(void) connection:(NSURLConnection*)connection didFailWithError:(NSError*)error {
     NSLog(@"Connect ERROR %@",error);
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Connect ERROR"
+                          message:@""
+                          delegate:self  // set nil if you don't want the yes button callback
+                          cancelButtonTitle:@"Ok"
+                          otherButtonTitles: nil];
+    [alert show];
 }
 
 
