@@ -63,6 +63,7 @@
     NSString *dateToday = [formatter stringFromDate:[NSDate date]];
     
     NSString * dateTodayOk = [dateToday stringByReplacingOccurrencesOfString:@"û" withString:@"u"];
+    NSString * dateTodayOkok = [dateToday stringByReplacingOccurrencesOfString:@"é" withString:@"e"];
     
     NSString *str = [NSString stringWithFormat:@"%lu",fact.locations.count];
     self.nbLocBateaux=[self.nbLocBateaux decimalNumberByAdding:[NSDecimalNumber decimalNumberWithString:str]];
